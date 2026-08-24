@@ -38,3 +38,4 @@ data/pgdata/
 .idea/
 .DS_Store
 *.swp
+context/
