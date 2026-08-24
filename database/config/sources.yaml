@@ -1,0 +1,46 @@
+sources:
+  - id: api_co_id
+    name: "API Rumah Sakit Indonesia"
+    type: rest_api
+    base_url: "https://api.co.id/api/hospitals"
+    auth: api_key
+    auth_env: API_CO_ID_KEY
+    filter_param: "province=jawa+timur"
+    format: json
+    license: "Komersial - SIRS Kemenkes"
+    update_frequency: weekly
+
+  - id: ckan_data_go_id
+    name: "Portal Satu Data Indonesia (data.go.id)"
+    type: ckan_api
+    base_url: "https://data.go.id/api/3/action"
+    auth: none
+    search_tags: ["rumah sakit", "fasilitas kesehatan", "jawa timur"]
+    format: csv
+    license: "Creative Commons Attribution"
+    update_frequency: monthly
+
+  - id: opendata_jatim
+    name: "Open Data Pemprov Jatim"
+    type: csv_download
+    base_url: "https://opendata.jatimprov.go.id/frontend/dataset"
+    auth: none
+    delay_seconds: 3
+    headers:
+      User-Agent: "Mozilla/5.0 (HealthTrust Research Project)"
+    license: "Open Government - UU KIP No.14/2008"
+    update_frequency: quarterly
+
+  - id: bps_jatim
+    name: "BPS Provinsi Jawa Timur"
+    type: manual_csv
+    license: "BPS Attribution"
+    update_frequency: annual
+
+  - id: geojson_jatim
+    name: "GeoJSON Batas Wilayah Jatim"
+    type: github_download
+    url: "https://raw.githubusercontent.com/superpikar/indonesia-geojson/master/jawa-timur-province-with-districts.geojson"
+    format: geojson
+    license: "MIT"
+    update_frequency: once

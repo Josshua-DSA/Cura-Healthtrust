@@ -1,1 +1,37 @@
-context/   
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+context/
+
+# Environment variables
+.env
+.env.local
+
+# Database local storage & logs
+database/storage/raw/*
+!database/storage/raw/.gitkeep
+database/storage/interim/*
+!database/storage/interim/.gitkeep
+database/storage/processed/*
+!database/storage/processed/.gitkeep
+database/logs/*
+!database/logs/.gitkeep
+data/pgdata/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
