@@ -10,12 +10,41 @@ def main():
     subparsers.add_parser("seed-wilayah", help="Seed 38 Kab/Kota Jawa Timur reference data")
     subparsers.add_parser("run-etl", help="Run full ETL pipeline")
     subparsers.add_parser("test-db", help="Run test suite for data layer")
+    subparsers.add_parser("check-health", help="Check status and availability of external APIs & DB")
+    
+    # Scheduler parser
+    sched_parser = subparsers.add_parser("scheduler", help="Run automatic ETL scheduler daemon")
+    sched_parser.add_argument("--day", type=str, default="mon", help="Day of week: mon/senin, tue, wed, thu, fri, sat, sun, or daily (default: mon)")
+    sched_parser.add_argument("--hour", type=int, default=7, help="Target hour in 24h format (default: 7)")
+    sched_parser.add_argument("--minute", type=int, default=0, help="Target minute (default: 0)")
+    sched_parser.add_argument("--timezone", type=str, default="Asia/Jakarta", help="Timezone (default: Asia/Jakarta)")
+    sched_parser.add_argument("--run-now", action="store_true", help="Run ETL once immediately")
 
     args = parser.parse_args()
 
     if not args.command:
         parser.print_help()
         sys.exit(1)
+
+    if args.command == "check-health":
+        from health.check_api_health import run_health_checks
+        from health.check_db_health import check_postgres_health
+        run_health_checks()
+        print()
+        check_postgres_health()
+        return
+
+    if args.command == "scheduler":
+        from scheduler import run_scheduler_loop, run_etl_job
+        if args.run_now:
+            run_etl_job()
+        run_scheduler_loop(
+            target_hour=args.hour,
+            target_minute=args.minute,
+            day_of_week=args.day,
+            timezone_str=args.timezone
+        )
+        return
 
     print(f"[HealthTrust CLI] Executing command: {args.command}")
 
