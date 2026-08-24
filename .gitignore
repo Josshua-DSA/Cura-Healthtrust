@@ -4,31 +4,32 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtualenv
 venv/
-ENV/
 .venv/
-context/
-
-# Environment variables
+env/
 .env
-.env.local
 
-# Database local storage & logs
-database/storage/raw/*
-!database/storage/raw/.gitkeep
-database/storage/interim/*
-!database/storage/interim/.gitkeep
-database/storage/processed/*
-!database/storage/processed/.gitkeep
-database/logs/*
-!database/logs/.gitkeep
+# Database logs and local data
+database/logs/
 data/pgdata/
-
-# Testing & Coverage
-.pytest_cache/
-.coverage
-htmlcov/
+*.log
 
 # IDE & OS
 .vscode/
