@@ -46,6 +46,30 @@ def main():
         )
         return
 
+    if args.command == "init-db":
+        from pipeline.loader import init_db
+        init_db()
+        return
+
+    if args.command == "seed-wilayah":
+        import csv
+        from pipeline.loader import get_session, upsert_ref_wilayah
+        from models import EnumTipeWilayah
+        session = get_session()
+        csv_path = "database/seeds/ref_wilayah_jatim.csv"
+        records = []
+        with open(csv_path, mode="r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                records.append({
+                    "kode_bps": row["kode_bps"],
+                    "nama_wilayah": row["nama_wilayah"],
+                    "tipe": EnumTipeWilayah(row["tipe"])
+                })
+        upsert_ref_wilayah(session, records)
+        session.close()
+        return
+
     if args.command == "run-etl":
         from pipeline.fetcher import fetch_all_sources
         fetch_all_sources()
