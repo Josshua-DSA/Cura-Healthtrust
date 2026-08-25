@@ -32,9 +32,9 @@ def run_etl_job():
     logger.info("[Scheduler] Starting Scheduled ETL Pipeline Job")
     logger.info("=" * 50)
     try:
-        from health.check_api_health import run_health_checks
-        run_health_checks()
-        logger.info("[Scheduler] ETL Job executed successfully.")
+        from pipeline.fetcher import fetch_all_sources
+        summary = fetch_all_sources()
+        logger.info(f"[Scheduler] ETL fetch completed: {summary}")
     except Exception as e:
         logger.error(f"[Scheduler] ETL Job failed with error: {e}")
 
