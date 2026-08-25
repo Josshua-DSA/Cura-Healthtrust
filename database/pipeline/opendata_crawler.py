@@ -33,11 +33,30 @@ WILAYAH_TO_KODE_BPS = {
 }
 
 def match_kode_bps(wilayah_name: str) -> Optional[str]:
-    """Normalize raw region string to 4-digit BPS code."""
+    """Normalize raw region string to 4-digit BPS code with fuzzy support."""
     if not wilayah_name:
         return None
     cleaned = re.sub(r'[^a-zA-Z\s]', '', str(wilayah_name)).strip().lower()
-    return WILAYAH_TO_KODE_BPS.get(cleaned)
+    
+    # 1. Direct match
+    if cleaned in WILAYAH_TO_KODE_BPS:
+        return WILAYAH_TO_KODE_BPS[cleaned]
+
+    # 2. Strip 'kabupaten ' prefix
+    if cleaned.startswith("kabupaten "):
+        bare = cleaned.replace("kabupaten ", "").strip()
+        if bare in WILAYAH_TO_KODE_BPS:
+            return WILAYAH_TO_KODE_BPS[bare]
+
+    # 3. Strip 'kota ' prefix
+    if cleaned.startswith("kota "):
+        bare = cleaned.replace("kota ", "").strip()
+        if f"kota {bare}" in WILAYAH_TO_KODE_BPS:
+            return WILAYAH_TO_KODE_BPS[f"kota {bare}"]
+        if bare in WILAYAH_TO_KODE_BPS:
+            return WILAYAH_TO_KODE_BPS[bare]
+
+    return None
 
 def crawl_and_parse_opendata_csv() -> List[Dict[str, Any]]:
     """
