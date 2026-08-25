@@ -30,7 +30,14 @@ def init_db():
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS postgis;"))
         conn.commit()
     Base.metadata.create_all(engine)
-    logger.info("[Database] PostGIS extension verified & all tables initialized successfully.")
+
+    # Ensure GIST indexes for spatial performance
+    with engine.connect() as conn:
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_tbl_rs_geom ON tbl_rumah_sakit USING GIST (geom);"))
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_ref_wilayah_geom ON ref_wilayah USING GIST (geom);"))
+        conn.commit()
+
+    logger.info("[Database] PostGIS extension & GIST spatial indexes verified successfully.")
 
 def generate_rs_key(nama_rs: str, kode_bps: Optional[str], kode_rs: Optional[str] = None) -> str:
     """
@@ -120,7 +127,7 @@ def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
             set_={
                 "nama_wilayah": stmt.excluded.nama_wilayah,
                 "tipe": stmt.excluded.tipe,
-                "geom": stmt.excluded.geom if geom_val is not None else RefWilayah.geom
+                "geom": stmt.excluded.geom if geom_val is not None else RefWilayah.__table__.c.geom
             }
         )
         session.execute(stmt)
@@ -129,3 +136,107 @@ def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
     session.commit()
     logger.info(f"[Upsert] Processed {count} ref_wilayah records idempotently.")
     return count
+
+def upsert_penduduk(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for tbl_penduduk."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(TblPenduduk).values(
+            kode_bps=r["kode_bps"],
+            tahun=r.get("tahun", datetime.utcnow().year),
+            jumlah_penduduk=r["jumlah_penduduk"],
+            sumber=r.get("sumber", "SIRS / Disdukcapil / BPS")
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_wilayah_tahun",
+            set_={
+                "jumlah_penduduk": stmt.excluded.jumlah_penduduk,
+                "sumber": stmt.excluded.sumber
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} tbl_penduduk records idempotently.")
+    return count
+
+def recompute_agregat_wilayah(session: Session, tahun: int = 2024, rasio_data_list: Optional[List[Dict[str, Any]]] = None) -> int:
+    """
+    Poin 4: Pre-compute aggregates per 38 Kab/Kota in tbl_agregat_wilayah.
+    Calculates total RS from tbl_rumah_sakit, joins population from tbl_penduduk or rasio_tt dataset,
+    and updates tbl_agregat_wilayah for sub-second dashboard query.
+    """
+    # 1. Calculate count of RS grouped by kode_bps
+    rs_count_query = text("""
+        SELECT kode_bps, COUNT(id) as total_rs
+        FROM tbl_rumah_sakit
+        WHERE kode_bps IS NOT NULL
+        GROUP BY kode_bps;
+    """)
+    rs_counts = {row[0]: row[1] for row in session.execute(rs_count_query).fetchall()}
+
+    # 2. Get all ref_wilayah
+    wilayah_list = session.query(RefWilayah).all()
+    if not wilayah_list:
+        logger.warning("[Aggregate] ref_wilayah is empty. Skipping aggregate calculation.")
+        return 0
+
+    # Build map from rasio_data_list if provided (from SIRS rasio_tt endpoint)
+    sirs_rasio_map = {}
+    if rasio_data_list:
+        for it in rasio_data_list:
+            kbps = str(it.get("kode", "")).strip()
+            if kbps:
+                sirs_rasio_map[kbps] = it
+
+    processed_count = 0
+    for w in wilayah_list:
+        kbps = w.kode_bps
+        tot_rs = rs_counts.get(kbps, 0)
+        
+        # Check SIRS rasio data
+        s_data = sirs_rasio_map.get(kbps, {})
+        tot_tt = s_data.get("jumlah_tt", 0)
+        pddk = s_data.get("penduduk", 0)
+        rasio = s_data.get("bed_per_1000", 0.0)
+        kategori = s_data.get("kategori", "kuning")
+
+        # Fallback to tbl_penduduk if sirs population is 0
+        if pddk == 0:
+            penduduk_rec = session.query(TblPenduduk).filter_by(kode_bps=kbps, tahun=tahun).first()
+            if penduduk_rec:
+                pddk = penduduk_rec.jumlah_penduduk
+                if pddk > 0 and tot_tt > 0:
+                    rasio = round((tot_tt / pddk) * 1000, 2)
+
+        stmt = pg_insert(TblAgregatWilayah).values(
+            kode_bps=kbps,
+            tahun=tahun,
+            total_rs=tot_rs,
+            total_tt=tot_tt,
+            jumlah_penduduk=pddk,
+            rasio_tt_per_1000=rasio,
+            kategori_ketercukupan=kategori,
+            updated_at=datetime.utcnow()
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_agregat_wilayah_tahun",
+            set_={
+                "total_rs": stmt.excluded.total_rs,
+                "total_tt": stmt.excluded.total_tt,
+                "jumlah_penduduk": stmt.excluded.jumlah_penduduk,
+                "rasio_tt_per_1000": stmt.excluded.rasio_tt_per_1000,
+                "kategori_ketercukupan": stmt.excluded.kategori_ketercukupan,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        processed_count += 1
+
+    session.commit()
+    logger.info(f"[Aggregate] Pre-computed aggregate stats for {processed_count} Kab/Kota (Year: {tahun}).")
+    return processed_count
