@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class DatabaseSettings(BaseSettings):
     DB_HOST: str = "localhost"
-    DB_PORT: int = 5432
+    DB_PORT: int = 5433
     DB_NAME: str = "cura_db"
     DB_USER: str = "cura_user"
     DB_PASSWORD: str = "cura_password"
