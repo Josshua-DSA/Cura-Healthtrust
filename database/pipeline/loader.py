@@ -149,6 +149,41 @@ def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
     logger.info(f"[Upsert] Processed {count} ref_wilayah records idempotently.")
     return count
 
+def upsert_indikator_kesehatan(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for tbl_indikator_kesehatan."""
+    if not records:
+        return 0
+
+    from models import TblIndikatorKesehatan
+    count = 0
+    for r in records:
+        stmt = pg_insert(TblIndikatorKesehatan).values(
+            kode_bps=r["kode_bps"],
+            tahun=r["tahun"],
+            topik=r.get("topik", "Umum"),
+            nama_indikator=r["nama_indikator"],
+            nilai=r["nilai"],
+            satuan=r.get("satuan", "Unit"),
+            sumber_file=r.get("sumber_file"),
+            updated_at=datetime.utcnow()
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_indikator_wilayah_tahun",
+            set_={
+                "nilai": stmt.excluded.nilai,
+                "topik": stmt.excluded.topik,
+                "satuan": stmt.excluded.satuan,
+                "sumber_file": stmt.excluded.sumber_file,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} tbl_indikator_kesehatan records idempotently.")
+    return count
+
 def upsert_penduduk(session: Session, records: List[Dict[str, Any]]) -> int:
     """Idempotent upsert for tbl_penduduk."""
     if not records:
