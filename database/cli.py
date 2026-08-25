@@ -72,7 +72,9 @@ def main():
 
     if args.command == "run-etl":
         from pipeline.fetcher import fetch_all_sources
+        from pipeline.orchestrator import execute_full_etl
         fetch_all_sources()
+        execute_full_etl()
         return
 
     print(f"[HealthTrust CLI] Executing command: {args.command}")
