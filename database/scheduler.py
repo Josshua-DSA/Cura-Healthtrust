@@ -33,8 +33,10 @@ def run_etl_job():
     logger.info("=" * 50)
     try:
         from pipeline.fetcher import fetch_all_sources
-        summary = fetch_all_sources()
-        logger.info(f"[Scheduler] ETL fetch completed: {summary}")
+        from pipeline.orchestrator import execute_full_etl
+        fetch_all_sources()
+        result = execute_full_etl()
+        logger.info(f"[Scheduler] ETL executed successfully: {result}")
     except Exception as e:
         logger.error(f"[Scheduler] ETL Job failed with error: {e}")
 
