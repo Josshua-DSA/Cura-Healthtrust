@@ -1,5 +1,6 @@
 import hashlib
 import logging
+import math
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 
@@ -59,6 +60,17 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
 
     inserted_or_updated = 0
     for r in records:
+        lat_val = r.get("lat")
+        lng_val = r.get("lng")
+        has_valid_geom = (
+            lat_val is not None and lng_val is not None and
+            not (isinstance(lat_val, float) and math.isnan(lat_val)) and
+            not (isinstance(lng_val, float) and math.isnan(lng_val))
+        )
+        geom_val = text(f"ST_SetSRID(ST_MakePoint({lng_val}, {lat_val}), 4326)") if has_valid_geom else None
+        clean_lat = lat_val if has_valid_geom else None
+        clean_lng = lng_val if has_valid_geom else None
+
         stmt = pg_insert(TblRumahSakit).values(
             kode_rs=r["kode_rs"],
             nama_rs=r["nama_rs"],
@@ -71,9 +83,9 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
             layanan=r.get("layanan", []),
             telepon=r.get("telepon"),
             website=r.get("website"),
-            lat=r.get("lat"),
-            lng=r.get("lng"),
-            geom=text(f"ST_SetSRID(ST_MakePoint({r['lng']}, {r['lat']}), 4326)") if r.get("lat") and r.get("lng") else None,
+            lat=clean_lat,
+            lng=clean_lng,
+            geom=geom_val,
             sumber_data=r.get("sumber_data", "SIRS Kemenkes"),
             last_updated_source=r.get("last_updated_source", datetime.utcnow()),
             updated_at=datetime.utcnow()
@@ -115,7 +127,7 @@ def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
 
     count = 0
     for r in records:
-        geom_val = text(f"ST_SetSRID(ST_GeomFromGeoJSON('{r['geojson_geom']}'), 4326)") if r.get("geojson_geom") else None
+        geom_val = text(f"ST_Multi(ST_SetSRID(ST_GeomFromGeoJSON('{r['geojson_geom']}'), 4326))") if r.get("geojson_geom") else None
         stmt = pg_insert(RefWilayah).values(
             kode_bps=r["kode_bps"],
             nama_wilayah=r["nama_wilayah"],
