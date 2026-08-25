@@ -112,6 +112,7 @@ def execute_full_etl() -> Dict[str, Any]:
 
     except Exception as e:
         logger.error(f"[ERROR] ETL Pipeline failed: {e}")
+        session.rollback()
         finish_pipeline_log(
             session=session,
             log_id=audit_entry.id,
