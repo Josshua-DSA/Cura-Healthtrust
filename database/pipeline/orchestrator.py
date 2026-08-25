@@ -5,9 +5,10 @@ from typing import Dict, Any
 
 from pipeline.storage import load_latest_snapshot
 from pipeline.cleaner import clean_and_validate_hospitals
+from pipeline.opendata_crawler import crawl_and_parse_opendata_csv
 from pipeline.loader import (
     get_session, init_db, upsert_ref_wilayah, upsert_rumah_sakit,
-    upsert_penduduk, recompute_agregat_wilayah
+    upsert_penduduk, recompute_agregat_wilayah, upsert_indikator_kesehatan
 )
 from pipeline.audit import start_pipeline_log, finish_pipeline_log
 from models import EnumPipelineStatus
@@ -85,6 +86,13 @@ def execute_full_etl() -> Dict[str, Any]:
         logger.info("Step 3B: Upserting hospitals into tbl_rumah_sakit...")
         loaded_rs = upsert_rumah_sakit(session, rs_records)
         total_loaded += loaded_rs
+
+        # Step 3C: Ingest Thematic Health Indicators from OpenData Jatim CSV
+        logger.info("Step 3C: Ingesting thematic indicators from Open Data Jatim...")
+        indikator_records = crawl_and_parse_opendata_csv()
+        if indikator_records:
+            loaded_ind = upsert_indikator_kesehatan(session, indikator_records)
+            total_loaded += loaded_ind
 
         # Step 4: Pre-compute Aggregates
         logger.info("Step 4: Pre-computing aggregates in tbl_agregat_wilayah...")
