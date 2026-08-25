@@ -30,6 +30,7 @@ env/
 
 # Database logs and local data
 database/logs/
+database/raw/
 data/pgdata/
 *.log
 
