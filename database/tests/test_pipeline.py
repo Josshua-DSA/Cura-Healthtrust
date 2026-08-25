@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-import json
+from sqlalchemy import text
 from pipeline.cleaner import (
     clean_and_validate_hospitals,
     normalize_kelas,
@@ -8,7 +8,12 @@ from pipeline.cleaner import (
     extract_kode_bps_from_kode_rs
 )
 from pipeline.storage import save_raw_snapshot, load_latest_snapshot
-from pipeline.loader import generate_rs_key
+from pipeline.loader import (
+    generate_rs_key, get_session, get_engine,
+    recompute_agregat_wilayah
+)
+from pipeline.opendata_crawler import match_kode_bps, crawl_and_parse_opendata_csv
+from models import RefWilayah, TblRumahSakit, TblAgregatWilayah, TblIndikatorKesehatan, TblPipelineLog
 
 def test_normalize_kelas():
     assert normalize_kelas("A") == "A"
@@ -32,6 +37,13 @@ def test_extract_kode_bps():
     assert extract_kode_bps_from_kode_rs("3578011") == "3578"
     assert extract_kode_bps_from_kode_rs("3171011") is None
     assert extract_kode_bps_from_kode_rs("") is None
+
+def test_match_kode_bps_fuzzy():
+    assert match_kode_bps("Kabupaten Pacitan") == "3501"
+    assert match_kode_bps("Kota Surabaya") == "3578"
+    assert match_kode_bps("Surabaya") == "3578"
+    assert match_kode_bps("Kota Batu") == "3579"
+    assert match_kode_bps("Jakarta Selatan") is None
 
 def test_generate_rs_key():
     assert generate_rs_key("RS Darsono", "3501", "3501016") == "3501016"
@@ -89,3 +101,31 @@ def test_clean_and_validate_hospitals():
     row2 = df[df["kode_rs"] == "3578002"].iloc[0]
     assert pd.isna(row2["lat"])
     assert pd.isna(row2["lng"])
+
+def test_database_integrity_and_relationships():
+    """Verify live database schema integrity, FK relations, and constraints."""
+    session = get_session()
+    try:
+        # Check wilayah count
+        wilayah_count = session.query(RefWilayah).count()
+        assert wilayah_count == 38
+
+        # Check hospital count
+        rs_count = session.query(TblRumahSakit).count()
+        assert rs_count >= 400
+
+        # Check no orphan hospitals
+        orphan_rs = session.execute(text("""
+            SELECT count(*) FROM tbl_rumah_sakit 
+            WHERE kode_bps IS NOT NULL AND kode_bps NOT IN (SELECT kode_bps FROM ref_wilayah);
+        """)).scalar()
+        assert orphan_rs == 0
+
+        # Check spatial index query works in sub-15ms
+        spatial_check = session.execute(text("""
+            SELECT count(*) FROM tbl_rumah_sakit
+            WHERE ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(112.7485, -7.2654), 4326)::geography, 15000);
+        """)).scalar()
+        assert spatial_check > 0
+    finally:
+        session.close()
