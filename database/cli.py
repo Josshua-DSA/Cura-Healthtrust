@@ -70,6 +70,10 @@ def main():
         session.close()
         return
 
+    if args.command == "test-db":
+        import pytest
+        sys.exit(pytest.main(["database/tests/", "-v"]))
+
     if args.command == "run-etl":
         from pipeline.fetcher import fetch_all_sources
         from pipeline.orchestrator import execute_full_etl
