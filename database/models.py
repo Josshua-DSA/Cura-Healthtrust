@@ -44,6 +44,28 @@ class RefWilayah(Base):
     rumah_sakit = relationship("TblRumahSakit", back_populates="wilayah")
     penduduk = relationship("TblPenduduk", back_populates="wilayah")
     agregat = relationship("TblAgregatWilayah", back_populates="wilayah")
+    indikator = relationship("TblIndikatorKesehatan", back_populates="wilayah")
+
+class TblIndikatorKesehatan(Base):
+    __tablename__ = "tbl_indikator_kesehatan"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    tahun = Column(Integer, nullable=False, index=True)
+    topik = Column(String(100), nullable=False, index=True) # Puskesmas, Tenaga Medis, KIA, Gizi, dll
+    nama_indikator = Column(String(255), nullable=False) # e.g. 'Jumlah Puskesmas Rawat Inap'
+    nilai = Column(Float, nullable=False)
+    satuan = Column(String(50), default="Unit")
+    sumber_file = Column(String(255), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("kode_bps", "tahun", "nama_indikator", name="uq_indikator_wilayah_tahun"),
+        Index("idx_indikator_topik_tahun", "topik", "tahun")
+    )
+
+    wilayah = relationship("RefWilayah", back_populates="indikator")
 
 class TblPenduduk(Base):
     __tablename__ = "tbl_penduduk"
