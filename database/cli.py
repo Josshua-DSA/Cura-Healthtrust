@@ -46,6 +46,11 @@ def main():
         )
         return
 
+    if args.command == "run-etl":
+        from pipeline.fetcher import fetch_all_sources
+        fetch_all_sources()
+        return
+
     print(f"[HealthTrust CLI] Executing command: {args.command}")
 
 if __name__ == "__main__":
