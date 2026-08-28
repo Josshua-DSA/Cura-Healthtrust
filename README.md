@@ -321,11 +321,14 @@ Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
 | `kode_bps` | `VARCHAR(4)` (FK) | Relasi ke `ref_wilayah.kode_bps`. |
 | `kelas` | `enum_kelas_rs` | Nilai: `A`, `B`, `C`, `D`, `tidak_diketahui`. |
 | `kepemilikan` | `enum_kepemilikan` | Nilai: `pemerintah`, `swasta`, `tni_polri`, `lainnya`. |
+| `pemilik_raw` | `VARCHAR(50)` | Nilai mentah kepemilikan SIRS sebelum mapping enum (audit trail). |
 | `jenis_rs` | `VARCHAR(50)` | Jenis faskes: `RSU`, `RSIA`, `RSK Mata`, `RSK Bedah`, dll. |
 | `jumlah_tt` | `INTEGER` | Jumlah kapasitas tempat tidur operasional. |
 | `telepon` | `VARCHAR(50)` | Nomor telepon (sudah dibersihkan dari trailing noise). |
 | `lat` / `lng` | `FLOAT` | Titik koordinat desimal (bernilai `NULL` jika koordinat dummy/anomali). |
 | `geom` | `geometry(POINT, 4326)` | Titik spasial PostGIS untuk query radius (Indeks `GIST`). |
+| `is_valid_coord` | `INTEGER` | Flag validasi koordinat: `1` = valid, `0` = dummy/OOB/null. |
+| `needs_geocoding` | `INTEGER` | Flag geocoding: `1` = perlu geocode ulang, `0` = sudah valid. |
 
 ### 3. `tbl_agregat_wilayah` (Tabel Pre-computed Dashboard)
 | Kolom | Tipe | Keterangan |
@@ -391,9 +394,13 @@ Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
   * Load file GeoJSON statis: `database/seeds/jatim_districts.geojson`.
   * Cocokkan `feature.properties.KODE_BPS` dengan data `tbl_agregat_wilayah`.
   * Terapkan palet warna standar WHO:
-    * `hijau` $\to$ `#2ECC71` (Rasio $\ge 1.0$)
-    * `kuning` $\to$ `#F1C40F` (Rasio $0.7 - 0.99$)
-    * `merah` $\to$ `#E74C3C` (Rasio $< 0.7$)
+   * `hijau` $\to$ `#2ECC71` (Rasio $\ge 1.0$)
+   * `kuning` $\to$ `#F1C40F` (Rasio $0.7 - 0.99$)
+   * `merah` $\to$ `#E74C3C` (Rasio $< 0.7$)
+  * **Bounding Box Diperluas (v3.0)**: Lat `[-8.8, -5.7]`, Lng `[110.9, 116.6]`. Mencakup Pulau Bawean dan Kepulauan Kangean.
+  * **Flag Koordinat**:
+  * Hanya render marker jika `is_valid_coord == 1`.
+  * RS dengan `needs_geocoding == 1` memerlukan geocode ulang (koordinat dummy/null dari SIRS).
 
 ---
 
@@ -431,9 +438,20 @@ PYTHONPATH=database pytest database/tests/ -v
 ```
 
 Cakupan pengujian:
-1. `test_sanitize_coordinates_dummy`: Memastikan titik dummy Kemenkes dinetralkan ke `null`.
-2. `test_sanitize_coordinates_swapped`: Memastikan koordinat terbalik otomatis di-swap.
-3. `test_sanitize_coordinates_out_of_bounds`: Memastikan koordinat di luar Jatim ditolak.
-4. `test_normalize_text_and_telepon`: Memastikan whitespace, tab, newline, dan trailing noise hilang.
-5. `test_quality_gate_clean_pipeline`: Memastikan pipeline cleaner mematuhi kontrak Pandera.
-6. `test_database_integrity_and_relationships`: Memastikan integritas relasi foreign key dan performa query spasial PostGIS berjalan sub-15ms.
+1. `test_sanitize_coordinates_dummy`: Titik dummy Kemenkes dinetralkan ke `null` + `needs_geocoding=1`.
+2. `test_sanitize_coordinates_swapped`: Koordinat terbalik otomatis di-swap.
+3. `test_sanitize_coordinates_out_of_bounds_jakarta`: Koordinat di luar Jatim ditolak.
+4. `test_sanitize_coordinates_bawean_valid`: Pulau Bawean lolos expanded bounding box v3.0.
+5. `test_sanitize_coordinates_kangean_valid`: Kepulauan Kangean lolos expanded bounding box v3.0.
+6. `test_expanded_bounding_box_constants`: Konstanta bbox sesuai spek v3.0 (lat: -5.7, lng: 116.6).
+7. `test_normalize_text_clean`: Whitespace, tab, newline hilang dari alamat.
+8. `test_normalize_telepon_trailing_underscore`: Trailing `_` dibersihkan.
+9. `test_normalize_telepon_double_space`: Double space di-collapse.
+10. `test_normalize_telepon_masking_preserved`: Masking `****` dari sumber SIRS dipertahankan.
+11. `test_normalize_telepon_trailing_dash`: Trailing `--` dibersihkan.
+12. `test_normalize_nama_rs_trailing_space`: 34 nama RS trailing space di-trim.
+13. `test_normalize_kepemilikan_pemerintah`: 6 kategori (Pemkab/Pemkot/Pemprop/Kemkes/Kementerian Lain/BUMN) -> `pemerintah`.
+14. `test_normalize_kepemilikan_swasta`: 7 kategori (SWASTA/Perusahaan/Perorangan/Organisasi Islam/Katholik/Protestan/Sosial) -> `swasta`.
+15. `test_normalize_kepemilikan_tni_polri`: 4 kategori (TNI AD/AL/AU/POLRI) -> `tni_polri`.
+16. `test_quality_gate_v3_pipeline`: End-to-end pipeline (dummy/swapped/Bawean valid/Jakarta null/pemilik_raw audit trail).
+17. `test_no_newline_in_cleaned_alamat`: Assert 0 alamat mengandung `\r\n` setelah cleaning.
