@@ -78,6 +78,7 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
             kode_bps=r.get("kode_bps"),
             kelas=r.get("kelas", EnumKelasRS.tidak_diketahui),
             kepemilikan=r.get("kepemilikan", EnumKepemilikan.lainnya),
+            pemilik_raw=r.get("pemilik_raw"),
             jenis_rs=r.get("jenis_rs", "RSU"),
             jumlah_tt=r.get("jumlah_tt", 0),
             layanan=r.get("layanan", []),
@@ -86,6 +87,8 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
             lat=clean_lat,
             lng=clean_lng,
             geom=geom_val,
+            is_valid_coord=r.get("is_valid_coord", 1),
+            needs_geocoding=r.get("needs_geocoding", 0),
             sumber_data=r.get("sumber_data", "SIRS Kemenkes"),
             last_updated_source=r.get("last_updated_source", datetime.utcnow()),
             updated_at=datetime.utcnow()
@@ -100,6 +103,7 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
                 "kode_bps": stmt.excluded.kode_bps,
                 "kelas": stmt.excluded.kelas,
                 "kepemilikan": stmt.excluded.kepemilikan,
+                "pemilik_raw": stmt.excluded.pemilik_raw,
                 "jenis_rs": stmt.excluded.jenis_rs,
                 "jumlah_tt": stmt.excluded.jumlah_tt,
                 "layanan": stmt.excluded.layanan,
@@ -108,6 +112,8 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
                 "lat": stmt.excluded.lat,
                 "lng": stmt.excluded.lng,
                 "geom": stmt.excluded.geom,
+                "is_valid_coord": stmt.excluded.is_valid_coord,
+                "needs_geocoding": stmt.excluded.needs_geocoding,
                 "sumber_data": stmt.excluded.sumber_data,
                 "last_updated_source": stmt.excluded.last_updated_source,
                 "updated_at": datetime.utcnow()
