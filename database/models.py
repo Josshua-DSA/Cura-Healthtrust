@@ -93,6 +93,7 @@ class TblRumahSakit(Base):
     kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="SET NULL"), nullable=True, index=True)
     kelas = Column(Enum(EnumKelasRS, name="enum_kelas_rs"), default=EnumKelasRS.tidak_diketahui, index=True)
     kepemilikan = Column(Enum(EnumKepemilikan, name="enum_kepemilikan"), default=EnumKepemilikan.lainnya, index=True)
+    pemilik_raw = Column(String(50), nullable=True)  # Nilai mentah SIRS sebelum mapping enum
     jenis_rs = Column(String(50), default="RSU")
     jumlah_tt = Column(Integer, default=0)
     layanan = Column(JSON, default=list) # ['ICU', 'IGD', 'Rawat Inap', ...]
@@ -101,6 +102,8 @@ class TblRumahSakit(Base):
     lat = Column(Float, nullable=True)
     lng = Column(Float, nullable=True)
     geom = Column(Geometry("POINT", srid=4326), nullable=True)
+    is_valid_coord = Column(Integer, default=1)  # 1=valid, 0=dummy/OOB/null
+    needs_geocoding = Column(Integer, default=0)  # 1=perlu geocode ulang
     sumber_data = Column(String(100), nullable=False)
     last_updated_source = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
