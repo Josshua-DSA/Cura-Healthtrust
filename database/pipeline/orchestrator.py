@@ -1,3 +1,4 @@
+import os
 import logging
 import json
 from datetime import datetime
@@ -46,8 +47,14 @@ def execute_full_etl() -> Dict[str, Any]:
         total_extracted = len(raw_rs_items)
 
         # Step 2: Clean & Validate RS
-        logger.info("Step 2: Cleaning & Validating hospital records...")
+        logger.info("Step 2: Cleaning & Validating hospital records with Action Plan Quality Rules...")
         df_rs = clean_and_validate_hospitals(raw_rs_items, raw_rekap_items)
+        
+        # Save clean export CSV for data analysts
+        export_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports", "hospitals_clean.csv")
+        df_rs.to_csv(export_csv_path, index=False)
+        logger.info(f"[Export] Saved clean hospital export to {export_csv_path}")
+
         rs_records = df_rs.to_dict(orient="records")
 
         # Step 3: Seed/Update GeoJSON polygon into ref_wilayah if available
