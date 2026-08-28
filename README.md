@@ -1,116 +1,422 @@
-# Cura — HealthTrust Facilities (Jawa Timur)
+# Cura — HealthTrust Facilities (Database & Data Engineering Layer)
 
-Platform analitik dan keterbukaan data geospasial fasilitas kesehatan di Provinsi Jawa Timur. Proyek ini menggabungkan data real-time fasilitas kesehatan (SIRS Kemenkes), indikator kesehatan tematik (Open Data Jatim), serta batas wilayah 38 Kabupaten/Kota (GeoJSON PostGIS) untuk evaluasi rasio ketercukupan layanan kesehatan berbasis standar WHO.
-
----
-
-## 📌 Panduan Tim Berdasarkan Jobdesk
-
-### 1. ⚙️ Backend Team (FastAPI / REST API)
-* **Koneksi Database (PostgreSQL + PostGIS)**:
-  * Host: `localhost` | Port: `5433` (Container Docker: `healthtrust_postgis`)
-  * Database: `cura_db` | User: `cura_user` | Password: `cura_password`
-  * Dialect SQLAlchemy: `postgresql+asyncpg://cura_user:cura_password@localhost:5433/cura_db`
-* **Tabel Utama Siap Konsumsi**:
-  * `tbl_rumah_sakit`: 447 RS Jawa Timur (nama, kelas A/B/C/D, kepemilikan, alamat, nomor telepon, kolom geometri `geom` SRID 4326).
-  * `tbl_agregat_wilayah`: Pre-computed statistics 38 Kab/Kota (total RS, total tempat tidur, populasi, rasio TT/1.000 penduduk, kategori WHO: `hijau`/`kuning`/`merah`). Endpoint peta choropleth bisa query langsung tanpa grouping berat.
-  * `tbl_indikator_kesehatan`: 114 record indikator tematik (Puskesmas rawat inap/non rawat inap, jumlah dokter umum).
-  * `ref_wilayah`: 38 Kab/Kota Jawa Timur lengkap dengan batas polygon `geom`.
-* **Spatial Query Radius / Nearest Hospital**:
-  * Kolom `geom` sudah terindeks `GIST` (`idx_tbl_rs_geom`). Query ST_DWithin & ST_Distance berjalan sub-10ms.
+Dokumentasi teknis khusus untuk modul `database/` dan pengelolaan data layer pada proyek Cura — HealthTrust. Dokumen ini menjelaskan arsitektur pipeline ETL, model skema PostGIS, panduan penggunaan CLI, fungsi-fungsi modular dalam kode Python, serta petunjuk integrasi untuk tim backend, frontend, analis data, dan penyusun proposal/PPT.
 
 ---
 
-### 2. 🎨 Frontend Team (Vanilla JS / Leaflet / ECharts)
-* **Peta Sebaran Faskes (Point Markers)**:
-  * Gunakan kolom `lat` dan `lng` dari `tbl_rumah_sakit` (atau file export `database/exports/hospitals_clean.csv`).
-  * Koordinat anomali (dummy laut Bangka Belitung) telah dinetralkan menjadi `null` dengan flag `is_valid_coord = false`.
-* **Peta Choropleth Wilayah (Polygon Boundaries)**:
-  * File GeoJSON 38 Kab/Kota tersedia di: `database/seeds/jatim_districts.geojson`.
-  * Hubungkan `properties.KODE_BPS` dengan field `kode_bps` pada tabel `tbl_agregat_wilayah`.
-  * Pewarnaan standar WHO:
-    * 🟢 **Hijau (`kategori_ketercukupan: hijau`)**: Rasio $\ge 1.0$ tempat tidur per 1.000 penduduk (Ideal).
-    * 🟡 **Kuning (`kategori_ketercukupan: kuning`)**: Rasio $0.7 - 0.99$ (Waspada).
-    * 🔴 **Merah (`kategori_ketercukupan: merah`)**: Rasio $< 0.7$ (Defisit).
-* **Visualisasi Database GUI**:
-  * Akses Adminer via browser di `http://localhost:8080` (System: `PostgreSQL`, Server: `postgres`, User: `cura_user`, Pass: `cura_password`, DB: `cura_db`).
+## 📑 Daftar Isi
+1. [Arsitektur Data & Alur Pipeline](#1-arsitektur-data--alur-pipeline)
+2. [Setup Lingkungan & Layanan Container](#2-setup-lingkungan--layanan-container)
+3. [Panduan CLI Runner (Command-Line Interface)](#3-panduan-cli-runner-command-line-interface)
+4. [Dokumentasi Fungsi & Modul Python (`database/`)](#4-dokumentasi-fungsi--modul-python-database)
+   - [Pipeline Storage (`pipeline.storage`)](#pipeline-storage-pipelinestorage)
+   - [Pipeline Cleaner & Data Contracts (`pipeline.cleaner`)](#pipeline-cleaner--data-contracts-pipelinecleaner)
+   - [Open Data Jatim Crawler (`pipeline.opendata_crawler`)](#open-data-jatim-crawler-pipelineopendata_crawler)
+   - [Database Loader & Spatial Upsert (`pipeline.loader`)](#database-loader--spatial-upsert-pipelineloader)
+   - [Audit Trail & Logging (`pipeline.audit`)](#audit-trail--logging-pipelineaudit)
+   - [End-to-End Orchestrator (`pipeline.orchestrator`)](#end-to-end-orchestrator-pipelineorchestrator)
+5. [Skema Tabel & Kamus Data Database](#5-skema-tabel--kamus-data-database)
+6. [Panduan Konsumsi Data Antar-Jobdesk](#6-panduan-konsumsi-data-antar-jobdesk)
+   - [Jobdesk Backend](#jobdesk-backend-fastapi--rest-api)
+   - [Jobdesk Frontend](#jobdesk-frontend-leaflet--echarts)
+   - [Jobdesk Analis / Riset (Sandbox)](#jobdesk-analis--riset-sandbox)
+   - [Jobdesk Proposal & PPT](#jobdesk-proposal--ppt)
+7. [Debugging & Pengujian Kualitas Data](#7-debugging--pengujian-kualitas-data)
 
 ---
 
-### 3. 📊 Tim Proposal, PPT & Analis Data
-* **Data Siap Pakai (No DB Setup Required)**:
-  * File CSV bersih dapat langsung diambil dari: `database/exports/hospitals_clean.csv`.
-  * Workspace Sandbox untuk eksperimen/EDA: `experiments/notebooks/` dan `experiments/data/`.
-* **Fakta & Angka Kunci Jawa Timur (Insight untuk Presentasi / Proposal)**:
-  * **Total Rumah Sakit**: 447 RS aktif (368 RSU, 59 RSIA, 5 RSK Mata, 5 RSK Gigi/Mulut, 4 RSK Bedah, 2 RSK Paru, 2 RSK Jiwa, 1 RSK Kanker, 1 RS Bergerak).
-  * **Total Kapasitas Tempat Tidur**: 62.391 Bed.
-  * **Status Ketercukupan Wilayah**: 24 Kab/Kota Kategori Hijau (Ideal), 12 Kab/Kota Kategori Kuning (Waspada), 2 Kab/Kota Kategori Merah (Defisit).
-  * **Rasio Tertinggi**: Kota Malang (4.77) dan Kota Surabaya (4.22 bed/1.000 penduduk).
-  * **Daerah Butuh Perhatian**: Kabupaten Pacitan (0.61 bed/1.000 penduduk).
+## 1. Arsitektur Data & Alur Pipeline
 
----
+Pipeline data mengadopsi pendekatan hybrid (REST API + CSV Ingestion) dengan 6 tahap pemrosesan otomatis:
 
-## 🚀 Quickstart & Setup Developer
-
-### 1. Menjalankan Layanan Docker (Database & Adminer)
-```bash
-# Menyalakan PostGIS (port 5433) dan Adminer (port 8080)
-docker-compose up -d
-
-# Cek status container
-docker-compose ps
+```text
+[SIRS Kemenkes REST API]     [Open Data Jatim Portal]     [Static Seeds (GeoJSON / CSV)]
+          │                             │                               │
+          └─────────────────────────────┼───────────────────────────────┘
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 1. Raw Ingestion & Snapshot Cache │  --> database/raw/{source}/{ts}.json
+                      └───────────────────────────────────┘
+                                        │
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 2. Data Cleaning & Pandera Valid. │  --> Bounding Box Jatim (-8.8 s/d -6.7, 110.9 s/d 114.4)
+                      └───────────────────────────────────┘  --> Swap swapped coords, nullify dummy coords
+                                        │
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 3. Export Clean Dataset (CSV)     │  --> database/exports/hospitals_clean.csv
+                      └───────────────────────────────────┘
+                                        │
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 4. Idempotent PostGIS Upsert      │  --> ON CONFLICT DO UPDATE
+                      └───────────────────────────────────┘  --> ST_SetSRID(ST_MakePoint(lng, lat), 4326)
+                                        │
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 5. Precompute Aggregates & WHO    │  --> tbl_agregat_wilayah (38 Kab/Kota)
+                      └───────────────────────────────────┘
+                                        │
+                                        ▼
+                      ┌───────────────────────────────────┐
+                      │ 6. Write Pipeline Audit Trail     │  --> tbl_pipeline_log (Status: SUCCESS/FAILED)
+                      └───────────────────────────────────┘
 ```
 
-### 2. Setup Virtual Environment & CLI
+---
+
+## 2. Setup Lingkungan & Layanan Container
+
+### 2.1 Menyalakan Database PostgreSQL + PostGIS & Adminer
 ```bash
-# Buat virtual environment
+# Menjalankan container di background
+docker-compose up -d
+
+# Memeriksa status container
+docker-compose ps
+```
+* **PostgreSQL + PostGIS**: `localhost:5433` (Port default diubah ke 5433 untuk mencegah konflik dengan Postgres lokal).
+* **Adminer Web GUI**: `http://localhost:8080` (Akses visual ke tabel database).
+  * System: `PostgreSQL` | Server: `postgres` | User: `cura_user` | Pass: `cura_password` | DB: `cura_db`
+
+### 2.2 Menyiapkan Virtual Environment Python
+```bash
+# Buat dan aktifkan virtual environment di root direktori
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r database/requirements.txt
 
-# Menjalankan Health Check Endpoint & DB
+# Install dependensi
+pip install -r database/requirements.txt
+```
+
+---
+
+## 3. Panduan CLI Runner (Command-Line Interface)
+
+Seluruh operasi data layer dikendalikan melalui satu entry point CLI: `database/cli.py`.
+
+```bash
+# 1. Cek kesehatan koneksi semua API eksternal dan PostgreSQL/PostGIS
 PYTHONPATH=database python database/cli.py check-health
 
-# Inisialisasi Skema & Indeks PostGIS
+# 2. Inisialisasi tabel, tipe enum, dan index spasial GIST di PostgreSQL
 PYTHONPATH=database python database/cli.py init-db
 
-# Menjalankan Full ETL Pipeline (Live Fetch -> Clean -> Upsert -> Export CSV)
+# 3. Seed data referensi awal 38 Kabupaten/Kota Jawa Timur
+PYTHONPATH=database python database/cli.py seed-wilayah
+
+# 4. Eksekusi Full ETL Pipeline (Fetch -> Clean -> Validate -> Upsert -> Aggregate -> Export)
 PYTHONPATH=database python database/cli.py run-etl
 
-# Menjalankan Test Suite Kualitas Data
+# 5. Jalankan Automated Scheduler Daemon (Default: Tiap Senin 07:00 WIB)
+PYTHONPATH=database python database/cli.py scheduler
+
+# 6. Menjalankan scheduler dengan opsi kustom (misal: harian pukul 03:00 subuh)
+PYTHONPATH=database python database/cli.py scheduler --day daily --hour 3 --minute 0
+
+# 7. Menjalankan seluruh test suite unit test & data quality gates
 PYTHONPATH=database python database/cli.py test-db
 ```
 
-### 3. Menjalankan Scheduler Otomatis
-```bash
-# Default: Update data tiap Senin jam 07:00 WIB
-PYTHONPATH=database python database/cli.py scheduler
+---
 
-# Opsi harian:
-PYTHONPATH=database python database/cli.py scheduler --day daily --hour 7 --minute 0
+## 4. Dokumentasi Fungsi & Modul Python (`database/`)
+
+Modul-modul di `database/pipeline/` dirancang modular dan reusable. Berikut cara import dan pemanggilan fungsinya di script atau notebook lain:
+
+### Pipeline Storage (`pipeline.storage`)
+Mengelola penyimpanan data mentah (snapshot caching) dan fallback saat API offline.
+
+```python
+from pipeline.storage import save_raw_snapshot, load_latest_snapshot
+
+# 1. Menyimpan respons data mentah dari API ke folder database/raw/
+snapshot_path = save_raw_snapshot(
+    source_id="sirs_kemenkes_list",
+    data={"rs": [...]} # Dict atau List data mentah
+)
+# Output: database/raw/sirs_kemenkes_list/YYYYMMDD_HHMMSS.json + latest.json
+
+# 2. Membaca snapshot data mentah terakhir (fallback saat API offline)
+data, file_path = load_latest_snapshot("sirs_kemenkes_list")
+if data:
+    print(f"Loaded {len(data['rs'])} records from {file_path}")
 ```
 
 ---
 
-## 📁 Struktur Proyek
+### Pipeline Cleaner & Data Contracts (`pipeline.cleaner`)
+Membersihkan data string, menangani anomali koordinat spasial, dan memvalidasi struktur data dengan Pandera.
 
-```text
-HealthTrust/
-├── database/
-│   ├── config/              # Konfigurasi koneksi & registry data sources
-│   ├── exports/             # Export CSV bersih siap konsumsi (hospitals_clean.csv)
-│   ├── health/              # Health check checker API eksternal & DB
-│   ├── pipeline/            # ETL pipeline (fetcher, cleaner, loader, orchestrator, crawler)
-│   ├── raw/                 # Snapshot immutable data mentah (git-ignored)
-│   ├── seeds/               # Data referensi statis (wilayah & GeoJSON Jatim)
-│   ├── tests/               # Test suite & quality gates
-│   ├── cli.py               # CLI master runner
-│   ├── models.py            # Model tabel SQLAlchemy & PostGIS
-│   └── scheduler.py         # Scheduler daemon otomatis
-│
-├── experiments/             # Sandbox data analis (notebooks, scripts, data)
-├── backend/                 # API Service FastAPI (konsumsi data PostGIS)
-├── frontend/                # Web Dashboard Leaflet & ECharts
-├── docker-compose.yml       # Definisi container PostGIS & Adminer
-└── README.md                # Dokumentasi utama proyek
+```python
+from pipeline.cleaner import (
+    clean_and_validate_hospitals,
+    sanitize_coordinates,
+    normalize_text_clean,
+    normalize_telepon,
+    normalize_nama_rs,
+    normalize_kelas,
+    normalize_kepemilikan,
+    extract_kode_bps_from_kode_rs
+)
+
+# 1. Pembersihan koordinat spasial (menangani dummy Kemenkes & swapped lat/lng)
+# Aturan:
+# - Dummy laut Bangka Belitung [-2.4185588, 108.4919086] -> (None, None, False)
+# - Swapped [111.90, -8.06] -> (-8.06, 111.90, True)
+# - Di luar Bounding Box Jatim (-8.8 s/d -6.7, 110.9 s/d 114.4) -> (None, None, False)
+lat, lng, is_valid = sanitize_coordinates(111.907519, -8.067420)
+# Output: (-8.06742, 111.907519, True)
+
+# 2. Pembersihan teks dan nomor telepon
+clean_alamat = normalize_text_clean("Jl. Raya Darmo No. 1 \r\n\t Surabaya   ")
+# Output: "Jl. Raya Darmo No. 1 Surabaya"
+
+clean_phone = normalize_telepon("081333666651_ \r\n")
+# Output: "081333666651"
+
+# 3. Normalisasi enum kelas dan kepemilikan
+kelas_enum = normalize_kelas("B")           # Output: "B"
+pemilik_enum = normalize_kepemilikan("TNI AD") # Output: "tni_polri"
+
+# 4. Ekstraksi kode BPS dari ID RS
+kode_bps = extract_kode_bps_from_kode_rs("3578011") # Output: "3578" (Surabaya)
+
+# 5. Full dataframe cleaning & Pandera validation
+df_clean = clean_and_validate_hospitals(raw_rs_list, raw_rekap_list)
+# Mengembalikan pd.DataFrame yang lolos skema CleanHospitalSchema
 ```
+
+---
+
+### Open Data Jatim Crawler (`pipeline.opendata_crawler`)
+Mengambil data indikator tematik dan memetakan nama wilayah ke kode BPS 4 digit.
+
+```python
+from pipeline.opendata_crawler import match_kode_bps, crawl_and_parse_opendata_csv
+
+# 1. Fuzzy match nama daerah ke kode BPS resmi (3501 - 3579)
+kode_1 = match_kode_bps("Kabupaten Pacitan") # Output: "3501"
+kode_2 = match_kode_bps("Kota Surabaya")     # Output: "3578"
+kode_3 = match_kode_bps("surabaya")          # Output: "3578"
+
+# 2. Crawl dan parsing indikator kesehatan Open Data Jatim (Puskesmas, Dokter, dll)
+records = crawl_and_parse_opendata_csv()
+# Mengembalikan List[Dict] siap upsert ke tbl_indikator_kesehatan
+```
+
+---
+
+### Database Loader & Spatial Upsert (`pipeline.loader`)
+Menyediakan sesi database SQLAlchemy dan query upsert idempoten ke PostGIS.
+
+```python
+from pipeline.loader import (
+    get_session,
+    init_db,
+    upsert_rumah_sakit,
+    upsert_ref_wilayah,
+    upsert_penduduk,
+    upsert_indikator_kesehatan,
+    recompute_agregat_wilayah,
+    generate_rs_key
+)
+
+# 1. Inisialisasi koneksi session DB
+session = get_session()
+
+# 2. Inisialisasi tabel dan index GIST PostGIS
+init_db()
+
+# 3. Upsert data RS (idempoten dengan ST_SetSRID Point 4326)
+count_rs = upsert_rumah_sakit(session, records=df_clean.to_dict(orient="records"))
+
+# 4. Upsert indikator kesehatan
+count_ind = upsert_indikator_kesehatan(session, records=records)
+
+# 5. Pre-compute agregat 38 Kab/Kota & rasio WHO
+count_aggr = recompute_agregat_wilayah(session, tahun=2024)
+
+# Tutup session setelah selesai
+session.close()
+```
+
+---
+
+### Audit Trail & Logging (`pipeline.audit`)
+Mencatat metadata setiap run pipeline ke tabel `tbl_pipeline_log`.
+
+```python
+from pipeline.audit import start_pipeline_log, finish_pipeline_log
+from models import EnumPipelineStatus
+
+session = get_session()
+
+# 1. Catat awal eksekusi pipeline
+log_entry = start_pipeline_log(session, source_id="full_etl_sirs_kemenkes")
+log_id = log_entry.id
+
+# 2. Catat status selesai (SUCCESS / FAILED)
+finish_pipeline_log(
+    session=session,
+    log_id=log_id,
+    status=EnumPipelineStatus.SUCCESS,
+    record_extracted=447,
+    record_loaded=561,
+    error_message=None
+)
+session.close()
+```
+
+---
+
+### End-to-End Orchestrator (`pipeline.orchestrator`)
+Fungsi utama yang merangkai seluruh alur ingestion, cleaning, export, loading, agregasi, dan logging dalam satu eksekusi atomic.
+
+```python
+from pipeline.orchestrator import execute_full_etl
+
+# Eksekusi full ETL secara programatik
+result = execute_full_etl()
+print(result)
+# Output: {'status': 'SUCCESS', 'extracted': 447, 'loaded': 561}
+```
+
+---
+
+## 5. Skema Tabel & Kamus Data Database
+
+Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
+
+### 1. `ref_wilayah` (Tabel Dimensi Wilayah)
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `kode_bps` | `VARCHAR(4)` (PK) | Kode BPS 4 digit (contoh: `3578` untuk Kota Surabaya). |
+| `nama_wilayah` | `VARCHAR(100)` | Nama resmi kabupaten/kota. |
+| `tipe` | `enum_tipe_wilayah` | Nilai: `KABUPATEN` atau `KOTA`. |
+| `geom` | `geometry(MULTIPOLYGON, 4326)` | Batas polygon spasial wilayah (Indeks `GIST`). |
+
+### 2. `tbl_rumah_sakit` (Tabel Fakta Fasilitas Kesehatan)
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `kode_rs` | `VARCHAR(50)` (PK/Unique) | Kode resmi SIRS Kemenkes (contoh: `3578011`) atau deterministik hash. |
+| `nama_rs` | `VARCHAR(255)` | Nama rumah sakit (sudah dibersihkan). |
+| `alamat` | `TEXT` | Alamat faskes. |
+| `kode_bps` | `VARCHAR(4)` (FK) | Relasi ke `ref_wilayah.kode_bps`. |
+| `kelas` | `enum_kelas_rs` | Nilai: `A`, `B`, `C`, `D`, `tidak_diketahui`. |
+| `kepemilikan` | `enum_kepemilikan` | Nilai: `pemerintah`, `swasta`, `tni_polri`, `lainnya`. |
+| `jenis_rs` | `VARCHAR(50)` | Jenis faskes: `RSU`, `RSIA`, `RSK Mata`, `RSK Bedah`, dll. |
+| `jumlah_tt` | `INTEGER` | Jumlah kapasitas tempat tidur operasional. |
+| `telepon` | `VARCHAR(50)` | Nomor telepon (sudah dibersihkan dari trailing noise). |
+| `lat` / `lng` | `FLOAT` | Titik koordinat desimal (bernilai `NULL` jika koordinat dummy/anomali). |
+| `geom` | `geometry(POINT, 4326)` | Titik spasial PostGIS untuk query radius (Indeks `GIST`). |
+
+### 3. `tbl_agregat_wilayah` (Tabel Pre-computed Dashboard)
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `kode_bps` | `VARCHAR(4)` (FK) | Relasi ke `ref_wilayah.kode_bps`. |
+| `tahun` | `INTEGER` | Tahun acuan data (contoh: `2024`). |
+| `total_rs` | `INTEGER` | Total unit rumah sakit di kabupaten/kota tersebut. |
+| `total_tt` | `INTEGER` | Total kapasitas tempat tidur di wilayah tersebut. |
+| `jumlah_penduduk` | `INTEGER` | Populasi penduduk acuan. |
+| `rasio_tt_per_1000` | `FLOAT` | Rasio tempat tidur per 1.000 penduduk. |
+| `kategori_ketercukupan` | `VARCHAR(20)` | Klasifikasi WHO: `hijau` ($\ge 1.0$), `kuning` ($0.7 - 0.99$), `merah` ($< 0.7$). |
+
+### 4. `tbl_indikator_kesehatan` (Tabel Indikator Tematik CSV)
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `kode_bps` | `VARCHAR(4)` (FK) | Relasi ke `ref_wilayah.kode_bps`. |
+| `tahun` | `INTEGER` | Tahun indikator. |
+| `topik` | `VARCHAR(100)` | Kategori data (`Puskesmas`, `Tenaga Medis`, dll). |
+| `nama_indikator` | `VARCHAR(255)` | Nama metrik (`Jumlah Puskesmas Rawat Inap`, `Jumlah Dokter Umum`). |
+| `nilai` | `FLOAT` | Nilai data numerik. |
+| `satuan` | `VARCHAR(50)` | Satuan ukur (`Unit`, `Orang`, `Persen`). |
+
+### 5. `tbl_pipeline_log` (Tabel Audit Trail Pipeline)
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| `source_id` | `VARCHAR(50)` | Identifier sumber data. |
+| `run_started_at` | `TIMESTAMP` | Waktu mulai proses ETL. |
+| `run_finished_at` | `TIMESTAMP` | Waktu selesai proses ETL. |
+| `record_extracted` | `INTEGER` | Jumlah record yang ditarik dari sumber. |
+| `record_loaded` | `INTEGER` | Jumlah record yang berhasil di-upsert ke database. |
+| `status` | `enum_pipeline_status`| Status: `SUCCESS`, `PARTIAL`, atau `FAILED`. |
+| `error_message` | `TEXT` | Pesan stacktrace jika terjadi error. |
+
+---
+
+## 6. Panduan Konsumsi Data Antar-Jobdesk
+
+### Jobdesk Backend (FastAPI / REST API)
+* **Koneksi Database**:
+  ```python
+  DATABASE_URL = "postgresql+asyncpg://cura_user:cura_password@localhost:5433/cura_db"
+  ```
+* **Endpoint Rekomendasi**:
+  1. `GET /api/v1/hospitals`: Query dari `tbl_rumah_sakit` (filter: `kelas`, `kepemilikan`, `kode_bps`).
+  2. `GET /api/v1/hospitals/nearby?lat={lat}&lng={lng}&radius_km=10`: Gunakan fungsi spasial PostGIS:
+     ```sql
+     SELECT nama_rs, kelas, alamat, telepon, lat, lng,
+            ROUND((ST_Distance(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography) / 1000)::numeric, 2) AS jarak_km
+     FROM tbl_rumah_sakit
+     WHERE geom IS NOT NULL 
+       AND ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography, :radius_meters)
+     ORDER BY jarak_km ASC;
+     ```
+  3. `GET /api/v1/wilayah/summary`: Query langsung dari `tbl_agregat_wilayah` untuk respon instan tanpa kalkulasi agregasi berulang.
+
+---
+
+### Jobdesk Frontend (Leaflet / ECharts)
+* **Point Markers (Peta RS)**:
+  * Konsumsi data RS dari API backend atau file `database/exports/hospitals_clean.csv`.
+  * Hanya render marker jika `is_valid_coord === true` (atau `lat !== null && lng !== null`).
+* **Peta Choropleth (Batas Wilayah)**:
+  * Load file GeoJSON statis: `database/seeds/jatim_districts.geojson`.
+  * Cocokkan `feature.properties.KODE_BPS` dengan data `tbl_agregat_wilayah`.
+  * Terapkan palet warna standar WHO:
+    * `hijau` $\to$ `#2ECC71` (Rasio $\ge 1.0$)
+    * `kuning` $\to$ `#F1C40F` (Rasio $0.7 - 0.99$)
+    * `merah` $\to$ `#E74C3C` (Rasio $< 0.7$)
+
+---
+
+### Jobdesk Analis / Riset (Sandbox)
+* Gunakan direktori sandbox yang terisolasi agar tidak mengganggu pipeline produksi:
+  * `experiments/notebooks/`: Simpan file Jupyter Notebook (.ipynb) untuk EDA, visualisasi Seaborn/Plotly, atau spatial clustering.
+  * `experiments/data/`: Tempat menyimpan file dataset sementara.
+  * `experiments/scripts/`: Script eksperimen transformasi data ad-hoc.
+* Dataset bersih siap analisis tanpa setup database:
+  * `database/exports/hospitals_clean.csv` (447 RS Jawa Timur terstandarisasi).
+
+---
+
+### Jobdesk Proposal & PPT
+* **Metrik Utama untuk Disitasi**:
+  * **Total Faskes**: 447 Rumah Sakit di 38 Kabupaten/Kota Jawa Timur.
+  * **Komposisi Kelas RS**: Kelas A (9 RS), Kelas B (68 RS), Kelas C (201 RS), Kelas D (168 RS), Non-Kelas (1 RS).
+  * **Komposisi Kepemilikan**: Swasta (259 RS), Pemerintah Daerah/Pusat (149 RS), TNI/Polri (39 RS).
+  * **Total Kapasitas Rawat Inap**: 62.391 Tempat Tidur.
+  * **Status Ketercukupan Wilayah**: 24 Kab/Kota Ideal (Hijau), 12 Kab/Kota Waspada (Kuning), 2 Kab/Kota Defisit (Merah).
+  * **Kab/Kota Rasio Tertinggi**: Kota Malang (4.77) dan Kota Surabaya (4.22 bed per 1.000 penduduk).
+  * **Kab/Kota Butuh Intervensi**: Kabupaten Pacitan (0.61 bed per 1.000 penduduk).
+
+---
+
+## 7. Debugging & Pengujian Kualitas Data
+
+Eksekusi rangkaian pengujian kualitas data dengan command berikut:
+
+```bash
+# Menjalankan 13 test case terverifikasi (100% PASS)
+PYTHONPATH=database pytest database/tests/ -v
+```
+
+Cakupan pengujian:
+1. `test_sanitize_coordinates_dummy`: Memastikan titik dummy Kemenkes dinetralkan ke `null`.
+2. `test_sanitize_coordinates_swapped`: Memastikan koordinat terbalik otomatis di-swap.
+3. `test_sanitize_coordinates_out_of_bounds`: Memastikan koordinat di luar Jatim ditolak.
+4. `test_normalize_text_and_telepon`: Memastikan whitespace, tab, newline, dan trailing noise hilang.
+5. `test_quality_gate_clean_pipeline`: Memastikan pipeline cleaner mematuhi kontrak Pandera.
+6. `test_database_integrity_and_relationships`: Memastikan integritas relasi foreign key dan performa query spasial PostGIS berjalan sub-15ms.
