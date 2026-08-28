@@ -10,9 +10,10 @@ Dokumentasi teknis khusus untuk modul `database/` dan pengelolaan data layer pad
 3. [Panduan CLI Runner (Command-Line Interface)](#3-panduan-cli-runner-command-line-interface)
 4. [Dokumentasi Fungsi & Modul Python (`database/`)](#4-dokumentasi-fungsi--modul-python-database)
    - [Pipeline Storage (`pipeline.storage`)](#pipeline-storage-pipelinestorage)
-   - [Pipeline Cleaner & Data Contracts (`pipeline.cleaner`)](#pipeline-cleaner--data-contracts-pipelinecleaner)
+   - [Pipeline Cleaner & Data Contracts (`pipeline.cleaner` / `etl.transform.clean_hospitals`)](#pipeline-cleaner--data-contracts-pipelinecleaner--etltransformclean_hospitals)
+   - [Spatial Cleaner & Ratio Calculator (`etl.transform.clean_spatial`)](#spatial-cleaner--ratio-calculator-etltransformclean_spatial)
    - [Open Data Jatim Crawler (`pipeline.opendata_crawler`)](#open-data-jatim-crawler-pipelineopendata_crawler)
-   - [Database Loader & Spatial Upsert (`pipeline.loader`)](#database-loader--spatial-upsert-pipelineloader)
+   - [Database Loader & Spatial Upsert (`pipeline.loader` / `etl.load.load_to_postgis`)](#database-loader--spatial-upsert-pipelineloader--etlloadload_to_postgis)
    - [Audit Trail & Logging (`pipeline.audit`)](#audit-trail--logging-pipelineaudit)
    - [End-to-End Orchestrator (`pipeline.orchestrator`)](#end-to-end-orchestrator-pipelineorchestrator)
 5. [Skema Tabel & Kamus Data Database](#5-skema-tabel--kamus-data-database)
@@ -186,6 +187,20 @@ kode_bps = extract_kode_bps_from_kode_rs("3578011") # Output: "3578" (Surabaya)
 # 5. Full dataframe cleaning & Pandera validation
 df_clean = clean_and_validate_hospitals(raw_rs_list, raw_rekap_list)
 # Mengembalikan pd.DataFrame yang lolos skema CleanHospitalSchema
+```
+
+---
+
+### Spatial Cleaner & Ratio Calculator (`etl.transform.clean_spatial`)
+Memvalidasi polygon GeoJSON wilayah dan menyusun dataframe rasio tempat tidur WHO per 38 Kab/Kota.
+
+```python
+from etl.transform.clean_spatial import clean_and_validate_districts
+
+# Validasi polygon & hitung ringkasan rasio TT per 1.000 penduduk
+district_records, df_ratio = clean_and_validate_districts(geojson_raw, rasio_tt_raw)
+# district_records: List[Dict] siap upsert ke ref_wilayah (PostGIS Polygon)
+# df_ratio: pd.DataFrame (kode_bps, nama_wilayah, total_tt, jumlah_penduduk, rasio_tt_per_1000, kategori_who)
 ```
 
 ---
@@ -384,11 +399,13 @@ Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
 
 ### Jobdesk Analis / Riset (Sandbox)
 * Gunakan direktori sandbox yang terisolasi agar tidak mengganggu pipeline produksi:
-  * `experiments/notebooks/`: Simpan file Jupyter Notebook (.ipynb) untuk EDA, visualisasi Seaborn/Plotly, atau spatial clustering.
+  * `experiments/notebooks/`: Simpan file Jupyter Notebook (.ipynb) untuk EDA, visualisasi Seaborn/Plotly, atau spatial clustering (e.g. `01_data_cleaning_audit.ipynb`, `02_spatial_distribution.ipynb`, `03_bed_capacity_analysis.ipynb`).
   * `experiments/data/`: Tempat menyimpan file dataset sementara.
   * `experiments/scripts/`: Script eksperimen transformasi data ad-hoc.
 * Dataset bersih siap analisis tanpa setup database:
-  * `database/exports/hospitals_clean.csv` (447 RS Jawa Timur terstandarisasi).
+  1. `database/exports/hospitals_clean.csv` (447 RS Jawa Timur terstandarisasi).
+  2. `database/exports/bed_ratio_38_kab.csv` (Rasio tempat tidur 38 Kab/Kota).
+  3. `database/exports/indicators_jatim.csv` (Indikator Puskesmas & Tenaga Medis Dinkes Jatim).
 
 ---
 
