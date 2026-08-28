@@ -96,11 +96,15 @@ def test_clean_and_validate_hospitals():
     assert row1["lng"] == 112.75
     assert row1["kepemilikan"] == "pemerintah"
     assert row1["kelas"] == "B"
+    assert row1["is_valid_coord"] == 1
+    assert row1["needs_geocoding"] == 0
 
     # Check out-of-bounds coordinates nullified safely
     row2 = df[df["kode_rs"] == "3578002"].iloc[0]
     assert pd.isna(row2["lat"])
     assert pd.isna(row2["lng"])
+    assert row2["is_valid_coord"] == 0
+    assert row2["needs_geocoding"] == 1
 
 def test_database_integrity_and_relationships():
     """Verify live database schema integrity, FK relations, and constraints."""

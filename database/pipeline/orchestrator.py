@@ -3,14 +3,14 @@ import logging
 import json
 from datetime import datetime
 from typing import Dict, Any
+import pandas as pd
 
 from pipeline.storage import load_latest_snapshot
-from pipeline.cleaner import clean_and_validate_hospitals
+from etl.transform.clean_hospitals import clean_and_validate_hospitals
+from etl.transform.clean_spatial import clean_and_validate_districts
+from etl.load.load_to_postgis import load_all_to_postgis
 from pipeline.opendata_crawler import crawl_and_parse_opendata_csv
-from pipeline.loader import (
-    get_session, init_db, upsert_ref_wilayah, upsert_rumah_sakit,
-    upsert_penduduk, recompute_agregat_wilayah, upsert_indikator_kesehatan
-)
+from pipeline.loader import get_session
 from pipeline.audit import start_pipeline_log, finish_pipeline_log
 from models import EnumPipelineStatus
 
@@ -18,15 +18,18 @@ logger = logging.getLogger("ETLOrchestrator")
 
 def execute_full_etl() -> Dict[str, Any]:
     """
-    Complete End-to-End ETL Pipeline:
+    Complete End-to-End ETL Pipeline (Action Plan v2.0):
     1. Read Raw Snapshot (or fetch live)
-    2. Clean & Validate Hospital data (Pandera)
-    3. Idempotent Upsert to PostgreSQL/PostGIS (tbl_rumah_sakit, ref_wilayah, tbl_penduduk)
-    4. Pre-compute Aggregate Dashboard Stats (tbl_agregat_wilayah)
-    5. Audit trail log (tbl_pipeline_log)
+    2. Clean & Validate Hospital data with Quality Gates
+    3. Generate 3 Export Datasets: hospitals_clean.csv, bed_ratio_38_kab.csv, indicators_jatim.csv
+    4. Clean & Validate District Polygons & Ratio
+    5. Ingest Thematic Health Indicators from OpenData Jatim
+    6. Idempotent Upsert to PostgreSQL/PostGIS
+    7. Pre-compute Aggregate Dashboard Stats
+    8. Write Audit Log
     """
     logger.info("=" * 60)
-    logger.info(" [HealthTrust] Starting Complete ETL Execution & Loading")
+    logger.info(" [HealthTrust] Starting Complete ETL Execution & Loading (v2.0)")
     logger.info("=" * 60)
 
     session = get_session()
@@ -47,66 +50,58 @@ def execute_full_etl() -> Dict[str, Any]:
         total_extracted = len(raw_rs_items)
 
         # Step 2: Clean & Validate RS
-        logger.info("Step 2: Cleaning & Validating hospital records with Action Plan Quality Rules...")
+        logger.info("Step 2: Cleaning & Validating hospital records with Quality Gates...")
         df_rs = clean_and_validate_hospitals(raw_rs_items, raw_rekap_items)
         
-        # Save clean export CSV for data analysts
-        export_csv_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports", "hospitals_clean.csv")
-        df_rs.to_csv(export_csv_path, index=False)
-        logger.info(f"[Export] Saved clean hospital export to {export_csv_path}")
+        # Save clean export CSV 1: hospitals_clean.csv
+        exports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports")
+        os.makedirs(exports_dir, exist_ok=True)
+        
+        export_rs_path = os.path.join(exports_dir, "hospitals_clean.csv")
+        df_rs.to_csv(export_rs_path, index=False)
+        logger.info(f"[Export] Saved clean hospital export -> {export_rs_path}")
 
-        rs_records = df_rs.to_dict(orient="records")
+        # Step 3: Spatial Districts & Ratio Export CSV 2: bed_ratio_38_kab.csv
+        logger.info("Step 3: Cleaning district polygons and precomputing WHO ratio export...")
+        wilayah_records, df_ratio = clean_and_validate_districts(geojson_raw, rasio_tt_raw)
+        
+        export_ratio_path = os.path.join(exports_dir, "bed_ratio_38_kab.csv")
+        df_ratio.to_csv(export_ratio_path, index=False)
+        logger.info(f"[Export] Saved district ratio export -> {export_ratio_path}")
 
-        # Step 3: Seed/Update GeoJSON polygon into ref_wilayah if available
-        if geojson_raw and "features" in geojson_raw:
-            logger.info("Step 3A: Updating GeoJSON boundaries in ref_wilayah...")
-            wilayah_records = []
-            penduduk_records = []
-            for feat in geojson_raw.get("features", []):
-                props = feat.get("properties", {})
-                kbps = str(props.get("KODE_BPS") or props.get("ID2013", "")).strip()
-                nama = props.get("PROVINSI", "")
-                pddk = int(props.get("jumlah_penduduk", 0))
-                geom_json = json.dumps(feat.get("geometry", {}))
-                
-                if kbps:
-                    tipe = "KOTA" if "kota" in nama.lower() else "KABUPATEN"
-                    wilayah_records.append({
-                        "kode_bps": kbps,
-                        "nama_wilayah": f"Kabupaten {nama}" if tipe == "KABUPATEN" and not nama.lower().startswith("kab") else (f"Kota {nama}" if tipe == "KOTA" and not nama.lower().startswith("kota") else nama),
-                        "tipe": tipe,
-                        "geojson_geom": geom_json
-                    })
-                    if pddk > 0:
-                        penduduk_records.append({
-                            "kode_bps": kbps,
-                            "tahun": 2024,
-                            "jumlah_penduduk": pddk,
-                            "sumber": "SIRS Kemenkes GeoJSON"
-                        })
-            if wilayah_records:
-                upsert_ref_wilayah(session, wilayah_records)
-            if penduduk_records:
-                upsert_penduduk(session, penduduk_records)
-
-        # Step 3B: Upsert Hospitals
-        logger.info("Step 3B: Upserting hospitals into tbl_rumah_sakit...")
-        loaded_rs = upsert_rumah_sakit(session, rs_records)
-        total_loaded += loaded_rs
-
-        # Step 3C: Ingest Thematic Health Indicators from OpenData Jatim CSV
-        logger.info("Step 3C: Ingesting thematic indicators from Open Data Jatim...")
+        # Step 4: Indicators Thematic Export CSV 3: indicators_jatim.csv
+        logger.info("Step 4: Ingesting thematic indicators from Open Data Jatim...")
         indikator_records = crawl_and_parse_opendata_csv()
         if indikator_records:
-            loaded_ind = upsert_indikator_kesehatan(session, indikator_records)
-            total_loaded += loaded_ind
+            df_ind = pd.DataFrame(indikator_records)
+            export_ind_path = os.path.join(exports_dir, "indicators_jatim.csv")
+            df_ind.to_csv(export_ind_path, index=False)
+            logger.info(f"[Export] Saved thematic health indicators export -> {export_ind_path}")
 
-        # Step 4: Pre-compute Aggregates
-        logger.info("Step 4: Pre-computing aggregates in tbl_agregat_wilayah...")
+        # Step 5: Load to PostgreSQL/PostGIS
+        logger.info("Step 5: Loading all processed datasets to PostgreSQL/PostGIS...")
+        penduduk_records = []
+        for r in df_ratio.to_dict(orient="records"):
+            penduduk_records.append({
+                "kode_bps": r["kode_bps"],
+                "tahun": 2024,
+                "jumlah_penduduk": r["jumlah_penduduk"],
+                "sumber": "SIRS Kemenkes / Disdukcapil"
+            })
+
+        rs_records = df_rs.to_dict(orient="records")
         rasio_items = rasio_tt_raw.get("wilayah", []) if rasio_tt_raw else []
-        recompute_agregat_wilayah(session, tahun=2024, rasio_data_list=rasio_items)
 
-        # Step 5: Audit Log Success
+        load_summary = load_all_to_postgis(
+            rs_records=rs_records,
+            wilayah_records=wilayah_records,
+            penduduk_records=penduduk_records,
+            indikator_records=indikator_records,
+            rasio_raw_list=rasio_items
+        )
+        total_loaded = sum(load_summary.values())
+
+        # Step 6: Audit Log Success
         finish_pipeline_log(
             session=session,
             log_id=audit_entry.id,
@@ -116,13 +111,14 @@ def execute_full_etl() -> Dict[str, Any]:
         )
 
         logger.info("=" * 60)
-        logger.info(f" [SUCCESS] Complete ETL Finished. Extracted: {total_extracted} | Loaded: {total_loaded}")
+        logger.info(f" [SUCCESS] Complete ETL v2.0 Finished. Extracted: {total_extracted} | Loaded: {total_loaded}")
         logger.info("=" * 60)
 
         return {
             "status": "SUCCESS",
             "extracted": total_extracted,
-            "loaded": total_loaded
+            "loaded": total_loaded,
+            "exports": [export_rs_path, export_ratio_path, os.path.join(exports_dir, "indicators_jatim.csv")]
         }
 
     except Exception as e:

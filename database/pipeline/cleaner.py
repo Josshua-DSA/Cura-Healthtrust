@@ -10,11 +10,11 @@ from models import EnumKelasRS, EnumKepemilikan
 
 logger = logging.getLogger("DataCleaner")
 
-# Bounding Box Jawa Timur Resmi
+# Bounding Box Jawa Timur + Pulau Bawean + Kepulauan Kangean (v3.0)
 JATIM_LAT_MIN = -8.8
-JATIM_LAT_MAX = -6.7
+JATIM_LAT_MAX = -5.7
 JATIM_LNG_MIN = 110.9
-JATIM_LNG_MAX = 114.4
+JATIM_LNG_MAX = 116.6
 
 # Dummy Kemenkes Coordinates (Default Laut Bangka Belitung)
 DUMMY_LAT = -2.4185588
@@ -29,57 +29,58 @@ def normalize_text_clean(text_val: Optional[str]) -> Optional[str]:
     return cleaned if cleaned else None
 
 def normalize_telepon(phone_val: Optional[str]) -> Optional[str]:
-    """Remove trailing underscores, extra spaces, and invalid chars."""
+    """Remove trailing underscores, extra spaces. Preserve masking **** from source."""
     if not phone_val or pd.isna(phone_val):
         return None
-    cleaned = str(phone_val).replace("\r\n", "").replace("\n", "").strip()
+    cleaned = str(phone_val).replace("\r\n", "").replace("\n", "").replace("\r", "").strip()
     cleaned = cleaned.rstrip("_").rstrip("-").strip()
-    cleaned = re.sub(r'[^0-9+\-/\s,()]', '', cleaned)
+    # Preserve masking asterisks (****) from SIRS but remove other junk
+    cleaned = re.sub(r'[^0-9+\-/\s,()*]', '', cleaned)
     cleaned = re.sub(r'\s+', ' ', cleaned).strip()
     return cleaned if cleaned else None
 
-def normalize_nama_rs(nama_val: str) -> str:
+def normalize_nama_rs(nama_val: Optional[str]) -> str:
     """Clean and standardize hospital name."""
     if not nama_val or pd.isna(nama_val):
         return "RS Tanpa Nama"
     cleaned = normalize_text_clean(nama_val) or "RS Tanpa Nama"
-    # Ensure no leading/trailing weird symbols
     return cleaned.strip()
 
-def sanitize_coordinates(lat_raw: Any, lng_raw: Any) -> Tuple[Optional[float], Optional[float], bool]:
+def sanitize_coordinates(lat_raw: Any, lng_raw: Any) -> Tuple[Optional[float], Optional[float], bool, bool]:
     """
-    Apply Action Plan Rules for Spatial Coordinates:
-    1. Check Dummy Kemenkes [-2.4185588, 108.4919086] -> Set NULL
+    Apply Action Plan v3.0 Rules for Spatial Coordinates:
+    1. Check Dummy Kemenkes [-2.4185588, 108.4919086] -> Set NULL, needs_geocoding=True
     2. Check Swapped Lat/Lng (if lat > lng) -> Swap back
-    3. Check Bounding Box Jatim (lat: -8.8 s/d -6.7, lng: 110.9 s/d 114.4)
-    Returns: (lat, lng, is_valid_coord)
+    3. Check Expanded Bounding Box Jatim (lat: -8.8 s/d -5.7, lng: 110.9 s/d 116.6)
+       Includes Pulau Bawean & Kepulauan Kangean
+    Returns: (lat, lng, is_valid_coord, needs_geocoding)
     """
     if lat_raw is None or lng_raw is None:
-        return None, None, False
+        return None, None, False, True
 
     try:
         lat = float(lat_raw)
         lng = float(lng_raw)
     except (ValueError, TypeError):
-        return None, None, False
+        return None, None, False, True
 
     if math.isnan(lat) or math.isnan(lng):
-        return None, None, False
+        return None, None, False, True
 
     # Rule 1: Check Dummy Kemenkes Coordinate
     if abs(lat - DUMMY_LAT) < 0.001 and abs(lng - DUMMY_LNG) < 0.001:
-        return None, None, False
+        return None, None, False, True
 
     # Rule 2: Check Swapped Lat / Lng (e.g. [111.90, -8.06])
     if lat > lng:
         lat, lng = lng, lat
 
-    # Rule 3: Check Bounding Box Jawa Timur
+    # Rule 3: Check Expanded Bounding Box Jawa Timur + Pulau Terluar
     is_valid = (JATIM_LAT_MIN <= lat <= JATIM_LAT_MAX) and (JATIM_LNG_MIN <= lng <= JATIM_LNG_MAX)
     if not is_valid:
-        return None, None, False
+        return None, None, False, True
 
-    return round(lat, 6), round(lng, 6), True
+    return round(lat, 6), round(lng, 6), True, False
 
 def normalize_kelas(kelas_raw: Optional[str]) -> str:
     """Normalize kelas to EnumKelasRS."""
@@ -91,15 +92,21 @@ def normalize_kelas(kelas_raw: Optional[str]) -> str:
     return EnumKelasRS.tidak_diketahui.value
 
 def normalize_kepemilikan(pemilik_raw: Optional[str]) -> str:
-    """Normalize ownership to EnumKepemilikan."""
+    """
+    Normalize 17 SIRS ownership categories to 4 PostgreSQL enums:
+    - pemerintah: Pemprop, Pemkab, Pemkot, Kemkes, Kementerian Lain, BUMN
+    - swasta: SWASTA/LAINNYA, Perusahaan, Organisasi Islam/Katholik/Protestan/Sosial, Perorangan
+    - tni_polri: TNI AD, TNI AL, TNI AU, POLRI
+    - lainnya: fallback
+    """
     if not pemilik_raw or pd.isna(pemilik_raw):
         return EnumKepemilikan.lainnya.value
     p = str(pemilik_raw).strip().lower()
-    if any(x in p for x in ["pemkab", "pemkot", "pemprop", "kemkes", "kementerian", "pemerintah"]):
+    if any(x in p for x in ["pemkab", "pemkot", "pemprop", "kemkes", "kementerian", "pemerintah", "bumn"]):
         return EnumKepemilikan.pemerintah.value
     if any(x in p for x in ["tni", "polri", "bhayangkara"]):
         return EnumKepemilikan.tni_polri.value
-    if any(x in p for x in ["swasta", "perusahaan", "perorangan", "pt"]):
+    if any(x in p for x in ["swasta", "perusahaan", "perorangan", "pt", "organisasi"]):
         return EnumKepemilikan.swasta.value
     return EnumKepemilikan.lainnya.value
 
@@ -122,10 +129,12 @@ class CleanHospitalSchema(pa.DataFrameModel):
     kode_bps: Series[str] = pa.Field(nullable=True)
     kelas: Series[str] = pa.Field(isin=["A", "B", "C", "D", "tidak_diketahui"])
     kepemilikan: Series[str] = pa.Field(isin=["pemerintah", "swasta", "tni_polri", "lainnya"])
+    pemilik_raw: Series[str] = pa.Field(nullable=True)
     jenis_rs: Series[str] = pa.Field(nullable=False)
     lat: Series[float] = pa.Field(nullable=True)
     lng: Series[float] = pa.Field(nullable=True)
-    is_valid_coord: Series[bool] = pa.Field(nullable=False)
+    is_valid_coord: Series[int] = pa.Field(isin=[0, 1])
+    needs_geocoding: Series[int] = pa.Field(isin=[0, 1])
     sumber_data: Series[str] = pa.Field(nullable=False)
 
     class Config:
@@ -134,7 +143,8 @@ class CleanHospitalSchema(pa.DataFrameModel):
 
 def clean_and_validate_hospitals(raw_rs_list: List[Dict[str, Any]], raw_rekap_list: Optional[List[Dict[str, Any]]] = None) -> pd.DataFrame:
     """
-    Orchestrate full cleaning & validation with quality gates.
+    Orchestrate full cleaning & validation with quality gates (Action Plan v3.0).
+    Join sirs_kemenkes_list (447 RS) + sirs_kemenkes_rekap (449 RS) on kode_rs.
     """
     rekap_map = {}
     if raw_rekap_list:
@@ -154,14 +164,18 @@ def clean_and_validate_hospitals(raw_rs_list: List[Dict[str, Any]], raw_rekap_li
         alamat = normalize_text_clean(it.get("alamat") or rekap_info.get("alamat"))
         telepon = normalize_telepon(it.get("TELEPON") or it.get("telepon") or rekap_info.get("TELEPON"))
         kelas = normalize_kelas(it.get("kelas") or rekap_info.get("kelas"))
-        kepemilikan = normalize_kepemilikan(rekap_info.get("pemilik") or it.get("pemilik"))
+        
+        # Preserve raw ownership string for audit trail
+        pemilik_raw_val = str(rekap_info.get("pemilik") or it.get("pemilik") or "").strip() or None
+        kepemilikan = normalize_kepemilikan(pemilik_raw_val)
+        
         jenis_rs = normalize_text_clean(it.get("jenis") or rekap_info.get("jenis")) or "RSU"
         
-        # Coordinate handling
+        # Coordinate handling (v3.0: expanded bounding box + needs_geocoding flag)
         coords = it.get("koordinat", [])
         lat_raw = coords[0] if isinstance(coords, (list, tuple)) and len(coords) >= 2 else it.get("lat")
         lng_raw = coords[1] if isinstance(coords, (list, tuple)) and len(coords) >= 2 else it.get("lng")
-        lat, lng, is_valid_coord = sanitize_coordinates(lat_raw, lng_raw)
+        lat, lng, is_valid_coord, needs_geocoding = sanitize_coordinates(lat_raw, lng_raw)
 
         kode_bps = extract_kode_bps_from_kode_rs(kode_rs)
 
@@ -173,14 +187,19 @@ def clean_and_validate_hospitals(raw_rs_list: List[Dict[str, Any]], raw_rekap_li
             "kode_bps": kode_bps,
             "kelas": kelas,
             "kepemilikan": kepemilikan,
+            "pemilik_raw": pemilik_raw_val,
             "jenis_rs": jenis_rs,
             "lat": lat,
             "lng": lng,
-            "is_valid_coord": is_valid_coord,
+            "is_valid_coord": 1 if is_valid_coord else 0,
+            "needs_geocoding": 1 if needs_geocoding else 0,
             "sumber_data": "SIRS Kemenkes"
         })
 
     df = pd.DataFrame(cleaned_rows)
     df_validated = CleanHospitalSchema.validate(df)
-    logger.info(f"[Validation] Successfully validated {len(df_validated)} hospital records with Pandera.")
+    
+    valid_count = len(df_validated[df_validated["is_valid_coord"] == 1])
+    geocode_count = len(df_validated[df_validated["needs_geocoding"] == 1])
+    logger.info(f"[Validation] Validated {len(df_validated)} RS. Valid coords: {valid_count}, Needs geocoding: {geocode_count}.")
     return df_validated
