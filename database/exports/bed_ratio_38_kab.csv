@@ -1,5 +1,5 @@
 kode_bps,nama_wilayah,total_tt,jumlah_penduduk,rasio_tt_per_1000,kategori_who
-3501,Kabupaten Pacitan,339,555984,0.61,merah
+3501,Kabupaten Pacitan,337,555984,0.61,merah
 3502,Kabupaten Ponorogo,1141,871825,1.31,hijau
 3503,Kabupaten Trenggalek,674,697600,0.97,kuning
 3504,Kabupaten Tulungagung,2100,1043182,2.01,hijau
@@ -22,18 +22,18 @@ kode_bps,nama_wilayah,total_tt,jumlah_penduduk,rasio_tt_per_1000,kategori_who
 3521,Kabupaten Ngawi,904,830134,1.09,hijau
 3522,Kabupaten Bojonegoro,1637,1252020,1.31,hijau
 3523,Kabupaten Tuban,866,1177016,0.74,kuning
-3524,Kabupaten Lamongan,2489,1189380,2.09,hijau
+3524,Kabupaten Lamongan,2467,1189380,2.07,hijau
 3525,Kabupaten Gresik,2692,1326420,2.03,hijau
 3526,Kabupaten Bangkalan,1148,994212,1.15,hijau
 3527,Kabupaten Sampang,636,975108,0.65,merah
 3528,Kabupaten Pamekasan,797,888214,0.9,kuning
 3529,Kabupaten Sumenep,859,1092387,0.79,kuning
-3571,Kota Kediri,1566,289109,5.42,hijau
+3571,Kota Kediri,1555,289109,5.38,hijau
 3572,Kota Blitar,674,142798,4.72,hijau
 3573,Kota Malang,4174,874890,4.77,hijau
 3574,Kota Probolinggo,601,239024,2.51,hijau
 3575,Kota Pasuruan,295,201585,1.46,hijau
 3576,Kota Mojokerto,819,129891,6.31,hijau
-3577,Kota Madiun,1512,177399,8.52,hijau
-3578,Kota Surabaya,12342,2904751,4.25,hijau
+3577,Kota Madiun,1509,177399,8.51,hijau
+3578,Kota Surabaya,12343,2904751,4.25,hijau
 3579,Kota Batu,619,209125,2.96,hijau
