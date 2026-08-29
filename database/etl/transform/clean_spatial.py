@@ -1,3 +1,4 @@
+import os
 import json
 import logging
 from typing import Dict, Any, List, Tuple, Optional
@@ -8,7 +9,38 @@ logger = logging.getLogger("CleanSpatial")
 def clean_and_validate_districts(geojson_raw: Optional[Dict[str, Any]], rasio_tt_raw: Optional[Dict[str, Any]]) -> Tuple[List[Dict[str, Any]], pd.DataFrame]:
     """
     Validate 38 East Java districts polygon & generate standardized bed ratio dataframe.
+    Falls back to local static seed if live geojson is empty.
     """
+    # Fallback to local seed if live geojson has no features
+    features = geojson_raw.get("features", []) if geojson_raw else []
+    if not features:
+        seed_geojson_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "seeds", "jatim_districts.geojson")
+        if os.path.exists(seed_geojson_path):
+            try:
+                with open(seed_geojson_path, "r", encoding="utf-8") as f:
+                    seed_data = json.load(f)
+                    features = seed_data.get("features", [])
+                    logger.info(f"[CleanSpatial] Using fallback static seed from {seed_geojson_path} ({len(features)} features)")
+            except Exception as e:
+                logger.warning(f"[CleanSpatial] Failed loading fallback seed geojson: {e}")
+
+    # Fallback to local ref_wilayah CSV if still empty
+    if not features:
+        seed_csv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "seeds", "ref_wilayah_jatim.csv")
+        if os.path.exists(seed_csv_path):
+            df_seed = pd.read_csv(seed_csv_path)
+            features = [
+                {
+                    "properties": {
+                        "KODE_BPS": str(row["kode_bps"]),
+                        "PROVINSI": row["nama_wilayah"],
+                        "jumlah_penduduk": 0
+                    },
+                    "geometry": None
+                }
+                for _, row in df_seed.iterrows()
+            ]
+
     rasio_map = {}
     if rasio_tt_raw and "wilayah" in rasio_tt_raw:
         for it in rasio_tt_raw["wilayah"]:
@@ -19,12 +51,12 @@ def clean_and_validate_districts(geojson_raw: Optional[Dict[str, Any]], rasio_tt
     district_records = []
     ratio_rows = []
 
-    features = geojson_raw.get("features", []) if geojson_raw else []
     for feat in features:
         props = feat.get("properties", {})
         kbps = str(props.get("KODE_BPS") or props.get("ID2013", "")).strip()
         nama = props.get("PROVINSI", "")
-        geom_json = json.dumps(feat.get("geometry", {}))
+        geom_obj = feat.get("geometry")
+        geom_json = json.dumps(geom_obj) if geom_obj else None
 
         if not kbps:
             continue
