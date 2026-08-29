@@ -50,6 +50,7 @@ jobs:
           DB_PASSWORD: cura_password
         run: |
           PYTHONPATH=database python database/cli.py init-db
+          PYTHONPATH=database python database/cli.py run-etl
 
       - name: Run Test Suite (25 Tests / Data Quality Gates)
         env:
