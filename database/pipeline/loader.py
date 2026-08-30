@@ -36,9 +36,26 @@ def init_db():
     with engine.connect() as conn:
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_tbl_rs_geom ON tbl_rumah_sakit USING GIST (geom);"))
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_ref_wilayah_geom ON ref_wilayah USING GIST (geom);"))
+        
+        # Point 3 Optimization: Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
+        conn.execute(text("""
+            CREATE OR REPLACE VIEW v_choropleth_wilayah AS
+            SELECT 
+                w.kode_bps,
+                w.nama_wilayah,
+                w.tipe,
+                COALESCE(a.total_rs, 0) as total_rs,
+                COALESCE(a.total_tt, 0) as total_tt,
+                COALESCE(a.jumlah_penduduk, 0) as jumlah_penduduk,
+                COALESCE(a.rasio_tt_per_1000, 0.0) as rasio_tt_per_1000,
+                COALESCE(a.kategori_ketercukupan, 'kuning') as kategori_ketercukupan,
+                w.geom
+            FROM ref_wilayah w
+            LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps;
+        """))
         conn.commit()
 
-    logger.info("[Database] PostGIS extension & GIST spatial indexes verified successfully.")
+    logger.info("[Database] PostGIS extension, GIST indexes & v_choropleth_wilayah view verified successfully.")
 
 def generate_rs_key(nama_rs: str, kode_bps: Optional[str], kode_rs: Optional[str] = None) -> str:
     """
