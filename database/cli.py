@@ -12,6 +12,10 @@ def main():
     subparsers.add_parser("test-db", help="Run test suite for data layer")
     subparsers.add_parser("check-health", help="Check status and availability of external APIs & DB")
     
+    # Geocode parser
+    geocode_parser = subparsers.add_parser("geocode-pending", help="Batch geocode hospitals with NULL coordinates via OSM Nominatim")
+    geocode_parser.add_argument("--max", type=int, default=50, help="Max hospitals to geocode per run (default: 50, Nominatim rate: 1 req/sec)")
+    
     # Scheduler parser
     sched_parser = subparsers.add_parser("scheduler", help="Run automatic ETL scheduler daemon")
     sched_parser.add_argument("--day", type=str, default="mon", help="Day of week: mon/senin, tue, wed, thu, fri, sat, sun, or daily (default: mon)")
@@ -79,6 +83,12 @@ def main():
         from pipeline.orchestrator import execute_full_etl
         fetch_all_sources()
         execute_full_etl()
+        return
+
+    if args.command == "geocode-pending":
+        from pipeline.geocoder import geocode_pending_from_db
+        result = geocode_pending_from_db(max_lookups=args.max)
+        print(f"[Geocoder] Done. Resolved: {result['resolved']}, Still pending: {result['remaining']}.")
         return
 
     print(f"[HealthTrust CLI] Executing command: {args.command}")
