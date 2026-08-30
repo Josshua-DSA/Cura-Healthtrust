@@ -39,7 +39,36 @@ def save_raw_snapshot(source_id: str, data: Any, extension: str = "json") -> str
             f.write(data)
 
     logger.info(f"[Snapshot] Saved raw data for '{source_id}' -> {file_path}")
+    prune_old_snapshots(source_id, max_keep=10, extension=extension)
     return file_path
+
+def prune_old_snapshots(source_id: str, max_keep: int = 10, extension: str = "json") -> int:
+    """
+    Retention policy: Keep only the most recent N snapshots per source.
+    Deletes older snapshots to prevent disk exhaustion.
+    """
+    target_dir = os.path.join(RAW_DATA_DIR, source_id)
+    if not os.path.exists(target_dir):
+        return 0
+
+    files = sorted(
+        [f for f in os.listdir(target_dir) if f.endswith(f".{extension}") and f != f"latest.{extension}"],
+        reverse=True
+    )
+
+    deleted_count = 0
+    if len(files) > max_keep:
+        for old_file in files[max_keep:]:
+            old_path = os.path.join(target_dir, old_file)
+            try:
+                os.remove(old_path)
+                deleted_count += 1
+            except Exception as e:
+                logger.warning(f"[Storage] Failed removing old snapshot {old_path}: {e}")
+        if deleted_count > 0:
+            logger.info(f"[Storage] Pruned {deleted_count} older snapshots for '{source_id}' (kept latest {max_keep}).")
+
+    return deleted_count
 
 def load_latest_snapshot(source_id: str, extension: str = "json") -> Tuple[Optional[Any], Optional[str]]:
     """

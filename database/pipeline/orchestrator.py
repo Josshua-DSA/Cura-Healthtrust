@@ -10,6 +10,7 @@ from etl.transform.clean_hospitals import clean_and_validate_hospitals
 from etl.transform.clean_spatial import clean_and_validate_districts
 from etl.load.load_to_postgis import load_all_to_postgis
 from pipeline.opendata_crawler import crawl_and_parse_opendata_csv
+from pipeline.geocoder import enrich_unmapped_hospitals
 from pipeline.loader import get_session
 from pipeline.audit import start_pipeline_log, finish_pipeline_log
 from models import EnumPipelineStatus
@@ -52,21 +53,39 @@ def execute_full_etl() -> Dict[str, Any]:
         # Step 2: Clean & Validate RS
         logger.info("Step 2: Cleaning & Validating hospital records with Quality Gates...")
         df_rs = clean_and_validate_hospitals(raw_rs_items, raw_rekap_items)
+        rs_records = df_rs.to_dict(orient="records")
+
+        # Step 2B: Optional OSM Geocoding enrichment for unmapped hospitals
+        try:
+            rs_records = enrich_unmapped_hospitals(rs_records, max_lookups=5)
+            df_rs = pd.DataFrame(rs_records)
+        except Exception as e:
+            logger.warning(f"[Geocoder] Geocoding enrichment skipped/failed: {e}")
         
-        # Save clean export CSV 1: hospitals_clean.csv
+        # Save clean export datasets (CSV + Parquet format)
         exports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports")
         os.makedirs(exports_dir, exist_ok=True)
         
         export_rs_path = os.path.join(exports_dir, "hospitals_clean.csv")
+        export_rs_parquet = os.path.join(exports_dir, "hospitals_clean.parquet")
         df_rs.to_csv(export_rs_path, index=False)
-        logger.info(f"[Export] Saved clean hospital export -> {export_rs_path}")
+        try:
+            df_rs.to_parquet(export_rs_parquet, index=False)
+            logger.info(f"[Export] Saved clean hospital exports -> {export_rs_path} & {export_rs_parquet}")
+        except Exception as e:
+            logger.info(f"[Export] Saved clean hospital export -> {export_rs_path} (parquet skipped: {e})")
 
         # Step 3: Spatial Districts & Ratio Export CSV 2: bed_ratio_38_kab.csv
         logger.info("Step 3: Cleaning district polygons and precomputing WHO ratio export...")
         wilayah_records, df_ratio = clean_and_validate_districts(geojson_raw, rasio_tt_raw)
         
         export_ratio_path = os.path.join(exports_dir, "bed_ratio_38_kab.csv")
+        export_ratio_parquet = os.path.join(exports_dir, "bed_ratio_38_kab.parquet")
         df_ratio.to_csv(export_ratio_path, index=False)
+        try:
+            df_ratio.to_parquet(export_ratio_parquet, index=False)
+        except Exception:
+            pass
         logger.info(f"[Export] Saved district ratio export -> {export_ratio_path}")
 
         # Step 4: Indicators Thematic Export CSV 3: indicators_jatim.csv
@@ -75,7 +94,12 @@ def execute_full_etl() -> Dict[str, Any]:
         if indikator_records:
             df_ind = pd.DataFrame(indikator_records)
             export_ind_path = os.path.join(exports_dir, "indicators_jatim.csv")
+            export_ind_parquet = os.path.join(exports_dir, "indicators_jatim.parquet")
             df_ind.to_csv(export_ind_path, index=False)
+            try:
+                df_ind.to_parquet(export_ind_parquet, index=False)
+            except Exception:
+                pass
             logger.info(f"[Export] Saved thematic health indicators export -> {export_ind_path}")
 
         # Step 5: Load to PostgreSQL/PostGIS
@@ -89,7 +113,6 @@ def execute_full_etl() -> Dict[str, Any]:
                 "sumber": "SIRS Kemenkes / Disdukcapil"
             })
 
-        rs_records = df_rs.to_dict(orient="records")
         rasio_items = rasio_tt_raw.get("wilayah", []) if rasio_tt_raw else []
 
         load_summary = load_all_to_postgis(
