@@ -383,6 +383,11 @@ Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
      ORDER BY jarak_km ASC;
      ```
   3. `GET /api/v1/wilayah/summary`: Query langsung dari `tbl_agregat_wilayah` untuk respon instan tanpa kalkulasi agregasi berulang.
+  4. `GET /api/v1/districts/choropleth`: Query langsung dari PostgreSQL View siap saji (`v_choropleth_wilayah`):
+     ```sql
+     SELECT kode_bps, nama_wilayah, tipe, total_rs, total_tt, jumlah_penduduk, rasio_tt_per_1000, kategori_ketercukupan, ST_AsGeoJSON(geom) AS geojson
+     FROM v_choropleth_wilayah;
+     ```
 
 ---
 
@@ -409,10 +414,10 @@ Database menggunakan PostgreSQL 15 + PostGIS 3.3 (`cura_db`).
   * `experiments/notebooks/`: Simpan file Jupyter Notebook (.ipynb) untuk EDA, visualisasi Seaborn/Plotly, atau spatial clustering (e.g. `01_data_cleaning_audit.ipynb`, `02_spatial_distribution.ipynb`, `03_bed_capacity_analysis.ipynb`).
   * `experiments/data/`: Tempat menyimpan file dataset sementara.
   * `experiments/scripts/`: Script eksperimen transformasi data ad-hoc.
-* Dataset bersih siap analisis tanpa setup database:
-  1. `database/exports/hospitals_clean.csv` (447 RS Jawa Timur terstandarisasi).
-  2. `database/exports/bed_ratio_38_kab.csv` (Rasio tempat tidur 38 Kab/Kota).
-  3. `database/exports/indicators_jatim.csv` (Indikator Puskesmas & Tenaga Medis Dinkes Jatim).
+* Dataset bersih siap analisis tanpa setup database (Format CSV & Apache Parquet):
+  1. `database/exports/hospitals_clean.csv` / `.parquet` (447 RS Jawa Timur terstandarisasi).
+  2. `database/exports/bed_ratio_38_kab.csv` / `.parquet` (Rasio tempat tidur 38 Kab/Kota).
+  3. `database/exports/indicators_jatim.csv` / `.parquet` (Indikator Puskesmas & Tenaga Medis Dinkes Jatim).
 
 ---
 
