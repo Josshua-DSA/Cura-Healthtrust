@@ -29,6 +29,37 @@ def test_v_choropleth_wilayah_view():
     session.close()
     assert res == 38
 
+
+def test_v_faskes_all_view():
+    session = get_session()
+    try:
+        total = session.execute(text("SELECT COUNT(*) FROM v_faskes_all;")).scalar()
+        rs_count = session.execute(text("SELECT COUNT(*) FROM v_faskes_all WHERE jenis_faskes = 'rumah_sakit';")).scalar()
+        pkm_count = session.execute(text("SELECT COUNT(*) FROM v_faskes_all WHERE jenis_faskes = 'puskesmas';")).scalar()
+        assert total >= 1400
+        assert rs_count == 447
+        assert pkm_count >= 900
+    finally:
+        session.close()
+
+
+def test_pg_trgm_and_unaccent_fuzzy_search():
+    session = get_session()
+    try:
+        # Test pg_trgm fuzzy matching
+        res = session.execute(
+            text("SELECT nama_rs FROM tbl_rumah_sakit WHERE similarity(nama_rs, 'RS Dr Sutomo') > 0.25 LIMIT 1;")
+        ).fetchone()
+        assert res is not None
+        assert "Soetomo" in res[0] or "dr." in res[0].lower()
+
+        # Test unaccent function
+        unaccent_test = session.execute(text("SELECT unaccent('Hôpital Sehat');")).scalar()
+        assert unaccent_test == "Hopital Sehat"
+    finally:
+        session.close()
+
+
 def test_parquet_export_existence():
     exports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports")
     assert os.path.exists(os.path.join(exports_dir, "hospitals_clean.parquet"))
