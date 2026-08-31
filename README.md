@@ -86,6 +86,7 @@ Dataset bersih yang diekspor otomatis dan siap digunakan langsung oleh seluruh t
 | File Dataset | Format | Deskripsi Singkat |
 |---|---|---|
 | `database/exports/hospitals_clean.*` | `.parquet` / `.csv` | 447 Rumah Sakit Jatim bersih, 3 enum kepemilikan, metadata `coverage_periode: 2026-LIVE`. |
+| `database/exports/puskesmas_clean.*` | `.parquet` / `.csv` | 977 Puskesmas Jatim (Rawat Inap & Non Rawat Inap), metadata `coverage_periode: 2024-OFFICIAL`. |
 | `database/exports/bed_ratio_38_kab.*` | `.parquet` / `.csv` | 38 Kab/Kota lengkap dengan rasio TT resmi Kemenkes + **Proyeksi Kependudukan BPS 2026**. |
 | `database/exports/indicators_jatim.*` | `.parquet` / `.csv` | 114 baris indikator Puskesmas dan Dokter dari Dinkes Jatim 2024 (`2024-OFFICIAL`). |
 | `database/seeds/jatim_districts.geojson`| `.geojson` | Batas polygon 38 Kab/Kota Jawa Timur (EPSG:4326). |
@@ -109,7 +110,7 @@ HealthTrust/
 │   ├── health/                 # Healthcheck script API & database
 │   ├── pipeline/               # Storage snapshot, crawler, cleaner, geocoder
 │   ├── seeds/                  # Seed statis GeoJSON & referensi wilayah BPS
-│   ├── tests/                  # Test suite data quality gates (28 tests)
+│   ├── tests/                  # Test suite data quality gates (35 tests)
 │   ├── cli.py                  # CLI Master Runner pipeline database
 │   ├── models.py               # Definisi Model ORM SQLAlchemy & PostGIS
 │   ├── requirements.txt        # Dependensi Python layer database
