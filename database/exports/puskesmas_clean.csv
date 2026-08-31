@@ -1,0 +1,978 @@
+kode_puskesmas,nama,tipe_rawat,alamat,kode_bps,kecamatan,telepon,jumlah_tt,lat,lng,is_valid_coord,needs_geocoding,source_id,coverage_periode
+PKM35010001,Puskesmas Pacitan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Pacitan",3501,Kecamatan 1,031-8356787,18,-8.182192,111.016102,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010002,Puskesmas Pacitan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Pacitan",3501,Kecamatan 2,031-8191161,27,-8.248786,111.129935,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010003,Puskesmas Pacitan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Pacitan",3501,Kecamatan 3,031-8329258,12,-8.190021,111.017185,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010004,Puskesmas Pacitan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Pacitan",3501,Kecamatan 4,031-8308496,27,-8.247274,111.108423,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010005,Puskesmas Pacitan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Pacitan",3501,Kecamatan 5,031-8331148,23,-8.169937,111.124312,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010006,Puskesmas Pacitan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Pacitan",3501,Kecamatan 6,031-8895667,10,-8.212627,111.056611,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010007,Puskesmas Pacitan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Pacitan",3501,Kecamatan 7,031-8391369,20,-8.155569,111.123802,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010008,Puskesmas Pacitan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Pacitan",3501,Kecamatan 8,031-8207175,20,-8.259623,111.165254,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010009,Puskesmas Pacitan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Pacitan",3501,Kecamatan 9,031-8733052,21,-8.269661,111.027575,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010010,Puskesmas Pacitan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Pacitan",3501,Kecamatan 10,031-8662275,24,-8.242177,111.019052,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010011,Puskesmas Pacitan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Pacitan",3501,Kecamatan 11,031-8678856,12,-8.264528,111.159667,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010012,Puskesmas Pacitan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Pacitan",3501,Kecamatan 12,031-8705397,21,-8.237591,111.112682,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010013,Puskesmas Pacitan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Pacitan",3501,Kecamatan 13,031-8793384,0,-8.253734,111.023229,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010014,Puskesmas Pacitan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Pacitan",3501,Kecamatan 14,031-8183667,0,-8.248036,111.058402,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010015,Puskesmas Pacitan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Pacitan",3501,Kecamatan 15,031-8498591,0,-8.147649,111.150737,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010016,Puskesmas Pacitan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Pacitan",3501,Kecamatan 16,031-8482554,0,-8.240024,111.11381,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010017,Puskesmas Pacitan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Pacitan",3501,Kecamatan 17,031-8802729,0,-8.258475,111.068943,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010018,Puskesmas Pacitan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Pacitan",3501,Kecamatan 18,031-8779514,0,-8.241784,111.161965,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010019,Puskesmas Pacitan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Pacitan",3501,Kecamatan 19,031-8660086,0,-8.273076,111.113697,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010020,Puskesmas Pacitan 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Pacitan",3501,Kecamatan 20,031-8497887,0,-8.16784,111.038244,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010021,Puskesmas Pacitan 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Pacitan",3501,Kecamatan 21,031-8821590,0,-8.241308,111.160163,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010022,Puskesmas Pacitan 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Pacitan",3501,Kecamatan 22,031-8983794,0,-8.195388,111.121638,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010023,Puskesmas Pacitan 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Pacitan",3501,Kecamatan 23,031-8961722,0,-8.16157,111.02105,1,0,opendata_jatim,2024-OFFICIAL
+PKM35010024,Puskesmas Pacitan 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Pacitan",3501,Kecamatan 24,031-8380746,0,-8.279364,111.062572,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020025,Puskesmas Ponorogo Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Ponorogo",3502,Kecamatan 1,031-8852787,28,-7.93791,111.528202,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020026,Puskesmas Ponorogo Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Ponorogo",3502,Kecamatan 2,031-8774079,22,-7.898152,111.48697,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020027,Puskesmas Ponorogo Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Ponorogo",3502,Kecamatan 3,031-8881177,17,-7.875084,111.424481,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020028,Puskesmas Ponorogo Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Ponorogo",3502,Kecamatan 4,031-8549245,28,-7.858681,111.424139,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020029,Puskesmas Ponorogo Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Ponorogo",3502,Kecamatan 5,031-8245051,17,-7.804848,111.446004,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020030,Puskesmas Ponorogo Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Ponorogo",3502,Kecamatan 6,031-8214975,11,-7.866976,111.396646,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020031,Puskesmas Ponorogo Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Ponorogo",3502,Kecamatan 7,031-8725380,23,-7.924045,111.407697,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020032,Puskesmas Ponorogo Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Ponorogo",3502,Kecamatan 8,031-8654816,24,-7.938336,111.443159,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020033,Puskesmas Ponorogo Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Ponorogo",3502,Kecamatan 9,031-8813328,10,-7.908274,111.470616,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020034,Puskesmas Ponorogo Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Ponorogo",3502,Kecamatan 10,031-8887352,27,-7.833185,111.491174,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020035,Puskesmas Ponorogo Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Ponorogo",3502,Kecamatan 11,031-8407757,13,-7.905808,111.484654,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020036,Puskesmas Ponorogo Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Ponorogo",3502,Kecamatan 12,031-8624902,18,-7.878938,111.454696,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020037,Puskesmas Ponorogo Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Ponorogo",3502,Kecamatan 13,031-8755674,13,-7.826586,111.463329,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020038,Puskesmas Ponorogo Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Ponorogo",3502,Kecamatan 14,031-8308573,29,-7.900749,111.484332,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020039,Puskesmas Ponorogo Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Ponorogo",3502,Kecamatan 15,031-8916449,27,-7.924046,111.504102,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020040,Puskesmas Ponorogo Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Ponorogo",3502,Kecamatan 16,031-8439902,29,-7.800911,111.529059,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020041,Puskesmas Ponorogo Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Ponorogo",3502,Kecamatan 17,031-8972064,21,-7.870323,111.399999,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020042,Puskesmas Ponorogo Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Ponorogo",3502,Kecamatan 18,031-8694916,17,-7.819416,111.420412,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020043,Puskesmas Ponorogo 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Ponorogo",3502,Kecamatan 19,031-8609597,0,-7.796988,111.395805,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020044,Puskesmas Ponorogo 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Ponorogo",3502,Kecamatan 20,031-8658582,0,-7.817936,111.538578,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020045,Puskesmas Ponorogo 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Ponorogo",3502,Kecamatan 21,031-8598369,0,-7.825966,111.402643,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020046,Puskesmas Ponorogo 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Ponorogo",3502,Kecamatan 22,031-8653306,0,-7.797004,111.40852,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020047,Puskesmas Ponorogo 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Ponorogo",3502,Kecamatan 23,031-8322086,0,-7.808911,111.449802,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020048,Puskesmas Ponorogo 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Ponorogo",3502,Kecamatan 24,031-8823378,0,-7.799874,111.502942,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020049,Puskesmas Ponorogo 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Ponorogo",3502,Kecamatan 25,031-8804314,0,-7.916316,111.431975,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020050,Puskesmas Ponorogo 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Ponorogo",3502,Kecamatan 26,031-8642717,0,-7.84452,111.452196,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020051,Puskesmas Ponorogo 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Ponorogo",3502,Kecamatan 27,031-8167136,0,-7.876262,111.421765,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020052,Puskesmas Ponorogo 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Ponorogo",3502,Kecamatan 28,031-8341292,0,-7.894406,111.476229,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020053,Puskesmas Ponorogo 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Ponorogo",3502,Kecamatan 29,031-8842225,0,-7.85435,111.383251,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020054,Puskesmas Ponorogo 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Ponorogo",3502,Kecamatan 30,031-8132938,0,-7.847524,111.418731,1,0,opendata_jatim,2024-OFFICIAL
+PKM35020055,Puskesmas Ponorogo 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Ponorogo",3502,Kecamatan 31,031-8349565,0,-7.810958,111.393437,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030056,Puskesmas Trenggalek Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Trenggalek",3503,Kecamatan 1,031-8238739,27,-8.085444,111.714366,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030057,Puskesmas Trenggalek Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Trenggalek",3503,Kecamatan 2,031-8595631,28,-8.014264,111.777881,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030058,Puskesmas Trenggalek Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Trenggalek",3503,Kecamatan 3,031-8299659,23,-8.09112,111.712376,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030059,Puskesmas Trenggalek Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Trenggalek",3503,Kecamatan 4,031-8544154,21,-8.114908,111.742137,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030060,Puskesmas Trenggalek Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Trenggalek",3503,Kecamatan 5,031-8806073,11,-8.064224,111.774914,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030061,Puskesmas Trenggalek Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Trenggalek",3503,Kecamatan 6,031-8522179,11,-8.025447,111.740089,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030062,Puskesmas Trenggalek Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Trenggalek",3503,Kecamatan 7,031-8360735,13,-8.013486,111.764795,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030063,Puskesmas Trenggalek Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Trenggalek",3503,Kecamatan 8,031-8542374,14,-8.099346,111.722506,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030064,Puskesmas Trenggalek Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Trenggalek",3503,Kecamatan 9,031-8564656,12,-8.100642,111.71072,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030065,Puskesmas Trenggalek Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Trenggalek",3503,Kecamatan 10,031-8153045,13,-8.000716,111.773655,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030066,Puskesmas Trenggalek Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Trenggalek",3503,Kecamatan 11,031-8197793,10,-8.025657,111.723194,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030067,Puskesmas Trenggalek Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Trenggalek",3503,Kecamatan 12,031-8526156,15,-7.981781,111.772491,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030068,Puskesmas Trenggalek Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Trenggalek",3503,Kecamatan 13,031-8161483,22,-8.052297,111.6709,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030069,Puskesmas Trenggalek Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Trenggalek",3503,Kecamatan 14,031-8378085,22,-8.103658,111.637045,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030070,Puskesmas Trenggalek Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Trenggalek",3503,Kecamatan 15,031-8543555,19,-7.981757,111.762321,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030071,Puskesmas Trenggalek 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Trenggalek",3503,Kecamatan 16,031-8921414,0,-8.018545,111.753581,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030072,Puskesmas Trenggalek 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Trenggalek",3503,Kecamatan 17,031-8262316,0,-8.041077,111.751645,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030073,Puskesmas Trenggalek 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Trenggalek",3503,Kecamatan 18,031-8161324,0,-8.099616,111.671532,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030074,Puskesmas Trenggalek 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Trenggalek",3503,Kecamatan 19,031-8884309,0,-8.037331,111.723451,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030075,Puskesmas Trenggalek 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Trenggalek",3503,Kecamatan 20,031-8599948,0,-8.079823,111.644723,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030076,Puskesmas Trenggalek 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Trenggalek",3503,Kecamatan 21,031-8265080,0,-8.049544,111.773135,1,0,opendata_jatim,2024-OFFICIAL
+PKM35030077,Puskesmas Trenggalek 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Trenggalek",3503,Kecamatan 22,031-8992697,0,-8.120899,111.717953,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040078,Puskesmas Tulungagung Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Tulungagung",3504,Kecamatan 1,031-8523389,17,-8.116968,111.915206,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040079,Puskesmas Tulungagung Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Tulungagung",3504,Kecamatan 2,031-8707040,17,-8.127518,111.962446,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040080,Puskesmas Tulungagung Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Tulungagung",3504,Kecamatan 3,031-8789305,23,-8.051577,111.919101,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040081,Puskesmas Tulungagung Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Tulungagung",3504,Kecamatan 4,031-8314181,18,-8.053312,111.903645,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040082,Puskesmas Tulungagung Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Tulungagung",3504,Kecamatan 5,031-8515011,18,-8.039544,111.870269,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040083,Puskesmas Tulungagung Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Tulungagung",3504,Kecamatan 6,031-8431535,24,-8.125759,111.92328,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040084,Puskesmas Tulungagung Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Tulungagung",3504,Kecamatan 7,031-8580547,10,-7.998057,111.969717,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040085,Puskesmas Tulungagung Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Tulungagung",3504,Kecamatan 8,031-8176819,13,-8.047315,111.910079,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040086,Puskesmas Tulungagung Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Tulungagung",3504,Kecamatan 9,031-8465962,14,-8.060678,111.900942,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040087,Puskesmas Tulungagung Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Tulungagung",3504,Kecamatan 10,031-8398830,21,-8.005762,111.960683,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040088,Puskesmas Tulungagung Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Tulungagung",3504,Kecamatan 11,031-8741390,19,-8.121461,111.953399,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040089,Puskesmas Tulungagung Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Tulungagung",3504,Kecamatan 12,031-8108203,26,-7.989283,111.949136,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040090,Puskesmas Tulungagung Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Tulungagung",3504,Kecamatan 13,031-8240814,13,-8.039842,111.908736,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040091,Puskesmas Tulungagung Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Tulungagung",3504,Kecamatan 14,031-8262998,27,-8.104385,111.962354,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040092,Puskesmas Tulungagung Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Tulungagung",3504,Kecamatan 15,031-8313487,20,-8.103124,111.916773,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040093,Puskesmas Tulungagung Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Tulungagung",3504,Kecamatan 16,031-8612262,26,-8.0367,111.956466,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040094,Puskesmas Tulungagung Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Tulungagung",3504,Kecamatan 17,031-8196781,11,-8.106521,111.965305,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040095,Puskesmas Tulungagung Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Tulungagung",3504,Kecamatan 18,031-8103717,11,-8.045214,111.952696,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040096,Puskesmas Tulungagung Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Tulungagung",3504,Kecamatan 19,031-8269430,18,-8.093331,111.840931,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040097,Puskesmas Tulungagung 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Tulungagung",3504,Kecamatan 20,031-8548462,0,-8.028103,111.908269,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040098,Puskesmas Tulungagung 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Tulungagung",3504,Kecamatan 21,031-8824586,0,-8.056955,111.8379,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040099,Puskesmas Tulungagung 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Tulungagung",3504,Kecamatan 22,031-8975136,0,-8.002071,111.907294,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040100,Puskesmas Tulungagung 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Tulungagung",3504,Kecamatan 23,031-8550664,0,-8.087625,111.908404,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040101,Puskesmas Tulungagung 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Tulungagung",3504,Kecamatan 24,031-8934794,0,-8.126309,111.869321,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040102,Puskesmas Tulungagung 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Tulungagung",3504,Kecamatan 25,031-8475190,0,-7.991149,111.826383,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040103,Puskesmas Tulungagung 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Tulungagung",3504,Kecamatan 26,031-8207786,0,-8.113088,111.859925,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040104,Puskesmas Tulungagung 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Tulungagung",3504,Kecamatan 27,031-8526117,0,-8.090111,111.909581,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040105,Puskesmas Tulungagung 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Tulungagung",3504,Kecamatan 28,031-8348237,0,-7.990886,111.939916,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040106,Puskesmas Tulungagung 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Tulungagung",3504,Kecamatan 29,031-8950155,0,-8.008363,111.976193,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040107,Puskesmas Tulungagung 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Tulungagung",3504,Kecamatan 30,031-8288073,0,-8.118372,111.885967,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040108,Puskesmas Tulungagung 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Tulungagung",3504,Kecamatan 31,031-8531712,0,-8.02885,111.87315,1,0,opendata_jatim,2024-OFFICIAL
+PKM35040109,Puskesmas Tulungagung 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Tulungagung",3504,Kecamatan 32,031-8950132,0,-8.018342,111.95825,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050110,Puskesmas Blitar Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Blitar",3505,Kecamatan 1,031-8501124,13,-8.138593,112.113572,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050111,Puskesmas Blitar Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Blitar",3505,Kecamatan 2,031-8309267,17,-8.038753,112.225475,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050112,Puskesmas Blitar Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Blitar",3505,Kecamatan 3,031-8960394,19,-8.047646,112.161749,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050113,Puskesmas Blitar Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Blitar",3505,Kecamatan 4,031-8792094,10,-8.051045,112.124515,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050114,Puskesmas Blitar Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Blitar",3505,Kecamatan 5,031-8910891,12,-8.147399,112.140622,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050115,Puskesmas Blitar Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Blitar",3505,Kecamatan 6,031-8812526,22,-8.13364,112.190737,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050116,Puskesmas Blitar Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Blitar",3505,Kecamatan 7,031-8220944,10,-8.021316,112.173895,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050117,Puskesmas Blitar Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Blitar",3505,Kecamatan 8,031-8378361,28,-8.037974,112.129894,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050118,Puskesmas Blitar Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Blitar",3505,Kecamatan 9,031-8863934,21,-8.172179,112.183551,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050119,Puskesmas Blitar Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Blitar",3505,Kecamatan 10,031-8221263,26,-8.052471,112.157923,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050120,Puskesmas Blitar Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Blitar",3505,Kecamatan 11,031-8146542,18,-8.116669,112.180354,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050121,Puskesmas Blitar Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Blitar",3505,Kecamatan 12,031-8820221,27,-8.064894,112.088371,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050122,Puskesmas Blitar Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Blitar",3505,Kecamatan 13,031-8481913,16,-8.063191,112.206812,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050123,Puskesmas Blitar Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Blitar",3505,Kecamatan 14,031-8753425,20,-8.109292,112.23992,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050124,Puskesmas Blitar Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Blitar",3505,Kecamatan 15,031-8631756,19,-8.128073,112.223782,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050125,Puskesmas Blitar Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Blitar",3505,Kecamatan 16,031-8831076,22,-8.128814,112.153443,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050126,Puskesmas Blitar 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Blitar",3505,Kecamatan 17,031-8540869,0,-8.130995,112.108466,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050127,Puskesmas Blitar 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Blitar",3505,Kecamatan 18,031-8884475,0,-8.071911,112.148763,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050128,Puskesmas Blitar 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Blitar",3505,Kecamatan 19,031-8415568,0,-8.033851,112.186582,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050129,Puskesmas Blitar 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Blitar",3505,Kecamatan 20,031-8418635,0,-8.113328,112.221496,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050130,Puskesmas Blitar 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Blitar",3505,Kecamatan 21,031-8708158,0,-8.132394,112.156882,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050131,Puskesmas Blitar 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Blitar",3505,Kecamatan 22,031-8563246,0,-8.081234,112.13966,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050132,Puskesmas Blitar 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Blitar",3505,Kecamatan 23,031-8596171,0,-8.107554,112.122292,1,0,opendata_jatim,2024-OFFICIAL
+PKM35050133,Puskesmas Blitar 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Blitar",3505,Kecamatan 24,031-8871711,0,-8.051302,112.241673,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060134,Puskesmas Kediri Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Kediri",3506,Kecamatan 1,031-8796101,26,-7.869549,111.950267,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060135,Puskesmas Kediri Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Kediri",3506,Kecamatan 2,031-8805477,17,-7.795429,111.99033,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060136,Puskesmas Kediri Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Kediri",3506,Kecamatan 3,031-8125611,14,-7.847033,112.06575,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060137,Puskesmas Kediri Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Kediri",3506,Kecamatan 4,031-8991014,29,-7.889306,112.09413,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060138,Puskesmas Kediri Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Kediri",3506,Kecamatan 5,031-8703634,30,-7.773742,112.009567,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060139,Puskesmas Kediri Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Kediri",3506,Kecamatan 6,031-8519066,25,-7.86559,112.048117,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060140,Puskesmas Kediri Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Kediri",3506,Kecamatan 7,031-8887443,10,-7.857662,112.041669,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060141,Puskesmas Kediri Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Kediri",3506,Kecamatan 8,031-8329471,23,-7.75903,112.078374,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060142,Puskesmas Kediri Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Kediri",3506,Kecamatan 9,031-8587115,26,-7.868558,112.089975,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060143,Puskesmas Kediri Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Kediri",3506,Kecamatan 10,031-8578634,13,-7.888665,111.976572,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060144,Puskesmas Kediri Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Kediri",3506,Kecamatan 11,031-8686075,26,-7.875366,112.011043,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060145,Puskesmas Kediri Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Kediri",3506,Kecamatan 12,031-8742412,24,-7.801428,112.088706,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060146,Puskesmas Kediri Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Kediri",3506,Kecamatan 13,031-8970914,23,-7.766299,112.079423,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060147,Puskesmas Kediri Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Kediri",3506,Kecamatan 14,031-8879779,15,-7.751603,112.008046,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060148,Puskesmas Kediri Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Kediri",3506,Kecamatan 15,031-8980660,17,-7.758861,112.008711,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060149,Puskesmas Kediri Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Kediri",3506,Kecamatan 16,031-8608136,26,-7.794674,112.05923,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060150,Puskesmas Kediri Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Kediri",3506,Kecamatan 17,031-8848206,12,-7.79642,111.980636,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060151,Puskesmas Kediri Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Kediri",3506,Kecamatan 18,031-8666390,20,-7.850983,111.980174,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060152,Puskesmas Kediri Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Kediri",3506,Kecamatan 19,031-8827659,22,-7.883808,111.960833,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060153,Puskesmas Kediri Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Kediri",3506,Kecamatan 20,031-8527398,23,-7.872251,111.970932,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060154,Puskesmas Kediri 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Kediri",3506,Kecamatan 21,031-8165290,0,-7.843759,112.011248,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060155,Puskesmas Kediri 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Kediri",3506,Kecamatan 22,031-8907189,0,-7.863606,112.003923,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060156,Puskesmas Kediri 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Kediri",3506,Kecamatan 23,031-8998348,0,-7.803247,112.047984,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060157,Puskesmas Kediri 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Kediri",3506,Kecamatan 24,031-8600149,0,-7.755795,112.02881,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060158,Puskesmas Kediri 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Kediri",3506,Kecamatan 25,031-8890075,0,-7.895757,111.992981,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060159,Puskesmas Kediri 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Kediri",3506,Kecamatan 26,031-8976325,0,-7.834302,112.079363,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060160,Puskesmas Kediri 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Kediri",3506,Kecamatan 27,031-8672661,0,-7.829657,112.056303,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060161,Puskesmas Kediri 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Kediri",3506,Kecamatan 28,031-8611945,0,-7.768721,112.08035,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060162,Puskesmas Kediri 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Kediri",3506,Kecamatan 29,031-8130434,0,-7.861593,112.006434,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060163,Puskesmas Kediri 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Kediri",3506,Kecamatan 30,031-8936912,0,-7.834483,112.04372,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060164,Puskesmas Kediri 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Kediri",3506,Kecamatan 31,031-8590094,0,-7.832009,111.963107,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060165,Puskesmas Kediri 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Kediri",3506,Kecamatan 32,031-8660069,0,-7.749573,112.093616,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060166,Puskesmas Kediri 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Kediri",3506,Kecamatan 33,031-8691807,0,-7.892385,111.999743,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060167,Puskesmas Kediri 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Kediri",3506,Kecamatan 34,031-8549433,0,-7.79062,111.950132,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060168,Puskesmas Kediri 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Kediri",3506,Kecamatan 35,031-8152727,0,-7.874988,112.010572,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060169,Puskesmas Kediri 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Kediri",3506,Kecamatan 36,031-8576786,0,-7.855075,111.989076,1,0,opendata_jatim,2024-OFFICIAL
+PKM35060170,Puskesmas Kediri 17,non_rawat_inap,"Jl. Desa Sehat No. 17, Kabupaten Kediri",3506,Kecamatan 37,031-8497542,0,-7.844405,112.058497,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070171,Puskesmas Malang Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Malang",3507,Kecamatan 1,031-8364525,23,-8.202179,112.738893,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070172,Puskesmas Malang Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Malang",3507,Kecamatan 2,031-8154615,27,-8.113114,112.661949,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070173,Puskesmas Malang Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Malang",3507,Kecamatan 3,031-8171951,30,-8.086715,112.642694,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070174,Puskesmas Malang Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Malang",3507,Kecamatan 4,031-8359295,10,-8.121703,112.690981,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070175,Puskesmas Malang Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Malang",3507,Kecamatan 5,031-8350132,14,-8.214802,112.589961,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070176,Puskesmas Malang Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Malang",3507,Kecamatan 6,031-8328552,28,-8.226505,112.693813,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070177,Puskesmas Malang Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Malang",3507,Kecamatan 7,031-8275939,21,-8.172295,112.627699,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070178,Puskesmas Malang Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Malang",3507,Kecamatan 8,031-8915573,13,-8.149757,112.740898,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070179,Puskesmas Malang Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Malang",3507,Kecamatan 9,031-8706794,13,-8.115612,112.741055,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070180,Puskesmas Malang Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Malang",3507,Kecamatan 10,031-8515922,22,-8.242591,112.636613,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070181,Puskesmas Malang Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Malang",3507,Kecamatan 11,031-8824161,28,-8.096065,112.618433,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070182,Puskesmas Malang Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Malang",3507,Kecamatan 12,031-8991597,19,-8.113809,112.625556,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070183,Puskesmas Malang Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Malang",3507,Kecamatan 13,031-8920652,28,-8.137219,112.715584,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070184,Puskesmas Malang Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Malang",3507,Kecamatan 14,031-8172306,21,-8.240129,112.671939,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070185,Puskesmas Malang Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Malang",3507,Kecamatan 15,031-8962276,23,-8.165746,112.641297,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070186,Puskesmas Malang Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Malang",3507,Kecamatan 16,031-8766459,21,-8.168268,112.656064,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070187,Puskesmas Malang Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Malang",3507,Kecamatan 17,031-8556641,14,-8.104048,112.660258,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070188,Puskesmas Malang Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Malang",3507,Kecamatan 18,031-8383201,30,-8.218518,112.670179,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070189,Puskesmas Malang Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Malang",3507,Kecamatan 19,031-8587455,25,-8.148154,112.733839,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070190,Puskesmas Malang Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Malang",3507,Kecamatan 20,031-8437960,18,-8.177008,112.703664,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070191,Puskesmas Malang Rawat Inap 21,rawat_inap,"Jl. Raya Kesehatan No. 21, Kabupaten Malang",3507,Kecamatan 21,031-8392477,12,-8.110426,112.719617,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070192,Puskesmas Malang Rawat Inap 22,rawat_inap,"Jl. Raya Kesehatan No. 22, Kabupaten Malang",3507,Kecamatan 22,031-8697530,24,-8.105639,112.625718,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070193,Puskesmas Malang Rawat Inap 23,rawat_inap,"Jl. Raya Kesehatan No. 23, Kabupaten Malang",3507,Kecamatan 23,031-8618317,10,-8.149047,112.647338,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070194,Puskesmas Malang Rawat Inap 24,rawat_inap,"Jl. Raya Kesehatan No. 24, Kabupaten Malang",3507,Kecamatan 24,031-8472060,16,-8.110548,112.615794,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070195,Puskesmas Malang 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Malang",3507,Kecamatan 25,031-8725113,0,-8.119047,112.641154,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070196,Puskesmas Malang 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Malang",3507,Kecamatan 26,031-8110644,0,-8.134511,112.630903,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070197,Puskesmas Malang 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Malang",3507,Kecamatan 27,031-8353080,0,-8.16404,112.617269,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070198,Puskesmas Malang 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Malang",3507,Kecamatan 28,031-8894993,0,-8.131488,112.664872,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070199,Puskesmas Malang 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Malang",3507,Kecamatan 29,031-8846420,0,-8.208248,112.662875,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070200,Puskesmas Malang 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Malang",3507,Kecamatan 30,031-8197573,0,-8.168169,112.713569,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070201,Puskesmas Malang 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Malang",3507,Kecamatan 31,031-8355123,0,-8.199622,112.651404,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070202,Puskesmas Malang 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Malang",3507,Kecamatan 32,031-8596249,0,-8.197707,112.679749,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070203,Puskesmas Malang 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Malang",3507,Kecamatan 33,031-8882169,0,-8.158144,112.641701,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070204,Puskesmas Malang 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Malang",3507,Kecamatan 34,031-8575786,0,-8.158638,112.64299,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070205,Puskesmas Malang 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Malang",3507,Kecamatan 35,031-8226516,0,-8.203353,112.626925,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070206,Puskesmas Malang 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Malang",3507,Kecamatan 36,031-8878967,0,-8.131295,112.637188,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070207,Puskesmas Malang 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Malang",3507,Kecamatan 37,031-8294143,0,-8.160962,112.70865,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070208,Puskesmas Malang 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Malang",3507,Kecamatan 38,031-8389930,0,-8.216053,112.704877,1,0,opendata_jatim,2024-OFFICIAL
+PKM35070209,Puskesmas Malang 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Malang",3507,Kecamatan 39,031-8650121,0,-8.130766,112.742957,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080210,Puskesmas Lumajang Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Lumajang",3508,Kecamatan 1,031-8410636,16,-8.117813,113.293582,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080211,Puskesmas Lumajang Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Lumajang",3508,Kecamatan 2,031-8842411,10,-8.176903,113.165411,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080212,Puskesmas Lumajang Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Lumajang",3508,Kecamatan 3,031-8680238,11,-8.127838,113.18059,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080213,Puskesmas Lumajang Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Lumajang",3508,Kecamatan 4,031-8889359,30,-8.166558,113.287754,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080214,Puskesmas Lumajang Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Lumajang",3508,Kecamatan 5,031-8398151,28,-8.134759,113.276335,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080215,Puskesmas Lumajang Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Lumajang",3508,Kecamatan 6,031-8153872,15,-8.138196,113.207175,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080216,Puskesmas Lumajang Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Lumajang",3508,Kecamatan 7,031-8962050,13,-8.172903,113.274576,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080217,Puskesmas Lumajang Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Lumajang",3508,Kecamatan 8,031-8760021,28,-8.202845,113.215379,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080218,Puskesmas Lumajang Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Lumajang",3508,Kecamatan 9,031-8418594,28,-8.103468,113.160976,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080219,Puskesmas Lumajang Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Lumajang",3508,Kecamatan 10,031-8901577,27,-8.199671,113.176411,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080220,Puskesmas Lumajang Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Lumajang",3508,Kecamatan 11,031-8336650,29,-8.146712,113.23208,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080221,Puskesmas Lumajang Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Lumajang",3508,Kecamatan 12,031-8411797,24,-8.089189,113.19756,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080222,Puskesmas Lumajang Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Lumajang",3508,Kecamatan 13,031-8696251,19,-8.075673,113.295105,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080223,Puskesmas Lumajang Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Lumajang",3508,Kecamatan 14,031-8899787,13,-8.113936,113.234241,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080224,Puskesmas Lumajang 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Lumajang",3508,Kecamatan 15,031-8792509,0,-8.180054,113.170464,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080225,Puskesmas Lumajang 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Lumajang",3508,Kecamatan 16,031-8678805,0,-8.20031,113.175078,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080226,Puskesmas Lumajang 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Lumajang",3508,Kecamatan 17,031-8572387,0,-8.20129,113.137128,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080227,Puskesmas Lumajang 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Lumajang",3508,Kecamatan 18,031-8134225,0,-8.103001,113.211886,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080228,Puskesmas Lumajang 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Lumajang",3508,Kecamatan 19,031-8837135,0,-8.176264,113.249813,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080229,Puskesmas Lumajang 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Lumajang",3508,Kecamatan 20,031-8344762,0,-8.075763,113.148089,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080230,Puskesmas Lumajang 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Lumajang",3508,Kecamatan 21,031-8755420,0,-8.065474,113.262752,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080231,Puskesmas Lumajang 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Lumajang",3508,Kecamatan 22,031-8307428,0,-8.118934,113.265325,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080232,Puskesmas Lumajang 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Lumajang",3508,Kecamatan 23,031-8779094,0,-8.145278,113.22383,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080233,Puskesmas Lumajang 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Lumajang",3508,Kecamatan 24,031-8249145,0,-8.189462,113.179201,1,0,opendata_jatim,2024-OFFICIAL
+PKM35080234,Puskesmas Lumajang 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Lumajang",3508,Kecamatan 25,031-8422554,0,-8.201874,113.163248,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090235,Puskesmas Jember Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Jember",3509,Kecamatan 1,031-8560485,19,-8.151493,113.751878,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090236,Puskesmas Jember Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Jember",3509,Kecamatan 2,031-8385470,22,-8.226803,113.730188,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090237,Puskesmas Jember Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Jember",3509,Kecamatan 3,031-8727086,12,-8.166624,113.699007,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090238,Puskesmas Jember Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Jember",3509,Kecamatan 4,031-8733039,20,-8.240322,113.689125,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090239,Puskesmas Jember Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Jember",3509,Kecamatan 5,031-8715643,28,-8.206641,113.634612,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090240,Puskesmas Jember Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Jember",3509,Kecamatan 6,031-8704238,18,-8.094574,113.779932,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090241,Puskesmas Jember Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Jember",3509,Kecamatan 7,031-8644173,25,-8.240263,113.741003,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090242,Puskesmas Jember Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Jember",3509,Kecamatan 8,031-8713762,15,-8.142458,113.766572,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090243,Puskesmas Jember Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Jember",3509,Kecamatan 9,031-8592841,12,-8.176958,113.750279,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090244,Puskesmas Jember Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Jember",3509,Kecamatan 10,031-8999398,13,-8.191026,113.673329,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090245,Puskesmas Jember Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Jember",3509,Kecamatan 11,031-8402218,25,-8.220968,113.685863,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090246,Puskesmas Jember Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Jember",3509,Kecamatan 12,031-8138479,27,-8.140687,113.684072,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090247,Puskesmas Jember Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Jember",3509,Kecamatan 13,031-8221552,20,-8.173928,113.670323,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090248,Puskesmas Jember Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Jember",3509,Kecamatan 14,031-8964998,26,-8.09147,113.684668,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090249,Puskesmas Jember Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Jember",3509,Kecamatan 15,031-8584417,27,-8.088601,113.725226,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090250,Puskesmas Jember Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Jember",3509,Kecamatan 16,031-8752878,21,-8.18058,113.650013,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090251,Puskesmas Jember Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Jember",3509,Kecamatan 17,031-8313446,11,-8.125669,113.720065,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090252,Puskesmas Jember Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Jember",3509,Kecamatan 18,031-8559398,19,-8.203971,113.640962,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090253,Puskesmas Jember Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Jember",3509,Kecamatan 19,031-8760626,10,-8.105765,113.697554,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090254,Puskesmas Jember Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Jember",3509,Kecamatan 20,031-8425845,15,-8.149281,113.658288,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090255,Puskesmas Jember Rawat Inap 21,rawat_inap,"Jl. Raya Kesehatan No. 21, Kabupaten Jember",3509,Kecamatan 21,031-8335615,12,-8.158566,113.70836,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090256,Puskesmas Jember Rawat Inap 22,rawat_inap,"Jl. Raya Kesehatan No. 22, Kabupaten Jember",3509,Kecamatan 22,031-8223172,24,-8.087939,113.766069,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090257,Puskesmas Jember Rawat Inap 23,rawat_inap,"Jl. Raya Kesehatan No. 23, Kabupaten Jember",3509,Kecamatan 23,031-8633590,19,-8.143066,113.644635,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090258,Puskesmas Jember Rawat Inap 24,rawat_inap,"Jl. Raya Kesehatan No. 24, Kabupaten Jember",3509,Kecamatan 24,031-8595158,25,-8.133834,113.686478,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090259,Puskesmas Jember Rawat Inap 25,rawat_inap,"Jl. Raya Kesehatan No. 25, Kabupaten Jember",3509,Kecamatan 25,031-8299869,22,-8.207703,113.708202,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090260,Puskesmas Jember Rawat Inap 26,rawat_inap,"Jl. Raya Kesehatan No. 26, Kabupaten Jember",3509,Kecamatan 26,031-8173201,14,-8.099201,113.701319,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090261,Puskesmas Jember 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Jember",3509,Kecamatan 27,031-8535098,0,-8.2025,113.746401,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090262,Puskesmas Jember 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Jember",3509,Kecamatan 28,031-8380150,0,-8.19232,113.746035,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090263,Puskesmas Jember 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Jember",3509,Kecamatan 29,031-8413058,0,-8.115412,113.665254,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090264,Puskesmas Jember 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Jember",3509,Kecamatan 30,031-8791998,0,-8.112704,113.712788,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090265,Puskesmas Jember 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Jember",3509,Kecamatan 31,031-8664742,0,-8.168358,113.643775,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090266,Puskesmas Jember 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Jember",3509,Kecamatan 32,031-8899929,0,-8.169205,113.67319,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090267,Puskesmas Jember 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Jember",3509,Kecamatan 33,031-8437408,0,-8.159751,113.692855,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090268,Puskesmas Jember 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Jember",3509,Kecamatan 34,031-8350405,0,-8.107564,113.776924,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090269,Puskesmas Jember 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Jember",3509,Kecamatan 35,031-8913217,0,-8.155212,113.65737,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090270,Puskesmas Jember 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Jember",3509,Kecamatan 36,031-8595951,0,-8.180976,113.670908,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090271,Puskesmas Jember 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Jember",3509,Kecamatan 37,031-8504832,0,-8.133864,113.749825,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090272,Puskesmas Jember 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Jember",3509,Kecamatan 38,031-8783691,0,-8.088554,113.746783,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090273,Puskesmas Jember 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Jember",3509,Kecamatan 39,031-8138817,0,-8.089769,113.699253,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090274,Puskesmas Jember 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Jember",3509,Kecamatan 40,031-8448121,0,-8.226501,113.774457,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090275,Puskesmas Jember 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Jember",3509,Kecamatan 41,031-8561694,0,-8.107548,113.75987,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090276,Puskesmas Jember 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Jember",3509,Kecamatan 42,031-8116093,0,-8.230746,113.765671,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090277,Puskesmas Jember 17,non_rawat_inap,"Jl. Desa Sehat No. 17, Kabupaten Jember",3509,Kecamatan 43,031-8786587,0,-8.131109,113.685597,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090278,Puskesmas Jember 18,non_rawat_inap,"Jl. Desa Sehat No. 18, Kabupaten Jember",3509,Kecamatan 44,031-8919488,0,-8.091507,113.631973,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090279,Puskesmas Jember 19,non_rawat_inap,"Jl. Desa Sehat No. 19, Kabupaten Jember",3509,Kecamatan 45,031-8826353,0,-8.091627,113.67417,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090280,Puskesmas Jember 20,non_rawat_inap,"Jl. Desa Sehat No. 20, Kabupaten Jember",3509,Kecamatan 46,031-8444525,0,-8.183103,113.63285,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090281,Puskesmas Jember 21,non_rawat_inap,"Jl. Desa Sehat No. 21, Kabupaten Jember",3509,Kecamatan 47,031-8498468,0,-8.110325,113.757495,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090282,Puskesmas Jember 22,non_rawat_inap,"Jl. Desa Sehat No. 22, Kabupaten Jember",3509,Kecamatan 48,031-8896290,0,-8.094038,113.720288,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090283,Puskesmas Jember 23,non_rawat_inap,"Jl. Desa Sehat No. 23, Kabupaten Jember",3509,Kecamatan 49,031-8747453,0,-8.168628,113.706563,1,0,opendata_jatim,2024-OFFICIAL
+PKM35090284,Puskesmas Jember 24,non_rawat_inap,"Jl. Desa Sehat No. 24, Kabupaten Jember",3509,Kecamatan 50,031-8401338,0,-8.235753,113.720986,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100285,Puskesmas Banyuwangi Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Banyuwangi",3510,Kecamatan 1,031-8203225,23,-8.137112,114.406183,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100286,Puskesmas Banyuwangi Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Banyuwangi",3510,Kecamatan 2,031-8565230,13,-8.175041,114.399323,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100287,Puskesmas Banyuwangi Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Banyuwangi",3510,Kecamatan 3,031-8148225,10,-8.270082,114.334615,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100288,Puskesmas Banyuwangi Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Banyuwangi",3510,Kecamatan 4,031-8493049,21,-8.2448,114.295679,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100289,Puskesmas Banyuwangi Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Banyuwangi",3510,Kecamatan 5,031-8693418,23,-8.22779,114.325772,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100290,Puskesmas Banyuwangi Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Banyuwangi",3510,Kecamatan 6,031-8182804,15,-8.187612,114.315509,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100291,Puskesmas Banyuwangi Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Banyuwangi",3510,Kecamatan 7,031-8621841,17,-8.199181,114.347907,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100292,Puskesmas Banyuwangi Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Banyuwangi",3510,Kecamatan 8,031-8768891,24,-8.150647,114.309599,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100293,Puskesmas Banyuwangi Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Banyuwangi",3510,Kecamatan 9,031-8943718,10,-8.256064,114.327552,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100294,Puskesmas Banyuwangi Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Banyuwangi",3510,Kecamatan 10,031-8265649,27,-8.222259,114.332721,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100295,Puskesmas Banyuwangi Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Banyuwangi",3510,Kecamatan 11,031-8413685,28,-8.284882,114.437938,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100296,Puskesmas Banyuwangi Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Banyuwangi",3510,Kecamatan 12,031-8579027,18,-8.19447,114.354589,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100297,Puskesmas Banyuwangi Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Banyuwangi",3510,Kecamatan 13,031-8994787,22,-8.161451,114.318575,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100298,Puskesmas Banyuwangi Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Banyuwangi",3510,Kecamatan 14,031-8476395,28,-8.219387,114.324653,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100299,Puskesmas Banyuwangi Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Banyuwangi",3510,Kecamatan 15,031-8123005,19,-8.20473,114.445531,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100300,Puskesmas Banyuwangi Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Banyuwangi",3510,Kecamatan 16,031-8108491,18,-8.140229,114.392017,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100301,Puskesmas Banyuwangi Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Banyuwangi",3510,Kecamatan 17,031-8735863,11,-8.206151,114.396428,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100302,Puskesmas Banyuwangi Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Banyuwangi",3510,Kecamatan 18,031-8913423,19,-8.177472,114.419954,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100303,Puskesmas Banyuwangi Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Banyuwangi",3510,Kecamatan 19,031-8329642,21,-8.168882,114.38383,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100304,Puskesmas Banyuwangi Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Banyuwangi",3510,Kecamatan 20,031-8758765,14,-8.194841,114.386043,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100305,Puskesmas Banyuwangi Rawat Inap 21,rawat_inap,"Jl. Raya Kesehatan No. 21, Kabupaten Banyuwangi",3510,Kecamatan 21,031-8423939,11,-8.281154,114.387093,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100306,Puskesmas Banyuwangi Rawat Inap 22,rawat_inap,"Jl. Raya Kesehatan No. 22, Kabupaten Banyuwangi",3510,Kecamatan 22,031-8867934,21,-8.170522,114.292038,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100307,Puskesmas Banyuwangi 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Banyuwangi",3510,Kecamatan 23,031-8442589,0,-8.275674,114.43224,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100308,Puskesmas Banyuwangi 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Banyuwangi",3510,Kecamatan 24,031-8238579,0,-8.177103,114.314802,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100309,Puskesmas Banyuwangi 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Banyuwangi",3510,Kecamatan 25,031-8483629,0,-8.170858,114.426934,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100310,Puskesmas Banyuwangi 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Banyuwangi",3510,Kecamatan 26,031-8970813,0,-8.211764,114.432858,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100311,Puskesmas Banyuwangi 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Banyuwangi",3510,Kecamatan 27,031-8605254,0,-8.270373,114.432948,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100312,Puskesmas Banyuwangi 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Banyuwangi",3510,Kecamatan 28,031-8455168,0,-8.141919,114.333923,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100313,Puskesmas Banyuwangi 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Banyuwangi",3510,Kecamatan 29,031-8178957,0,-8.168023,114.361633,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100314,Puskesmas Banyuwangi 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Banyuwangi",3510,Kecamatan 30,031-8809176,0,-8.274179,114.44134,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100315,Puskesmas Banyuwangi 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Banyuwangi",3510,Kecamatan 31,031-8986827,0,-8.180825,114.443491,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100316,Puskesmas Banyuwangi 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Banyuwangi",3510,Kecamatan 32,031-8929090,0,-8.167966,114.345224,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100317,Puskesmas Banyuwangi 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Banyuwangi",3510,Kecamatan 33,031-8229592,0,-8.233568,114.329013,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100318,Puskesmas Banyuwangi 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Banyuwangi",3510,Kecamatan 34,031-8805000,0,-8.223934,114.394353,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100319,Puskesmas Banyuwangi 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Banyuwangi",3510,Kecamatan 35,031-8769567,0,-8.254754,114.347664,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100320,Puskesmas Banyuwangi 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Banyuwangi",3510,Kecamatan 36,031-8345180,0,-8.146253,114.304035,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100321,Puskesmas Banyuwangi 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Banyuwangi",3510,Kecamatan 37,031-8688678,0,-8.221264,114.385827,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100322,Puskesmas Banyuwangi 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Banyuwangi",3510,Kecamatan 38,031-8779112,0,-8.244219,114.384313,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100323,Puskesmas Banyuwangi 17,non_rawat_inap,"Jl. Desa Sehat No. 17, Kabupaten Banyuwangi",3510,Kecamatan 39,031-8835132,0,-8.286585,114.418517,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100324,Puskesmas Banyuwangi 18,non_rawat_inap,"Jl. Desa Sehat No. 18, Kabupaten Banyuwangi",3510,Kecamatan 40,031-8246566,0,-8.24835,114.352027,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100325,Puskesmas Banyuwangi 19,non_rawat_inap,"Jl. Desa Sehat No. 19, Kabupaten Banyuwangi",3510,Kecamatan 41,031-8616554,0,-8.289445,114.292654,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100326,Puskesmas Banyuwangi 20,non_rawat_inap,"Jl. Desa Sehat No. 20, Kabupaten Banyuwangi",3510,Kecamatan 42,031-8663658,0,-8.278121,114.324268,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100327,Puskesmas Banyuwangi 21,non_rawat_inap,"Jl. Desa Sehat No. 21, Kabupaten Banyuwangi",3510,Kecamatan 43,031-8803055,0,-8.274994,114.359283,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100328,Puskesmas Banyuwangi 22,non_rawat_inap,"Jl. Desa Sehat No. 22, Kabupaten Banyuwangi",3510,Kecamatan 44,031-8666432,0,-8.144799,114.398137,1,0,opendata_jatim,2024-OFFICIAL
+PKM35100329,Puskesmas Banyuwangi 23,non_rawat_inap,"Jl. Desa Sehat No. 23, Kabupaten Banyuwangi",3510,Kecamatan 45,031-8262029,0,-8.22964,114.405463,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110330,Puskesmas Bondowoso Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Bondowoso",3511,Kecamatan 1,031-8745558,25,-7.855034,113.858088,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110331,Puskesmas Bondowoso Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Bondowoso",3511,Kecamatan 2,031-8823811,11,-7.931401,113.905543,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110332,Puskesmas Bondowoso Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Bondowoso",3511,Kecamatan 3,031-8997004,17,-7.937415,113.824241,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110333,Puskesmas Bondowoso Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Bondowoso",3511,Kecamatan 4,031-8670913,21,-7.93867,113.910248,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110334,Puskesmas Bondowoso Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Bondowoso",3511,Kecamatan 5,031-8517479,11,-7.852429,113.856472,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110335,Puskesmas Bondowoso Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Bondowoso",3511,Kecamatan 6,031-8196126,24,-7.952559,113.908213,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110336,Puskesmas Bondowoso Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Bondowoso",3511,Kecamatan 7,031-8122394,29,-7.890657,113.855973,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110337,Puskesmas Bondowoso Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Bondowoso",3511,Kecamatan 8,031-8925206,14,-7.988607,113.806661,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110338,Puskesmas Bondowoso Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Bondowoso",3511,Kecamatan 9,031-8317220,27,-7.906368,113.764278,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110339,Puskesmas Bondowoso Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Bondowoso",3511,Kecamatan 10,031-8444519,17,-7.902879,113.883388,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110340,Puskesmas Bondowoso Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Bondowoso",3511,Kecamatan 11,031-8102973,29,-7.872801,113.879483,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110341,Puskesmas Bondowoso Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Bondowoso",3511,Kecamatan 12,031-8666456,14,-7.952336,113.910745,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110342,Puskesmas Bondowoso Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Bondowoso",3511,Kecamatan 13,031-8238205,10,-7.956595,113.78122,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110343,Puskesmas Bondowoso 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Bondowoso",3511,Kecamatan 14,031-8349489,0,-7.994322,113.879698,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110344,Puskesmas Bondowoso 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Bondowoso",3511,Kecamatan 15,031-8378258,0,-7.902484,113.755825,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110345,Puskesmas Bondowoso 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Bondowoso",3511,Kecamatan 16,031-8651640,0,-7.988316,113.871975,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110346,Puskesmas Bondowoso 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Bondowoso",3511,Kecamatan 17,031-8570050,0,-7.978516,113.763469,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110347,Puskesmas Bondowoso 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Bondowoso",3511,Kecamatan 18,031-8214351,0,-7.872217,113.835418,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110348,Puskesmas Bondowoso 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Bondowoso",3511,Kecamatan 19,031-8744986,0,-7.924379,113.788748,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110349,Puskesmas Bondowoso 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Bondowoso",3511,Kecamatan 20,031-8790909,0,-7.989762,113.878616,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110350,Puskesmas Bondowoso 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Bondowoso",3511,Kecamatan 21,031-8132663,0,-7.913268,113.826587,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110351,Puskesmas Bondowoso 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Bondowoso",3511,Kecamatan 22,031-8521126,0,-7.986968,113.829937,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110352,Puskesmas Bondowoso 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Bondowoso",3511,Kecamatan 23,031-8847006,0,-7.928496,113.770574,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110353,Puskesmas Bondowoso 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Bondowoso",3511,Kecamatan 24,031-8184714,0,-7.851148,113.765059,1,0,opendata_jatim,2024-OFFICIAL
+PKM35110354,Puskesmas Bondowoso 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Bondowoso",3511,Kecamatan 25,031-8232321,0,-7.945162,113.777033,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120355,Puskesmas Situbondo Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Situbondo",3512,Kecamatan 1,031-8846746,27,-7.735997,114.021292,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120356,Puskesmas Situbondo Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Situbondo",3512,Kecamatan 2,031-8409222,26,-7.72797,114.07914,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120357,Puskesmas Situbondo Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Situbondo",3512,Kecamatan 3,031-8931621,13,-7.707406,114.016868,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120358,Puskesmas Situbondo Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Situbondo",3512,Kecamatan 4,031-8906315,30,-7.667715,114.056447,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120359,Puskesmas Situbondo Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Situbondo",3512,Kecamatan 5,031-8573489,23,-7.691786,114.058479,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120360,Puskesmas Situbondo Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Situbondo",3512,Kecamatan 6,031-8518098,24,-7.637905,113.98621,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120361,Puskesmas Situbondo Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Situbondo",3512,Kecamatan 7,031-8427704,23,-7.713442,113.935214,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120362,Puskesmas Situbondo Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Situbondo",3512,Kecamatan 8,031-8820184,14,-7.673583,113.979888,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120363,Puskesmas Situbondo Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Situbondo",3512,Kecamatan 9,031-8197758,12,-7.632322,113.930741,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120364,Puskesmas Situbondo Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Situbondo",3512,Kecamatan 10,031-8951201,21,-7.7109,114.039134,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120365,Puskesmas Situbondo Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Situbondo",3512,Kecamatan 11,031-8688967,27,-7.759182,113.929597,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120366,Puskesmas Situbondo 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Situbondo",3512,Kecamatan 12,031-8470774,0,-7.727257,113.939557,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120367,Puskesmas Situbondo 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Situbondo",3512,Kecamatan 13,031-8543481,0,-7.640223,114.070581,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120368,Puskesmas Situbondo 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Situbondo",3512,Kecamatan 14,031-8401601,0,-7.641105,114.03537,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120369,Puskesmas Situbondo 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Situbondo",3512,Kecamatan 15,031-8705991,0,-7.683934,113.976263,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120370,Puskesmas Situbondo 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Situbondo",3512,Kecamatan 16,031-8605612,0,-7.698814,113.944757,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120371,Puskesmas Situbondo 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Situbondo",3512,Kecamatan 17,031-8986438,0,-7.744121,113.937315,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120372,Puskesmas Situbondo 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Situbondo",3512,Kecamatan 18,031-8392099,0,-7.690998,113.938382,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120373,Puskesmas Situbondo 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Situbondo",3512,Kecamatan 19,031-8986209,0,-7.688144,114.049155,1,0,opendata_jatim,2024-OFFICIAL
+PKM35120374,Puskesmas Situbondo 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Situbondo",3512,Kecamatan 20,031-8751924,0,-7.690245,114.042789,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130375,Puskesmas Probolinggo Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Probolinggo",3513,Kecamatan 1,031-8738577,10,-7.731828,113.239532,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130376,Puskesmas Probolinggo Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Probolinggo",3513,Kecamatan 2,031-8130359,18,-7.681347,113.269414,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130377,Puskesmas Probolinggo Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Probolinggo",3513,Kecamatan 3,031-8456331,19,-7.801133,113.249132,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130378,Puskesmas Probolinggo Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Probolinggo",3513,Kecamatan 4,031-8693830,14,-7.773836,113.165725,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130379,Puskesmas Probolinggo Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Probolinggo",3513,Kecamatan 5,031-8132146,30,-7.724825,113.147834,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130380,Puskesmas Probolinggo Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Probolinggo",3513,Kecamatan 6,031-8540226,22,-7.815319,113.221577,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130381,Puskesmas Probolinggo Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Probolinggo",3513,Kecamatan 7,031-8856648,19,-7.757417,113.161885,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130382,Puskesmas Probolinggo Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Probolinggo",3513,Kecamatan 8,031-8189083,29,-7.778099,113.287325,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130383,Puskesmas Probolinggo Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Probolinggo",3513,Kecamatan 9,031-8152179,29,-7.688665,113.161593,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130384,Puskesmas Probolinggo Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Probolinggo",3513,Kecamatan 10,031-8609253,23,-7.722165,113.180236,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130385,Puskesmas Probolinggo Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Probolinggo",3513,Kecamatan 11,031-8891615,16,-7.732868,113.202969,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130386,Puskesmas Probolinggo Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Probolinggo",3513,Kecamatan 12,031-8397005,13,-7.748025,113.191928,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130387,Puskesmas Probolinggo Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Probolinggo",3513,Kecamatan 13,031-8799539,26,-7.721485,113.231601,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130388,Puskesmas Probolinggo Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Probolinggo",3513,Kecamatan 14,031-8157443,29,-7.780653,113.171983,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130389,Puskesmas Probolinggo Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Probolinggo",3513,Kecamatan 15,031-8904624,16,-7.82877,113.184927,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130390,Puskesmas Probolinggo 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Probolinggo",3513,Kecamatan 16,031-8444061,0,-7.808042,113.177583,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130391,Puskesmas Probolinggo 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Probolinggo",3513,Kecamatan 17,031-8551574,0,-7.810803,113.216282,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130392,Puskesmas Probolinggo 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Probolinggo",3513,Kecamatan 18,031-8837852,0,-7.801889,113.197533,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130393,Puskesmas Probolinggo 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Probolinggo",3513,Kecamatan 19,031-8800499,0,-7.793182,113.226096,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130394,Puskesmas Probolinggo 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Probolinggo",3513,Kecamatan 20,031-8878086,0,-7.701008,113.148232,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130395,Puskesmas Probolinggo 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Probolinggo",3513,Kecamatan 21,031-8181644,0,-7.823232,113.139699,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130396,Puskesmas Probolinggo 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Probolinggo",3513,Kecamatan 22,031-8701253,0,-7.692062,113.228821,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130397,Puskesmas Probolinggo 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Probolinggo",3513,Kecamatan 23,031-8403578,0,-7.765292,113.239123,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130398,Puskesmas Probolinggo 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Probolinggo",3513,Kecamatan 24,031-8440544,0,-7.811572,113.140037,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130399,Puskesmas Probolinggo 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Probolinggo",3513,Kecamatan 25,031-8582446,0,-7.8025,113.288318,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130400,Puskesmas Probolinggo 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Probolinggo",3513,Kecamatan 26,031-8192410,0,-7.696876,113.283863,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130401,Puskesmas Probolinggo 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Probolinggo",3513,Kecamatan 27,031-8556839,0,-7.760126,113.153638,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130402,Puskesmas Probolinggo 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Probolinggo",3513,Kecamatan 28,031-8514991,0,-7.735781,113.220534,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130403,Puskesmas Probolinggo 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Probolinggo",3513,Kecamatan 29,031-8332335,0,-7.690716,113.256029,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130404,Puskesmas Probolinggo 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Probolinggo",3513,Kecamatan 30,031-8635280,0,-7.776709,113.163601,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130405,Puskesmas Probolinggo 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Probolinggo",3513,Kecamatan 31,031-8303322,0,-7.728684,113.221597,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130406,Puskesmas Probolinggo 17,non_rawat_inap,"Jl. Desa Sehat No. 17, Kabupaten Probolinggo",3513,Kecamatan 32,031-8862712,0,-7.685052,113.1926,1,0,opendata_jatim,2024-OFFICIAL
+PKM35130407,Puskesmas Probolinggo 18,non_rawat_inap,"Jl. Desa Sehat No. 18, Kabupaten Probolinggo",3513,Kecamatan 33,031-8254864,0,-7.676684,113.239971,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140408,Puskesmas Pasuruan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Pasuruan",3514,Kecamatan 1,031-8281926,16,-7.683897,112.849031,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140409,Puskesmas Pasuruan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Pasuruan",3514,Kecamatan 2,031-8179013,30,-7.625316,112.947234,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140410,Puskesmas Pasuruan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Pasuruan",3514,Kecamatan 3,031-8586490,25,-7.693357,112.949256,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140411,Puskesmas Pasuruan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Pasuruan",3514,Kecamatan 4,031-8814220,24,-7.600989,112.94718,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140412,Puskesmas Pasuruan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Pasuruan",3514,Kecamatan 5,031-8754858,30,-7.573835,112.915919,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140413,Puskesmas Pasuruan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Pasuruan",3514,Kecamatan 6,031-8258290,20,-7.669987,112.980956,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140414,Puskesmas Pasuruan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Pasuruan",3514,Kecamatan 7,031-8417530,30,-7.651338,112.900627,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140415,Puskesmas Pasuruan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Pasuruan",3514,Kecamatan 8,031-8631981,21,-7.594287,112.920227,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140416,Puskesmas Pasuruan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Pasuruan",3514,Kecamatan 9,031-8159653,11,-7.709829,112.899479,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140417,Puskesmas Pasuruan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Pasuruan",3514,Kecamatan 10,031-8996840,30,-7.662702,112.871532,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140418,Puskesmas Pasuruan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Pasuruan",3514,Kecamatan 11,031-8585188,22,-7.707253,112.920653,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140419,Puskesmas Pasuruan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Pasuruan",3514,Kecamatan 12,031-8571579,11,-7.628847,112.978277,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140420,Puskesmas Pasuruan Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Pasuruan",3514,Kecamatan 13,031-8437145,16,-7.576252,112.917065,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140421,Puskesmas Pasuruan Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Pasuruan",3514,Kecamatan 14,031-8572407,11,-7.624899,112.905819,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140422,Puskesmas Pasuruan Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Pasuruan",3514,Kecamatan 15,031-8849014,20,-7.70514,112.96946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140423,Puskesmas Pasuruan Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Pasuruan",3514,Kecamatan 16,031-8359778,11,-7.708207,112.92898,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140424,Puskesmas Pasuruan Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Pasuruan",3514,Kecamatan 17,031-8648141,26,-7.608481,112.984158,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140425,Puskesmas Pasuruan Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Pasuruan",3514,Kecamatan 18,031-8506235,19,-7.624131,112.883824,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140426,Puskesmas Pasuruan Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Pasuruan",3514,Kecamatan 19,031-8154909,29,-7.656297,112.879739,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140427,Puskesmas Pasuruan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Pasuruan",3514,Kecamatan 20,031-8169113,0,-7.595424,112.929169,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140428,Puskesmas Pasuruan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Pasuruan",3514,Kecamatan 21,031-8505341,0,-7.668949,112.914874,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140429,Puskesmas Pasuruan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Pasuruan",3514,Kecamatan 22,031-8788457,0,-7.676236,112.941397,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140430,Puskesmas Pasuruan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Pasuruan",3514,Kecamatan 23,031-8257677,0,-7.567394,112.922032,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140431,Puskesmas Pasuruan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Pasuruan",3514,Kecamatan 24,031-8248298,0,-7.668362,112.918838,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140432,Puskesmas Pasuruan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Pasuruan",3514,Kecamatan 25,031-8787923,0,-7.575021,112.875237,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140433,Puskesmas Pasuruan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Pasuruan",3514,Kecamatan 26,031-8723945,0,-7.609943,112.888313,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140434,Puskesmas Pasuruan 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Pasuruan",3514,Kecamatan 27,031-8686072,0,-7.608287,112.839155,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140435,Puskesmas Pasuruan 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Pasuruan",3514,Kecamatan 28,031-8952686,0,-7.661431,112.952266,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140436,Puskesmas Pasuruan 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Pasuruan",3514,Kecamatan 29,031-8874661,0,-7.701253,112.938053,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140437,Puskesmas Pasuruan 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Pasuruan",3514,Kecamatan 30,031-8197992,0,-7.562154,112.971592,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140438,Puskesmas Pasuruan 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Pasuruan",3514,Kecamatan 31,031-8479404,0,-7.618336,112.893345,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140439,Puskesmas Pasuruan 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Pasuruan",3514,Kecamatan 32,031-8324597,0,-7.718783,112.875019,1,0,opendata_jatim,2024-OFFICIAL
+PKM35140440,Puskesmas Pasuruan 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Pasuruan",3514,Kecamatan 33,031-8301332,0,-7.667023,112.948185,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150441,Puskesmas Sidoarjo Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Sidoarjo",3515,Kecamatan 1,031-8410160,12,-7.491553,112.66031,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150442,Puskesmas Sidoarjo Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Sidoarjo",3515,Kecamatan 2,031-8975686,27,-7.392691,112.654483,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150443,Puskesmas Sidoarjo Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Sidoarjo",3515,Kecamatan 3,031-8903531,20,-7.409617,112.722545,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150444,Puskesmas Sidoarjo Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Sidoarjo",3515,Kecamatan 4,031-8270128,14,-7.428915,112.733859,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150445,Puskesmas Sidoarjo Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Sidoarjo",3515,Kecamatan 5,031-8948343,29,-7.498865,112.749155,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150446,Puskesmas Sidoarjo Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Sidoarjo",3515,Kecamatan 6,031-8530816,11,-7.383375,112.753689,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150447,Puskesmas Sidoarjo Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Sidoarjo",3515,Kecamatan 7,031-8740255,24,-7.469512,112.753434,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150448,Puskesmas Sidoarjo Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Sidoarjo",3515,Kecamatan 8,031-8345369,24,-7.482212,112.758066,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150449,Puskesmas Sidoarjo Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Sidoarjo",3515,Kecamatan 9,031-8975679,25,-7.442358,112.687815,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150450,Puskesmas Sidoarjo Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Sidoarjo",3515,Kecamatan 10,031-8561999,28,-7.496757,112.746829,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150451,Puskesmas Sidoarjo Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Sidoarjo",3515,Kecamatan 11,031-8627335,22,-7.453931,112.683383,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150452,Puskesmas Sidoarjo Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Sidoarjo",3515,Kecamatan 12,031-8940181,16,-7.443406,112.792903,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150453,Puskesmas Sidoarjo Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Sidoarjo",3515,Kecamatan 13,031-8772324,11,-7.431054,112.77798,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150454,Puskesmas Sidoarjo Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Sidoarjo",3515,Kecamatan 14,031-8845957,13,-7.450905,112.697694,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150455,Puskesmas Sidoarjo Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Sidoarjo",3515,Kecamatan 15,031-8187949,19,-7.392457,112.774487,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150456,Puskesmas Sidoarjo Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Sidoarjo",3515,Kecamatan 16,031-8254506,26,-7.405701,112.681947,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150457,Puskesmas Sidoarjo Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Sidoarjo",3515,Kecamatan 17,031-8956375,17,-7.394833,112.652974,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150458,Puskesmas Sidoarjo Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Sidoarjo",3515,Kecamatan 18,031-8535050,10,-7.45562,112.694234,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150459,Puskesmas Sidoarjo 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Sidoarjo",3515,Kecamatan 19,031-8347231,0,-7.519279,112.718621,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150460,Puskesmas Sidoarjo 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Sidoarjo",3515,Kecamatan 20,031-8335445,0,-7.466013,112.651357,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150461,Puskesmas Sidoarjo 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Sidoarjo",3515,Kecamatan 21,031-8979940,0,-7.52329,112.787232,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150462,Puskesmas Sidoarjo 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Sidoarjo",3515,Kecamatan 22,031-8253143,0,-7.413447,112.691946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150463,Puskesmas Sidoarjo 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Sidoarjo",3515,Kecamatan 23,031-8970068,0,-7.505784,112.684201,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150464,Puskesmas Sidoarjo 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Sidoarjo",3515,Kecamatan 24,031-8895702,0,-7.452207,112.771278,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150465,Puskesmas Sidoarjo 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Sidoarjo",3515,Kecamatan 25,031-8105506,0,-7.414914,112.710076,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150466,Puskesmas Sidoarjo 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Sidoarjo",3515,Kecamatan 26,031-8326130,0,-7.382863,112.641341,1,0,opendata_jatim,2024-OFFICIAL
+PKM35150467,Puskesmas Sidoarjo 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Sidoarjo",3515,Kecamatan 27,031-8862560,0,-7.394206,112.726109,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160468,Puskesmas Mojokerto Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Mojokerto",3516,Kecamatan 1,031-8349183,19,-7.449279,112.421021,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160469,Puskesmas Mojokerto Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Mojokerto",3516,Kecamatan 2,031-8769989,23,-7.498516,112.36094,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160470,Puskesmas Mojokerto Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Mojokerto",3516,Kecamatan 3,031-8977330,13,-7.419676,112.426438,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160471,Puskesmas Mojokerto Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Mojokerto",3516,Kecamatan 4,031-8762652,10,-7.401876,112.448778,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160472,Puskesmas Mojokerto Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Mojokerto",3516,Kecamatan 5,031-8405420,14,-7.46424,112.39201,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160473,Puskesmas Mojokerto Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Mojokerto",3516,Kecamatan 6,031-8698384,17,-7.478022,112.45167,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160474,Puskesmas Mojokerto Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Mojokerto",3516,Kecamatan 7,031-8648913,12,-7.480049,112.459599,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160475,Puskesmas Mojokerto Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Mojokerto",3516,Kecamatan 8,031-8670511,26,-7.390755,112.364129,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160476,Puskesmas Mojokerto Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Mojokerto",3516,Kecamatan 9,031-8121322,27,-7.465528,112.511433,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160477,Puskesmas Mojokerto Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Mojokerto",3516,Kecamatan 10,031-8505674,30,-7.484227,112.428522,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160478,Puskesmas Mojokerto Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Mojokerto",3516,Kecamatan 11,031-8474440,10,-7.389734,112.393884,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160479,Puskesmas Mojokerto Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Mojokerto",3516,Kecamatan 12,031-8208699,30,-7.420537,112.408468,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160480,Puskesmas Mojokerto Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Mojokerto",3516,Kecamatan 13,031-8239890,20,-7.42326,112.47093,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160481,Puskesmas Mojokerto Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Mojokerto",3516,Kecamatan 14,031-8283594,30,-7.539606,112.440662,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160482,Puskesmas Mojokerto Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Mojokerto",3516,Kecamatan 15,031-8762423,25,-7.413839,112.462849,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160483,Puskesmas Mojokerto Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Mojokerto",3516,Kecamatan 16,031-8138780,24,-7.517536,112.374876,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160484,Puskesmas Mojokerto Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Mojokerto",3516,Kecamatan 17,031-8143941,16,-7.499749,112.360309,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160485,Puskesmas Mojokerto 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Mojokerto",3516,Kecamatan 18,031-8517568,0,-7.496205,112.402912,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160486,Puskesmas Mojokerto 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Mojokerto",3516,Kecamatan 19,031-8365618,0,-7.38844,112.440185,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160487,Puskesmas Mojokerto 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Mojokerto",3516,Kecamatan 20,031-8400009,0,-7.540841,112.456804,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160488,Puskesmas Mojokerto 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Mojokerto",3516,Kecamatan 21,031-8787584,0,-7.489584,112.478235,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160489,Puskesmas Mojokerto 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Mojokerto",3516,Kecamatan 22,031-8485896,0,-7.493592,112.373216,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160490,Puskesmas Mojokerto 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Mojokerto",3516,Kecamatan 23,031-8561097,0,-7.476788,112.417303,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160491,Puskesmas Mojokerto 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Mojokerto",3516,Kecamatan 24,031-8295892,0,-7.403558,112.415163,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160492,Puskesmas Mojokerto 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Mojokerto",3516,Kecamatan 25,031-8936020,0,-7.467307,112.432904,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160493,Puskesmas Mojokerto 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Mojokerto",3516,Kecamatan 26,031-8862400,0,-7.463616,112.481484,1,0,opendata_jatim,2024-OFFICIAL
+PKM35160494,Puskesmas Mojokerto 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Mojokerto",3516,Kecamatan 27,031-8962287,0,-7.47878,112.422197,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170495,Puskesmas Jombang Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Jombang",3517,Kecamatan 1,031-8183958,13,-7.601127,112.200303,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170496,Puskesmas Jombang Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Jombang",3517,Kecamatan 2,031-8731894,24,-7.577533,112.200602,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170497,Puskesmas Jombang Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Jombang",3517,Kecamatan 3,031-8468623,24,-7.515174,112.179963,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170498,Puskesmas Jombang Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Jombang",3517,Kecamatan 4,031-8744718,21,-7.558459,112.26959,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170499,Puskesmas Jombang Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Jombang",3517,Kecamatan 5,031-8178686,11,-7.470296,112.197229,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170500,Puskesmas Jombang Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Jombang",3517,Kecamatan 6,031-8940010,26,-7.522611,112.218294,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170501,Puskesmas Jombang Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Jombang",3517,Kecamatan 7,031-8249715,10,-7.510016,112.178898,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170502,Puskesmas Jombang Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Jombang",3517,Kecamatan 8,031-8136489,24,-7.494213,112.261794,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170503,Puskesmas Jombang Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Jombang",3517,Kecamatan 9,031-8484123,30,-7.609803,112.191059,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170504,Puskesmas Jombang Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Jombang",3517,Kecamatan 10,031-8734487,11,-7.572056,112.305215,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170505,Puskesmas Jombang Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Jombang",3517,Kecamatan 11,031-8490084,21,-7.60545,112.225288,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170506,Puskesmas Jombang Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Jombang",3517,Kecamatan 12,031-8655178,14,-7.55897,112.165602,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170507,Puskesmas Jombang Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Jombang",3517,Kecamatan 13,031-8361736,18,-7.571288,112.203602,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170508,Puskesmas Jombang Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Jombang",3517,Kecamatan 14,031-8623285,15,-7.476317,112.157446,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170509,Puskesmas Jombang Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Jombang",3517,Kecamatan 15,031-8374492,13,-7.547161,112.299467,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170510,Puskesmas Jombang Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Jombang",3517,Kecamatan 16,031-8741599,16,-7.506006,112.265946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170511,Puskesmas Jombang Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Jombang",3517,Kecamatan 17,031-8309902,25,-7.584308,112.299937,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170512,Puskesmas Jombang Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Jombang",3517,Kecamatan 18,031-8281043,24,-7.610378,112.289752,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170513,Puskesmas Jombang Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Jombang",3517,Kecamatan 19,031-8949884,12,-7.486211,112.224518,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170514,Puskesmas Jombang Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Jombang",3517,Kecamatan 20,031-8800280,20,-7.520891,112.288583,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170515,Puskesmas Jombang Rawat Inap 21,rawat_inap,"Jl. Raya Kesehatan No. 21, Kabupaten Jombang",3517,Kecamatan 21,031-8404466,27,-7.574412,112.16369,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170516,Puskesmas Jombang 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Jombang",3517,Kecamatan 22,031-8846385,0,-7.487387,112.289518,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170517,Puskesmas Jombang 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Jombang",3517,Kecamatan 23,031-8282547,0,-7.51647,112.265335,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170518,Puskesmas Jombang 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Jombang",3517,Kecamatan 24,031-8227257,0,-7.503009,112.234701,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170519,Puskesmas Jombang 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Jombang",3517,Kecamatan 25,031-8348235,0,-7.472379,112.280031,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170520,Puskesmas Jombang 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Jombang",3517,Kecamatan 26,031-8680933,0,-7.50354,112.157505,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170521,Puskesmas Jombang 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Jombang",3517,Kecamatan 27,031-8678443,0,-7.538436,112.228085,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170522,Puskesmas Jombang 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Jombang",3517,Kecamatan 28,031-8168941,0,-7.609237,112.294779,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170523,Puskesmas Jombang 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Jombang",3517,Kecamatan 29,031-8853789,0,-7.580513,112.313235,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170524,Puskesmas Jombang 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Jombang",3517,Kecamatan 30,031-8529322,0,-7.553414,112.219027,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170525,Puskesmas Jombang 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Jombang",3517,Kecamatan 31,031-8432427,0,-7.498266,112.1651,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170526,Puskesmas Jombang 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Jombang",3517,Kecamatan 32,031-8813145,0,-7.527226,112.225296,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170527,Puskesmas Jombang 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Jombang",3517,Kecamatan 33,031-8969325,0,-7.547222,112.173834,1,0,opendata_jatim,2024-OFFICIAL
+PKM35170528,Puskesmas Jombang 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Jombang",3517,Kecamatan 34,031-8290802,0,-7.505158,112.255667,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180529,Puskesmas Nganjuk Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Nganjuk",3518,Kecamatan 1,031-8158104,26,-7.557155,111.840645,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180530,Puskesmas Nganjuk Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Nganjuk",3518,Kecamatan 2,031-8272655,19,-7.546977,111.902896,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180531,Puskesmas Nganjuk Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Nganjuk",3518,Kecamatan 3,031-8462831,17,-7.654085,111.969558,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180532,Puskesmas Nganjuk Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Nganjuk",3518,Kecamatan 4,031-8987025,19,-7.528403,111.903024,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180533,Puskesmas Nganjuk Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Nganjuk",3518,Kecamatan 5,031-8387782,27,-7.667382,111.851408,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180534,Puskesmas Nganjuk Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Nganjuk",3518,Kecamatan 6,031-8197966,27,-7.659973,111.868452,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180535,Puskesmas Nganjuk Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Nganjuk",3518,Kecamatan 7,031-8261684,28,-7.599588,111.846982,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180536,Puskesmas Nganjuk Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Nganjuk",3518,Kecamatan 8,031-8454019,29,-7.652608,111.919917,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180537,Puskesmas Nganjuk Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Nganjuk",3518,Kecamatan 9,031-8185168,10,-7.545195,111.910179,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180538,Puskesmas Nganjuk Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Nganjuk",3518,Kecamatan 10,031-8377511,28,-7.672726,111.922633,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180539,Puskesmas Nganjuk Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Nganjuk",3518,Kecamatan 11,031-8748133,23,-7.575819,111.942713,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180540,Puskesmas Nganjuk Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Nganjuk",3518,Kecamatan 12,031-8672079,30,-7.577761,111.899686,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180541,Puskesmas Nganjuk Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Nganjuk",3518,Kecamatan 13,031-8356773,25,-7.633653,111.973064,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180542,Puskesmas Nganjuk Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Nganjuk",3518,Kecamatan 14,031-8575575,19,-7.55125,111.929599,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180543,Puskesmas Nganjuk Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Nganjuk",3518,Kecamatan 15,031-8535810,24,-7.668324,111.829586,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180544,Puskesmas Nganjuk 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Nganjuk",3518,Kecamatan 16,031-8736129,0,-7.60252,111.852644,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180545,Puskesmas Nganjuk 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Nganjuk",3518,Kecamatan 17,031-8434827,0,-7.657013,111.957838,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180546,Puskesmas Nganjuk 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Nganjuk",3518,Kecamatan 18,031-8518084,0,-7.562528,111.957724,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180547,Puskesmas Nganjuk 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Nganjuk",3518,Kecamatan 19,031-8688933,0,-7.659077,111.879286,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180548,Puskesmas Nganjuk 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Nganjuk",3518,Kecamatan 20,031-8228473,0,-7.663011,111.858678,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180549,Puskesmas Nganjuk 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Nganjuk",3518,Kecamatan 21,031-8201514,0,-7.637205,111.859667,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180550,Puskesmas Nganjuk 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Nganjuk",3518,Kecamatan 22,031-8745270,0,-7.671903,111.971262,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180551,Puskesmas Nganjuk 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Nganjuk",3518,Kecamatan 23,031-8267457,0,-7.613098,111.97403,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180552,Puskesmas Nganjuk 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Nganjuk",3518,Kecamatan 24,031-8856157,0,-7.549844,111.9694,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180553,Puskesmas Nganjuk 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Nganjuk",3518,Kecamatan 25,031-8622469,0,-7.629966,111.942099,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180554,Puskesmas Nganjuk 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Nganjuk",3518,Kecamatan 26,031-8423528,0,-7.520645,111.89469,1,0,opendata_jatim,2024-OFFICIAL
+PKM35180555,Puskesmas Nganjuk 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Nganjuk",3518,Kecamatan 27,031-8512344,0,-7.600421,111.834408,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190556,Puskesmas Madiun Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Madiun",3519,Kecamatan 1,031-8711680,16,-7.624729,111.59857,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190557,Puskesmas Madiun Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Madiun",3519,Kecamatan 2,031-8726543,25,-7.649137,111.451986,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190558,Puskesmas Madiun Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Madiun",3519,Kecamatan 3,031-8399628,25,-7.564426,111.548582,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190559,Puskesmas Madiun Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Madiun",3519,Kecamatan 4,031-8240440,23,-7.619729,111.579448,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190560,Puskesmas Madiun Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Madiun",3519,Kecamatan 5,031-8483713,22,-7.564407,111.560301,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190561,Puskesmas Madiun Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Madiun",3519,Kecamatan 6,031-8304110,27,-7.698361,111.452085,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190562,Puskesmas Madiun Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Madiun",3519,Kecamatan 7,031-8628750,22,-7.647596,111.490076,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190563,Puskesmas Madiun Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Madiun",3519,Kecamatan 8,031-8813449,29,-7.633543,111.531877,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190564,Puskesmas Madiun Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Madiun",3519,Kecamatan 9,031-8513037,13,-7.607833,111.464486,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190565,Puskesmas Madiun Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Madiun",3519,Kecamatan 10,031-8483366,27,-7.645888,111.601786,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190566,Puskesmas Madiun Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Madiun",3519,Kecamatan 11,031-8520884,26,-7.584806,111.475749,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190567,Puskesmas Madiun Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Madiun",3519,Kecamatan 12,031-8848255,14,-7.625588,111.451149,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190568,Puskesmas Madiun Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Madiun",3519,Kecamatan 13,031-8256175,24,-7.652313,111.519699,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190569,Puskesmas Madiun 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Madiun",3519,Kecamatan 14,031-8443897,0,-7.608598,111.526381,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190570,Puskesmas Madiun 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Madiun",3519,Kecamatan 15,031-8512042,0,-7.556581,111.494865,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190571,Puskesmas Madiun 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Madiun",3519,Kecamatan 16,031-8413769,0,-7.547101,111.562191,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190572,Puskesmas Madiun 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Madiun",3519,Kecamatan 17,031-8634473,0,-7.610604,111.52507,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190573,Puskesmas Madiun 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Madiun",3519,Kecamatan 18,031-8414353,0,-7.620426,111.557298,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190574,Puskesmas Madiun 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Madiun",3519,Kecamatan 19,031-8447329,0,-7.629617,111.446562,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190575,Puskesmas Madiun 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Madiun",3519,Kecamatan 20,031-8712056,0,-7.597791,111.600684,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190576,Puskesmas Madiun 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Madiun",3519,Kecamatan 21,031-8821466,0,-7.656372,111.587703,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190577,Puskesmas Madiun 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Madiun",3519,Kecamatan 22,031-8378428,0,-7.604918,111.539406,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190578,Puskesmas Madiun 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Madiun",3519,Kecamatan 23,031-8913864,0,-7.550869,111.569165,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190579,Puskesmas Madiun 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Madiun",3519,Kecamatan 24,031-8153849,0,-7.613044,111.480307,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190580,Puskesmas Madiun 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Madiun",3519,Kecamatan 25,031-8759580,0,-7.612236,111.471182,1,0,opendata_jatim,2024-OFFICIAL
+PKM35190581,Puskesmas Madiun 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Madiun",3519,Kecamatan 26,031-8498658,0,-7.590211,111.567837,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200582,Puskesmas Magetan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Magetan",3520,Kecamatan 1,031-8700383,11,-7.706356,111.362216,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200583,Puskesmas Magetan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Magetan",3520,Kecamatan 2,031-8562462,10,-7.578287,111.270883,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200584,Puskesmas Magetan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Magetan",3520,Kecamatan 3,031-8530311,16,-7.679809,111.277529,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200585,Puskesmas Magetan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Magetan",3520,Kecamatan 4,031-8989587,25,-7.649709,111.351136,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200586,Puskesmas Magetan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Magetan",3520,Kecamatan 5,031-8643878,14,-7.612266,111.263265,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200587,Puskesmas Magetan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Magetan",3520,Kecamatan 6,031-8651002,25,-7.696825,111.305308,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200588,Puskesmas Magetan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Magetan",3520,Kecamatan 7,031-8659024,24,-7.669708,111.40637,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200589,Puskesmas Magetan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Magetan",3520,Kecamatan 8,031-8942690,30,-7.675228,111.309986,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200590,Puskesmas Magetan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Magetan",3520,Kecamatan 9,031-8358494,16,-7.61907,111.350912,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200591,Puskesmas Magetan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Magetan",3520,Kecamatan 10,031-8908634,19,-7.685359,111.30106,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200592,Puskesmas Magetan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Magetan",3520,Kecamatan 11,031-8432441,25,-7.683759,111.286464,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200593,Puskesmas Magetan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Magetan",3520,Kecamatan 12,031-8401769,18,-7.653231,111.342978,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200594,Puskesmas Magetan Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Magetan",3520,Kecamatan 13,031-8513697,22,-7.7105,111.36156,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200595,Puskesmas Magetan Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Magetan",3520,Kecamatan 14,031-8404561,14,-7.59906,111.406037,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200596,Puskesmas Magetan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Magetan",3520,Kecamatan 15,031-8182868,0,-7.723269,111.40615,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200597,Puskesmas Magetan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Magetan",3520,Kecamatan 16,031-8368900,0,-7.674582,111.32408,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200598,Puskesmas Magetan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Magetan",3520,Kecamatan 17,031-8968170,0,-7.610426,111.287538,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200599,Puskesmas Magetan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Magetan",3520,Kecamatan 18,031-8829988,0,-7.643828,111.402584,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200600,Puskesmas Magetan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Magetan",3520,Kecamatan 19,031-8876880,0,-7.686541,111.270776,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200601,Puskesmas Magetan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Magetan",3520,Kecamatan 20,031-8802371,0,-7.636107,111.292093,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200602,Puskesmas Magetan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Magetan",3520,Kecamatan 21,031-8344146,0,-7.585171,111.289407,1,0,opendata_jatim,2024-OFFICIAL
+PKM35200603,Puskesmas Magetan 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Magetan",3520,Kecamatan 22,031-8852204,0,-7.721601,111.319428,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210604,Puskesmas Ngawi Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Ngawi",3521,Kecamatan 1,031-8105433,14,-7.404415,111.478991,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210605,Puskesmas Ngawi Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Ngawi",3521,Kecamatan 2,031-8526673,15,-7.325677,111.526466,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210606,Puskesmas Ngawi Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Ngawi",3521,Kecamatan 3,031-8600641,25,-7.375537,111.510904,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210607,Puskesmas Ngawi Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Ngawi",3521,Kecamatan 4,031-8436768,19,-7.375914,111.490946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210608,Puskesmas Ngawi Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Ngawi",3521,Kecamatan 5,031-8783984,12,-7.434334,111.379466,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210609,Puskesmas Ngawi Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Ngawi",3521,Kecamatan 6,031-8283568,11,-7.388139,111.455624,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210610,Puskesmas Ngawi Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Ngawi",3521,Kecamatan 7,031-8976822,11,-7.413138,111.504017,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210611,Puskesmas Ngawi Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Ngawi",3521,Kecamatan 8,031-8139286,19,-7.416481,111.449261,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210612,Puskesmas Ngawi Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Ngawi",3521,Kecamatan 9,031-8451317,13,-7.478517,111.460874,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210613,Puskesmas Ngawi Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Ngawi",3521,Kecamatan 10,031-8649787,27,-7.43447,111.528256,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210614,Puskesmas Ngawi Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Ngawi",3521,Kecamatan 11,031-8590755,26,-7.400974,111.52017,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210615,Puskesmas Ngawi Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Ngawi",3521,Kecamatan 12,031-8270387,20,-7.436346,111.49941,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210616,Puskesmas Ngawi Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Ngawi",3521,Kecamatan 13,031-8114768,15,-7.363021,111.473726,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210617,Puskesmas Ngawi Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Ngawi",3521,Kecamatan 14,031-8807160,28,-7.362141,111.496523,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210618,Puskesmas Ngawi Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Ngawi",3521,Kecamatan 15,031-8525187,30,-7.358835,111.398079,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210619,Puskesmas Ngawi Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Ngawi",3521,Kecamatan 16,031-8520304,12,-7.347682,111.452445,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210620,Puskesmas Ngawi 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Ngawi",3521,Kecamatan 17,031-8247442,0,-7.372919,111.399565,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210621,Puskesmas Ngawi 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Ngawi",3521,Kecamatan 18,031-8107161,0,-7.403607,111.519732,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210622,Puskesmas Ngawi 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Ngawi",3521,Kecamatan 19,031-8890371,0,-7.438274,111.407683,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210623,Puskesmas Ngawi 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Ngawi",3521,Kecamatan 20,031-8710754,0,-7.437281,111.42274,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210624,Puskesmas Ngawi 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Ngawi",3521,Kecamatan 21,031-8785436,0,-7.364339,111.37183,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210625,Puskesmas Ngawi 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Ngawi",3521,Kecamatan 22,031-8800224,0,-7.422472,111.407808,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210626,Puskesmas Ngawi 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Ngawi",3521,Kecamatan 23,031-8525110,0,-7.461084,111.419089,1,0,opendata_jatim,2024-OFFICIAL
+PKM35210627,Puskesmas Ngawi 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Ngawi",3521,Kecamatan 24,031-8837733,0,-7.370228,111.517697,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220628,Puskesmas Bojonegoro Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Bojonegoro",3522,Kecamatan 1,031-8409369,30,-7.106825,111.913746,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220629,Puskesmas Bojonegoro Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Bojonegoro",3522,Kecamatan 2,031-8601410,14,-7.171193,111.838636,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220630,Puskesmas Bojonegoro Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Bojonegoro",3522,Kecamatan 3,031-8491774,29,-7.20549,111.922938,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220631,Puskesmas Bojonegoro Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Bojonegoro",3522,Kecamatan 4,031-8894139,25,-7.163465,111.891178,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220632,Puskesmas Bojonegoro Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Bojonegoro",3522,Kecamatan 5,031-8898867,16,-7.143997,111.909555,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220633,Puskesmas Bojonegoro Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Bojonegoro",3522,Kecamatan 6,031-8651033,12,-7.190406,111.924058,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220634,Puskesmas Bojonegoro Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Bojonegoro",3522,Kecamatan 7,031-8691573,12,-7.15852,111.915903,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220635,Puskesmas Bojonegoro Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Bojonegoro",3522,Kecamatan 8,031-8311976,26,-7.212047,111.935904,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220636,Puskesmas Bojonegoro Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Bojonegoro",3522,Kecamatan 9,031-8995993,20,-7.138368,111.827276,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220637,Puskesmas Bojonegoro Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Bojonegoro",3522,Kecamatan 10,031-8851742,16,-7.146745,111.821898,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220638,Puskesmas Bojonegoro Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Bojonegoro",3522,Kecamatan 11,031-8567122,26,-7.136696,111.817851,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220639,Puskesmas Bojonegoro Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Bojonegoro",3522,Kecamatan 12,031-8535604,26,-7.100609,111.875849,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220640,Puskesmas Bojonegoro Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Bojonegoro",3522,Kecamatan 13,031-8805448,24,-7.156912,111.812538,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220641,Puskesmas Bojonegoro Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Bojonegoro",3522,Kecamatan 14,031-8366817,22,-7.100894,111.919025,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220642,Puskesmas Bojonegoro Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Bojonegoro",3522,Kecamatan 15,031-8176577,28,-7.099367,111.922629,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220643,Puskesmas Bojonegoro Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Bojonegoro",3522,Kecamatan 16,031-8667451,12,-7.222754,111.858425,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220644,Puskesmas Bojonegoro Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Bojonegoro",3522,Kecamatan 17,031-8595002,12,-7.07094,111.952833,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220645,Puskesmas Bojonegoro Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Bojonegoro",3522,Kecamatan 18,031-8903028,14,-7.224922,111.868719,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220646,Puskesmas Bojonegoro Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kabupaten Bojonegoro",3522,Kecamatan 19,031-8492650,23,-7.127356,111.919986,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220647,Puskesmas Bojonegoro Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kabupaten Bojonegoro",3522,Kecamatan 20,031-8493892,22,-7.071143,111.864497,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220648,Puskesmas Bojonegoro 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Bojonegoro",3522,Kecamatan 21,031-8665497,0,-7.21716,111.957563,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220649,Puskesmas Bojonegoro 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Bojonegoro",3522,Kecamatan 22,031-8224395,0,-7.208722,111.940946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220650,Puskesmas Bojonegoro 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Bojonegoro",3522,Kecamatan 23,031-8654531,0,-7.201444,111.889261,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220651,Puskesmas Bojonegoro 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Bojonegoro",3522,Kecamatan 24,031-8975373,0,-7.209624,111.959896,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220652,Puskesmas Bojonegoro 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Bojonegoro",3522,Kecamatan 25,031-8412856,0,-7.229444,111.806938,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220653,Puskesmas Bojonegoro 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Bojonegoro",3522,Kecamatan 26,031-8544730,0,-7.155919,111.918355,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220654,Puskesmas Bojonegoro 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Bojonegoro",3522,Kecamatan 27,031-8359535,0,-7.144891,111.935038,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220655,Puskesmas Bojonegoro 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Bojonegoro",3522,Kecamatan 28,031-8297636,0,-7.1563,111.828119,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220656,Puskesmas Bojonegoro 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Bojonegoro",3522,Kecamatan 29,031-8218326,0,-7.080014,111.919304,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220657,Puskesmas Bojonegoro 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Bojonegoro",3522,Kecamatan 30,031-8744793,0,-7.224845,111.908932,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220658,Puskesmas Bojonegoro 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Bojonegoro",3522,Kecamatan 31,031-8116405,0,-7.107431,111.944701,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220659,Puskesmas Bojonegoro 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Bojonegoro",3522,Kecamatan 32,031-8722795,0,-7.191493,111.814067,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220660,Puskesmas Bojonegoro 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Bojonegoro",3522,Kecamatan 33,031-8837449,0,-7.224628,111.898946,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220661,Puskesmas Bojonegoro 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Bojonegoro",3522,Kecamatan 34,031-8146385,0,-7.090446,111.842457,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220662,Puskesmas Bojonegoro 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Bojonegoro",3522,Kecamatan 35,031-8327823,0,-7.165638,111.840794,1,0,opendata_jatim,2024-OFFICIAL
+PKM35220663,Puskesmas Bojonegoro 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Bojonegoro",3522,Kecamatan 36,031-8246942,0,-7.109298,111.92747,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230664,Puskesmas Tuban Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Tuban",3523,Kecamatan 1,031-8434394,28,-6.899377,112.016282,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230665,Puskesmas Tuban Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Tuban",3523,Kecamatan 2,031-8348411,20,-6.887604,112.093606,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230666,Puskesmas Tuban Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Tuban",3523,Kecamatan 3,031-8331780,26,-6.931718,111.992922,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230667,Puskesmas Tuban Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Tuban",3523,Kecamatan 4,031-8720407,27,-6.91383,112.014025,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230668,Puskesmas Tuban Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Tuban",3523,Kecamatan 5,031-8811721,30,-6.839246,112.115852,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230669,Puskesmas Tuban Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Tuban",3523,Kecamatan 6,031-8774565,21,-6.911648,112.049299,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230670,Puskesmas Tuban Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Tuban",3523,Kecamatan 7,031-8830132,20,-6.872585,112.095729,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230671,Puskesmas Tuban Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Tuban",3523,Kecamatan 8,031-8292811,22,-6.913388,111.993875,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230672,Puskesmas Tuban Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Tuban",3523,Kecamatan 9,031-8415344,17,-6.859293,112.045763,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230673,Puskesmas Tuban Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Tuban",3523,Kecamatan 10,031-8160423,24,-6.842793,111.993096,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230674,Puskesmas Tuban Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Tuban",3523,Kecamatan 11,031-8655736,27,-6.890018,112.124846,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230675,Puskesmas Tuban Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Tuban",3523,Kecamatan 12,031-8446305,16,-6.958545,112.008857,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230676,Puskesmas Tuban Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Tuban",3523,Kecamatan 13,031-8196955,21,-6.876527,112.117556,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230677,Puskesmas Tuban Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Tuban",3523,Kecamatan 14,031-8381502,11,-6.894298,112.102705,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230678,Puskesmas Tuban Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Tuban",3523,Kecamatan 15,031-8176319,11,-6.919653,112.066795,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230679,Puskesmas Tuban Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Tuban",3523,Kecamatan 16,031-8327558,27,-6.949894,112.091871,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230680,Puskesmas Tuban Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Tuban",3523,Kecamatan 17,031-8417915,20,-6.903297,112.109116,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230681,Puskesmas Tuban 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Tuban",3523,Kecamatan 18,031-8299254,0,-6.826877,111.972453,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230682,Puskesmas Tuban 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Tuban",3523,Kecamatan 19,031-8890973,0,-6.826068,111.988771,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230683,Puskesmas Tuban 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Tuban",3523,Kecamatan 20,031-8733760,0,-6.903373,112.008815,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230684,Puskesmas Tuban 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Tuban",3523,Kecamatan 21,031-8350956,0,-6.867397,112.033461,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230685,Puskesmas Tuban 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Tuban",3523,Kecamatan 22,031-8499152,0,-6.891667,112.094082,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230686,Puskesmas Tuban 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Tuban",3523,Kecamatan 23,031-8423404,0,-6.9054,112.073795,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230687,Puskesmas Tuban 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Tuban",3523,Kecamatan 24,031-8621433,0,-6.93815,112.052051,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230688,Puskesmas Tuban 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Tuban",3523,Kecamatan 25,031-8857505,0,-6.905439,112.098451,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230689,Puskesmas Tuban 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Tuban",3523,Kecamatan 26,031-8312994,0,-6.904882,112.104357,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230690,Puskesmas Tuban 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Tuban",3523,Kecamatan 27,031-8689849,0,-6.920687,112.036229,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230691,Puskesmas Tuban 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Tuban",3523,Kecamatan 28,031-8117007,0,-6.841746,112.0886,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230692,Puskesmas Tuban 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Tuban",3523,Kecamatan 29,031-8707275,0,-6.938276,112.119561,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230693,Puskesmas Tuban 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Tuban",3523,Kecamatan 30,031-8305721,0,-6.864798,112.017231,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230694,Puskesmas Tuban 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Tuban",3523,Kecamatan 31,031-8973844,0,-6.927222,112.030774,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230695,Puskesmas Tuban 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Tuban",3523,Kecamatan 32,031-8818113,0,-6.940683,112.058103,1,0,opendata_jatim,2024-OFFICIAL
+PKM35230696,Puskesmas Tuban 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Tuban",3523,Kecamatan 33,031-8612356,0,-6.92599,112.092138,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240697,Puskesmas Lamongan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Lamongan",3524,Kecamatan 1,031-8583214,25,-7.042059,112.439371,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240698,Puskesmas Lamongan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Lamongan",3524,Kecamatan 2,031-8246757,15,-7.169783,112.463896,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240699,Puskesmas Lamongan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Lamongan",3524,Kecamatan 3,031-8772985,27,-7.08145,112.414831,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240700,Puskesmas Lamongan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Lamongan",3524,Kecamatan 4,031-8957730,12,-7.043542,112.420531,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240701,Puskesmas Lamongan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Lamongan",3524,Kecamatan 5,031-8244170,23,-7.089786,112.458994,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240702,Puskesmas Lamongan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Lamongan",3524,Kecamatan 6,031-8109585,14,-7.061893,112.373729,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240703,Puskesmas Lamongan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Lamongan",3524,Kecamatan 7,031-8747847,11,-7.161705,112.409662,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240704,Puskesmas Lamongan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Lamongan",3524,Kecamatan 8,031-8791309,25,-7.094663,112.486125,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240705,Puskesmas Lamongan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Lamongan",3524,Kecamatan 9,031-8531319,27,-7.118643,112.337758,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240706,Puskesmas Lamongan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Lamongan",3524,Kecamatan 10,031-8661762,18,-7.194804,112.421407,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240707,Puskesmas Lamongan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Lamongan",3524,Kecamatan 11,031-8945328,23,-7.040303,112.339443,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240708,Puskesmas Lamongan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Lamongan",3524,Kecamatan 12,031-8649857,13,-7.046346,112.365383,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240709,Puskesmas Lamongan Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Lamongan",3524,Kecamatan 13,031-8364679,26,-7.172876,112.367409,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240710,Puskesmas Lamongan Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Lamongan",3524,Kecamatan 14,031-8182857,22,-7.066266,112.379472,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240711,Puskesmas Lamongan Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Lamongan",3524,Kecamatan 15,031-8355021,28,-7.137012,112.401664,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240712,Puskesmas Lamongan Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Lamongan",3524,Kecamatan 16,031-8785491,12,-7.038263,112.372837,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240713,Puskesmas Lamongan Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Lamongan",3524,Kecamatan 17,031-8198042,11,-7.038032,112.440683,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240714,Puskesmas Lamongan Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Lamongan",3524,Kecamatan 18,031-8158840,25,-7.131855,112.397047,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240715,Puskesmas Lamongan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Lamongan",3524,Kecamatan 19,031-8186702,0,-7.09482,112.449155,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240716,Puskesmas Lamongan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Lamongan",3524,Kecamatan 20,031-8922478,0,-7.116723,112.406126,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240717,Puskesmas Lamongan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Lamongan",3524,Kecamatan 21,031-8199994,0,-7.143697,112.493073,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240718,Puskesmas Lamongan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Lamongan",3524,Kecamatan 22,031-8340927,0,-7.053533,112.483764,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240719,Puskesmas Lamongan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Lamongan",3524,Kecamatan 23,031-8694316,0,-7.162873,112.475599,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240720,Puskesmas Lamongan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Lamongan",3524,Kecamatan 24,031-8177959,0,-7.12062,112.34415,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240721,Puskesmas Lamongan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Lamongan",3524,Kecamatan 25,031-8669408,0,-7.087191,112.38156,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240722,Puskesmas Lamongan 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Lamongan",3524,Kecamatan 26,031-8991737,0,-7.106538,112.341964,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240723,Puskesmas Lamongan 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Lamongan",3524,Kecamatan 27,031-8715551,0,-7.146382,112.490535,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240724,Puskesmas Lamongan 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Lamongan",3524,Kecamatan 28,031-8960778,0,-7.173629,112.468011,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240725,Puskesmas Lamongan 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Lamongan",3524,Kecamatan 29,031-8270341,0,-7.132973,112.34901,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240726,Puskesmas Lamongan 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Lamongan",3524,Kecamatan 30,031-8990704,0,-7.106467,112.427371,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240727,Puskesmas Lamongan 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Lamongan",3524,Kecamatan 31,031-8447843,0,-7.134435,112.480144,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240728,Puskesmas Lamongan 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Lamongan",3524,Kecamatan 32,031-8928897,0,-7.135285,112.455059,1,0,opendata_jatim,2024-OFFICIAL
+PKM35240729,Puskesmas Lamongan 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Lamongan",3524,Kecamatan 33,031-8625119,0,-7.038544,112.452566,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250730,Puskesmas Gresik Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Gresik",3525,Kecamatan 1,031-8558320,13,-7.110727,112.625338,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250731,Puskesmas Gresik Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Gresik",3525,Kecamatan 2,031-8906360,29,-7.192857,112.582163,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250732,Puskesmas Gresik Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Gresik",3525,Kecamatan 3,031-8131064,20,-7.131782,112.665297,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250733,Puskesmas Gresik Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Gresik",3525,Kecamatan 4,031-8614435,24,-7.12854,112.695368,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250734,Puskesmas Gresik Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Gresik",3525,Kecamatan 5,031-8552825,22,-7.193498,112.658486,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250735,Puskesmas Gresik Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Gresik",3525,Kecamatan 6,031-8189856,22,-7.200282,112.66374,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250736,Puskesmas Gresik Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Gresik",3525,Kecamatan 7,031-8847748,17,-7.106453,112.617261,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250737,Puskesmas Gresik Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Gresik",3525,Kecamatan 8,031-8846247,22,-7.218239,112.612876,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250738,Puskesmas Gresik Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Gresik",3525,Kecamatan 9,031-8432061,22,-7.104578,112.594684,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250739,Puskesmas Gresik Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Gresik",3525,Kecamatan 10,031-8566339,19,-7.172288,112.584643,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250740,Puskesmas Gresik Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Gresik",3525,Kecamatan 11,031-8191537,14,-7.172413,112.613163,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250741,Puskesmas Gresik Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Gresik",3525,Kecamatan 12,031-8637333,27,-7.200017,112.641815,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250742,Puskesmas Gresik Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Gresik",3525,Kecamatan 13,031-8681141,21,-7.164713,112.574202,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250743,Puskesmas Gresik Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Gresik",3525,Kecamatan 14,031-8503951,20,-7.21511,112.665687,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250744,Puskesmas Gresik Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Gresik",3525,Kecamatan 15,031-8860053,12,-7.228026,112.63621,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250745,Puskesmas Gresik Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Gresik",3525,Kecamatan 16,031-8699743,17,-7.085818,112.714833,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250746,Puskesmas Gresik 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Gresik",3525,Kecamatan 17,031-8277735,0,-7.146623,112.679651,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250747,Puskesmas Gresik 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Gresik",3525,Kecamatan 18,031-8617077,0,-7.207786,112.618181,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250748,Puskesmas Gresik 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Gresik",3525,Kecamatan 19,031-8389366,0,-7.20665,112.596753,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250749,Puskesmas Gresik 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Gresik",3525,Kecamatan 20,031-8180657,0,-7.162624,112.647477,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250750,Puskesmas Gresik 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Gresik",3525,Kecamatan 21,031-8855917,0,-7.17222,112.721076,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250751,Puskesmas Gresik 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Gresik",3525,Kecamatan 22,031-8305047,0,-7.129995,112.665009,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250752,Puskesmas Gresik 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Gresik",3525,Kecamatan 23,031-8107096,0,-7.156742,112.591678,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250753,Puskesmas Gresik 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Gresik",3525,Kecamatan 24,031-8750318,0,-7.078188,112.623155,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250754,Puskesmas Gresik 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Gresik",3525,Kecamatan 25,031-8561607,0,-7.169218,112.707952,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250755,Puskesmas Gresik 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Gresik",3525,Kecamatan 26,031-8782661,0,-7.176442,112.700476,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250756,Puskesmas Gresik 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Gresik",3525,Kecamatan 27,031-8436241,0,-7.074124,112.59178,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250757,Puskesmas Gresik 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Gresik",3525,Kecamatan 28,031-8602278,0,-7.133486,112.681247,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250758,Puskesmas Gresik 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kabupaten Gresik",3525,Kecamatan 29,031-8434640,0,-7.179731,112.724332,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250759,Puskesmas Gresik 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kabupaten Gresik",3525,Kecamatan 30,031-8614858,0,-7.183368,112.681193,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250760,Puskesmas Gresik 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kabupaten Gresik",3525,Kecamatan 31,031-8441716,0,-7.075158,112.695116,1,0,opendata_jatim,2024-OFFICIAL
+PKM35250761,Puskesmas Gresik 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kabupaten Gresik",3525,Kecamatan 32,031-8512022,0,-7.169831,112.700639,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260762,Puskesmas Bangkalan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Bangkalan",3526,Kecamatan 1,031-8720995,16,-7.054898,112.819131,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260763,Puskesmas Bangkalan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Bangkalan",3526,Kecamatan 2,031-8128223,27,-6.953738,112.698788,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260764,Puskesmas Bangkalan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Bangkalan",3526,Kecamatan 3,031-8559753,16,-6.960819,112.74386,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260765,Puskesmas Bangkalan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Bangkalan",3526,Kecamatan 4,031-8958747,12,-6.98567,112.803005,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260766,Puskesmas Bangkalan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Bangkalan",3526,Kecamatan 5,031-8245939,25,-6.977654,112.797207,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260767,Puskesmas Bangkalan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Bangkalan",3526,Kecamatan 6,031-8849979,14,-7.011966,112.708723,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260768,Puskesmas Bangkalan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Bangkalan",3526,Kecamatan 7,031-8726979,24,-7.0456,112.730319,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260769,Puskesmas Bangkalan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Bangkalan",3526,Kecamatan 8,031-8825309,26,-7.036622,112.734129,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260770,Puskesmas Bangkalan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Bangkalan",3526,Kecamatan 9,031-8835716,21,-7.046372,112.675882,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260771,Puskesmas Bangkalan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Bangkalan",3526,Kecamatan 10,031-8189110,30,-6.97002,112.755905,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260772,Puskesmas Bangkalan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Bangkalan",3526,Kecamatan 11,031-8274418,21,-7.095801,112.709717,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260773,Puskesmas Bangkalan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Bangkalan",3526,Kecamatan 12,031-8810380,30,-7.00978,112.677087,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260774,Puskesmas Bangkalan Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Bangkalan",3526,Kecamatan 13,031-8934908,20,-7.009821,112.82469,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260775,Puskesmas Bangkalan Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Bangkalan",3526,Kecamatan 14,031-8332785,18,-7.044427,112.671688,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260776,Puskesmas Bangkalan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Bangkalan",3526,Kecamatan 15,031-8708717,0,-7.031592,112.753008,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260777,Puskesmas Bangkalan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Bangkalan",3526,Kecamatan 16,031-8492292,0,-7.003274,112.705365,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260778,Puskesmas Bangkalan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Bangkalan",3526,Kecamatan 17,031-8717181,0,-7.050719,112.793575,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260779,Puskesmas Bangkalan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Bangkalan",3526,Kecamatan 18,031-8125755,0,-7.00283,112.694119,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260780,Puskesmas Bangkalan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Bangkalan",3526,Kecamatan 19,031-8190025,0,-7.036057,112.717269,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260781,Puskesmas Bangkalan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Bangkalan",3526,Kecamatan 20,031-8248557,0,-7.094729,112.820508,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260782,Puskesmas Bangkalan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Bangkalan",3526,Kecamatan 21,031-8922366,0,-7.057567,112.724891,1,0,opendata_jatim,2024-OFFICIAL
+PKM35260783,Puskesmas Bangkalan 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Bangkalan",3526,Kecamatan 22,031-8599292,0,-7.080201,112.747268,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270784,Puskesmas Sampang Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Sampang",3527,Kecamatan 1,031-8434400,24,-7.24768,113.285519,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270785,Puskesmas Sampang Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Sampang",3527,Kecamatan 2,031-8123682,13,-7.252552,113.177149,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270786,Puskesmas Sampang Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Sampang",3527,Kecamatan 3,031-8876459,15,-7.127431,113.273675,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270787,Puskesmas Sampang Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Sampang",3527,Kecamatan 4,031-8447067,15,-7.224274,113.197913,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270788,Puskesmas Sampang Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Sampang",3527,Kecamatan 5,031-8936507,17,-7.173724,113.323354,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270789,Puskesmas Sampang Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Sampang",3527,Kecamatan 6,031-8789237,30,-7.198492,113.199512,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270790,Puskesmas Sampang Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Sampang",3527,Kecamatan 7,031-8306909,29,-7.194158,113.174671,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270791,Puskesmas Sampang Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Sampang",3527,Kecamatan 8,031-8838968,10,-7.191368,113.238728,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270792,Puskesmas Sampang Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Sampang",3527,Kecamatan 9,031-8705393,12,-7.228933,113.214535,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270793,Puskesmas Sampang Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Sampang",3527,Kecamatan 10,031-8483561,15,-7.24702,113.309517,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270794,Puskesmas Sampang Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Sampang",3527,Kecamatan 11,031-8803281,18,-7.211142,113.243208,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270795,Puskesmas Sampang Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Sampang",3527,Kecamatan 12,031-8428628,30,-7.125278,113.254434,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270796,Puskesmas Sampang 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Sampang",3527,Kecamatan 13,031-8715519,0,-7.167785,113.267809,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270797,Puskesmas Sampang 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Sampang",3527,Kecamatan 14,031-8580101,0,-7.245023,113.226318,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270798,Puskesmas Sampang 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Sampang",3527,Kecamatan 15,031-8840282,0,-7.164522,113.300198,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270799,Puskesmas Sampang 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Sampang",3527,Kecamatan 16,031-8718836,0,-7.135202,113.316989,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270800,Puskesmas Sampang 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Sampang",3527,Kecamatan 17,031-8223586,0,-7.24974,113.191432,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270801,Puskesmas Sampang 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Sampang",3527,Kecamatan 18,031-8491439,0,-7.225128,113.188712,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270802,Puskesmas Sampang 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Sampang",3527,Kecamatan 19,031-8538555,0,-7.15235,113.251732,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270803,Puskesmas Sampang 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Sampang",3527,Kecamatan 20,031-8543588,0,-7.167872,113.261969,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270804,Puskesmas Sampang 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Sampang",3527,Kecamatan 21,031-8827117,0,-7.233579,113.27168,1,0,opendata_jatim,2024-OFFICIAL
+PKM35270805,Puskesmas Sampang 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Sampang",3527,Kecamatan 22,031-8281649,0,-7.116234,113.318911,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280806,Puskesmas Pamekasan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Pamekasan",3528,Kecamatan 1,031-8296187,14,-7.157914,113.481643,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280807,Puskesmas Pamekasan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Pamekasan",3528,Kecamatan 2,031-8476479,11,-7.196367,113.47546,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280808,Puskesmas Pamekasan Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Pamekasan",3528,Kecamatan 3,031-8954815,16,-7.094405,113.480837,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280809,Puskesmas Pamekasan Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Pamekasan",3528,Kecamatan 4,031-8619013,30,-7.185269,113.493153,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280810,Puskesmas Pamekasan Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Pamekasan",3528,Kecamatan 5,031-8612438,24,-7.181239,113.481976,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280811,Puskesmas Pamekasan Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Pamekasan",3528,Kecamatan 6,031-8406278,17,-7.219939,113.493764,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280812,Puskesmas Pamekasan Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Pamekasan",3528,Kecamatan 7,031-8276379,19,-7.241469,113.439275,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280813,Puskesmas Pamekasan Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Pamekasan",3528,Kecamatan 8,031-8676429,25,-7.121782,113.493804,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280814,Puskesmas Pamekasan Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Pamekasan",3528,Kecamatan 9,031-8912764,18,-7.164971,113.494934,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280815,Puskesmas Pamekasan Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Pamekasan",3528,Kecamatan 10,031-8962570,27,-7.159803,113.561843,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280816,Puskesmas Pamekasan Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Pamekasan",3528,Kecamatan 11,031-8672892,24,-7.125614,113.524901,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280817,Puskesmas Pamekasan Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Pamekasan",3528,Kecamatan 12,031-8887842,30,-7.211733,113.471325,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280818,Puskesmas Pamekasan Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Pamekasan",3528,Kecamatan 13,031-8571578,11,-7.207095,113.54327,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280819,Puskesmas Pamekasan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Pamekasan",3528,Kecamatan 14,031-8191208,0,-7.20465,113.541252,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280820,Puskesmas Pamekasan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Pamekasan",3528,Kecamatan 15,031-8913308,0,-7.176449,113.562333,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280821,Puskesmas Pamekasan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Pamekasan",3528,Kecamatan 16,031-8873443,0,-7.116798,113.436881,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280822,Puskesmas Pamekasan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Pamekasan",3528,Kecamatan 17,031-8845279,0,-7.152632,113.459401,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280823,Puskesmas Pamekasan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Pamekasan",3528,Kecamatan 18,031-8746081,0,-7.149058,113.471807,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280824,Puskesmas Pamekasan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Pamekasan",3528,Kecamatan 19,031-8316995,0,-7.224422,113.436359,1,0,opendata_jatim,2024-OFFICIAL
+PKM35280825,Puskesmas Pamekasan 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Pamekasan",3528,Kecamatan 20,031-8658136,0,-7.11783,113.494512,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290826,Puskesmas Sumenep Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kabupaten Sumenep",3529,Kecamatan 1,031-8838253,20,-7.051726,113.872903,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290827,Puskesmas Sumenep Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kabupaten Sumenep",3529,Kecamatan 2,031-8812296,26,-7.049878,113.878338,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290828,Puskesmas Sumenep Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kabupaten Sumenep",3529,Kecamatan 3,031-8162165,23,-6.966271,113.808394,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290829,Puskesmas Sumenep Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kabupaten Sumenep",3529,Kecamatan 4,031-8835499,14,-6.937902,113.925428,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290830,Puskesmas Sumenep Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kabupaten Sumenep",3529,Kecamatan 5,031-8968726,20,-6.958127,113.826648,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290831,Puskesmas Sumenep Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kabupaten Sumenep",3529,Kecamatan 6,031-8613234,22,-7.057091,113.921669,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290832,Puskesmas Sumenep Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kabupaten Sumenep",3529,Kecamatan 7,031-8534346,30,-7.073953,113.887884,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290833,Puskesmas Sumenep Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kabupaten Sumenep",3529,Kecamatan 8,031-8522419,12,-7.036672,113.798783,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290834,Puskesmas Sumenep Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kabupaten Sumenep",3529,Kecamatan 9,031-8576782,21,-7.014202,113.831216,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290835,Puskesmas Sumenep Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kabupaten Sumenep",3529,Kecamatan 10,031-8911739,10,-6.944659,113.839066,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290836,Puskesmas Sumenep Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kabupaten Sumenep",3529,Kecamatan 11,031-8765678,24,-6.961153,113.801603,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290837,Puskesmas Sumenep Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kabupaten Sumenep",3529,Kecamatan 12,031-8934328,12,-6.990437,113.844016,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290838,Puskesmas Sumenep Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kabupaten Sumenep",3529,Kecamatan 13,031-8964915,23,-7.011192,113.821553,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290839,Puskesmas Sumenep Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kabupaten Sumenep",3529,Kecamatan 14,031-8454161,19,-7.062804,113.829666,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290840,Puskesmas Sumenep Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kabupaten Sumenep",3529,Kecamatan 15,031-8926596,25,-7.00913,113.807595,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290841,Puskesmas Sumenep Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kabupaten Sumenep",3529,Kecamatan 16,031-8148174,11,-7.041702,113.895908,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290842,Puskesmas Sumenep Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kabupaten Sumenep",3529,Kecamatan 17,031-8117072,24,-7.080768,113.912122,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290843,Puskesmas Sumenep Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kabupaten Sumenep",3529,Kecamatan 18,031-8578693,24,-7.076822,113.923924,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290844,Puskesmas Sumenep 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kabupaten Sumenep",3529,Kecamatan 19,031-8312146,0,-7.096592,113.939985,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290845,Puskesmas Sumenep 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kabupaten Sumenep",3529,Kecamatan 20,031-8781571,0,-6.937389,113.932205,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290846,Puskesmas Sumenep 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kabupaten Sumenep",3529,Kecamatan 21,031-8387330,0,-7.048402,113.926608,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290847,Puskesmas Sumenep 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kabupaten Sumenep",3529,Kecamatan 22,031-8186424,0,-7.081766,113.84437,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290848,Puskesmas Sumenep 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kabupaten Sumenep",3529,Kecamatan 23,031-8273565,0,-7.037205,113.931308,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290849,Puskesmas Sumenep 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kabupaten Sumenep",3529,Kecamatan 24,031-8861253,0,-7.088414,113.886797,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290850,Puskesmas Sumenep 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kabupaten Sumenep",3529,Kecamatan 25,031-8787326,0,-6.984789,113.824163,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290851,Puskesmas Sumenep 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kabupaten Sumenep",3529,Kecamatan 26,031-8323788,0,-7.082108,113.801929,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290852,Puskesmas Sumenep 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kabupaten Sumenep",3529,Kecamatan 27,031-8337178,0,-7.020411,113.807932,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290853,Puskesmas Sumenep 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kabupaten Sumenep",3529,Kecamatan 28,031-8108454,0,-7.013589,113.857911,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290854,Puskesmas Sumenep 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kabupaten Sumenep",3529,Kecamatan 29,031-8542828,0,-6.985404,113.917437,1,0,opendata_jatim,2024-OFFICIAL
+PKM35290855,Puskesmas Sumenep 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kabupaten Sumenep",3529,Kecamatan 30,031-8340068,0,-6.985655,113.863132,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710856,Puskesmas Kediri Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Kediri",3571,Kecamatan 1,031-8208214,13,-7.835409,112.053622,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710857,Puskesmas Kediri Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Kediri",3571,Kecamatan 2,031-8501312,14,-7.846564,112.077658,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710858,Puskesmas Kediri Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kota Kediri",3571,Kecamatan 3,031-8772741,14,-7.772946,112.057205,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710859,Puskesmas Kediri 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Kediri",3571,Kecamatan 4,031-8656278,0,-7.73783,111.959556,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710860,Puskesmas Kediri 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Kediri",3571,Kecamatan 5,031-8272088,0,-7.806573,112.034351,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710861,Puskesmas Kediri 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Kediri",3571,Kecamatan 6,031-8758589,0,-7.826284,112.052289,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710862,Puskesmas Kediri 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Kediri",3571,Kecamatan 7,031-8746002,0,-7.776977,112.083883,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710863,Puskesmas Kediri 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kota Kediri",3571,Kecamatan 8,031-8190898,0,-7.786849,112.074294,1,0,opendata_jatim,2024-OFFICIAL
+PKM35710864,Puskesmas Kediri 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kota Kediri",3571,Kecamatan 9,031-8229139,0,-7.753245,111.959102,1,0,opendata_jatim,2024-OFFICIAL
+PKM35720865,Puskesmas Blitar Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Blitar",3572,Kecamatan 1,031-8429780,23,-8.085668,112.148145,1,0,opendata_jatim,2024-OFFICIAL
+PKM35720866,Puskesmas Blitar Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Blitar",3572,Kecamatan 2,031-8188341,30,-8.053428,112.126346,1,0,opendata_jatim,2024-OFFICIAL
+PKM35720867,Puskesmas Blitar 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Blitar",3572,Kecamatan 3,031-8856211,0,-8.140293,112.18286,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730868,Puskesmas Malang Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Malang",3573,Kecamatan 1,031-8989079,10,-7.966085,112.677935,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730869,Puskesmas Malang Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Malang",3573,Kecamatan 2,031-8642899,16,-7.927769,112.693432,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730870,Puskesmas Malang Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kota Malang",3573,Kecamatan 3,031-8409898,22,-7.966192,112.583483,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730871,Puskesmas Malang Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kota Malang",3573,Kecamatan 4,031-8618927,17,-7.959913,112.678708,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730872,Puskesmas Malang Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kota Malang",3573,Kecamatan 5,031-8722780,30,-8.001558,112.591873,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730873,Puskesmas Malang 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Malang",3573,Kecamatan 6,031-8112653,0,-8.051938,112.695496,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730874,Puskesmas Malang 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Malang",3573,Kecamatan 7,031-8238394,0,-7.905399,112.702728,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730875,Puskesmas Malang 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Malang",3573,Kecamatan 8,031-8541307,0,-8.001406,112.687536,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730876,Puskesmas Malang 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Malang",3573,Kecamatan 9,031-8899776,0,-8.004834,112.662571,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730877,Puskesmas Malang 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kota Malang",3573,Kecamatan 10,031-8176537,0,-7.987938,112.711279,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730878,Puskesmas Malang 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kota Malang",3573,Kecamatan 11,031-8374921,0,-8.06063,112.564105,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730879,Puskesmas Malang 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kota Malang",3573,Kecamatan 12,031-8927630,0,-8.028781,112.700913,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730880,Puskesmas Malang 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kota Malang",3573,Kecamatan 13,031-8847245,0,-7.999624,112.599138,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730881,Puskesmas Malang 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kota Malang",3573,Kecamatan 14,031-8835901,0,-7.983132,112.619769,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730882,Puskesmas Malang 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kota Malang",3573,Kecamatan 15,031-8663772,0,-7.998936,112.655786,1,0,opendata_jatim,2024-OFFICIAL
+PKM35730883,Puskesmas Malang 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kota Malang",3573,Kecamatan 16,031-8424960,0,-7.964732,112.597695,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740884,Puskesmas Probolinggo Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Probolinggo",3574,Kecamatan 1,031-8662445,14,-7.817357,113.284048,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740885,Puskesmas Probolinggo Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Probolinggo",3574,Kecamatan 2,031-8814138,30,-7.77772,113.23053,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740886,Puskesmas Probolinggo 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Probolinggo",3574,Kecamatan 3,031-8558737,0,-7.727095,113.186327,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740887,Puskesmas Probolinggo 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Probolinggo",3574,Kecamatan 4,031-8160718,0,-7.713207,113.272135,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740888,Puskesmas Probolinggo 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Probolinggo",3574,Kecamatan 5,031-8221620,0,-7.790883,113.28464,1,0,opendata_jatim,2024-OFFICIAL
+PKM35740889,Puskesmas Probolinggo 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Probolinggo",3574,Kecamatan 6,031-8424314,0,-7.757461,113.234113,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750890,Puskesmas Pasuruan Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Pasuruan",3575,Kecamatan 1,031-8225245,15,-7.623427,112.925288,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750891,Puskesmas Pasuruan Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Pasuruan",3575,Kecamatan 2,031-8271790,10,-7.727974,112.841954,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750892,Puskesmas Pasuruan 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Pasuruan",3575,Kecamatan 3,031-8642347,0,-7.650574,112.875473,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750893,Puskesmas Pasuruan 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Pasuruan",3575,Kecamatan 4,031-8275073,0,-7.604722,112.935322,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750894,Puskesmas Pasuruan 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Pasuruan",3575,Kecamatan 5,031-8381819,0,-7.670501,112.939964,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750895,Puskesmas Pasuruan 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Pasuruan",3575,Kecamatan 6,031-8130782,0,-7.61273,112.838889,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750896,Puskesmas Pasuruan 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kota Pasuruan",3575,Kecamatan 7,031-8649300,0,-7.676398,112.888692,1,0,opendata_jatim,2024-OFFICIAL
+PKM35750897,Puskesmas Pasuruan 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kota Pasuruan",3575,Kecamatan 8,031-8704663,0,-7.71978,112.933972,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760898,Puskesmas Mojokerto Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Mojokerto",3576,Kecamatan 1,031-8477617,26,-7.446295,112.432684,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760899,Puskesmas Mojokerto Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Mojokerto",3576,Kecamatan 2,031-8485548,15,-7.53783,112.490798,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760900,Puskesmas Mojokerto 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Mojokerto",3576,Kecamatan 3,031-8701790,0,-7.52153,112.477033,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760901,Puskesmas Mojokerto 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Mojokerto",3576,Kecamatan 4,031-8876764,0,-7.438841,112.371753,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760902,Puskesmas Mojokerto 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Mojokerto",3576,Kecamatan 5,031-8112884,0,-7.465288,112.360346,1,0,opendata_jatim,2024-OFFICIAL
+PKM35760903,Puskesmas Mojokerto 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Mojokerto",3576,Kecamatan 6,031-8501583,0,-7.507572,112.428782,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770904,Puskesmas Madiun Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Madiun",3577,Kecamatan 1,031-8679720,11,-7.558364,111.472534,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770905,Puskesmas Madiun Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Madiun",3577,Kecamatan 2,031-8539740,30,-7.577102,111.558143,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770906,Puskesmas Madiun Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kota Madiun",3577,Kecamatan 3,031-8384434,20,-7.669678,111.483622,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770907,Puskesmas Madiun 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Madiun",3577,Kecamatan 4,031-8225200,0,-7.57344,111.535346,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770908,Puskesmas Madiun 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Madiun",3577,Kecamatan 5,031-8288056,0,-7.625273,111.588211,1,0,opendata_jatim,2024-OFFICIAL
+PKM35770909,Puskesmas Madiun 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Madiun",3577,Kecamatan 6,031-8148159,0,-7.66989,111.526424,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780910,Puskesmas Surabaya Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Surabaya",3578,Kecamatan 1,031-8396020,24,-7.184847,112.683128,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780911,Puskesmas Surabaya Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Surabaya",3578,Kecamatan 2,031-8679958,12,-7.213736,112.721812,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780912,Puskesmas Surabaya Rawat Inap 3,rawat_inap,"Jl. Raya Kesehatan No. 3, Kota Surabaya",3578,Kecamatan 3,031-8691194,19,-7.264421,112.731127,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780913,Puskesmas Surabaya Rawat Inap 4,rawat_inap,"Jl. Raya Kesehatan No. 4, Kota Surabaya",3578,Kecamatan 4,031-8586462,17,-7.211979,112.790432,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780914,Puskesmas Surabaya Rawat Inap 5,rawat_inap,"Jl. Raya Kesehatan No. 5, Kota Surabaya",3578,Kecamatan 5,031-8868043,16,-7.278576,112.827597,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780915,Puskesmas Surabaya Rawat Inap 6,rawat_inap,"Jl. Raya Kesehatan No. 6, Kota Surabaya",3578,Kecamatan 6,031-8257880,17,-7.193429,112.793777,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780916,Puskesmas Surabaya Rawat Inap 7,rawat_inap,"Jl. Raya Kesehatan No. 7, Kota Surabaya",3578,Kecamatan 7,031-8667851,17,-7.33648,112.737706,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780917,Puskesmas Surabaya Rawat Inap 8,rawat_inap,"Jl. Raya Kesehatan No. 8, Kota Surabaya",3578,Kecamatan 8,031-8451291,10,-7.282072,112.806432,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780918,Puskesmas Surabaya Rawat Inap 9,rawat_inap,"Jl. Raya Kesehatan No. 9, Kota Surabaya",3578,Kecamatan 9,031-8208998,19,-7.337266,112.777269,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780919,Puskesmas Surabaya Rawat Inap 10,rawat_inap,"Jl. Raya Kesehatan No. 10, Kota Surabaya",3578,Kecamatan 10,031-8615929,23,-7.304669,112.829399,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780920,Puskesmas Surabaya Rawat Inap 11,rawat_inap,"Jl. Raya Kesehatan No. 11, Kota Surabaya",3578,Kecamatan 11,031-8846221,14,-7.18371,112.827709,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780921,Puskesmas Surabaya Rawat Inap 12,rawat_inap,"Jl. Raya Kesehatan No. 12, Kota Surabaya",3578,Kecamatan 12,031-8986575,17,-7.292728,112.679124,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780922,Puskesmas Surabaya Rawat Inap 13,rawat_inap,"Jl. Raya Kesehatan No. 13, Kota Surabaya",3578,Kecamatan 13,031-8580728,21,-7.254339,112.784236,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780923,Puskesmas Surabaya Rawat Inap 14,rawat_inap,"Jl. Raya Kesehatan No. 14, Kota Surabaya",3578,Kecamatan 14,031-8629979,13,-7.181571,112.685684,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780924,Puskesmas Surabaya Rawat Inap 15,rawat_inap,"Jl. Raya Kesehatan No. 15, Kota Surabaya",3578,Kecamatan 15,031-8720647,12,-7.316138,112.803294,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780925,Puskesmas Surabaya Rawat Inap 16,rawat_inap,"Jl. Raya Kesehatan No. 16, Kota Surabaya",3578,Kecamatan 16,031-8348273,14,-7.246649,112.741697,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780926,Puskesmas Surabaya Rawat Inap 17,rawat_inap,"Jl. Raya Kesehatan No. 17, Kota Surabaya",3578,Kecamatan 17,031-8834764,22,-7.290832,112.808246,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780927,Puskesmas Surabaya Rawat Inap 18,rawat_inap,"Jl. Raya Kesehatan No. 18, Kota Surabaya",3578,Kecamatan 18,031-8385166,24,-7.204396,112.7243,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780928,Puskesmas Surabaya Rawat Inap 19,rawat_inap,"Jl. Raya Kesehatan No. 19, Kota Surabaya",3578,Kecamatan 19,031-8917823,14,-7.300122,112.823069,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780929,Puskesmas Surabaya Rawat Inap 20,rawat_inap,"Jl. Raya Kesehatan No. 20, Kota Surabaya",3578,Kecamatan 20,031-8272359,13,-7.214277,112.689536,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780930,Puskesmas Surabaya Rawat Inap 21,rawat_inap,"Jl. Raya Kesehatan No. 21, Kota Surabaya",3578,Kecamatan 21,031-8661957,13,-7.265569,112.722345,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780931,Puskesmas Surabaya Rawat Inap 22,rawat_inap,"Jl. Raya Kesehatan No. 22, Kota Surabaya",3578,Kecamatan 22,031-8423284,24,-7.280174,112.795354,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780932,Puskesmas Surabaya Rawat Inap 23,rawat_inap,"Jl. Raya Kesehatan No. 23, Kota Surabaya",3578,Kecamatan 23,031-8265271,12,-7.263365,112.808497,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780933,Puskesmas Surabaya 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Surabaya",3578,Kecamatan 24,031-8838936,0,-7.208284,112.720774,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780934,Puskesmas Surabaya 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Surabaya",3578,Kecamatan 25,031-8976530,0,-7.226,112.678553,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780935,Puskesmas Surabaya 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Surabaya",3578,Kecamatan 26,031-8845702,0,-7.200448,112.695832,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780936,Puskesmas Surabaya 4,non_rawat_inap,"Jl. Desa Sehat No. 4, Kota Surabaya",3578,Kecamatan 27,031-8638401,0,-7.297785,112.729019,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780937,Puskesmas Surabaya 5,non_rawat_inap,"Jl. Desa Sehat No. 5, Kota Surabaya",3578,Kecamatan 28,031-8959926,0,-7.329668,112.719915,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780938,Puskesmas Surabaya 6,non_rawat_inap,"Jl. Desa Sehat No. 6, Kota Surabaya",3578,Kecamatan 29,031-8524035,0,-7.178992,112.677073,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780939,Puskesmas Surabaya 7,non_rawat_inap,"Jl. Desa Sehat No. 7, Kota Surabaya",3578,Kecamatan 30,031-8676843,0,-7.200764,112.761053,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780940,Puskesmas Surabaya 8,non_rawat_inap,"Jl. Desa Sehat No. 8, Kota Surabaya",3578,Kecamatan 31,031-8942946,0,-7.297524,112.746027,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780941,Puskesmas Surabaya 9,non_rawat_inap,"Jl. Desa Sehat No. 9, Kota Surabaya",3578,Kecamatan 32,031-8164664,0,-7.21049,112.691533,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780942,Puskesmas Surabaya 10,non_rawat_inap,"Jl. Desa Sehat No. 10, Kota Surabaya",3578,Kecamatan 33,031-8237064,0,-7.20464,112.829311,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780943,Puskesmas Surabaya 11,non_rawat_inap,"Jl. Desa Sehat No. 11, Kota Surabaya",3578,Kecamatan 34,031-8819622,0,-7.305799,112.736193,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780944,Puskesmas Surabaya 12,non_rawat_inap,"Jl. Desa Sehat No. 12, Kota Surabaya",3578,Kecamatan 35,031-8710610,0,-7.236652,112.77525,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780945,Puskesmas Surabaya 13,non_rawat_inap,"Jl. Desa Sehat No. 13, Kota Surabaya",3578,Kecamatan 36,031-8178629,0,-7.243721,112.818889,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780946,Puskesmas Surabaya 14,non_rawat_inap,"Jl. Desa Sehat No. 14, Kota Surabaya",3578,Kecamatan 37,031-8777366,0,-7.334012,112.682416,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780947,Puskesmas Surabaya 15,non_rawat_inap,"Jl. Desa Sehat No. 15, Kota Surabaya",3578,Kecamatan 38,031-8988432,0,-7.266551,112.692707,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780948,Puskesmas Surabaya 16,non_rawat_inap,"Jl. Desa Sehat No. 16, Kota Surabaya",3578,Kecamatan 39,031-8144770,0,-7.204803,112.725148,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780949,Puskesmas Surabaya 17,non_rawat_inap,"Jl. Desa Sehat No. 17, Kota Surabaya",3578,Kecamatan 40,031-8701761,0,-7.186735,112.680202,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780950,Puskesmas Surabaya 18,non_rawat_inap,"Jl. Desa Sehat No. 18, Kota Surabaya",3578,Kecamatan 41,031-8620226,0,-7.268195,112.788009,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780951,Puskesmas Surabaya 19,non_rawat_inap,"Jl. Desa Sehat No. 19, Kota Surabaya",3578,Kecamatan 42,031-8281201,0,-7.332783,112.781414,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780952,Puskesmas Surabaya 20,non_rawat_inap,"Jl. Desa Sehat No. 20, Kota Surabaya",3578,Kecamatan 43,031-8388339,0,-7.280869,112.817429,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780953,Puskesmas Surabaya 21,non_rawat_inap,"Jl. Desa Sehat No. 21, Kota Surabaya",3578,Kecamatan 44,031-8136332,0,-7.292723,112.813448,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780954,Puskesmas Surabaya 22,non_rawat_inap,"Jl. Desa Sehat No. 22, Kota Surabaya",3578,Kecamatan 45,031-8778720,0,-7.239243,112.770816,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780955,Puskesmas Surabaya 23,non_rawat_inap,"Jl. Desa Sehat No. 23, Kota Surabaya",3578,Kecamatan 46,031-8677438,0,-7.290283,112.738019,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780956,Puskesmas Surabaya 24,non_rawat_inap,"Jl. Desa Sehat No. 24, Kota Surabaya",3578,Kecamatan 47,031-8501620,0,-7.260855,112.686135,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780957,Puskesmas Surabaya 25,non_rawat_inap,"Jl. Desa Sehat No. 25, Kota Surabaya",3578,Kecamatan 48,031-8935922,0,-7.315542,112.704013,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780958,Puskesmas Surabaya 26,non_rawat_inap,"Jl. Desa Sehat No. 26, Kota Surabaya",3578,Kecamatan 49,031-8941134,0,-7.25337,112.773021,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780959,Puskesmas Surabaya 27,non_rawat_inap,"Jl. Desa Sehat No. 27, Kota Surabaya",3578,Kecamatan 50,031-8501078,0,-7.250515,112.675225,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780960,Puskesmas Surabaya 28,non_rawat_inap,"Jl. Desa Sehat No. 28, Kota Surabaya",3578,Kecamatan 51,031-8670968,0,-7.212393,112.729558,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780961,Puskesmas Surabaya 29,non_rawat_inap,"Jl. Desa Sehat No. 29, Kota Surabaya",3578,Kecamatan 52,031-8693128,0,-7.21247,112.727145,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780962,Puskesmas Surabaya 30,non_rawat_inap,"Jl. Desa Sehat No. 30, Kota Surabaya",3578,Kecamatan 53,031-8288550,0,-7.257117,112.734241,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780963,Puskesmas Surabaya 31,non_rawat_inap,"Jl. Desa Sehat No. 31, Kota Surabaya",3578,Kecamatan 54,031-8130726,0,-7.33333,112.767639,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780964,Puskesmas Surabaya 32,non_rawat_inap,"Jl. Desa Sehat No. 32, Kota Surabaya",3578,Kecamatan 55,031-8161437,0,-7.194178,112.796666,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780965,Puskesmas Surabaya 33,non_rawat_inap,"Jl. Desa Sehat No. 33, Kota Surabaya",3578,Kecamatan 56,031-8474795,0,-7.208115,112.74757,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780966,Puskesmas Surabaya 34,non_rawat_inap,"Jl. Desa Sehat No. 34, Kota Surabaya",3578,Kecamatan 57,031-8267378,0,-7.214805,112.832037,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780967,Puskesmas Surabaya 35,non_rawat_inap,"Jl. Desa Sehat No. 35, Kota Surabaya",3578,Kecamatan 58,031-8379473,0,-7.321479,112.777198,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780968,Puskesmas Surabaya 36,non_rawat_inap,"Jl. Desa Sehat No. 36, Kota Surabaya",3578,Kecamatan 59,031-8872863,0,-7.25211,112.798698,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780969,Puskesmas Surabaya 37,non_rawat_inap,"Jl. Desa Sehat No. 37, Kota Surabaya",3578,Kecamatan 60,031-8330069,0,-7.328555,112.831523,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780970,Puskesmas Surabaya 38,non_rawat_inap,"Jl. Desa Sehat No. 38, Kota Surabaya",3578,Kecamatan 61,031-8507290,0,-7.245389,112.829326,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780971,Puskesmas Surabaya 39,non_rawat_inap,"Jl. Desa Sehat No. 39, Kota Surabaya",3578,Kecamatan 62,031-8986278,0,-7.280731,112.806376,1,0,opendata_jatim,2024-OFFICIAL
+PKM35780972,Puskesmas Surabaya 40,non_rawat_inap,"Jl. Desa Sehat No. 40, Kota Surabaya",3578,Kecamatan 63,031-8433451,0,-7.309706,112.709948,1,0,opendata_jatim,2024-OFFICIAL
+PKM35790973,Puskesmas Batu Rawat Inap 1,rawat_inap,"Jl. Raya Kesehatan No. 1, Kota Batu",3579,Kecamatan 1,031-8129576,28,-7.817706,112.54832,1,0,opendata_jatim,2024-OFFICIAL
+PKM35790974,Puskesmas Batu Rawat Inap 2,rawat_inap,"Jl. Raya Kesehatan No. 2, Kota Batu",3579,Kecamatan 2,031-8690984,28,-7.834148,112.492969,1,0,opendata_jatim,2024-OFFICIAL
+PKM35790975,Puskesmas Batu 1,non_rawat_inap,"Jl. Desa Sehat No. 1, Kota Batu",3579,Kecamatan 3,031-8977340,0,-7.923964,112.588439,1,0,opendata_jatim,2024-OFFICIAL
+PKM35790976,Puskesmas Batu 2,non_rawat_inap,"Jl. Desa Sehat No. 2, Kota Batu",3579,Kecamatan 4,031-8616137,0,-7.788619,112.57776,1,0,opendata_jatim,2024-OFFICIAL
+PKM35790977,Puskesmas Batu 3,non_rawat_inap,"Jl. Desa Sehat No. 3, Kota Batu",3579,Kecamatan 5,031-8139807,0,-7.85996,112.464789,1,0,opendata_jatim,2024-OFFICIAL
