@@ -53,7 +53,8 @@ Tabel master faskes rumah sakit di seluruh 38 Kabupaten/Kota Jawa Timur.
 | `lng` | `FLOAT` | ⚠️ Ya | `110.9` s/d `116.6` atau `null` | Titik koordinat Longitude geografis (WGS84). |
 | `is_valid_coord`| `INTEGER / BOOL` | ❌ Tidak | `1` (Valid) atau `0` (Tidak) | Flag integritas koordinat (0 jika dummy Bangka Belitung atau out-of-bounds). |
 | `needs_geocoding` | `INTEGER / BOOL` | ❌ Tidak | `1` (Perlu) atau `0` (Tidak) | Flag penanda faskes yang koordinatnya null dan perlu geocoding lanjutan. |
-| `sumber_data` | `VARCHAR(50)` | ❌ Tidak | `'SIRS Kemenkes'` | Metadata sumber pipeline data. |
+| `sumber_data` | `VARCHAR(50)` | ❌ Tidak | `'SIRS Kemenkes'` | Metadata institusi sumber pipeline data. |
+| `coverage_periode` | `VARCHAR(20)` | ❌ Tidak | `'2026-LIVE'` | Periode rujukan data (Kaidah Data Freshness PRD v1.1). |
 
 ---
 
@@ -65,9 +66,13 @@ Ringkasan agregat rasio ketersediaan tempat tidur rumah sakit per 1.000 penduduk
 | `kode_bps` | `VARCHAR(10)` | ❌ Tidak (PK) | `'3501'` s/d `'3579'` | Kode BPS 4 digit Kabupaten/Kota. |
 | `nama_wilayah` | `VARCHAR(100)` | ❌ Tidak | Contoh: `'Kabupaten Pacitan'` | Nama wilayah terstandarisasi dengan prefix Kabupaten/Kota. |
 | `total_tt` | `INTEGER` | ❌ Tidak | Contoh: `337` | Akumulasi seluruh tempat tidur rumah sakit di wilayah tersebut. |
-| `jumlah_penduduk` | `INTEGER` | ❌ Tidak | Contoh: `555984` | Populasi resmi penduduk (Rujukan Disdukcapil). |
-| `rasio_tt_per_1000` | `FLOAT` | ❌ Tidak | Contoh: `0.61` | Rumus: $(\text{total\_tt} / \text{jumlah\_penduduk}) \times 1.000$. |
-| `kategori_who` | `VARCHAR(20)` | ❌ Tidak | `'hijau'`, `'kuning'`, `'merah'` | Kategori ketercukupan standar WHO:<br>🟢 `hijau`: Rasio $\ge 1.0$ (Ideal)<br>🟡 `kuning`: Rasio $0.7 - 0.99$ (Waspada)<br>🔴 `merah`: Rasio $< 0.7$ (Defisit Kritis) |
+| `jumlah_penduduk_2021` | `INTEGER` | ❌ Tidak | Contoh: `555984` | Populasi resmi penduduk baseline (Disdukcapil). |
+| `rasio_tt_resmi` | `FLOAT` | ❌ Tidak | Contoh: `0.61` | Rasio TT resmi Kemenkes per 1.000 penduduk. |
+| `kategori_who_resmi` | `VARCHAR(20)` | ❌ Tidak | `'hijau'`, `'kuning'`, `'merah'` | Kategori ketercukupan resmi baseline. |
+| `proyeksi_penduduk_2026` | `INTEGER` | ❌ Tidak | Contoh: `575716` | Proyeksi populasi BPS 2026 (Laju pertumbuhan ~0.7%/tahun). |
+| `rasio_tt_proyeksi_2026` | `FLOAT` | ❌ Tidak | Contoh: `0.59` | Rasio TT proyeksi 2026 per 1.000 penduduk. |
+| `kategori_who_proyeksi_2026` | `VARCHAR(20)` | ❌ Tidak | `'hijau'`, `'kuning'`, `'merah'` | Kategori ketercukupan standar WHO proyeksi 2026:<br>🟢 `hijau`: Rasio $\ge 1.0$ (Ideal)<br>🟡 `kuning`: Rasio $0.7 - 0.99$ (Waspada)<br>🔴 `merah`: Rasio $< 0.7$ (Defisit Kritis) |
+| `coverage_periode` | `VARCHAR(20)` | ❌ Tidak | `'2026-PROJECTED'` | Metadata periode proyeksi data kependudukan. |
 
 ---
 

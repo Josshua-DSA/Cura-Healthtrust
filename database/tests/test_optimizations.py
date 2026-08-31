@@ -34,3 +34,18 @@ def test_parquet_export_existence():
     assert os.path.exists(os.path.join(exports_dir, "hospitals_clean.parquet"))
     assert os.path.exists(os.path.join(exports_dir, "bed_ratio_38_kab.parquet"))
     assert os.path.exists(os.path.join(exports_dir, "indicators_jatim.parquet"))
+
+def test_data_freshness_and_projection_2026():
+    import pandas as pd
+    exports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports")
+    df_rs = pd.read_parquet(os.path.join(exports_dir, "hospitals_clean.parquet"))
+    assert "coverage_periode" in df_rs.columns
+    assert (df_rs["coverage_periode"] == "2026-LIVE").all()
+
+    df_ratio = pd.read_parquet(os.path.join(exports_dir, "bed_ratio_38_kab.parquet"))
+    assert "proyeksi_penduduk_2026" in df_ratio.columns
+    assert "rasio_tt_proyeksi_2026" in df_ratio.columns
+    assert "kategori_who_proyeksi_2026" in df_ratio.columns
+    assert (df_ratio["coverage_periode"] == "2026-PROJECTED").all()
+    # Verify projection is higher than 2021 population
+    assert (df_ratio["proyeksi_penduduk_2026"] > df_ratio["jumlah_penduduk_2021"]).all()

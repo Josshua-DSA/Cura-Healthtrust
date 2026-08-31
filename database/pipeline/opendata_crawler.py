@@ -87,12 +87,14 @@ def crawl_and_parse_opendata_csv() -> List[Dict[str, Any]]:
             if kbps and len(kbps) == 4:
                 records.append({
                     "kode_bps": kbps,
+                    "nama_wilayah": str(row.get("nama_wilayah", "")),
                     "tahun": int(row.get("tahun", 2024)),
                     "topik": str(row.get("topik", "Fasilitas Kesehatan")),
                     "nama_indikator": str(row.get("nama_indikator", "Puskesmas")),
                     "nilai": float(row.get("nilai", 0)),
                     "satuan": str(row.get("satuan", "Unit")),
-                    "sumber_file": str(row.get("sumber_file", "Open Data Jatim 2024-2026"))
+                    "sumber_data": "Dinas Kesehatan Provinsi Jawa Timur",
+                    "coverage_periode": "2024-OFFICIAL"
                 })
 
     logger.info(f"[OpenData Jatim] Successfully prepared {len(records)} indicator records.")

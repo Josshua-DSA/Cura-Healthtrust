@@ -55,8 +55,9 @@ class TblIndikatorKesehatan(Base):
     topik = Column(String(100), nullable=False, index=True) # Puskesmas, Tenaga Medis, KIA, Gizi, dll
     nama_indikator = Column(String(255), nullable=False) # e.g. 'Jumlah Puskesmas Rawat Inap'
     nilai = Column(Float, nullable=False)
-    satuan = Column(String(50), default="Unit")
-    sumber_file = Column(String(255), nullable=True)
+    satuan = Column(String(50), nullable=True)
+    sumber_data = Column(String(100), default="Dinas Kesehatan Provinsi Jawa Timur")
+    coverage_periode = Column(String(20), default="2024-OFFICIAL")
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
@@ -105,6 +106,7 @@ class TblRumahSakit(Base):
     is_valid_coord = Column(Integer, default=1)  # 1=valid, 0=dummy/OOB/null
     needs_geocoding = Column(Integer, default=0)  # 1=perlu geocode ulang
     sumber_data = Column(String(100), nullable=False)
+    coverage_periode = Column(String(20), default="2026-LIVE")
     last_updated_source = Column(DateTime, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
