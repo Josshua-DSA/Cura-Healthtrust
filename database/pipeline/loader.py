@@ -10,8 +10,8 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from config.settings import settings
 from models import (
-    Base, RefWilayah, RefSumberData, RefIcd10, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
-    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus
+    Base, RefWilayah, RefSumberData, RefIcd10, FaskesPuskesmas, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
+    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus, EnumTipeRawatPuskesmas
 )
 
 logger = logging.getLogger("DatabaseUpserter")
@@ -146,6 +146,75 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
     session.commit()
     logger.info(f"[Upsert] Processed {inserted_or_updated} hospital records idempotently.")
     return inserted_or_updated
+
+def upsert_puskesmas(session: Session, records: List[Dict[str, Any]]) -> int:
+    """
+    Idempotent bulk upsert for faskes_puskesmas.
+    Uses PostgreSQL ON CONFLICT (kode_puskesmas) DO UPDATE.
+    """
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        lat_val = r.get("lat")
+        lng_val = r.get("lng")
+        has_valid_geom = (
+            lat_val is not None and lng_val is not None and
+            not (isinstance(lat_val, float) and math.isnan(lat_val)) and
+            not (isinstance(lng_val, float) and math.isnan(lng_val))
+        )
+        geom_val = text(f"ST_SetSRID(ST_MakePoint({lng_val}, {lat_val}), 4326)") if has_valid_geom else None
+        clean_lat = lat_val if has_valid_geom else None
+        clean_lng = lng_val if has_valid_geom else None
+
+        stmt = pg_insert(FaskesPuskesmas).values(
+            kode_puskesmas=r["kode_puskesmas"],
+            nama=r["nama"],
+            tipe_rawat=r.get("tipe_rawat", EnumTipeRawatPuskesmas.non_rawat_inap),
+            alamat=r.get("alamat"),
+            kode_bps=r.get("kode_bps"),
+            kecamatan=r.get("kecamatan"),
+            telepon=r.get("telepon"),
+            jumlah_tt=r.get("jumlah_tt", 0),
+            lat=clean_lat,
+            lng=clean_lng,
+            geom=geom_val,
+            is_valid_coord=r.get("is_valid_coord", 1),
+            needs_geocoding=r.get("needs_geocoding", 0),
+            source_id=r.get("source_id", "opendata_jatim"),
+            status_operasional=r.get("status_operasional", 1),
+            coverage_periode=r.get("coverage_periode", "2024-OFFICIAL"),
+            updated_at=datetime.utcnow()
+        )
+
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["kode_puskesmas"],
+            set_={
+                "nama": stmt.excluded.nama,
+                "tipe_rawat": stmt.excluded.tipe_rawat,
+                "alamat": stmt.excluded.alamat,
+                "kode_bps": stmt.excluded.kode_bps,
+                "kecamatan": stmt.excluded.kecamatan,
+                "telepon": stmt.excluded.telepon,
+                "jumlah_tt": stmt.excluded.jumlah_tt,
+                "lat": stmt.excluded.lat,
+                "lng": stmt.excluded.lng,
+                "geom": stmt.excluded.geom,
+                "is_valid_coord": stmt.excluded.is_valid_coord,
+                "needs_geocoding": stmt.excluded.needs_geocoding,
+                "source_id": stmt.excluded.source_id,
+                "status_operasional": stmt.excluded.status_operasional,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} puskesmas records idempotently.")
+    return count
+
 
 def upsert_ref_sumber_data(session: Session, records: List[Dict[str, Any]]) -> int:
     """Idempotent upsert for ref_sumber_data."""
