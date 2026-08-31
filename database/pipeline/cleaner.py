@@ -136,6 +136,7 @@ class CleanHospitalSchema(pa.DataFrameModel):
     is_valid_coord: Series[int] = pa.Field(isin=[0, 1])
     needs_geocoding: Series[int] = pa.Field(isin=[0, 1])
     sumber_data: Series[str] = pa.Field(nullable=False)
+    coverage_periode: Series[str] = pa.Field(eq="2026-LIVE")
 
     class Config:
         strict = True
@@ -193,7 +194,8 @@ def clean_and_validate_hospitals(raw_rs_list: List[Dict[str, Any]], raw_rekap_li
             "lng": lng,
             "is_valid_coord": 1 if is_valid_coord else 0,
             "needs_geocoding": 1 if needs_geocoding else 0,
-            "sumber_data": "SIRS Kemenkes"
+            "sumber_data": "SIRS Kemenkes",
+            "coverage_periode": "2026-LIVE"
         })
 
     df = pd.DataFrame(cleaned_rows)
