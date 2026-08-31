@@ -247,7 +247,26 @@ Bagi tim backend yang menggunakan FastAPI + SQLAlchemy / PostGIS:
 DATABASE_URL = "postgresql+asyncpg://cura_user:cura_password@localhost:5433/cura_db"
 ```
 
-### B. Query View Siap Saji (`v_choropleth_wilayah`)
+### B. Pre-Built Spatial View: `v_faskes_all` (Marker Layer Peta Leaflet)
+Menyatukan seluruh faskes (Rumah Sakit + Puskesmas) dalam satu query instan:
+```sql
+SELECT 
+    id_faskes, 
+    jenis_faskes, 
+    nama, 
+    kelas_tipe, 
+    kepemilikan, 
+    alamat, 
+    telepon, 
+    jumlah_tt, 
+    lat, 
+    lng, 
+    ST_AsGeoJSON(geom)::json AS geojson_point
+FROM v_faskes_all
+WHERE is_valid_coord = 1;
+```
+
+### C. Pre-Built Spatial View: `v_choropleth_wilayah` (Choropleth Layer)
 Tidak perlu melakukan multiple JOIN manual. Gunakan view bawaan database:
 ```sql
 SELECT 
@@ -255,27 +274,41 @@ SELECT
     nama_wilayah, 
     tipe, 
     total_rs, 
+    total_puskesmas,
     total_tt, 
-    jumlah_penduduk, 
-    rasio_tt_per_1000, 
-    kategori_ketercukupan, 
-    ST_AsGeoJSON(geom) AS geojson
+    jumlah_penduduk_2021, 
+    rasio_tt_resmi, 
+    kategori_who_resmi,
+    proyeksi_penduduk_2026,
+    rasio_tt_proyeksi_2026,
+    ST_AsGeoJSON(geom)::json AS geojson_polygon
 FROM v_choropleth_wilayah;
 ```
 
-### C. Query Spasial Pencarian RS Terdekat (Radius Filter)
+### D. Trigram Fuzzy Search (Toleran Typo <5ms via `pg_trgm`)
 ```sql
 SELECT 
-    kode_rs, 
     nama_rs, 
-    kelas, 
-    kepemilikan, 
+    similarity(nama_rs, :query) AS sim
+FROM tbl_rumah_sakit
+WHERE similarity(nama_rs, :query) > 0.25
+ORDER BY sim DESC 
+LIMIT 10;
+```
+
+### E. Query Spasial Pencarian Faskes Terdekat (Radius Filter)
+```sql
+SELECT 
+    id_faskes, 
+    jenis_faskes, 
+    nama, 
+    kelas_tipe, 
     alamat, 
     telepon, 
     lat, 
     lng,
     ROUND((ST_Distance(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography) / 1000)::numeric, 2) AS jarak_km
-FROM tbl_rumah_sakit
+FROM v_faskes_all
 WHERE is_valid_coord = 1
   AND ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography, :radius_meters)
 ORDER BY jarak_km ASC;
