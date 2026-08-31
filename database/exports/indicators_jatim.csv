@@ -1,115 +1,115 @@
-kode_bps,tahun,topik,nama_indikator,nilai,satuan,sumber_file
-3501,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3501,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3501,2024,Tenaga Medis,Jumlah Dokter Umum,84.0,Orang,Dinkes Jatim 2024
-3502,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Open Data Jatim 2024
-3502,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3502,2024,Tenaga Medis,Jumlah Dokter Umum,122.0,Orang,Dinkes Jatim 2024
-3503,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Open Data Jatim 2024
-3503,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,7.0,Unit,Open Data Jatim 2024
-3503,2024,Tenaga Medis,Jumlah Dokter Umum,98.0,Orang,Dinkes Jatim 2024
-3504,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,19.0,Unit,Open Data Jatim 2024
-3504,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3504,2024,Tenaga Medis,Jumlah Dokter Umum,164.0,Orang,Dinkes Jatim 2024
-3505,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3505,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Open Data Jatim 2024
-3505,2024,Tenaga Medis,Jumlah Dokter Umum,140.0,Orang,Dinkes Jatim 2024
-3506,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,20.0,Unit,Open Data Jatim 2024
-3506,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,17.0,Unit,Open Data Jatim 2024
-3506,2024,Tenaga Medis,Jumlah Dokter Umum,210.0,Orang,Dinkes Jatim 2024
-3507,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,24.0,Unit,Open Data Jatim 2024
-3507,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,15.0,Unit,Open Data Jatim 2024
-3507,2024,Tenaga Medis,Jumlah Dokter Umum,320.0,Orang,Dinkes Jatim 2024
-3508,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Open Data Jatim 2024
-3508,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,11.0,Unit,Open Data Jatim 2024
-3508,2024,Tenaga Medis,Jumlah Dokter Umum,118.0,Orang,Dinkes Jatim 2024
-3509,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,26.0,Unit,Open Data Jatim 2024
-3509,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,24.0,Unit,Open Data Jatim 2024
-3509,2024,Tenaga Medis,Jumlah Dokter Umum,340.0,Orang,Dinkes Jatim 2024
-3510,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,22.0,Unit,Open Data Jatim 2024
-3510,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,23.0,Unit,Open Data Jatim 2024
-3510,2024,Tenaga Medis,Jumlah Dokter Umum,235.0,Orang,Dinkes Jatim 2024
-3511,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3511,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3511,2024,Tenaga Medis,Jumlah Dokter Umum,95.0,Orang,Dinkes Jatim 2024
-3512,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,11.0,Unit,Open Data Jatim 2024
-3512,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,9.0,Unit,Open Data Jatim 2024
-3512,2024,Tenaga Medis,Jumlah Dokter Umum,88.0,Orang,Dinkes Jatim 2024
-3513,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Open Data Jatim 2024
-3513,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,18.0,Unit,Open Data Jatim 2024
-3513,2024,Tenaga Medis,Jumlah Dokter Umum,130.0,Orang,Dinkes Jatim 2024
-3514,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,19.0,Unit,Open Data Jatim 2024
-3514,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,14.0,Unit,Open Data Jatim 2024
-3514,2024,Tenaga Medis,Jumlah Dokter Umum,195.0,Orang,Dinkes Jatim 2024
-3515,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Open Data Jatim 2024
-3515,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,9.0,Unit,Open Data Jatim 2024
-3515,2024,Tenaga Medis,Jumlah Dokter Umum,380.0,Orang,Dinkes Jatim 2024
-3516,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,17.0,Unit,Open Data Jatim 2024
-3516,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,10.0,Unit,Open Data Jatim 2024
-3516,2024,Tenaga Medis,Jumlah Dokter Umum,155.0,Orang,Dinkes Jatim 2024
-3517,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,21.0,Unit,Open Data Jatim 2024
-3517,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3517,2024,Tenaga Medis,Jumlah Dokter Umum,178.0,Orang,Dinkes Jatim 2024
-3518,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Open Data Jatim 2024
-3518,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3518,2024,Tenaga Medis,Jumlah Dokter Umum,142.0,Orang,Dinkes Jatim 2024
-3519,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3519,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3519,2024,Tenaga Medis,Jumlah Dokter Umum,110.0,Orang,Dinkes Jatim 2024
-3520,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Open Data Jatim 2024
-3520,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Open Data Jatim 2024
-3520,2024,Tenaga Medis,Jumlah Dokter Umum,96.0,Orang,Dinkes Jatim 2024
-3521,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3521,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Open Data Jatim 2024
-3521,2024,Tenaga Medis,Jumlah Dokter Umum,114.0,Orang,Dinkes Jatim 2024
-3522,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,20.0,Unit,Open Data Jatim 2024
-3522,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3522,2024,Tenaga Medis,Jumlah Dokter Umum,170.0,Orang,Dinkes Jatim 2024
-3523,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,17.0,Unit,Open Data Jatim 2024
-3523,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3523,2024,Tenaga Medis,Jumlah Dokter Umum,160.0,Orang,Dinkes Jatim 2024
-3524,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Open Data Jatim 2024
-3524,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,15.0,Unit,Open Data Jatim 2024
-3524,2024,Tenaga Medis,Jumlah Dokter Umum,165.0,Orang,Dinkes Jatim 2024
-3525,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3525,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Open Data Jatim 2024
-3525,2024,Tenaga Medis,Jumlah Dokter Umum,220.0,Orang,Dinkes Jatim 2024
-3526,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Open Data Jatim 2024
-3526,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Open Data Jatim 2024
-3526,2024,Tenaga Medis,Jumlah Dokter Umum,112.0,Orang,Dinkes Jatim 2024
-3527,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3527,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,10.0,Unit,Open Data Jatim 2024
-3527,2024,Tenaga Medis,Jumlah Dokter Umum,94.0,Orang,Dinkes Jatim 2024
-3528,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Open Data Jatim 2024
-3528,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,7.0,Unit,Open Data Jatim 2024
-3528,2024,Tenaga Medis,Jumlah Dokter Umum,106.0,Orang,Dinkes Jatim 2024
-3529,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Open Data Jatim 2024
-3529,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Open Data Jatim 2024
-3529,2024,Tenaga Medis,Jumlah Dokter Umum,132.0,Orang,Dinkes Jatim 2024
-3571,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,3.0,Unit,Open Data Jatim 2024
-3571,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,6.0,Unit,Open Data Jatim 2024
-3571,2024,Tenaga Medis,Jumlah Dokter Umum,145.0,Orang,Dinkes Jatim 2024
-3572,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Open Data Jatim 2024
-3572,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,1.0,Unit,Open Data Jatim 2024
-3572,2024,Tenaga Medis,Jumlah Dokter Umum,72.0,Orang,Dinkes Jatim 2024
-3573,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,5.0,Unit,Open Data Jatim 2024
-3573,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,11.0,Unit,Open Data Jatim 2024
-3573,2024,Tenaga Medis,Jumlah Dokter Umum,420.0,Orang,Dinkes Jatim 2024
-3574,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Open Data Jatim 2024
-3574,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,4.0,Unit,Open Data Jatim 2024
-3574,2024,Tenaga Medis,Jumlah Dokter Umum,80.0,Orang,Dinkes Jatim 2024
-3575,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Open Data Jatim 2024
-3575,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,6.0,Unit,Open Data Jatim 2024
-3575,2024,Tenaga Medis,Jumlah Dokter Umum,76.0,Orang,Dinkes Jatim 2024
-3576,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Open Data Jatim 2024
-3576,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,4.0,Unit,Open Data Jatim 2024
-3576,2024,Tenaga Medis,Jumlah Dokter Umum,68.0,Orang,Dinkes Jatim 2024
-3577,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,3.0,Unit,Open Data Jatim 2024
-3577,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,3.0,Unit,Open Data Jatim 2024
-3577,2024,Tenaga Medis,Jumlah Dokter Umum,95.0,Orang,Dinkes Jatim 2024
-3578,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,23.0,Unit,Open Data Jatim 2024
-3578,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,40.0,Unit,Open Data Jatim 2024
-3578,2024,Tenaga Medis,Jumlah Dokter Umum,1250.0,Orang,Dinkes Jatim 2024
-3579,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Open Data Jatim 2024
-3579,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,3.0,Unit,Open Data Jatim 2024
-3579,2024,Tenaga Medis,Jumlah Dokter Umum,82.0,Orang,Dinkes Jatim 2024
+kode_bps,nama_wilayah,tahun,topik,nama_indikator,nilai,satuan,sumber_data,coverage_periode
+3501,Kabupaten Pacitan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3501,Kabupaten Pacitan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3501,Kabupaten Pacitan,2024,Tenaga Medis,Jumlah Dokter Umum,84.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3502,Kabupaten Ponorogo,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3502,Kabupaten Ponorogo,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3502,Kabupaten Ponorogo,2024,Tenaga Medis,Jumlah Dokter Umum,122.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3503,Kabupaten Trenggalek,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3503,Kabupaten Trenggalek,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,7.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3503,Kabupaten Trenggalek,2024,Tenaga Medis,Jumlah Dokter Umum,98.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3504,Kabupaten Tulungagung,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,19.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3504,Kabupaten Tulungagung,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3504,Kabupaten Tulungagung,2024,Tenaga Medis,Jumlah Dokter Umum,164.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3505,Kabupaten Blitar,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3505,Kabupaten Blitar,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3505,Kabupaten Blitar,2024,Tenaga Medis,Jumlah Dokter Umum,140.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3506,Kabupaten Kediri,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,20.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3506,Kabupaten Kediri,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,17.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3506,Kabupaten Kediri,2024,Tenaga Medis,Jumlah Dokter Umum,210.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3507,Kabupaten Malang,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,24.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3507,Kabupaten Malang,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,15.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3507,Kabupaten Malang,2024,Tenaga Medis,Jumlah Dokter Umum,320.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3508,Kabupaten Lumajang,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3508,Kabupaten Lumajang,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,11.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3508,Kabupaten Lumajang,2024,Tenaga Medis,Jumlah Dokter Umum,118.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3509,Kabupaten Jember,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,26.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3509,Kabupaten Jember,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,24.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3509,Kabupaten Jember,2024,Tenaga Medis,Jumlah Dokter Umum,340.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3510,Kabupaten Banyuwangi,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,22.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3510,Kabupaten Banyuwangi,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,23.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3510,Kabupaten Banyuwangi,2024,Tenaga Medis,Jumlah Dokter Umum,235.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3511,Kabupaten Bondowoso,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3511,Kabupaten Bondowoso,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3511,Kabupaten Bondowoso,2024,Tenaga Medis,Jumlah Dokter Umum,95.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3512,Kabupaten Situbondo,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,11.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3512,Kabupaten Situbondo,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,9.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3512,Kabupaten Situbondo,2024,Tenaga Medis,Jumlah Dokter Umum,88.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3513,Kabupaten Probolinggo,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3513,Kabupaten Probolinggo,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,18.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3513,Kabupaten Probolinggo,2024,Tenaga Medis,Jumlah Dokter Umum,130.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3514,Kabupaten Pasuruan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,19.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3514,Kabupaten Pasuruan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,14.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3514,Kabupaten Pasuruan,2024,Tenaga Medis,Jumlah Dokter Umum,195.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3515,Kabupaten Sidoarjo,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3515,Kabupaten Sidoarjo,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,9.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3515,Kabupaten Sidoarjo,2024,Tenaga Medis,Jumlah Dokter Umum,380.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3516,Kabupaten Mojokerto,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,17.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3516,Kabupaten Mojokerto,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,10.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3516,Kabupaten Mojokerto,2024,Tenaga Medis,Jumlah Dokter Umum,155.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3517,Kabupaten Jombang,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,21.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3517,Kabupaten Jombang,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3517,Kabupaten Jombang,2024,Tenaga Medis,Jumlah Dokter Umum,178.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3518,Kabupaten Nganjuk,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,15.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3518,Kabupaten Nganjuk,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3518,Kabupaten Nganjuk,2024,Tenaga Medis,Jumlah Dokter Umum,142.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3519,Kabupaten Madiun,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3519,Kabupaten Madiun,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3519,Kabupaten Madiun,2024,Tenaga Medis,Jumlah Dokter Umum,110.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3520,Kabupaten Magetan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3520,Kabupaten Magetan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3520,Kabupaten Magetan,2024,Tenaga Medis,Jumlah Dokter Umum,96.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3521,Kabupaten Ngawi,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3521,Kabupaten Ngawi,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3521,Kabupaten Ngawi,2024,Tenaga Medis,Jumlah Dokter Umum,114.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3522,Kabupaten Bojonegoro,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,20.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3522,Kabupaten Bojonegoro,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3522,Kabupaten Bojonegoro,2024,Tenaga Medis,Jumlah Dokter Umum,170.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3523,Kabupaten Tuban,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,17.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3523,Kabupaten Tuban,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3523,Kabupaten Tuban,2024,Tenaga Medis,Jumlah Dokter Umum,160.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3524,Kabupaten Lamongan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3524,Kabupaten Lamongan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,15.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3524,Kabupaten Lamongan,2024,Tenaga Medis,Jumlah Dokter Umum,165.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3525,Kabupaten Gresik,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3525,Kabupaten Gresik,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,16.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3525,Kabupaten Gresik,2024,Tenaga Medis,Jumlah Dokter Umum,220.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3526,Kabupaten Bangkalan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,14.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3526,Kabupaten Bangkalan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,8.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3526,Kabupaten Bangkalan,2024,Tenaga Medis,Jumlah Dokter Umum,112.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3527,Kabupaten Sampang,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3527,Kabupaten Sampang,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,10.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3527,Kabupaten Sampang,2024,Tenaga Medis,Jumlah Dokter Umum,94.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3528,Kabupaten Pamekasan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,13.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3528,Kabupaten Pamekasan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,7.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3528,Kabupaten Pamekasan,2024,Tenaga Medis,Jumlah Dokter Umum,106.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3529,Kabupaten Sumenep,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,18.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3529,Kabupaten Sumenep,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,12.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3529,Kabupaten Sumenep,2024,Tenaga Medis,Jumlah Dokter Umum,132.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3571,Kota Kediri,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,3.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3571,Kota Kediri,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,6.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3571,Kota Kediri,2024,Tenaga Medis,Jumlah Dokter Umum,145.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3572,Kota Blitar,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3572,Kota Blitar,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,1.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3572,Kota Blitar,2024,Tenaga Medis,Jumlah Dokter Umum,72.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3573,Kota Malang,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,5.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3573,Kota Malang,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,11.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3573,Kota Malang,2024,Tenaga Medis,Jumlah Dokter Umum,420.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3574,Kota Probolinggo,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3574,Kota Probolinggo,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,4.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3574,Kota Probolinggo,2024,Tenaga Medis,Jumlah Dokter Umum,80.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3575,Kota Pasuruan,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3575,Kota Pasuruan,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,6.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3575,Kota Pasuruan,2024,Tenaga Medis,Jumlah Dokter Umum,76.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3576,Kota Mojokerto,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3576,Kota Mojokerto,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,4.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3576,Kota Mojokerto,2024,Tenaga Medis,Jumlah Dokter Umum,68.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3577,Kota Madiun,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,3.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3577,Kota Madiun,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,3.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3577,Kota Madiun,2024,Tenaga Medis,Jumlah Dokter Umum,95.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3578,Kota Surabaya,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,23.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3578,Kota Surabaya,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,40.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3578,Kota Surabaya,2024,Tenaga Medis,Jumlah Dokter Umum,1250.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3579,Kota Batu,2024,Puskesmas,Jumlah Puskesmas Rawat Inap,2.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3579,Kota Batu,2024,Puskesmas,Jumlah Puskesmas Non Rawat Inap,3.0,Unit,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
+3579,Kota Batu,2024,Tenaga Medis,Jumlah Dokter Umum,82.0,Orang,Dinas Kesehatan Provinsi Jawa Timur,2024-OFFICIAL
