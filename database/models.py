@@ -31,6 +31,38 @@ class EnumPipelineStatus(str, enum.Enum):
     FAILED = "FAILED"
     PARTIAL = "PARTIAL"
 
+class RefSumberData(Base):
+    """Katalog sumber data resmi — sesuai SCHEMA.md Seksi 3 dan PRD v1.1 Seksi 9.3."""
+    __tablename__ = "ref_sumber_data"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    source_id = Column(String(50), unique=True, nullable=False, index=True)
+    nama = Column(String(200), nullable=False)
+    institusi = Column(String(200), nullable=True)
+    url = Column(Text, nullable=True)
+    lisensi = Column(String(200), nullable=True)
+    lisensi_url = Column(Text, nullable=True)
+    cakupan_wilayah = Column(String(100), nullable=True)
+    cakupan_periode = Column(String(100), nullable=True)
+    format_asli = Column(String(20), nullable=True)
+    catatan_batasan = Column(Text, nullable=True)
+    frekuensi_update = Column(String(50), nullable=True)  # daily, weekly, monthly, annual, once
+    is_active = Column(Integer, default=1)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class RefIcd10(Base):
+    """Master kode penyakit ICD-10 — sesuai SCHEMA.md Seksi 3."""
+    __tablename__ = "ref_icd10"
+
+    kode = Column(String(10), primary_key=True)  # e.g. 'A15', 'A90', 'J18'
+    nama_en = Column(String(300), nullable=True)
+    nama_id = Column(String(300), nullable=True)
+    kategori = Column(String(100), nullable=True)  # e.g. 'Penyakit Infeksi'
+    is_active = Column(Integer, default=1)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+
 class RefWilayah(Base):
     __tablename__ = "ref_wilayah"
 
