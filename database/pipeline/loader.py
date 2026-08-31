@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from config.settings import settings
 from models import (
-    Base, RefWilayah, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
+    Base, RefWilayah, RefSumberData, RefIcd10, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
     TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus
 )
 
@@ -146,6 +146,82 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
     session.commit()
     logger.info(f"[Upsert] Processed {inserted_or_updated} hospital records idempotently.")
     return inserted_or_updated
+
+def upsert_ref_sumber_data(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for ref_sumber_data."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(RefSumberData).values(
+            source_id=r["source_id"],
+            nama=r["nama"],
+            institusi=r.get("institusi"),
+            url=r.get("url"),
+            lisensi=r.get("lisensi"),
+            lisensi_url=r.get("lisensi_url"),
+            cakupan_wilayah=r.get("cakupan_wilayah"),
+            cakupan_periode=r.get("cakupan_periode"),
+            format_asli=r.get("format_asli"),
+            catatan_batasan=r.get("catatan_batasan"),
+            frekuensi_update=r.get("frekuensi_update"),
+            is_active=r.get("is_active", 1)
+        )
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["source_id"],
+            set_={
+                "nama": stmt.excluded.nama,
+                "institusi": stmt.excluded.institusi,
+                "url": stmt.excluded.url,
+                "lisensi": stmt.excluded.lisensi,
+                "lisensi_url": stmt.excluded.lisensi_url,
+                "cakupan_wilayah": stmt.excluded.cakupan_wilayah,
+                "cakupan_periode": stmt.excluded.cakupan_periode,
+                "format_asli": stmt.excluded.format_asli,
+                "catatan_batasan": stmt.excluded.catatan_batasan,
+                "frekuensi_update": stmt.excluded.frekuensi_update,
+                "is_active": stmt.excluded.is_active
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} ref_sumber_data records idempotently.")
+    return count
+
+
+def upsert_ref_icd10(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for ref_icd10."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(RefIcd10).values(
+            kode=r["kode"],
+            nama_en=r.get("nama_en"),
+            nama_id=r.get("nama_id"),
+            kategori=r.get("kategori"),
+            is_active=r.get("is_active", 1)
+        )
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["kode"],
+            set_={
+                "nama_en": stmt.excluded.nama_en,
+                "nama_id": stmt.excluded.nama_id,
+                "kategori": stmt.excluded.kategori,
+                "is_active": stmt.excluded.is_active
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} ref_icd10 records idempotently.")
+    return count
+
 
 def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
     """Idempotent upsert for 38 kab/kota reference."""
