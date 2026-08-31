@@ -1,0 +1,7 @@
+source_id,nama,institusi,url,lisensi,cakupan_wilayah,cakupan_periode,format_asli,frekuensi_update,catatan_batasan
+sirs_kemenkes,SIRS Kemenkes — Direktori RS Indonesia,Kementerian Kesehatan RI,https://sirs.kemkes.go.id,Komersial — SIRS Kemenkes,Jawa Timur (Provinsi 35),2026-LIVE,json,daily,Koordinat default Bangka Belitung untuk RS yang belum dipetakan
+opendata_jatim,Open Data Jawa Timur — Kategori Kesehatan,Diskominfo Provinsi Jawa Timur,https://opendata.jatimprov.go.id,Open Government — UU KIP No.14/2008,Jawa Timur (38 Kab/Kota),2024-OFFICIAL,csv,weekly,Data agregat tahunan; lag rilis 1-2 tahun dari tahun berjalan
+ckan_data_go_id,Portal Satu Data Indonesia,Bappenas RI,https://data.go.id,Creative Commons Attribution,Nasional (filter Jawa Timur),2024-OFFICIAL,csv,monthly,Cakupan bervariasi per dataset; tidak semua ada Jawa Timur
+bps_jatim,BPS Provinsi Jawa Timur,Badan Pusat Statistik Jawa Timur,https://jatim.bps.go.id,Bebas dengan atribusi BPS,Jawa Timur (38 Kab/Kota),2021-CENSUS,csv,annual,Data kependudukan baseline sensus 2021; proyeksi gunakan laju 0.7%/tahun
+geojson_jatim,GeoJSON Batas Wilayah Jatim,superpikar (GitHub),https://github.com/superpikar/indonesia-geojson,MIT,Jawa Timur (38 Kab/Kota),Statis,geojson,once,Batas administratif level kabupaten/kota; tidak berubah kecuali pemekaran
+operator_input,Input Manual Operator,Internal Cura,,,Per faskes,Bervariasi,csv,manual,Data operasional (BOR/ALOS/kunjungan) diinput manual oleh operator faskes
