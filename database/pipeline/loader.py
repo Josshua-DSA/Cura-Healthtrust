@@ -29,36 +29,91 @@ def init_db():
     engine = get_engine()
     with engine.connect() as conn:
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS postgis;"))
+        conn.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm;"))
+        conn.execute(text("CREATE EXTENSION IF NOT EXISTS unaccent;"))
         conn.commit()
     Base.metadata.create_all(engine)
 
-    # Ensure GIST indexes for spatial performance
+    # Ensure GIST indexes for spatial performance & GIN for Trigram text search
     with engine.connect() as conn:
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_tbl_rs_geom ON tbl_rumah_sakit USING GIST (geom);"))
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_pkm_geom ON faskes_puskesmas USING GIST (geom);"))
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_ref_wilayah_geom ON ref_wilayah USING GIST (geom);"))
         
-        # Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
-        conn.execute(text("DROP VIEW IF EXISTS v_choropleth_wilayah;"))
+        # GIN Trigram indexes for fast typo-tolerant fuzzy search (<5ms)
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_rs_nama_trgm ON tbl_rumah_sakit USING GIN (nama_rs gin_trgm_ops);"))
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_pkm_nama_trgm ON faskes_puskesmas USING GIN (nama gin_trgm_ops);"))
+
+        # Point 5: Unified Spatial View for All Faskes (RS + Puskesmas)
+        conn.execute(text("DROP VIEW IF EXISTS v_faskes_all CASCADE;"))
+        conn.execute(text("""
+            CREATE VIEW v_faskes_all AS
+            SELECT 
+                kode_rs AS id_faskes,
+                'rumah_sakit' AS jenis_faskes,
+                nama_rs AS nama,
+                kelas::text AS kelas_tipe,
+                kepemilikan::text AS kepemilikan,
+                alamat,
+                kode_bps,
+                telepon,
+                jumlah_tt,
+                lat,
+                lng,
+                geom,
+                is_valid_coord,
+                coverage_periode
+            FROM tbl_rumah_sakit
+            UNION ALL
+            SELECT 
+                kode_puskesmas AS id_faskes,
+                'puskesmas' AS jenis_faskes,
+                nama,
+                tipe_rawat::text AS kelas_tipe,
+                'pemerintah' AS kepemilikan,
+                alamat,
+                kode_bps,
+                telepon,
+                jumlah_tt,
+                lat,
+                lng,
+                geom,
+                is_valid_coord,
+                coverage_periode
+            FROM faskes_puskesmas;
+        """))
+
+        # Point 3 & 5: Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
+        conn.execute(text("DROP VIEW IF EXISTS v_choropleth_wilayah CASCADE;"))
         conn.execute(text("""
             CREATE VIEW v_choropleth_wilayah AS
             SELECT 
                 w.kode_bps,
                 w.nama_wilayah,
                 w.tipe,
-                COALESCE(a.total_rs, 0) as total_rs,
-                COALESCE(a.total_tt, 0) as total_tt,
-                COALESCE(a.jumlah_penduduk, 0) as jumlah_penduduk_2021,
-                COALESCE(a.rasio_tt_per_1000, 0.0) as rasio_tt_resmi,
-                COALESCE(a.kategori_ketercukupan, 'kuning') as kategori_who_resmi,
-                ROUND((COALESCE(a.jumlah_penduduk, 0) * 1.03549)::numeric, 0) as proyeksi_penduduk_2026,
-                ROUND(CASE WHEN COALESCE(a.jumlah_penduduk, 0) > 0 THEN (COALESCE(a.total_tt, 0) / (a.jumlah_penduduk * 1.03549) * 1000.0)::numeric ELSE 0.0 END, 2) as rasio_tt_proyeksi_2026,
+                COALESCE(a.total_rs, 0) AS total_rs,
+                COALESCE(pkm.total_pkm, 0) AS total_puskesmas,
+                COALESCE(a.total_tt, 0) + COALESCE(pkm.total_pkm_tt, 0) AS total_tt,
+                COALESCE(a.jumlah_penduduk, 0) AS jumlah_penduduk_2021,
+                COALESCE(a.rasio_tt_per_1000, 0.0) AS rasio_tt_resmi,
+                COALESCE(a.kategori_ketercukupan, 'kuning') AS kategori_who_resmi,
+                ROUND((COALESCE(a.jumlah_penduduk, 0) * 1.03549)::numeric, 0) AS proyeksi_penduduk_2026,
+                ROUND(CASE WHEN COALESCE(a.jumlah_penduduk, 0) > 0 THEN ((COALESCE(a.total_tt, 0) + COALESCE(pkm.total_pkm_tt, 0)) / (a.jumlah_penduduk * 1.03549) * 1000.0)::numeric ELSE 0.0 END, 2) AS rasio_tt_proyeksi_2026,
                 w.geom
             FROM ref_wilayah w
-            LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps;
+            LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps
+            LEFT JOIN (
+                SELECT 
+                    kode_bps,
+                    COUNT(*) AS total_pkm,
+                    SUM(COALESCE(jumlah_tt, 0)) AS total_pkm_tt
+                FROM faskes_puskesmas
+                GROUP BY kode_bps
+            ) pkm ON pkm.kode_bps = w.kode_bps;
         """))
         conn.commit()
 
-    logger.info("[Database] PostGIS extension, GIST indexes & v_choropleth_wilayah view verified successfully.")
+    logger.info("[Database] PostGIS, pg_trgm, unaccent, GIN indexes & unified spatial views verified successfully.")
 
 def generate_rs_key(nama_rs: str, kode_bps: Optional[str], kode_rs: Optional[str] = None) -> str:
     """
