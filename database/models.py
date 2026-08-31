@@ -22,6 +22,10 @@ class EnumKepemilikan(str, enum.Enum):
     tni_polri = "tni_polri"
     lainnya = "lainnya"
 
+class EnumTipeRawatPuskesmas(str, enum.Enum):
+    rawat_inap = "rawat_inap"
+    non_rawat_inap = "non_rawat_inap"
+
 class EnumTipeWilayah(str, enum.Enum):
     KABUPATEN = "KABUPATEN"
     KOTA = "KOTA"
@@ -74,6 +78,7 @@ class RefWilayah(Base):
 
     # Relationships
     rumah_sakit = relationship("TblRumahSakit", back_populates="wilayah")
+    puskesmas = relationship("FaskesPuskesmas", back_populates="wilayah")
     penduduk = relationship("TblPenduduk", back_populates="wilayah")
     agregat = relationship("TblAgregatWilayah", back_populates="wilayah")
     indikator = relationship("TblIndikatorKesehatan", back_populates="wilayah")
@@ -115,6 +120,41 @@ class TblPenduduk(Base):
     )
 
     wilayah = relationship("RefWilayah", back_populates="penduduk")
+
+class FaskesPuskesmas(Base):
+    """
+    Master Puskesmas di Jawa Timur — sesuai SCHEMA.md Seksi 4 dan PRD v1.1 Seksi 4.
+    Mencakup faskes rawat inap dan non rawat inap per kecamatan/kabupaten.
+    """
+    __tablename__ = "faskes_puskesmas"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_puskesmas = Column(String(50), unique=True, nullable=False, index=True)
+    nama = Column(String(300), nullable=False)
+    tipe_rawat = Column(
+        Enum(EnumTipeRawatPuskesmas, name="enum_tipe_rawat_puskesmas"),
+        default=EnumTipeRawatPuskesmas.non_rawat_inap,
+        nullable=False,
+        index=True
+    )
+    alamat = Column(Text, nullable=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="SET NULL"), nullable=True, index=True)
+    kecamatan = Column(String(100), nullable=True)
+    telepon = Column(String(100), nullable=True)
+    jumlah_tt = Column(Integer, default=0)
+    lat = Column(Float, nullable=True)
+    lng = Column(Float, nullable=True)
+    geom = Column(Geometry("POINT", srid=4326), nullable=True)
+    is_valid_coord = Column(Integer, default=1)
+    needs_geocoding = Column(Integer, default=0)
+    source_id = Column(String(50), default="opendata_jatim")
+    status_operasional = Column(Integer, default=1)
+    coverage_periode = Column(String(20), default="2024-OFFICIAL")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    wilayah = relationship("RefWilayah", back_populates="puskesmas")
+
 
 class TblRumahSakit(Base):
     __tablename__ = "tbl_rumah_sakit"
