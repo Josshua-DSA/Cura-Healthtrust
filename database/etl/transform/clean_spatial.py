@@ -63,9 +63,22 @@ def clean_and_validate_districts(geojson_raw: Optional[Dict[str, Any]], rasio_tt
 
         r_info = rasio_map.get(kbps, {})
         tot_tt = int(r_info.get("jumlah_tt", 0))
-        pddk = int(r_info.get("penduduk", props.get("jumlah_penduduk", 0)))
-        rasio = float(r_info.get("bed_per_1000", 0.0))
-        kategori = str(r_info.get("kategori", "kuning"))
+        pddk_2021 = int(r_info.get("penduduk", props.get("jumlah_penduduk", 0)))
+        rasio_resmi = float(r_info.get("bed_per_1000", 0.0))
+        kategori_resmi = str(r_info.get("kategori", "kuning"))
+
+        # Point 1 Optimization: BPS East Java Population Projection (2021 -> 2026 with ~0.7%/year growth)
+        # Formula: P_2026 = P_2021 * (1 + 0.007)^5 = P_2021 * 1.03549
+        pddk_proyeksi_2026 = int(round(pddk_2021 * 1.03549)) if pddk_2021 > 0 else 0
+        rasio_proyeksi_2026 = round((tot_tt / pddk_proyeksi_2026) * 1000.0, 2) if pddk_proyeksi_2026 > 0 else rasio_resmi
+        
+        # Determine Projected WHO Category
+        if rasio_proyeksi_2026 >= 1.0:
+            kategori_proyeksi_2026 = "hijau"
+        elif rasio_proyeksi_2026 >= 0.7:
+            kategori_proyeksi_2026 = "kuning"
+        else:
+            kategori_proyeksi_2026 = "merah"
 
         tipe = "KOTA" if "kota" in nama.lower() else "KABUPATEN"
         nama_std = f"Kabupaten {nama}" if tipe == "KABUPATEN" and not nama.lower().startswith("kab") else (f"Kota {nama}" if tipe == "KOTA" and not nama.lower().startswith("kota") else nama)
@@ -81,9 +94,13 @@ def clean_and_validate_districts(geojson_raw: Optional[Dict[str, Any]], rasio_tt
             "kode_bps": kbps,
             "nama_wilayah": nama_std,
             "total_tt": tot_tt,
-            "jumlah_penduduk": pddk,
-            "rasio_tt_per_1000": rasio,
-            "kategori_who": kategori
+            "jumlah_penduduk_2021": pddk_2021,
+            "rasio_tt_resmi": rasio_resmi,
+            "kategori_who_resmi": kategori_resmi,
+            "proyeksi_penduduk_2026": pddk_proyeksi_2026,
+            "rasio_tt_proyeksi_2026": rasio_proyeksi_2026,
+            "kategori_who_proyeksi_2026": kategori_proyeksi_2026,
+            "coverage_periode": "2026-PROJECTED"
         })
 
     df_ratio = pd.DataFrame(ratio_rows)
