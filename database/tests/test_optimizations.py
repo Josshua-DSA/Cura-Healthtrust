@@ -49,3 +49,25 @@ def test_data_freshness_and_projection_2026():
     assert (df_ratio["coverage_periode"] == "2026-PROJECTED").all()
     # Verify projection is higher than 2021 population
     assert (df_ratio["proyeksi_penduduk_2026"] > df_ratio["jumlah_penduduk_2021"]).all()
+
+
+def test_reference_tables_seed():
+    from models import RefSumberData, RefIcd10
+
+    session = get_session()
+    try:
+        sources = session.query(RefSumberData).all()
+        assert len(sources) >= 6
+        source_ids = {s.source_id for s in sources}
+        assert "sirs_kemenkes" in source_ids
+        assert "opendata_jatim" in source_ids
+
+        icds = session.query(RefIcd10).all()
+        assert len(icds) >= 20
+        icd_kodes = {i.kode for i in icds}
+        assert "A15" in icd_kodes  # TB Paru
+        assert "A90" in icd_kodes  # DBD
+        assert "E45" in icd_kodes  # Stunting
+    finally:
+        session.close()
+
