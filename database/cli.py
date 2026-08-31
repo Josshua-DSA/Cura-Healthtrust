@@ -8,6 +8,7 @@ def main():
     # Commands
     subparsers.add_parser("init-db", help="Initialize tables and PostGIS extensions")
     subparsers.add_parser("seed-wilayah", help="Seed 38 Kab/Kota Jawa Timur reference data")
+    subparsers.add_parser("seed-references", help="Seed ref_sumber_data and ref_icd10 tables")
     subparsers.add_parser("run-etl", help="Run full ETL pipeline")
     subparsers.add_parser("test-db", help="Run test suite for data layer")
     subparsers.add_parser("check-health", help="Check status and availability of external APIs & DB")
@@ -71,6 +72,30 @@ def main():
                     "tipe": EnumTipeWilayah(row["tipe"])
                 })
         upsert_ref_wilayah(session, records)
+        session.close()
+        return
+
+    if args.command == "seed-references":
+        import csv
+        import os
+        from pipeline.loader import get_session, upsert_ref_sumber_data, upsert_ref_icd10
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        
+        # 1. Seed ref_sumber_data
+        src_path = os.path.join(base_dir, "seeds", "ref_sumber_data.csv")
+        if os.path.exists(src_path):
+            with open(src_path, mode="r", encoding="utf-8") as f:
+                records = list(csv.DictReader(f))
+                upsert_ref_sumber_data(session, records)
+
+        # 2. Seed ref_icd10
+        icd_path = os.path.join(base_dir, "seeds", "ref_icd10.csv")
+        if os.path.exists(icd_path):
+            with open(icd_path, mode="r", encoding="utf-8") as f:
+                records = list(csv.DictReader(f))
+                upsert_ref_icd10(session, records)
+
         session.close()
         return
 
