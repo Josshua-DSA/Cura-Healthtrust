@@ -58,7 +58,30 @@ Tabel master faskes rumah sakit di seluruh 38 Kabupaten/Kota Jawa Timur.
 
 ---
 
-### B. Dataset Rasio Tempat Tidur Wilayah (`bed_ratio_38_kab`)
+### B. Dataset Puskesmas Jawa Timur (`puskesmas_clean`)
+Tabel master faskes Puskesmas (Pusat Kesehatan Masyarakat) di 38 Kabupaten/Kota Jawa Timur (Domain A - PRD F02).
+* **Format File**: `database/exports/puskesmas_clean.csv` dan `puskesmas_clean.parquet`
+* **Jumlah Record**: 977 Puskesmas
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Format | Deskripsi |
+|---|---|---|---|---|
+| `kode_puskesmas` | `VARCHAR(50)` | ❌ Tidak (PK) | `'PKM35780001'` | Kode unik pengenal Puskesmas. |
+| `nama` | `VARCHAR(300)` | ❌ Tidak | `'Puskesmas Tegalsari Rawat Inap 1'` | Nama resmi faskes Puskesmas. |
+| `tipe_rawat` | `VARCHAR(20)` | ❌ Tidak | `'rawat_inap'` / `'non_rawat_inap'` | Klasifikasi tipe perawatan faskes. |
+| `alamat` | `TEXT` | ⚠️ Ya | `'Jl. Raya Kesehatan No. 1, Kota Surabaya'` | Alamat faskes bersih dari newline `\r\n`. |
+| `kode_bps` | `VARCHAR(4)` | ⚠️ Ya (FK) | `'3578'` | Kode BPS 4 digit Kabupaten/Kota. |
+| `kecamatan` | `VARCHAR(100)` | ⚠️ Ya | `'Kecamatan 1'` | Nama kecamatan faskes berada. |
+| `telepon` | `VARCHAR(100)` | ⚠️ Ya | `'031-8123456'` | Nomor telepon kontak faskes. |
+| `jumlah_tt` | `INTEGER` | ❌ Tidak | `15` (Rawat Inap) / `0` (Non) | Jumlah kapasitas tempat tidur faskes. |
+| `lat` | `FLOAT` | ⚠️ Ya | `-7.280000` | Titik koordinat Latitude (WGS84). |
+| `lng` | `FLOAT` | ⚠️ Ya | `112.740000` | Titik koordinat Longitude (WGS84). |
+| `is_valid_coord` | `INTEGER` | ❌ Tidak | `1` atau `0` | Flag penanda koordinat dalam batas Jatim. |
+| `source_id` | `VARCHAR(50)` | ❌ Tidak | `'opendata_jatim'` | Identifier sumber data rujukan. |
+| `coverage_periode` | `VARCHAR(20)` | ❌ Tidak | `'2024-OFFICIAL'` | Periode rujukan data resmi Dinkes Jatim. |
+
+---
+
+### C. Dataset Rasio Tempat Tidur Wilayah (`bed_ratio_38_kab`)
 Ringkasan agregat rasio ketersediaan tempat tidur rumah sakit per 1.000 penduduk berstandar World Health Organization (WHO).
 
 | Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
