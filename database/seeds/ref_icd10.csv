@@ -1,0 +1,23 @@
+kode,nama_en,nama_id,kategori
+A09,Diarrhoea and gastroenteritis of presumed infectious origin,Diare dan Gastroenteritis,Penyakit Infeksi Saluran Cerna
+A15,Respiratory tuberculosis,Tuberkulosis Paru,Penyakit Infeksi Saluran Napas
+A16,Respiratory tuberculosis not confirmed,TB Paru Tidak Terkonfirmasi,Penyakit Infeksi Saluran Napas
+A90,Dengue fever (classical dengue),Demam Berdarah Dengue (DBD),Penyakit Tular Vektor
+A91,Dengue haemorrhagic fever,Demam Berdarah Dengue Berat,Penyakit Tular Vektor
+A27,Leptospirosis,Leptospirosis,Penyakit Tular Vektor
+A92,Other mosquito-borne viral fevers,Chikungunya,Penyakit Tular Vektor
+B20,HIV disease resulting in infectious diseases,HIV/AIDS,Penyakit Menular Seksual
+B24,Unspecified HIV disease,HIV Tidak Terspesifikasi,Penyakit Menular Seksual
+E40,Kwashiorkor,Gizi Buruk — Kwashiorkor,Gangguan Gizi
+E41,Nutritional marasmus,Gizi Buruk — Marasmus,Gangguan Gizi
+E44,Protein-calorie malnutrition of moderate and mild degree,Gizi Kurang,Gangguan Gizi
+E45,Retarded development following protein-calorie malnutrition,Stunting (Gagal Tumbuh),Gangguan Gizi
+I10,Essential (primary) hypertension,Hipertensi Esensial,Penyakit Tidak Menular
+E11,Type 2 diabetes mellitus,Diabetes Melitus Tipe 2,Penyakit Tidak Menular
+I21,Acute myocardial infarction,Infark Miokard Akut (Serangan Jantung),Penyakit Tidak Menular
+J18,Pneumonia unspecified organism,Pneumonia,Penyakit Infeksi Saluran Napas
+J06,Acute upper respiratory infections,ISPA (Infeksi Saluran Pernapasan Akut),Penyakit Infeksi Saluran Napas
+K35,Acute appendicitis,Apendisitis Akut,Penyakit Bedah
+O15,Eclampsia,Eklampsia (Kehamilan),Kesehatan Ibu & Anak
+O72,Postpartum haemorrhage,Perdarahan Pasca Persalinan,Kesehatan Ibu & Anak
+P07,Disorders related to short gestation and low birth weight,BBLR (Berat Badan Lahir Rendah),Kesehatan Ibu & Anak
