@@ -1,10 +1,13 @@
-import os
-import sys
-import logging
-import requests
-from typing import Dict, Any, Optional, Tuple
+"""
+SIRS Kemenkes Fetchers — OOP classes sesuai RULES.md Seksi 2.2.
+Backward-compatible: fungsi legacy fetch_sirs_data_rs(), fetch_all_sources() tetap tersedia.
+"""
 
-from pipeline.storage import save_raw_snapshot, load_latest_snapshot
+import logging
+from typing import Any, Dict, Tuple
+
+from pipeline.fetch.base_fetcher import BaseFetcher
+from exceptions import FetchError
 
 logging.basicConfig(
     level=logging.INFO,
@@ -12,122 +15,106 @@ logging.basicConfig(
 )
 logger = logging.getLogger("DataFetcher")
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (HealthTrust Pipeline; Linux x86_64) AppleWebKit/537.36"
-}
+
+# ─── OOP Fetcher Classes ───────────────────────────────────────────
+
+
+class SirsRsListFetcher(BaseFetcher):
+    """Fetcher untuk daftar 447+ RS di Jawa Timur dari SIRS Kemenkes."""
+
+    source_id = "sirs_kemenkes_list"
+    URL = "https://sirs.kemkes.go.id/fo/home/list_prop_noncovid?id=35"
+
+    def fetch(self) -> Tuple[Any, bool]:
+        data = self._fetch_url(self.URL)
+        return data, True
+
+
+class SirsRekapRsFetcher(BaseFetcher):
+    """Fetcher untuk rekap kepemilikan dan detail RS."""
+
+    source_id = "sirs_kemenkes_rekap"
+    URL = "https://sirs.kemkes.go.id/fo/home/rekap_rs_all?id=35"
+
+    def fetch(self) -> Tuple[Any, bool]:
+        data = self._fetch_url(self.URL)
+        return data, True
+
+
+class SirsRasioTtFetcher(BaseFetcher):
+    """Fetcher untuk rasio tempat tidur per 1000 penduduk per 38 Kab/Kota."""
+
+    source_id = "sirs_kemenkes_rasio_tt"
+    URL = "https://sirs.kemkes.go.id/fo/mapgeo/rasio_tt?id=35"
+
+    def fetch(self) -> Tuple[Any, bool]:
+        data = self._fetch_url(self.URL)
+        return data, True
+
+
+class SirsGeojsonFetcher(BaseFetcher):
+    """Fetcher untuk GeoJSON batas wilayah 38 Kab/Kota Jawa Timur."""
+
+    source_id = "sirs_kemenkes_geojson"
+    URL = "https://sirs.kemkes.go.id/fo/mapgeo/koordinat?id=35&mapfile=json%2Fprovinsi.json"
+
+    def fetch(self) -> Tuple[Any, bool]:
+        data = self._fetch_url(self.URL)
+        return data, True
+
+
+# ─── Backward-Compatible Legacy Functions ──────────────────────────
+
 
 def fetch_sirs_data_rs() -> Tuple[Dict[str, Any], bool]:
-    """
-    Fetch 447+ RS list and coordinates in East Java.
-    Returns: (data_dict, is_live_fetch)
-    """
-    source_id = "sirs_kemenkes_list"
-    url = "https://sirs.kemkes.go.id/fo/home/list_prop_noncovid?id=35"
-    try:
-        logger.info(f"Fetching live data from {url} ...")
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        save_raw_snapshot(source_id, data, extension="json")
-        return data, True
-    except Exception as e:
-        logger.warning(f"Live fetch failed for '{source_id}': {e}. Attempting fallback...")
-        fallback_data, path = load_latest_snapshot(source_id, extension="json")
-        if fallback_data is not None:
-            return fallback_data, False
-        raise RuntimeError(f"Failed to fetch live data and no local snapshot available for {source_id}")
+    """Legacy wrapper: fetch RS list via OOP class."""
+    return SirsRsListFetcher().run()
+
 
 def fetch_sirs_rekap_rs() -> Tuple[Dict[str, Any], bool]:
-    """
-    Fetch ownership and details of RS in East Java.
-    Returns: (data_dict, is_live_fetch)
-    """
-    source_id = "sirs_kemenkes_rekap"
-    url = "https://sirs.kemkes.go.id/fo/home/rekap_rs_all?id=35"
-    try:
-        logger.info(f"Fetching live data from {url} ...")
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        save_raw_snapshot(source_id, data, extension="json")
-        return data, True
-    except Exception as e:
-        logger.warning(f"Live fetch failed for '{source_id}': {e}. Attempting fallback...")
-        fallback_data, path = load_latest_snapshot(source_id, extension="json")
-        if fallback_data is not None:
-            return fallback_data, False
-        raise RuntimeError(f"Failed to fetch live data and no local snapshot available for {source_id}")
+    """Legacy wrapper: fetch rekap RS via OOP class."""
+    return SirsRekapRsFetcher().run()
+
 
 def fetch_sirs_rasio_tt() -> Tuple[Dict[str, Any], bool]:
-    """
-    Fetch bed capacity and ratio per 1000 population per 38 Kab/Kota.
-    Returns: (data_dict, is_live_fetch)
-    """
-    source_id = "sirs_kemenkes_rasio_tt"
-    url = "https://sirs.kemkes.go.id/fo/mapgeo/rasio_tt?id=35"
-    try:
-        logger.info(f"Fetching live data from {url} ...")
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        save_raw_snapshot(source_id, data, extension="json")
-        return data, True
-    except Exception as e:
-        logger.warning(f"Live fetch failed for '{source_id}': {e}. Attempting fallback...")
-        fallback_data, path = load_latest_snapshot(source_id, extension="json")
-        if fallback_data is not None:
-            return fallback_data, False
-        raise RuntimeError(f"Failed to fetch live data and no local snapshot available for {source_id}")
+    """Legacy wrapper: fetch rasio TT via OOP class."""
+    return SirsRasioTtFetcher().run()
+
 
 def fetch_sirs_geojson() -> Tuple[Dict[str, Any], bool]:
-    """
-    Fetch GeoJSON boundaries & BPS codes for 38 Kab/Kota in East Java.
-    Returns: (data_dict, is_live_fetch)
-    """
-    source_id = "sirs_kemenkes_geojson"
-    url = "https://sirs.kemkes.go.id/fo/mapgeo/koordinat?id=35&mapfile=json%2Fprovinsi.json"
-    try:
-        logger.info(f"Fetching live data from {url} ...")
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        save_raw_snapshot(source_id, data, extension="json")
-        return data, True
-    except Exception as e:
-        logger.warning(f"Live fetch failed for '{source_id}': {e}. Attempting fallback...")
-        fallback_data, path = load_latest_snapshot(source_id, extension="json")
-        if fallback_data is not None:
-            return fallback_data, False
-        raise RuntimeError(f"Failed to fetch live data and no local snapshot available for {source_id}")
+    """Legacy wrapper: fetch GeoJSON via OOP class."""
+    return SirsGeojsonFetcher().run()
+
 
 def fetch_all_sources() -> Dict[str, Any]:
     """Fetch all primary datasets and return consolidated dict."""
     logger.info("=" * 60)
     logger.info(" [HealthTrust Pipeline] Ingesting All Sources to Raw Storage")
     logger.info("=" * 60)
-    
+
     results = {}
-    
+
     # 1. RS List & Koordinat
     rs_list, live1 = fetch_sirs_data_rs()
     results["rs_list"] = {"count": len(rs_list.get("rs", [])), "is_live": live1}
-    
+
     # 2. Rekap RS (Pemilik)
     rekap_rs, live2 = fetch_sirs_rekap_rs()
     results["rekap_rs"] = {"count": len(rekap_rs.get("data", [])), "is_live": live2}
-    
+
     # 3. Rasio TT & Wilayah
     rasio_tt, live3 = fetch_sirs_rasio_tt()
     results["rasio_tt"] = {"count": len(rasio_tt.get("wilayah", [])), "is_live": live3}
-    
+
     # 4. GeoJSON Batas Wilayah
     geojson_data, live4 = fetch_sirs_geojson()
     results["geojson"] = {"count": len(geojson_data.get("features", [])), "is_live": live4}
-    
+
     logger.info("=" * 60)
     logger.info(f" Ingestion Summary: {results}")
     logger.info("=" * 60)
     return results
+
 
 if __name__ == "__main__":
     fetch_all_sources()
