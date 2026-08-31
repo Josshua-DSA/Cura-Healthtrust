@@ -9,6 +9,7 @@ def main():
     subparsers.add_parser("init-db", help="Initialize tables and PostGIS extensions")
     subparsers.add_parser("seed-wilayah", help="Seed 38 Kab/Kota Jawa Timur reference data")
     subparsers.add_parser("seed-references", help="Seed ref_sumber_data and ref_icd10 tables")
+    subparsers.add_parser("seed-puskesmas", help="Seed 960+ Puskesmas records across 38 Kab/Kota")
     subparsers.add_parser("run-etl", help="Run full ETL pipeline")
     subparsers.add_parser("test-db", help="Run test suite for data layer")
     subparsers.add_parser("check-health", help="Check status and availability of external APIs & DB")
@@ -96,6 +97,22 @@ def main():
                 records = list(csv.DictReader(f))
                 upsert_ref_icd10(session, records)
 
+        session.close()
+        return
+
+    if args.command == "seed-puskesmas":
+        import csv
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_puskesmas
+        from etl.transform.clean_puskesmas import clean_and_validate_puskesmas
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        pkm_path = os.path.join(base_dir, "seeds", "ref_puskesmas_jatim.csv")
+        if os.path.exists(pkm_path):
+            df_raw = pd.read_csv(pkm_path)
+            df_clean = clean_and_validate_puskesmas(df_raw.to_dict(orient="records"))
+            upsert_puskesmas(session, df_clean.to_dict(orient="records"))
         session.close()
         return
 
