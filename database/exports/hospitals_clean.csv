@@ -310,7 +310,7 @@ kode_rs,nama_rs,alamat,telepon,kode_bps,kelas,kepemilikan,pemilik_raw,jenis_rs,l
 3520015,RS Ibu dan Anak Samudra Husada,Jl. Samudra No. 30,0351-894321,3520,C,swasta,SWASTA/LAINNYA,RSIA,-7.659614,111.335533,1,0,SIRS Kemenkes,2026-LIVE
 3525096,RS Petrokimia Gresik Driyorejo,"Jl. Raya Legundi Km. 0,5",031 8981778,3525,C,swasta,SWASTA/LAINNYA,RSU,-7.377778,112.574626,1,0,SIRS Kemenkes,2026-LIVE
 3521015,RS Umum At-Tin Husada,Jalan Raya Ngawi-Solo Km .04,0351-747888,3521,C,swasta,SWASTA/LAINNYA,RSU,-7.404005,111.414779,1,0,SIRS Kemenkes,2026-LIVE
-3574069,RS Ibu dan Anak Muhammadiyah Kota Probolinggo,Jl. Panglima Sudirman No. 65,(0335) 4430555,3574,C,swasta,SWASTA/LAINNYA,RSIA,-7.152244,111.880765,1,0,SIRS Kemenkes,2026-LIVE
+3574069,RS Ibu dan Anak Muhammadiyah Kota Probolinggo,Jl. Panglima Sudirman No. 65,(0335) 4430555,3574,C,swasta,SWASTA/LAINNYA,RSIA,,,0,1,SIRS Kemenkes,2026-LIVE
 3525097,RS Surya Medika,Jl. Laban Kulon 58,317914025,3525,D,swasta,SWASTA/LAINNYA,RSU,-7.301786,112.620617,1,0,SIRS Kemenkes,2026-LIVE
 3578789,RS Ibu dan Anak Kendangsari Surabaya,Jl. Raya Kendangsari No. 38,031-8437200,3578,C,swasta,SWASTA/LAINNYA,RSIA,-7.32533,112.745362,1,0,SIRS Kemenkes,2026-LIVE
 3573258,RS Umum Daerah Kota Malang,JALAN RAJASA NOMOR 27,0341-754338,3573,C,pemerintah,Pemkot,RSU,-8.026347,112.639396,1,0,SIRS Kemenkes,2026-LIVE
@@ -326,7 +326,7 @@ kode_rs,nama_rs,alamat,telepon,kode_bps,kelas,kepemilikan,pemilik_raw,jenis_rs,l
 3578793,RS PKU Muhammadiyah Surabaya,JALAN KH MAS MANSYUR NO.180-182,031-3522980,3578,D,swasta,Organisasi Islam,RSU,-7.229891,112.741193,1,0,SIRS Kemenkes,2026-LIVE
 3522064,RS Ibu dan Anak Fatma,JL Lettu Suyitno No 2,0353 571576,3522,C,swasta,SWASTA/LAINNYA,RSIA,-7.143083,111.900286,1,0,SIRS Kemenkes,2026-LIVE
 3525099,RS Umum Rachmi Dewi,Jl. Jawa No. 79 - 81,031-3957448,3525,D,swasta,SWASTA/LAINNYA,RSU,-7.1508,112.613115,1,0,SIRS Kemenkes,2026-LIVE
-3578794,RS Ibu dan Anak Pusura Tegalsari,Jl. Tegalsari No.59,031-30008000,3578,C,swasta,SWASTA/LAINNYA,RSIA,-7.75632,112.186057,1,0,SIRS Kemenkes,2026-LIVE
+3578794,RS Ibu dan Anak Pusura Tegalsari,Jl. Tegalsari No.59,031-30008000,3578,C,swasta,SWASTA/LAINNYA,RSIA,,,0,1,SIRS Kemenkes,2026-LIVE
 3516039,RS Dian Husada,Jl. Raya Gemekan No. 77,0321-327771,3516,C,swasta,SWASTA/LAINNYA,RSU,-7.526282,112.342404,1,0,SIRS Kemenkes,2026-LIVE
 3505041,RS Umum Al-Ittihad,"Jl. Raya Kediri Blitar, Dusun Kendal Doyong",082142056263,3505,D,swasta,SWASTA/LAINNYA,RSU,-8.059399,112.0529,1,0,SIRS Kemenkes,2026-LIVE
 3510108,RS Al-Rohmah Banyuwangi,Jl. A. Yani No. 37,0333-397267,3510,D,swasta,SWASTA/LAINNYA,RSU,-8.441016,114.176981,1,0,SIRS Kemenkes,2026-LIVE
@@ -440,8 +440,8 @@ kode_rs,nama_rs,alamat,telepon,kode_bps,kelas,kepemilikan,pemilik_raw,jenis_rs,l
 3516086,Rumah Sakit Adhyaksa Jawa Timur,Jalan Jatirejo Jabung Nomer 160,03215211788,3516,C,pemerintah,Kementerian Lain,RSU,-7.584698,112.416323,1,0,SIRS Kemenkes,2026-LIVE
 3578817,Rumah Sakit Waron Hospital,"Jl. Kaliwaron No. 106, 108, 110, 112, 114, Kel. Mojo, Kec. Gubeng, Kota Surabaya, Prov. Jawa Timur, 60285",081286689449,3578,C,swasta,SWASTA/LAINNYA,RSU,-7.263762,112.771232,1,0,SIRS Kemenkes,2026-LIVE
 3573280,Melati Hospital Satsuitubun,Jl. Satsui Tubun No. 19 - 20,081223000079,3573,C,swasta,SWASTA/LAINNYA,RSU,-8.021665,112.622949,1,0,SIRS Kemenkes,2026-LIVE
-3515160,RS Mitra Keluarga Sidoarjo,Ds Pagerwojo,03129717900,3515,C,swasta,SWASTA/LAINNYA,RSU,-7.437969,112.713623,1,0,SIRS Kemenkes,2026-LIVE
-3578818,RS Bawean Orthopedi dan Rehabilitasi Center,Jalan Bawean Nomor 40 Surabaya,081227207340,3578,D,swasta,SWASTA/LAINNYA,RSK Orthopedi,-7.277707,112.747462,1,0,SIRS Kemenkes,2026-LIVE
+3515160,RS Mitra Keluarga Sidoarjo,Ds Pagerwojo,03129717900,3515,C,swasta,SWASTA/LAINNYA,RSU,,,0,1,SIRS Kemenkes,2026-LIVE
+3578818,RS Bawean Orthopedi dan Rehabilitasi Center,Jalan Bawean Nomor 40 Surabaya,081227207340,3578,D,swasta,SWASTA/LAINNYA,RSK Orthopedi,,,0,1,SIRS Kemenkes,2026-LIVE
 3528042,Rumah Sakit Bhayangkara Pamekasan,Jl. Raya Nyalaran no 224,03246650016,3528,D,tni_polri,POLRI,RSU,,,0,1,SIRS Kemenkes,2026-LIVE
 3517112,RSIA ANNISA MEDIKA HUSADA,"Jl. Raya Gambiran NO. 166-168, Mojoagung",082123600062,3517,C,swasta,SWASTA/LAINNYA,RSIA,,,0,1,SIRS Kemenkes,2026-LIVE
 3517113,RS BHAYANGKARA TK IV JOMBANG,Jl. KH. Romli Tamim,087711882042,3517,D,tni_polri,POLRI,RSU,-7.553026,112.247041,1,0,SIRS Kemenkes,2026-LIVE
