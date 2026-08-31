@@ -29,6 +29,37 @@ def test_v_choropleth_wilayah_view():
     session.close()
     assert res == 38
 
+
+def test_v_faskes_all_view():
+    session = get_session()
+    try:
+        total = session.execute(text("SELECT COUNT(*) FROM v_faskes_all;")).scalar()
+        rs_count = session.execute(text("SELECT COUNT(*) FROM v_faskes_all WHERE jenis_faskes = 'rumah_sakit';")).scalar()
+        pkm_count = session.execute(text("SELECT COUNT(*) FROM v_faskes_all WHERE jenis_faskes = 'puskesmas';")).scalar()
+        assert total >= 1400
+        assert rs_count == 447
+        assert pkm_count >= 900
+    finally:
+        session.close()
+
+
+def test_pg_trgm_and_unaccent_fuzzy_search():
+    session = get_session()
+    try:
+        # Test pg_trgm fuzzy matching
+        res = session.execute(
+            text("SELECT nama_rs FROM tbl_rumah_sakit WHERE similarity(nama_rs, 'RS Dr Sutomo') > 0.25 LIMIT 1;")
+        ).fetchone()
+        assert res is not None
+        assert "Soetomo" in res[0] or "dr." in res[0].lower()
+
+        # Test unaccent function
+        unaccent_test = session.execute(text("SELECT unaccent('Hôpital Sehat');")).scalar()
+        assert unaccent_test == "Hopital Sehat"
+    finally:
+        session.close()
+
+
 def test_parquet_export_existence():
     exports_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "exports")
     assert os.path.exists(os.path.join(exports_dir, "hospitals_clean.parquet"))
@@ -49,3 +80,25 @@ def test_data_freshness_and_projection_2026():
     assert (df_ratio["coverage_periode"] == "2026-PROJECTED").all()
     # Verify projection is higher than 2021 population
     assert (df_ratio["proyeksi_penduduk_2026"] > df_ratio["jumlah_penduduk_2021"]).all()
+
+
+def test_reference_tables_seed():
+    from models import RefSumberData, RefIcd10
+
+    session = get_session()
+    try:
+        sources = session.query(RefSumberData).all()
+        assert len(sources) >= 6
+        source_ids = {s.source_id for s in sources}
+        assert "sirs_kemenkes" in source_ids
+        assert "opendata_jatim" in source_ids
+
+        icds = session.query(RefIcd10).all()
+        assert len(icds) >= 20
+        icd_kodes = {i.kode for i in icds}
+        assert "A15" in icd_kodes  # TB Paru
+        assert "A90" in icd_kodes  # DBD
+        assert "E45" in icd_kodes  # Stunting
+    finally:
+        session.close()
+

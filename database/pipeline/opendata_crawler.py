@@ -1,11 +1,19 @@
+"""
+Open Data Jatim Crawler — OOP class + legacy functions sesuai RULES.md Seksi 2.2.
+Backward-compatible: fungsi legacy crawl_and_parse_opendata_csv() dan match_kode_bps() tetap tersedia.
+"""
+
 import os
 import re
 import logging
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
+
 import pandas as pd
 import requests
 
+from pipeline.fetch.base_fetcher import BaseFetcher
 from pipeline.storage import save_raw_snapshot
+from exceptions import FetchError
 
 logger = logging.getLogger("OpenDataJatimCrawler")
 
@@ -32,12 +40,16 @@ WILAYAH_TO_KODE_BPS = {
     "pamekasan": "3528", "sumenep": "3529", "surabaya": "3578", "kota surabaya": "3578"
 }
 
+
+# ─── Standalone Helper Functions ───────────────────────────────────
+
+
 def match_kode_bps(wilayah_name: str) -> Optional[str]:
     """Normalize raw region string to 4-digit BPS code with fuzzy support."""
     if not wilayah_name:
         return None
     cleaned = re.sub(r'[^a-zA-Z\s]', '', str(wilayah_name)).strip().lower()
-    
+
     # 1. Direct match
     if cleaned in WILAYAH_TO_KODE_BPS:
         return WILAYAH_TO_KODE_BPS[cleaned]
@@ -58,30 +70,57 @@ def match_kode_bps(wilayah_name: str) -> Optional[str]:
 
     return None
 
-def crawl_and_parse_opendata_csv() -> List[Dict[str, Any]]:
-    """
-    Crawls Open Data Jatim thematic CSV/API datasets and parses them into standardized records
-    ready for tbl_indikator_kesehatan.
-    """
-    logger.info("[OpenData Jatim] Starting thematic dataset ingestion...")
-    records = []
-    headers = {"User-Agent": "Mozilla/5.0 (HealthTrust OpenData Crawler)"}
 
-    # Example 1: Dataset Puskesmas per Kecamatan / Wilayah
-    try:
-        url = "https://opendata.jatimprov.go.id/api/datasets/13988"
-        r = requests.get(url, headers=headers, timeout=15)
-        if r.status_code == 200:
-            meta = r.json().get("data", {})
-            save_raw_snapshot("opendata_jatim_meta_13988", meta)
-    except Exception as e:
-        logger.warning(f"[OpenData Jatim] Error fetching dataset metadata: {e}")
+# ─── OOP Fetcher Class ────────────────────────────────────────────
 
-    # Fallback to local structured seed if network times out
-    seed_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seeds", "indikator_kesehatan_jatim.csv")
-    if os.path.exists(seed_path):
-        logger.info(f"[OpenData Jatim] Ingesting structured health indicators from {seed_path}...")
-        df = pd.read_csv(seed_path)
+
+class OpenDataJatimFetcher(BaseFetcher):
+    """
+    Fetcher untuk Open Data Jatim (Indikator Kesehatan Daerah).
+    Sesuai RULES.md Seksi 2.2: inherit dari BaseFetcher.
+
+    Strategi: Coba fetch metadata API → Fallback ke local seed CSV.
+    """
+
+    source_id = "opendata_jatim"
+
+    def __init__(self, timeout: int = 15):
+        super().__init__(timeout=timeout)
+        self._seed_path = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)), "seeds", "indikator_kesehatan_jatim.csv"
+        )
+
+    def fetch(self) -> Tuple[List[Dict[str, Any]], bool]:
+        """Fetch metadata dari API dan parse local seed CSV."""
+        # Coba fetch metadata API (non-critical)
+        self._fetch_api_metadata()
+
+        # Parse structured seed CSV
+        records = self._parse_seed_csv()
+        return records, True
+
+    def _fetch_api_metadata(self) -> None:
+        """Fetch dataset metadata dari API Open Data Jatim (non-critical)."""
+        try:
+            url = "https://opendata.jatimprov.go.id/api/datasets/13988"
+            r = self.session.get(url, timeout=self.timeout)
+            if r.status_code == 200:
+                meta = r.json().get("data", {})
+                save_raw_snapshot("opendata_jatim_meta_13988", meta)
+        except Exception as e:
+            logger.warning(f"[OpenData Jatim] Error fetching dataset metadata: {e}")
+
+    def _parse_seed_csv(self) -> List[Dict[str, Any]]:
+        """Parse local structured seed CSV ke format indikator."""
+        records: List[Dict[str, Any]] = []
+
+        if not os.path.exists(self._seed_path):
+            logger.warning(f"[OpenData Jatim] Seed file not found: {self._seed_path}")
+            return records
+
+        logger.info(f"[OpenData Jatim] Ingesting structured health indicators from {self._seed_path}...")
+        df = pd.read_csv(self._seed_path)
+
         for _, row in df.iterrows():
             kbps = match_kode_bps(row.get("nama_wilayah", "")) or str(row.get("kode_bps", ""))
             if kbps and len(kbps) == 4:
@@ -97,5 +136,15 @@ def crawl_and_parse_opendata_csv() -> List[Dict[str, Any]]:
                     "coverage_periode": "2024-OFFICIAL"
                 })
 
-    logger.info(f"[OpenData Jatim] Successfully prepared {len(records)} indicator records.")
+        logger.info(f"[OpenData Jatim] Successfully prepared {len(records)} indicator records.")
+        return records
+
+
+# ─── Backward-Compatible Legacy Function ──────────────────────────
+
+
+def crawl_and_parse_opendata_csv() -> List[Dict[str, Any]]:
+    """Legacy wrapper: crawl Open Data Jatim via OOP class."""
+    fetcher = OpenDataJatimFetcher()
+    records, _ = fetcher.run()
     return records

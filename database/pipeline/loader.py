@@ -10,8 +10,8 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 
 from config.settings import settings
 from models import (
-    Base, RefWilayah, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
-    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus
+    Base, RefWilayah, RefSumberData, RefIcd10, FaskesPuskesmas, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
+    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus, EnumTipeRawatPuskesmas
 )
 
 logger = logging.getLogger("DatabaseUpserter")
@@ -29,36 +29,91 @@ def init_db():
     engine = get_engine()
     with engine.connect() as conn:
         conn.execute(text("CREATE EXTENSION IF NOT EXISTS postgis;"))
+        conn.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm;"))
+        conn.execute(text("CREATE EXTENSION IF NOT EXISTS unaccent;"))
         conn.commit()
     Base.metadata.create_all(engine)
 
-    # Ensure GIST indexes for spatial performance
+    # Ensure GIST indexes for spatial performance & GIN for Trigram text search
     with engine.connect() as conn:
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_tbl_rs_geom ON tbl_rumah_sakit USING GIST (geom);"))
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_pkm_geom ON faskes_puskesmas USING GIST (geom);"))
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_ref_wilayah_geom ON ref_wilayah USING GIST (geom);"))
         
-        # Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
-        conn.execute(text("DROP VIEW IF EXISTS v_choropleth_wilayah;"))
+        # GIN Trigram indexes for fast typo-tolerant fuzzy search (<5ms)
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_rs_nama_trgm ON tbl_rumah_sakit USING GIN (nama_rs gin_trgm_ops);"))
+        conn.execute(text("CREATE INDEX IF NOT EXISTS idx_pkm_nama_trgm ON faskes_puskesmas USING GIN (nama gin_trgm_ops);"))
+
+        # Point 5: Unified Spatial View for All Faskes (RS + Puskesmas)
+        conn.execute(text("DROP VIEW IF EXISTS v_faskes_all CASCADE;"))
+        conn.execute(text("""
+            CREATE VIEW v_faskes_all AS
+            SELECT 
+                kode_rs AS id_faskes,
+                'rumah_sakit' AS jenis_faskes,
+                nama_rs AS nama,
+                kelas::text AS kelas_tipe,
+                kepemilikan::text AS kepemilikan,
+                alamat,
+                kode_bps,
+                telepon,
+                jumlah_tt,
+                lat,
+                lng,
+                geom,
+                is_valid_coord,
+                coverage_periode
+            FROM tbl_rumah_sakit
+            UNION ALL
+            SELECT 
+                kode_puskesmas AS id_faskes,
+                'puskesmas' AS jenis_faskes,
+                nama,
+                tipe_rawat::text AS kelas_tipe,
+                'pemerintah' AS kepemilikan,
+                alamat,
+                kode_bps,
+                telepon,
+                jumlah_tt,
+                lat,
+                lng,
+                geom,
+                is_valid_coord,
+                coverage_periode
+            FROM faskes_puskesmas;
+        """))
+
+        # Point 3 & 5: Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
+        conn.execute(text("DROP VIEW IF EXISTS v_choropleth_wilayah CASCADE;"))
         conn.execute(text("""
             CREATE VIEW v_choropleth_wilayah AS
             SELECT 
                 w.kode_bps,
                 w.nama_wilayah,
                 w.tipe,
-                COALESCE(a.total_rs, 0) as total_rs,
-                COALESCE(a.total_tt, 0) as total_tt,
-                COALESCE(a.jumlah_penduduk, 0) as jumlah_penduduk_2021,
-                COALESCE(a.rasio_tt_per_1000, 0.0) as rasio_tt_resmi,
-                COALESCE(a.kategori_ketercukupan, 'kuning') as kategori_who_resmi,
-                ROUND((COALESCE(a.jumlah_penduduk, 0) * 1.03549)::numeric, 0) as proyeksi_penduduk_2026,
-                ROUND(CASE WHEN COALESCE(a.jumlah_penduduk, 0) > 0 THEN (COALESCE(a.total_tt, 0) / (a.jumlah_penduduk * 1.03549) * 1000.0)::numeric ELSE 0.0 END, 2) as rasio_tt_proyeksi_2026,
+                COALESCE(a.total_rs, 0) AS total_rs,
+                COALESCE(pkm.total_pkm, 0) AS total_puskesmas,
+                COALESCE(a.total_tt, 0) + COALESCE(pkm.total_pkm_tt, 0) AS total_tt,
+                COALESCE(a.jumlah_penduduk, 0) AS jumlah_penduduk_2021,
+                COALESCE(a.rasio_tt_per_1000, 0.0) AS rasio_tt_resmi,
+                COALESCE(a.kategori_ketercukupan, 'kuning') AS kategori_who_resmi,
+                ROUND((COALESCE(a.jumlah_penduduk, 0) * 1.03549)::numeric, 0) AS proyeksi_penduduk_2026,
+                ROUND(CASE WHEN COALESCE(a.jumlah_penduduk, 0) > 0 THEN ((COALESCE(a.total_tt, 0) + COALESCE(pkm.total_pkm_tt, 0)) / (a.jumlah_penduduk * 1.03549) * 1000.0)::numeric ELSE 0.0 END, 2) AS rasio_tt_proyeksi_2026,
                 w.geom
             FROM ref_wilayah w
-            LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps;
+            LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps
+            LEFT JOIN (
+                SELECT 
+                    kode_bps,
+                    COUNT(*) AS total_pkm,
+                    SUM(COALESCE(jumlah_tt, 0)) AS total_pkm_tt
+                FROM faskes_puskesmas
+                GROUP BY kode_bps
+            ) pkm ON pkm.kode_bps = w.kode_bps;
         """))
         conn.commit()
 
-    logger.info("[Database] PostGIS extension, GIST indexes & v_choropleth_wilayah view verified successfully.")
+    logger.info("[Database] PostGIS, pg_trgm, unaccent, GIN indexes & unified spatial views verified successfully.")
 
 def generate_rs_key(nama_rs: str, kode_bps: Optional[str], kode_rs: Optional[str] = None) -> str:
     """
@@ -146,6 +201,151 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
     session.commit()
     logger.info(f"[Upsert] Processed {inserted_or_updated} hospital records idempotently.")
     return inserted_or_updated
+
+def upsert_puskesmas(session: Session, records: List[Dict[str, Any]]) -> int:
+    """
+    Idempotent bulk upsert for faskes_puskesmas.
+    Uses PostgreSQL ON CONFLICT (kode_puskesmas) DO UPDATE.
+    """
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        lat_val = r.get("lat")
+        lng_val = r.get("lng")
+        has_valid_geom = (
+            lat_val is not None and lng_val is not None and
+            not (isinstance(lat_val, float) and math.isnan(lat_val)) and
+            not (isinstance(lng_val, float) and math.isnan(lng_val))
+        )
+        geom_val = text(f"ST_SetSRID(ST_MakePoint({lng_val}, {lat_val}), 4326)") if has_valid_geom else None
+        clean_lat = lat_val if has_valid_geom else None
+        clean_lng = lng_val if has_valid_geom else None
+
+        stmt = pg_insert(FaskesPuskesmas).values(
+            kode_puskesmas=r["kode_puskesmas"],
+            nama=r["nama"],
+            tipe_rawat=r.get("tipe_rawat", EnumTipeRawatPuskesmas.non_rawat_inap),
+            alamat=r.get("alamat"),
+            kode_bps=r.get("kode_bps"),
+            kecamatan=r.get("kecamatan"),
+            telepon=r.get("telepon"),
+            jumlah_tt=r.get("jumlah_tt", 0),
+            lat=clean_lat,
+            lng=clean_lng,
+            geom=geom_val,
+            is_valid_coord=r.get("is_valid_coord", 1),
+            needs_geocoding=r.get("needs_geocoding", 0),
+            source_id=r.get("source_id", "opendata_jatim"),
+            status_operasional=r.get("status_operasional", 1),
+            coverage_periode=r.get("coverage_periode", "2024-OFFICIAL"),
+            updated_at=datetime.utcnow()
+        )
+
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["kode_puskesmas"],
+            set_={
+                "nama": stmt.excluded.nama,
+                "tipe_rawat": stmt.excluded.tipe_rawat,
+                "alamat": stmt.excluded.alamat,
+                "kode_bps": stmt.excluded.kode_bps,
+                "kecamatan": stmt.excluded.kecamatan,
+                "telepon": stmt.excluded.telepon,
+                "jumlah_tt": stmt.excluded.jumlah_tt,
+                "lat": stmt.excluded.lat,
+                "lng": stmt.excluded.lng,
+                "geom": stmt.excluded.geom,
+                "is_valid_coord": stmt.excluded.is_valid_coord,
+                "needs_geocoding": stmt.excluded.needs_geocoding,
+                "source_id": stmt.excluded.source_id,
+                "status_operasional": stmt.excluded.status_operasional,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} puskesmas records idempotently.")
+    return count
+
+
+def upsert_ref_sumber_data(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for ref_sumber_data."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(RefSumberData).values(
+            source_id=r["source_id"],
+            nama=r["nama"],
+            institusi=r.get("institusi"),
+            url=r.get("url"),
+            lisensi=r.get("lisensi"),
+            lisensi_url=r.get("lisensi_url"),
+            cakupan_wilayah=r.get("cakupan_wilayah"),
+            cakupan_periode=r.get("cakupan_periode"),
+            format_asli=r.get("format_asli"),
+            catatan_batasan=r.get("catatan_batasan"),
+            frekuensi_update=r.get("frekuensi_update"),
+            is_active=r.get("is_active", 1)
+        )
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["source_id"],
+            set_={
+                "nama": stmt.excluded.nama,
+                "institusi": stmt.excluded.institusi,
+                "url": stmt.excluded.url,
+                "lisensi": stmt.excluded.lisensi,
+                "lisensi_url": stmt.excluded.lisensi_url,
+                "cakupan_wilayah": stmt.excluded.cakupan_wilayah,
+                "cakupan_periode": stmt.excluded.cakupan_periode,
+                "format_asli": stmt.excluded.format_asli,
+                "catatan_batasan": stmt.excluded.catatan_batasan,
+                "frekuensi_update": stmt.excluded.frekuensi_update,
+                "is_active": stmt.excluded.is_active
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} ref_sumber_data records idempotently.")
+    return count
+
+
+def upsert_ref_icd10(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent upsert for ref_icd10."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(RefIcd10).values(
+            kode=r["kode"],
+            nama_en=r.get("nama_en"),
+            nama_id=r.get("nama_id"),
+            kategori=r.get("kategori"),
+            is_active=r.get("is_active", 1)
+        )
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["kode"],
+            set_={
+                "nama_en": stmt.excluded.nama_en,
+                "nama_id": stmt.excluded.nama_id,
+                "kategori": stmt.excluded.kategori,
+                "is_active": stmt.excluded.is_active
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} ref_icd10 records idempotently.")
+    return count
+
 
 def upsert_ref_wilayah(session: Session, records: List[Dict[str, Any]]) -> int:
     """Idempotent upsert for 38 kab/kota reference."""

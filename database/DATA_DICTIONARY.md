@@ -58,7 +58,30 @@ Tabel master faskes rumah sakit di seluruh 38 Kabupaten/Kota Jawa Timur.
 
 ---
 
-### B. Dataset Rasio Tempat Tidur Wilayah (`bed_ratio_38_kab`)
+### B. Dataset Puskesmas Jawa Timur (`puskesmas_clean`)
+Tabel master faskes Puskesmas (Pusat Kesehatan Masyarakat) di 38 Kabupaten/Kota Jawa Timur (Domain A - PRD F02).
+* **Format File**: `database/exports/puskesmas_clean.csv` dan `puskesmas_clean.parquet`
+* **Jumlah Record**: 977 Puskesmas
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Format | Deskripsi |
+|---|---|---|---|---|
+| `kode_puskesmas` | `VARCHAR(50)` | ❌ Tidak (PK) | `'PKM35780001'` | Kode unik pengenal Puskesmas. |
+| `nama` | `VARCHAR(300)` | ❌ Tidak | `'Puskesmas Tegalsari Rawat Inap 1'` | Nama resmi faskes Puskesmas. |
+| `tipe_rawat` | `VARCHAR(20)` | ❌ Tidak | `'rawat_inap'` / `'non_rawat_inap'` | Klasifikasi tipe perawatan faskes. |
+| `alamat` | `TEXT` | ⚠️ Ya | `'Jl. Raya Kesehatan No. 1, Kota Surabaya'` | Alamat faskes bersih dari newline `\r\n`. |
+| `kode_bps` | `VARCHAR(4)` | ⚠️ Ya (FK) | `'3578'` | Kode BPS 4 digit Kabupaten/Kota. |
+| `kecamatan` | `VARCHAR(100)` | ⚠️ Ya | `'Kecamatan 1'` | Nama kecamatan faskes berada. |
+| `telepon` | `VARCHAR(100)` | ⚠️ Ya | `'031-8123456'` | Nomor telepon kontak faskes. |
+| `jumlah_tt` | `INTEGER` | ❌ Tidak | `15` (Rawat Inap) / `0` (Non) | Jumlah kapasitas tempat tidur faskes. |
+| `lat` | `FLOAT` | ⚠️ Ya | `-7.280000` | Titik koordinat Latitude (WGS84). |
+| `lng` | `FLOAT` | ⚠️ Ya | `112.740000` | Titik koordinat Longitude (WGS84). |
+| `is_valid_coord` | `INTEGER` | ❌ Tidak | `1` atau `0` | Flag penanda koordinat dalam batas Jatim. |
+| `source_id` | `VARCHAR(50)` | ❌ Tidak | `'opendata_jatim'` | Identifier sumber data rujukan. |
+| `coverage_periode` | `VARCHAR(20)` | ❌ Tidak | `'2024-OFFICIAL'` | Periode rujukan data resmi Dinkes Jatim. |
+
+---
+
+### C. Dataset Rasio Tempat Tidur Wilayah (`bed_ratio_38_kab`)
 Ringkasan agregat rasio ketersediaan tempat tidur rumah sakit per 1.000 penduduk berstandar World Health Organization (WHO).
 
 | Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
@@ -98,6 +121,28 @@ Objek FeatureCollection GeoJSON untuk 38 batas administratif Kabupaten/Kota Jawa
   * `KODE_BPS` / `ID2013`: String kode 4-digit (misal: `"3578"`).
   * `PROVINSI`: Nama wilayah (misal: `"Kota Surabaya"`).
   * `jumlah_penduduk`: Integer populasi dasar.
+
+---
+
+### E. Tabel Katalog Referensi (`ref_sumber_data` & `ref_icd10`)
+
+#### 1. `ref_sumber_data` (Katalog Sumber Data Resmi & Legalitas Lisensi)
+| Kolom | Tipe Data | Nullable? | Deskripsi |
+|---|---|---|---|
+| `source_id` | `VARCHAR(50)` | ❌ Tidak (PK) | Unique ID sumber (e.g. `'sirs_kemenkes'`, `'opendata_jatim'`). |
+| `nama` | `VARCHAR(200)` | ❌ Tidak | Nama resmi portal/API sumber data. |
+| `institusi` | `VARCHAR(200)` | Ya | Lembaga/OPD pengelola data. |
+| `url` | `TEXT` | Ya | URL endpoint portal sumber. |
+| `lisensi` | `VARCHAR(200)` | Ya | Lisensi data (e.g. UU KIP No.14/2008, MIT, CC-BY). |
+| `frekuensi_update` | `VARCHAR(50)` | Ya | Frekuensi update (`daily`, `weekly`, `monthly`, `annual`, `once`). |
+
+#### 2. `ref_icd10` (Master Kode Penyakit Rujukan)
+| Kolom | Tipe Data | Nullable? | Deskripsi |
+|---|---|---|---|
+| `kode` | `VARCHAR(10)` | ❌ Tidak (PK) | Kode ICD-10 resmi (e.g. `'A15'`, `'A90'`, `'E45'`). |
+| `nama_en` | `VARCHAR(300)` | Ya | Nama penyakit internasional (WHO). |
+| `nama_id` | `VARCHAR(300)` | Ya | Nama penyakit Bahasa Indonesia baku. |
+| `kategori` | `VARCHAR(100)` | Ya | Kategori penyakit (Infeksi, Tular Vektor, Gangguan Gizi, dll). |
 
 ---
 
@@ -202,7 +247,26 @@ Bagi tim backend yang menggunakan FastAPI + SQLAlchemy / PostGIS:
 DATABASE_URL = "postgresql+asyncpg://cura_user:cura_password@localhost:5433/cura_db"
 ```
 
-### B. Query View Siap Saji (`v_choropleth_wilayah`)
+### B. Pre-Built Spatial View: `v_faskes_all` (Marker Layer Peta Leaflet)
+Menyatukan seluruh faskes (Rumah Sakit + Puskesmas) dalam satu query instan:
+```sql
+SELECT 
+    id_faskes, 
+    jenis_faskes, 
+    nama, 
+    kelas_tipe, 
+    kepemilikan, 
+    alamat, 
+    telepon, 
+    jumlah_tt, 
+    lat, 
+    lng, 
+    ST_AsGeoJSON(geom)::json AS geojson_point
+FROM v_faskes_all
+WHERE is_valid_coord = 1;
+```
+
+### C. Pre-Built Spatial View: `v_choropleth_wilayah` (Choropleth Layer)
 Tidak perlu melakukan multiple JOIN manual. Gunakan view bawaan database:
 ```sql
 SELECT 
@@ -210,27 +274,41 @@ SELECT
     nama_wilayah, 
     tipe, 
     total_rs, 
+    total_puskesmas,
     total_tt, 
-    jumlah_penduduk, 
-    rasio_tt_per_1000, 
-    kategori_ketercukupan, 
-    ST_AsGeoJSON(geom) AS geojson
+    jumlah_penduduk_2021, 
+    rasio_tt_resmi, 
+    kategori_who_resmi,
+    proyeksi_penduduk_2026,
+    rasio_tt_proyeksi_2026,
+    ST_AsGeoJSON(geom)::json AS geojson_polygon
 FROM v_choropleth_wilayah;
 ```
 
-### C. Query Spasial Pencarian RS Terdekat (Radius Filter)
+### D. Trigram Fuzzy Search (Toleran Typo <5ms via `pg_trgm`)
 ```sql
 SELECT 
-    kode_rs, 
     nama_rs, 
-    kelas, 
-    kepemilikan, 
+    similarity(nama_rs, :query) AS sim
+FROM tbl_rumah_sakit
+WHERE similarity(nama_rs, :query) > 0.25
+ORDER BY sim DESC 
+LIMIT 10;
+```
+
+### E. Query Spasial Pencarian Faskes Terdekat (Radius Filter)
+```sql
+SELECT 
+    id_faskes, 
+    jenis_faskes, 
+    nama, 
+    kelas_tipe, 
     alamat, 
     telepon, 
     lat, 
     lng,
     ROUND((ST_Distance(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography) / 1000)::numeric, 2) AS jarak_km
-FROM tbl_rumah_sakit
+FROM v_faskes_all
 WHERE is_valid_coord = 1
   AND ST_DWithin(geom::geography, ST_SetSRID(ST_MakePoint(:lng, :lat), 4326)::geography, :radius_meters)
 ORDER BY jarak_km ASC;

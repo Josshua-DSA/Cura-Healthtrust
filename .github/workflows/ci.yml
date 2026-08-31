@@ -51,9 +51,10 @@ jobs:
         run: |
           PYTHONPATH=database python database/cli.py init-db
           PYTHONPATH=database python database/cli.py seed-wilayah
+          PYTHONPATH=database python database/cli.py seed-references
           PYTHONPATH=database python database/cli.py run-etl
 
-      - name: Run Test Suite (25 Tests / Data Quality Gates)
+      - name: Run Test Suite (30 Tests / Data Quality Gates)
         env:
           DB_HOST: localhost
           DB_PORT: 5433
