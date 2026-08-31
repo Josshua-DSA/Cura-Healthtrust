@@ -37,18 +37,21 @@ def init_db():
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_tbl_rs_geom ON tbl_rumah_sakit USING GIST (geom);"))
         conn.execute(text("CREATE INDEX IF NOT EXISTS idx_ref_wilayah_geom ON ref_wilayah USING GIST (geom);"))
         
-        # Point 3 Optimization: Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
+        # Pre-built PostgreSQL Spatial View for Frontend/Backend Choropleth
+        conn.execute(text("DROP VIEW IF EXISTS v_choropleth_wilayah;"))
         conn.execute(text("""
-            CREATE OR REPLACE VIEW v_choropleth_wilayah AS
+            CREATE VIEW v_choropleth_wilayah AS
             SELECT 
                 w.kode_bps,
                 w.nama_wilayah,
                 w.tipe,
                 COALESCE(a.total_rs, 0) as total_rs,
                 COALESCE(a.total_tt, 0) as total_tt,
-                COALESCE(a.jumlah_penduduk, 0) as jumlah_penduduk,
-                COALESCE(a.rasio_tt_per_1000, 0.0) as rasio_tt_per_1000,
-                COALESCE(a.kategori_ketercukupan, 'kuning') as kategori_ketercukupan,
+                COALESCE(a.jumlah_penduduk, 0) as jumlah_penduduk_2021,
+                COALESCE(a.rasio_tt_per_1000, 0.0) as rasio_tt_resmi,
+                COALESCE(a.kategori_ketercukupan, 'kuning') as kategori_who_resmi,
+                ROUND((COALESCE(a.jumlah_penduduk, 0) * 1.03549)::numeric, 0) as proyeksi_penduduk_2026,
+                ROUND(CASE WHEN COALESCE(a.jumlah_penduduk, 0) > 0 THEN (COALESCE(a.total_tt, 0) / (a.jumlah_penduduk * 1.03549) * 1000.0)::numeric ELSE 0.0 END, 2) as rasio_tt_proyeksi_2026,
                 w.geom
             FROM ref_wilayah w
             LEFT JOIN tbl_agregat_wilayah a ON a.kode_bps = w.kode_bps;
@@ -107,6 +110,7 @@ def upsert_rumah_sakit(session: Session, records: List[Dict[str, Any]]) -> int:
             is_valid_coord=r.get("is_valid_coord", 1),
             needs_geocoding=r.get("needs_geocoding", 0),
             sumber_data=r.get("sumber_data", "SIRS Kemenkes"),
+            coverage_periode=r.get("coverage_periode", "2026-LIVE"),
             last_updated_source=r.get("last_updated_source", datetime.utcnow()),
             updated_at=datetime.utcnow()
         )
@@ -187,7 +191,8 @@ def upsert_indikator_kesehatan(session: Session, records: List[Dict[str, Any]]) 
             nama_indikator=r["nama_indikator"],
             nilai=r["nilai"],
             satuan=r.get("satuan", "Unit"),
-            sumber_file=r.get("sumber_file"),
+            sumber_data=r.get("sumber_data", "Dinas Kesehatan Provinsi Jawa Timur"),
+            coverage_periode=r.get("coverage_periode", "2024-OFFICIAL"),
             updated_at=datetime.utcnow()
         )
         stmt = stmt.on_conflict_do_update(
@@ -196,7 +201,8 @@ def upsert_indikator_kesehatan(session: Session, records: List[Dict[str, Any]]) 
                 "nilai": stmt.excluded.nilai,
                 "topik": stmt.excluded.topik,
                 "satuan": stmt.excluded.satuan,
-                "sumber_file": stmt.excluded.sumber_file,
+                "sumber_data": stmt.excluded.sumber_data,
+                "coverage_periode": stmt.excluded.coverage_periode,
                 "updated_at": datetime.utcnow()
             }
         )
