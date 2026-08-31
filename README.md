@@ -85,9 +85,9 @@ Dataset bersih yang diekspor otomatis dan siap digunakan langsung oleh seluruh t
 
 | File Dataset | Format | Deskripsi Singkat |
 |---|---|---|
-| `database/exports/hospitals_clean.*` | `.parquet` / `.csv` | 447 Rumah Sakit Jatim bersih, terpetakan kode BPS, dan tervalidasi koordinatnya. |
-| `database/exports/bed_ratio_38_kab.*` | `.parquet` / `.csv` | 38 Kab/Kota lengkap dengan rasio TT per 1.000 penduduk standar WHO. |
-| `database/exports/indicators_jatim.*` | `.parquet` / `.csv` | 114 baris indikator Puskesmas dan Tenaga Medis dari Dinkes Jatim 2024. |
+| `database/exports/hospitals_clean.*` | `.parquet` / `.csv` | 447 Rumah Sakit Jatim bersih, 3 enum kepemilikan, metadata `coverage_periode: 2026-LIVE`. |
+| `database/exports/bed_ratio_38_kab.*` | `.parquet` / `.csv` | 38 Kab/Kota lengkap dengan rasio TT resmi Kemenkes + **Proyeksi Kependudukan BPS 2026**. |
+| `database/exports/indicators_jatim.*` | `.parquet` / `.csv` | 114 baris indikator Puskesmas dan Dokter dari Dinkes Jatim 2024 (`2024-OFFICIAL`). |
 | `database/seeds/jatim_districts.geojson`| `.geojson` | Batas polygon 38 Kab/Kota Jawa Timur (EPSG:4326). |
 
 📖 **Dokumentasi Lengkap Kamus Data**:
