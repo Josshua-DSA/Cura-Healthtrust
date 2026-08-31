@@ -109,7 +109,7 @@ def execute_full_etl() -> Dict[str, Any]:
             penduduk_records.append({
                 "kode_bps": r["kode_bps"],
                 "tahun": 2024,
-                "jumlah_penduduk": r["jumlah_penduduk"],
+                "jumlah_penduduk": r.get("jumlah_penduduk_2021", r.get("jumlah_penduduk", 0)),
                 "sumber": "SIRS Kemenkes / Disdukcapil"
             })
 
