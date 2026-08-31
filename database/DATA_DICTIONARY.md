@@ -101,6 +101,28 @@ Objek FeatureCollection GeoJSON untuk 38 batas administratif Kabupaten/Kota Jawa
 
 ---
 
+### E. Tabel Katalog Referensi (`ref_sumber_data` & `ref_icd10`)
+
+#### 1. `ref_sumber_data` (Katalog Sumber Data Resmi & Legalitas Lisensi)
+| Kolom | Tipe Data | Nullable? | Deskripsi |
+|---|---|---|---|
+| `source_id` | `VARCHAR(50)` | ❌ Tidak (PK) | Unique ID sumber (e.g. `'sirs_kemenkes'`, `'opendata_jatim'`). |
+| `nama` | `VARCHAR(200)` | ❌ Tidak | Nama resmi portal/API sumber data. |
+| `institusi` | `VARCHAR(200)` | Ya | Lembaga/OPD pengelola data. |
+| `url` | `TEXT` | Ya | URL endpoint portal sumber. |
+| `lisensi` | `VARCHAR(200)` | Ya | Lisensi data (e.g. UU KIP No.14/2008, MIT, CC-BY). |
+| `frekuensi_update` | `VARCHAR(50)` | Ya | Frekuensi update (`daily`, `weekly`, `monthly`, `annual`, `once`). |
+
+#### 2. `ref_icd10` (Master Kode Penyakit Rujukan)
+| Kolom | Tipe Data | Nullable? | Deskripsi |
+|---|---|---|---|
+| `kode` | `VARCHAR(10)` | ❌ Tidak (PK) | Kode ICD-10 resmi (e.g. `'A15'`, `'A90'`, `'E45'`). |
+| `nama_en` | `VARCHAR(300)` | Ya | Nama penyakit internasional (WHO). |
+| `nama_id` | `VARCHAR(300)` | Ya | Nama penyakit Bahasa Indonesia baku. |
+| `kategori` | `VARCHAR(100)` | Ya | Kategori penyakit (Infeksi, Tular Vektor, Gangguan Gizi, dll). |
+
+---
+
 ## 3. Relasi Entitas & Kunci Penghubung (Data Relationships)
 
 Seluruh dataset dirancang dengan arsitektur relasional yang rapi menggunakan **`kode_bps`** sebagai *Primary / Foreign Key universal*:
