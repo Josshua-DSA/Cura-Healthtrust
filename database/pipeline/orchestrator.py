@@ -7,6 +7,7 @@ import pandas as pd
 
 from pipeline.storage import load_latest_snapshot
 from etl.transform.clean_hospitals import clean_and_validate_hospitals
+from etl.transform.clean_puskesmas import clean_and_validate_puskesmas
 from etl.transform.clean_spatial import clean_and_validate_districts
 from etl.load.load_to_postgis import load_all_to_postgis
 from pipeline.opendata_crawler import crawl_and_parse_opendata_csv
@@ -102,6 +103,23 @@ def execute_full_etl() -> Dict[str, Any]:
                 pass
             logger.info(f"[Export] Saved thematic health indicators export -> {export_ind_path}")
 
+        # Step 4B: Clean & Export Puskesmas Dataset
+        logger.info("Step 4B: Cleaning & Exporting Puskesmas dataset (Domain A - PRD F02)...")
+        pkm_seed_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seeds", "ref_puskesmas_jatim.csv")
+        puskesmas_records = []
+        if os.path.exists(pkm_seed_path):
+            df_pkm_raw = pd.read_csv(pkm_seed_path)
+            df_pkm = clean_and_validate_puskesmas(df_pkm_raw.to_dict(orient="records"))
+            puskesmas_records = df_pkm.to_dict(orient="records")
+            export_pkm_path = os.path.join(exports_dir, "puskesmas_clean.csv")
+            export_pkm_parquet = os.path.join(exports_dir, "puskesmas_clean.parquet")
+            df_pkm.to_csv(export_pkm_path, index=False)
+            try:
+                df_pkm.to_parquet(export_pkm_parquet, index=False)
+                logger.info(f"[Export] Saved clean puskesmas exports -> {export_pkm_path} & {export_pkm_parquet}")
+            except Exception as e:
+                logger.info(f"[Export] Saved clean puskesmas export -> {export_pkm_path} (parquet skipped: {e})")
+
         # Step 5: Load to PostgreSQL/PostGIS
         logger.info("Step 5: Loading all processed datasets to PostgreSQL/PostGIS...")
         penduduk_records = []
@@ -120,7 +138,8 @@ def execute_full_etl() -> Dict[str, Any]:
             wilayah_records=wilayah_records,
             penduduk_records=penduduk_records,
             indikator_records=indikator_records,
-            rasio_raw_list=rasio_items
+            rasio_raw_list=rasio_items,
+            puskesmas_records=puskesmas_records
         )
         total_loaded = sum(load_summary.values())
 
