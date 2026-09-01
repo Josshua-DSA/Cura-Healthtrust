@@ -99,7 +99,56 @@ Ringkasan agregat rasio ketersediaan tempat tidur rumah sakit per 1.000 penduduk
 
 ---
 
-### C. Dataset Indikator Tematik Kesehatan (`indicators_jatim`)
+### D. Dataset Tenaga Kesehatan / SDM Medis (`healthcare_workforce`)
+Tabel rincian jumlah tenaga medis (Dokter Umum, Spesialis, Gigi, Perawat, Bidan, Ahli Gizi, Sanitasi) per Kabupaten/Kota (Domain B - PRD F04 & F05).
+* **Format File**: `database/exports/healthcare_workforce.csv` dan `healthcare_workforce.parquet`
+* **Jumlah Record**: 266 baris (38 Kab/Kota × 7 profesi nakes)
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Enum | Deskripsi |
+|---|---|---|---|---|
+| `kode_bps` | `VARCHAR(4)` | ❌ Tidak (FK) | `'3501'` s/d `'3579'` | Kode BPS 4 digit Kabupaten/Kota. |
+| `nama_wilayah` | `VARCHAR(100)` | ❌ Tidak | `'Kabupaten Pacitan'` | Nama wilayah terstandarisasi. |
+| `tahun` | `INTEGER` | ❌ Tidak | `2024` | Tahun rujukan data dinas. |
+| `semester` | `INTEGER` | ❌ Tidak | `1` atau `2` | Semester pelaporan. |
+| `jenis_nakes` | `VARCHAR(50)` | ❌ Tidak | `'dokter_umum'`, `'dokter_spesialis'`, `'perawat'`, dll. | Klasifikasi profesi tenaga kesehatan. |
+| `jumlah` | `INTEGER` | ❌ Tidak | $\ge 0$ | Total personil nakes bertugas. |
+| `faskes_level` | `VARCHAR(50)` | ❌ Tidak | `'Semua Faskes'` | Tingkat penugasan fasilitas. |
+| `sumber_data` | `VARCHAR(100)` | ❌ Tidak | `'Dinas Kesehatan Provinsi Jawa Timur'` | Sumber data resmi. |
+
+---
+
+### E. Dataset Morbiditas & Kasus Penyakit (`disease_morbidity_trends`)
+Trend kasus 10 penyakit terbanyak rawat inap & jalan per triwulanan di 38 Kab/Kota (Domain C - PRD F06 & Trend Forecasting).
+* **Format File**: `database/exports/disease_morbidity_trends.csv` dan `disease_morbidity_trends.parquet`
+* **Jumlah Record**: 1.520 baris (38 Kab/Kota × 4 Triwulan × 10 Penyakit)
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
+|---|---|---|---|---|
+| `kode_bps` | `VARCHAR(4)` | ❌ Tidak (FK) | `'3578'` | Kode BPS Kabupaten/Kota. |
+| `nama_wilayah` | `VARCHAR(100)` | ❌ Tidak | `'Kota Surabaya'` | Nama wilayah pelaporan. |
+| `tahun` | `INTEGER` | ❌ Tidak | `2024` | Tahun pelaporan. |
+| `triwulan` | `VARCHAR(10)` | ❌ Tidak | `'Q1'`, `'Q2'`, `'Q3'`, `'Q4'` | Kuartal pencatatan epidemiologi. |
+| `tipe_pelayanan`| `VARCHAR(20)` | ❌ Tidak | `'rawat_inap'`, `'rawat_jalan'` | Jalur perawatan pasien. |
+| `nama_penyakit` | `VARCHAR(200)` | ❌ Tidak | `'Demam Berdarah Dengue (DBD)'` | Nama diagnosis penyakit. |
+| `kode_icd10` | `VARCHAR(10)` | ⚠️ Ya | `'A90'`, `'A15'`, `'J06'`, dll. | Kode ICD-10 WHO. |
+| `jumlah_pasien` | `INTEGER` | ❌ Tidak | $\ge 0$ | Akumulasi kasus pasien terdaftar. |
+| `status_kasus` | `VARCHAR(20)` | ❌ Tidak | `'menular'` / `'tidak_menular'` | Sifat epidemiologi penyakit. |
+
+---
+
+### F. Dataset Siap Latih Machine Learning (`ml_readiness_dataset`)
+Dataset terpadu multi-domain (Faskes + SDM Medis + Morbiditas + Demografi) yang diagregasi per Kabupaten/Kota siap latih model Machine Learning.
+* **Format File**: `database/exports/ml_readiness_dataset.csv` dan `ml_readiness_dataset.parquet`
+* **Dimensi**: 38 baris × 30 fitur (*Engineered Features*)
+* **Fitur Utama**:
+  * Kapasitas Bed: `total_tt`, `rasio_tt_resmi`, `rasio_tt_proyeksi_2026`, `kategori_who_proyeksi_2026`
+  * Jumlah Faskes: `total_rs`, `rs_pemerintah`, `rs_swasta`, `total_puskesmas`, `puskesmas_rawat_inap`, `puskesmas_non_rawat_inap`
+  * SDM Nakes: `dokter_umum`, `dokter_spesialis`, `perawat`, `bidan`, `rasio_dokter_per_1000`, `rasio_perawat_per_1000`
+  * Beban Morbiditas: `total_kasus_pasien_tahunan`, `kasus_rawat_inap_tahunan`, `kasus_menular_tahunan`
+
+---
+
+### G. Dataset Indikator Tematik Kesehatan (`indicators_jatim`)
 Data indikator makro fasilitas tingkat pertama (FKTP) dan tenaga medis dari Open Data Jawa Timur.
 
 | Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
