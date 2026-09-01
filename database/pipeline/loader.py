@@ -11,7 +11,8 @@ from sqlalchemy.dialects.postgresql import insert as pg_insert
 from config.settings import settings
 from models import (
     Base, RefWilayah, RefSumberData, RefIcd10, FaskesPuskesmas, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
-    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus, EnumTipeRawatPuskesmas
+    TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus, EnumTipeRawatPuskesmas,
+    TblTenagaKesehatan, TblPasienPenyakitWilayah, EnumJenisNakes, EnumTipePelayanan, EnumStatusKasusPenyakit
 )
 
 logger = logging.getLogger("DatabaseUpserter")
@@ -268,6 +269,80 @@ def upsert_puskesmas(session: Session, records: List[Dict[str, Any]]) -> int:
 
     session.commit()
     logger.info(f"[Upsert] Processed {count} puskesmas records idempotently.")
+    return count
+
+
+def upsert_tenaga_kesehatan(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent bulk upsert for tbl_tenaga_kesehatan (Domain B)."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(TblTenagaKesehatan).values(
+            kode_bps=r["kode_bps"],
+            tahun=r.get("tahun", 2024),
+            semester=r.get("semester", 1),
+            jenis_nakes=r["jenis_nakes"],
+            jumlah=r.get("jumlah", 0),
+            faskes_level=r.get("faskes_level", "Semua Faskes"),
+            sumber_data=r.get("sumber_data", "Dinas Kesehatan Provinsi Jawa Timur"),
+            coverage_periode=r.get("coverage_periode", "2024-OFFICIAL"),
+            updated_at=datetime.utcnow()
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_nakes_wilayah_tahun",
+            set_={
+                "jumlah": stmt.excluded.jumlah,
+                "sumber_data": stmt.excluded.sumber_data,
+                "coverage_periode": stmt.excluded.coverage_periode,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} tenaga kesehatan records idempotently.")
+    return count
+
+
+def upsert_pasien_morbiditas(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent bulk upsert for tbl_pasien_penyakit_wilayah (Domain C)."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        stmt = pg_insert(TblPasienPenyakitWilayah).values(
+            kode_bps=r["kode_bps"],
+            tahun=r.get("tahun", 2024),
+            triwulan=r.get("triwulan", "Q1"),
+            tipe_pelayanan=r.get("tipe_pelayanan", EnumTipePelayanan.rawat_inap),
+            nama_penyakit=r["nama_penyakit"],
+            kode_icd10=r.get("kode_icd10"),
+            jumlah_pasien=r.get("jumlah_pasien", 0),
+            status_kasus=r.get("status_kasus", EnumStatusKasusPenyakit.menular),
+            sumber_data=r.get("sumber_data", "Dinas Kesehatan Provinsi Jawa Timur"),
+            coverage_periode=r.get("coverage_periode", "2024-OFFICIAL"),
+            updated_at=datetime.utcnow()
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_morbiditas_wilayah",
+            set_={
+                "jumlah_pasien": stmt.excluded.jumlah_pasien,
+                "kode_icd10": stmt.excluded.kode_icd10,
+                "status_kasus": stmt.excluded.status_kasus,
+                "sumber_data": stmt.excluded.sumber_data,
+                "coverage_periode": stmt.excluded.coverage_periode,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} pasien morbiditas records idempotently.")
     return count
 
 
