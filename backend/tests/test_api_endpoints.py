@@ -36,7 +36,7 @@ async def test_wilayah_and_choropleth():
         assert det_body["data"]["nama_wilayah"] == "Kota Surabaya"
         assert det_body["data"]["agregat"]["total_rs"] > 0
 
-        # 3. Choropleth GeoJSON (Leaflet integration)
+        # 3. Choropleth GeoJSON
         res_geo = await ac.get("/api/v1/wilayah/choropleth/geojson")
         assert res_geo.status_code == 200
         geo_body = res_geo.json()
@@ -61,7 +61,7 @@ async def test_faskes_and_spatial_radius():
         map_body = res_map.json()
         assert len(map_body["features"]) >= 1300
 
-        # 3. PostGIS Radius Query (Surabaya: -7.2575, 112.7521)
+        # 3. PostGIS Radius Query
         res_near = await ac.get("/api/v1/faskes/nearby?lat=-7.2575&lng=112.7521&radius_km=5.0&limit=5")
         assert res_near.status_code == 200
         near_body = res_near.json()
@@ -71,18 +71,38 @@ async def test_faskes_and_spatial_radius():
 
 
 @pytest.mark.asyncio
-async def test_katalog_and_download():
+async def test_katalog_and_ml_readiness():
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
         res = await ac.get("/api/v1/katalog")
         assert res.status_code == 200
         body = res.json()
-        assert len(body["data"]) == 4
+        assert len(body["data"]) == 6  # 4 base + 2 ML Feature store datasets
 
-        # Test download parquet
-        res_dl = await ac.get("/api/v1/katalog/bed_ratio_38_kab/download?format=parquet")
+        # Test download ml dataset
+        res_dl = await ac.get("/api/v1/katalog/ml_readiness_dataset/download?format=parquet")
         assert res_dl.status_code == 200
         assert len(res_dl.content) > 0
+
+
+@pytest.mark.asyncio
+async def test_sdm_nakes_and_penyakit_morbiditas():
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
+        # 1. SDM Nakes endpoint
+        res_nakes = await ac.get("/api/v1/sdm/nakes")
+        assert res_nakes.status_code == 200
+        assert res_nakes.json()["success"] is True
+
+        # 2. Penyakit Morbiditas endpoint
+        res_penyakit = await ac.get("/api/v1/penyakit/morbiditas")
+        assert res_penyakit.status_code == 200
+        assert res_penyakit.json()["success"] is True
+
+        # 3. Top Disease Trends
+        res_trend = await ac.get("/api/v1/penyakit/top-trend")
+        assert res_trend.status_code == 200
+        assert res_trend.json()["success"] is True
 
 
 @pytest.mark.asyncio
