@@ -38,3 +38,35 @@ class EnumUserRole(str, enum.Enum):
     operator = "operator"
     admin = "admin"
     superadmin = "superadmin"
+
+
+class EnumJenisNakes(str, enum.Enum):
+    dokter_umum = "dokter_umum"
+    dokter_spesialis = "dokter_spesialis"
+    dokter_gigi = "dokter_gigi"
+    perawat = "perawat"
+    bidan = "bidan"
+    ahli_gizi = "ahli_gizi"
+    anestesi = "anestesi"
+    sanitarian = "sanitarian"
+    apoteker = "apoteker"
+    tenaga_lab = "tenaga_lab"
+
+
+class EnumFaskesLevel(str, enum.Enum):
+    RS = "RS"
+    Puskesmas = "Puskesmas"
+    Dinas = "Dinas"
+    Klinik = "Klinik"
+    Semua_Faskes = "Semua Faskes"
+
+
+class EnumTipePelayananPenyakit(str, enum.Enum):
+    rawat_inap = "rawat_inap"
+    rawat_jalan = "rawat_jalan"
+    igd = "igd"
+
+
+class EnumStatusKasusPenyakit(str, enum.Enum):
+    menular = "menular"
+    tidak_menular = "tidak_menular"
