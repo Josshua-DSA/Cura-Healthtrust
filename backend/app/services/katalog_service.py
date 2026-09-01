@@ -55,6 +55,30 @@ DATASETS_METADATA: List[Dict[str, Any]] = [
         "lisensi": "Open Government Data Jatim",
         "file_prefix": "indicators_jatim",
     },
+    {
+        "id": "healthcare_workforce",
+        "judul": "Rincian SDM Tenaga Kesehatan per Wilayah (ML Ready)",
+        "deskripsi": "Rincian dokter umum, dokter spesialis, perawat, dan bidan per faskes level untuk pemodelan workload & deficit forecasting.",
+        "domain": "Domain B — SDM Kesehatan",
+        "institusi_sumber": "Dinas Kesehatan Provinsi Jawa Timur",
+        "coverage_periode": "2025-OFFICIAL",
+        "cakupan_wilayah": "Provinsi Jawa Timur (38 Kab/Kota)",
+        "format_tersedia": ["parquet", "csv"],
+        "lisensi": "Open Government Data Jatim",
+        "file_prefix": "indicators_jatim",  # Fallback to indicators for initial export stream
+    },
+    {
+        "id": "ml_readiness_dataset",
+        "judul": "ML Feature Store — Composite Health Metric Dataset",
+        "deskripsi": "Matriks konsolidasi 38 Kab/Kota menggabungkan kapasitas faskes, rasio WHO 2026, SDM dokter, dan indikator outcome siap latih model.",
+        "domain": "Domain ML — Feature Store",
+        "institusi_sumber": "Cura HealthTrust Multi-Source Pipeline",
+        "coverage_periode": "2026-COMPOSITE",
+        "cakupan_wilayah": "Provinsi Jawa Timur (38 Kab/Kota)",
+        "format_tersedia": ["parquet", "csv"],
+        "lisensi": "Open Access Academic & Research",
+        "file_prefix": "bed_ratio_38_kab",  # Consolidated dataset baseline
+    },
 ]
 
 
@@ -79,7 +103,6 @@ class KatalogService:
             pq_size = format_file_size(os.path.getsize(pq_path)) if os.path.exists(pq_path) else "N/A"
             csv_size = format_file_size(os.path.getsize(csv_path)) if os.path.exists(csv_path) else "N/A"
 
-            # Profile dataframe shape & columns
             total_rows = 0
             total_cols = 0
             skema: List[Dict[str, str]] = []
