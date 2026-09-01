@@ -19,7 +19,6 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-context/
 
 
 # Virtualenv
@@ -27,6 +26,9 @@ venv/
 .venv/
 env/
 .env
+
+# Context & Documentation
+context/
 
 # Database logs and local data
 database/logs/
@@ -39,4 +41,3 @@ data/pgdata/
 .idea/
 .DS_Store
 *.swp
-context/
