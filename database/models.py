@@ -26,6 +26,25 @@ class EnumTipeRawatPuskesmas(str, enum.Enum):
     rawat_inap = "rawat_inap"
     non_rawat_inap = "non_rawat_inap"
 
+class EnumJenisNakes(str, enum.Enum):
+    dokter_umum = "dokter_umum"
+    dokter_spesialis = "dokter_spesialis"
+    dokter_gigi = "dokter_gigi"
+    perawat = "perawat"
+    bidan = "bidan"
+    ahli_gizi = "ahli_gizi"
+    anestesi = "anestesi"
+    sanitarian = "sanitarian"
+
+class EnumTipePelayanan(str, enum.Enum):
+    rawat_inap = "rawat_inap"
+    rawat_jalan = "rawat_jalan"
+    igd = "igd"
+
+class EnumStatusKasusPenyakit(str, enum.Enum):
+    menular = "menular"
+    tidak_menular = "tidak_menular"
+
 class EnumTipeWilayah(str, enum.Enum):
     KABUPATEN = "KABUPATEN"
     KOTA = "KOTA"
@@ -82,6 +101,8 @@ class RefWilayah(Base):
     penduduk = relationship("TblPenduduk", back_populates="wilayah")
     agregat = relationship("TblAgregatWilayah", back_populates="wilayah")
     indikator = relationship("TblIndikatorKesehatan", back_populates="wilayah")
+    nakes = relationship("TblTenagaKesehatan", back_populates="wilayah")
+    morbiditas = relationship("TblPasienPenyakitWilayah", back_populates="wilayah")
 
 class TblIndikatorKesehatan(Base):
     __tablename__ = "tbl_indikator_kesehatan"
@@ -203,6 +224,60 @@ class TblAgregatWilayah(Base):
     )
 
     wilayah = relationship("RefWilayah", back_populates="agregat")
+
+class TblTenagaKesehatan(Base):
+    """
+    Data SDM / Tenaga Kesehatan per Kabupaten/Kota — Domain B.
+    Mendukung use-case ML Disparity Clustering & Doctor-Patient Ratio Analysis.
+    """
+    __tablename__ = "tbl_tenaga_kesehatan"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    tahun = Column(Integer, nullable=False, default=2024, index=True)
+    semester = Column(Integer, default=1)
+    jenis_nakes = Column(Enum(EnumJenisNakes, name="enum_jenis_nakes"), nullable=False, index=True)
+    jumlah = Column(Integer, nullable=False, default=0)
+    faskes_level = Column(String(50), default="Semua Faskes")
+    sumber_data = Column(String(100), default="Dinas Kesehatan Provinsi Jawa Timur")
+    coverage_periode = Column(String(20), default="2024-OFFICIAL")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("kode_bps", "tahun", "semester", "jenis_nakes", "faskes_level", name="uq_nakes_wilayah_tahun"),
+    )
+
+    wilayah = relationship("RefWilayah", back_populates="nakes")
+
+
+class TblPasienPenyakitWilayah(Base):
+    """
+    Trend Morbiditas Pasien dan Kasus Penyakit per Wilayah — Domain C.
+    Mendukung use-case ML Patient Inflow Forecasting & Outbreak Risk Classifier.
+    """
+    __tablename__ = "tbl_pasien_penyakit_wilayah"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    tahun = Column(Integer, nullable=False, default=2024, index=True)
+    triwulan = Column(String(10), nullable=False, default="Q1")  # Q1, Q2, Q3, Q4, TAHUNAN
+    tipe_pelayanan = Column(Enum(EnumTipePelayanan, name="enum_tipe_pelayanan"), default=EnumTipePelayanan.rawat_inap, index=True)
+    nama_penyakit = Column(String(200), nullable=False, index=True)
+    kode_icd10 = Column(String(10), nullable=True, index=True)
+    jumlah_pasien = Column(Integer, nullable=False, default=0)
+    status_kasus = Column(Enum(EnumStatusKasusPenyakit, name="enum_status_kasus_penyakit"), default=EnumStatusKasusPenyakit.menular)
+    sumber_data = Column(String(100), default="Dinas Kesehatan Provinsi Jawa Timur")
+    coverage_periode = Column(String(20), default="2024-OFFICIAL")
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("kode_bps", "tahun", "triwulan", "tipe_pelayanan", "nama_penyakit", name="uq_morbiditas_wilayah"),
+    )
+
+    wilayah = relationship("RefWilayah", back_populates="morbiditas")
+
 
 class TblPipelineLog(Base):
     __tablename__ = "tbl_pipeline_log"

@@ -5,6 +5,7 @@ from backend.app.api.v1.endpoints import (
     wilayah,
     faskes,
     indikator,
+    penyakit_sdm,
     katalog,
     transaksi,
     statistik,
@@ -18,6 +19,7 @@ api_router.include_router(auth.router)
 api_router.include_router(wilayah.router)
 api_router.include_router(faskes.router)
 api_router.include_router(indikator.router)
+api_router.include_router(penyakit_sdm.router)
 api_router.include_router(katalog.router)
 api_router.include_router(transaksi.router)
 api_router.include_router(statistik.router)

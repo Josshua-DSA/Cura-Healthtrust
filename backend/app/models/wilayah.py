@@ -22,3 +22,5 @@ class RefWilayah(Base):
     penduduk = relationship("TblPenduduk", back_populates="wilayah", lazy="selectin")
     agregat = relationship("TblAgregatWilayah", back_populates="wilayah", lazy="selectin")
     indikator = relationship("TblIndikatorKesehatan", back_populates="wilayah", lazy="selectin")
+    tenaga_kesehatan = relationship("TblTenagaKesehatan", back_populates="wilayah", lazy="selectin")
+    pasien_penyakit = relationship("TblPasienPenyakitWilayah", back_populates="wilayah", lazy="selectin")

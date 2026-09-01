@@ -10,6 +10,9 @@ def main():
     subparsers.add_parser("seed-wilayah", help="Seed 38 Kab/Kota Jawa Timur reference data")
     subparsers.add_parser("seed-references", help="Seed ref_sumber_data and ref_icd10 tables")
     subparsers.add_parser("seed-puskesmas", help="Seed 960+ Puskesmas records across 38 Kab/Kota")
+    subparsers.add_parser("seed-workforce", help="Seed healthcare workforce records (Doctor, Nurse, Midwife)")
+    subparsers.add_parser("seed-morbidity", help="Seed patient disease morbidity records across 38 Kab/Kota")
+    subparsers.add_parser("build-ml-features", help="Build unified ML readiness dataset feature store")
     subparsers.add_parser("run-etl", help="Run full ETL pipeline")
     subparsers.add_parser("test-db", help="Run test suite for data layer")
     subparsers.add_parser("check-health", help="Check status and availability of external APIs & DB")
@@ -114,6 +117,44 @@ def main():
             df_clean = clean_and_validate_puskesmas(df_raw.to_dict(orient="records"))
             upsert_puskesmas(session, df_clean.to_dict(orient="records"))
         session.close()
+        return
+
+    if args.command == "seed-workforce":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_tenaga_kesehatan
+        from etl.transform.clean_workforce import clean_and_validate_workforce
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base_dir, "seeds", "ref_nakes_jatim.csv")
+        if os.path.exists(path):
+            df_raw = pd.read_csv(path)
+            df_clean = clean_and_validate_workforce(df_raw.to_dict(orient="records"))
+            upsert_tenaga_kesehatan(session, df_clean.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "seed-morbidity":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_pasien_morbiditas
+        from etl.transform.clean_morbidity import clean_and_validate_morbidity
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base_dir, "seeds", "ref_morbiditas_jatim.csv")
+        if os.path.exists(path):
+            df_raw = pd.read_csv(path)
+            df_clean = clean_and_validate_morbidity(df_raw.to_dict(orient="records"))
+            upsert_pasien_morbiditas(session, df_clean.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "build-ml-features":
+        import os
+        from etl.transform.build_ml_features import build_ml_readiness_dataset
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        exports_dir = os.path.join(base_dir, "exports")
+        build_ml_readiness_dataset(exports_dir)
         return
 
     if args.command == "test-db":
