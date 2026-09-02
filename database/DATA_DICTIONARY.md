@@ -148,7 +148,48 @@ Dataset terpadu multi-domain (Faskes + SDM Medis + Morbiditas + Demografi) yang 
 
 ---
 
-### G. Dataset Indikator Tematik Kesehatan (`indicators_jatim`)
+### G. Dataset Kesehatan Ibu & Anak (`maternal_child_health`)
+Tabel sub-domain KIA per Kabupaten/Kota: AKI, AKB, AKABA, Prevalensi Stunting, Gizi Buruk, K4 Coverage, Imunisasi IDL (PRD F-PP03).
+* **Format File**: `database/exports/maternal_child_health.csv` dan `maternal_child_health.parquet`
+* **Jumlah Record**: 38 baris (38 Kab/Kota)
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
+|---|---|---|---|---|
+| `kode_bps` | `VARCHAR(4)` | ❌ Tidak (FK) | `'3578'` | Kode BPS 4 digit. |
+| `nama_wilayah` | `VARCHAR(100)` | ❌ Tidak | `'Kota Surabaya'` | Nama wilayah. |
+| `tahun` | `INTEGER` | ❌ Tidak | `2024` | Tahun rujukan data. |
+| `aki` | `FLOAT` | ⚠️ Ya | `85.4` | Angka Kematian Ibu per 100.000 KH. |
+| `akb` | `FLOAT` | ⚠️ Ya | `12.1` | Angka Kematian Bayi per 1.000 KH. |
+| `prevalensi_stunting` | `FLOAT` | ⚠️ Ya | `14.2` | Persentase balita stunting (%). |
+| `cakupan_idl` | `FLOAT` | ⚠️ Ya | `95.8` | Cakupan Imunisasi Dasar Lengkap (%). |
+| `k4_coverage` | `FLOAT` | ⚠️ Ya | `91.0` | Cakupan Kunjungan Antenatal K4 (%). |
+
+---
+
+### H. Dataset Surveilans Penyakit Cepat KLB (`disease_surveillance_weekly`)
+Kalkulasi deteksi lonjakan mingguan/bulanan penyakit potensial KLB: DBD, Diare, ISPA, Leptospirosis (PRD F-PP05).
+* **Format File**: `database/exports/disease_surveillance_weekly.csv` dan `disease_surveillance_weekly.parquet`
+* **Jumlah Record**: 152 baris (38 Kab/Kota × 4 Penyakit)
+
+| Nama Kolom | Tipe Data | Nullable? | Nilai / Enum | Deskripsi |
+|---|---|---|---|---|
+| `kode_bps` | `VARCHAR(4)` | ❌ Tidak (FK) | `'3515'` | Kode BPS Kabupaten/Kota. |
+| `kode_icd10` | `VARCHAR(10)` | ❌ Tidak (FK) | `'A90'` | Kode ICD-10 WHO. |
+| `periode_bulan` | `VARCHAR(10)` | ❌ Tidak | `'2026-08'` | Periode evaluasi surveilans. |
+| `kasus_bulan_ini` | `INTEGER` | ❌ Tidak | `45` | Jumlah kasus tercatat bulan ini. |
+| `rata_rata_3bln` | `FLOAT` | ❌ Tidak | `22.5` | Rata-rata kasus 3 bulan sebelumnya. |
+| `delta_persen` | `FLOAT` | ❌ Tidak | `+100.0` | Persentase kenaikan kasus (%). |
+| `status_surveillance` | `VARCHAR(20)` | ❌ Tidak | `'normal'`, `'waspada'`, `'perhatian'` | Status deteksi anomali. |
+
+---
+
+### I. Dataset Peringatan Dini Aktif (`active_alerts`)
+Daftar insiden peringatan dini yang terpicu secara otomatis oleh Early Warning Rule Engine (PRD F-EW01 & F-EW02).
+* **Format File**: `database/exports/active_alerts.csv` dan `active_alerts.parquet`
+
+---
+
+### J. Dataset Indikator Tematik Kesehatan (`indicators_jatim`)
 Data indikator makro fasilitas tingkat pertama (FKTP) dan tenaga medis dari Open Data Jawa Timur.
 
 | Nama Kolom | Tipe Data | Nullable? | Nilai / Contoh | Deskripsi |
