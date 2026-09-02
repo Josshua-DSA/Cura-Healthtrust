@@ -12,6 +12,10 @@ def main():
     subparsers.add_parser("seed-puskesmas", help="Seed 960+ Puskesmas records across 38 Kab/Kota")
     subparsers.add_parser("seed-workforce", help="Seed healthcare workforce records (Doctor, Nurse, Midwife)")
     subparsers.add_parser("seed-morbidity", help="Seed patient disease morbidity records across 38 Kab/Kota")
+    subparsers.add_parser("seed-kia", help="Seed Maternal and Child Health (KIA) records")
+    subparsers.add_parser("seed-surveillance", help="Seed Weekly Disease Surveillance records")
+    subparsers.add_parser("seed-alert-rules", help="Seed default early warning alert rules")
+    subparsers.add_parser("evaluate-alerts", help="Evaluate alert rules against current data and generate events")
     subparsers.add_parser("build-ml-features", help="Build unified ML readiness dataset feature store")
     subparsers.add_parser("run-etl", help="Run full ETL pipeline")
     subparsers.add_parser("test-db", help="Run test suite for data layer")
@@ -146,6 +150,62 @@ def main():
             df_raw = pd.read_csv(path)
             df_clean = clean_and_validate_morbidity(df_raw.to_dict(orient="records"))
             upsert_pasien_morbiditas(session, df_clean.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "seed-kia":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_indikator_kia
+        from etl.transform.clean_kia import clean_and_validate_kia
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base_dir, "seeds", "ref_kia_jatim.csv")
+        if os.path.exists(path):
+            df_raw = pd.read_csv(path)
+            df_clean = clean_and_validate_kia(df_raw.to_dict(orient="records"))
+            upsert_indikator_kia(session, df_clean.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "seed-surveillance":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_penyakit_surveillance
+        from etl.transform.clean_surveillance import clean_and_validate_surveillance
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base_dir, "seeds", "ref_surveillance_jatim.csv")
+        if os.path.exists(path):
+            df_raw = pd.read_csv(path)
+            df_clean = clean_and_validate_surveillance(df_raw.to_dict(orient="records"))
+            upsert_penyakit_surveillance(session, df_clean.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "seed-alert-rules":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_alert_rules
+        session = get_session()
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        path = os.path.join(base_dir, "seeds", "ref_alert_rules.csv")
+        if os.path.exists(path):
+            df_raw = pd.read_csv(path)
+            upsert_alert_rules(session, df_raw.to_dict(orient="records"))
+        session.close()
+        return
+
+    if args.command == "evaluate-alerts":
+        import os
+        import pandas as pd
+        from pipeline.loader import get_session, upsert_alert_events
+        from etl.transform.evaluate_alerts import evaluate_active_alerts
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        exports_dir = os.path.join(base_dir, "exports")
+        df_alerts = evaluate_active_alerts(exports_dir)
+        session = get_session()
+        upsert_alert_events(session, df_alerts.to_dict(orient="records"))
         session.close()
         return
 
