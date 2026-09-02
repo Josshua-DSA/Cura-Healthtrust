@@ -106,6 +106,31 @@ async def test_sdm_nakes_and_penyakit_morbiditas():
 
 
 @pytest.mark.asyncio
+async def test_kia_and_early_warning_decision():
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as ac:
+        # 1. KIA Summary
+        res_kia = await ac.get("/api/v1/kia/summary")
+        assert res_kia.status_code == 200
+        body_kia = res_kia.json()
+        assert body_kia["success"] is True
+        assert body_kia["data"]["total_wilayah"] == 38
+        assert body_kia["data"]["avg_stunting"] > 0
+
+        # 2. KIA Choropleth
+        res_choro = await ac.get("/api/v1/kia/choropleth?metrik=stunting")
+        assert res_choro.status_code == 200
+        assert res_choro.json()["type"] == "FeatureCollection"
+
+        # 3. Decision Alert Rules
+        res_rules = await ac.get("/api/v1/decision/rules")
+        assert res_rules.status_code == 200
+        body_rules = res_rules.json()
+        assert body_rules["success"] is True
+        assert len(body_rules["data"]) == 5
+
+
+@pytest.mark.asyncio
 async def test_statistik_and_ask_data():
     transport = ASGITransport(app=app)
     async with AsyncClient(transport=transport, base_url="http://test") as ac:
