@@ -21,6 +21,11 @@ from backend.app.models.penyakit_sdm import (
     TblTenagaKesehatan,
     TblPasienPenyakitWilayah,
 )
+from backend.app.models.monitoring import (
+    IndikatorKia,
+    AlertRule,
+    AlertEvent,
+)
 from backend.app.models.referensi import RefSumberData, RefICD10, TblPipelineLog
 from backend.app.models.auth import AuthUser, AuthSession
 from backend.app.models.transaksi import TrxOccupancy, TrxKunjungan, TrxStokObat
@@ -44,6 +49,9 @@ __all__ = [
     "TblAgregatWilayah",
     "TblTenagaKesehatan",
     "TblPasienPenyakitWilayah",
+    "IndikatorKia",
+    "AlertRule",
+    "AlertEvent",
     "RefSumberData",
     "RefICD10",
     "TblPipelineLog",

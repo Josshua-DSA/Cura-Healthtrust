@@ -1,0 +1,66 @@
+rule_kode,kode_bps,nama_wilayah,nilai_terdeteksi,pesan,severity,status
+rasio_tt_defisit,3501,Kabupaten Pacitan,0.59,Rasio tempat tidur Kabupaten Pacitan (0.59 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3501,Kabupaten Pacitan,0.172,Rasio dokter umum Kabupaten Pacitan (0.17 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3502,Kabupaten Ponorogo,0.15,Rasio dokter umum Kabupaten Ponorogo (0.15 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3503,Kabupaten Trenggalek,0.93,Rasio tempat tidur Kabupaten Trenggalek (0.93 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3503,Kabupaten Trenggalek,0.13,Rasio dokter umum Kabupaten Trenggalek (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3504,Kabupaten Tulungagung,0.143,Rasio dokter umum Kabupaten Tulungagung (0.14 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3505,Kabupaten Blitar,0.75,Rasio tempat tidur Kabupaten Blitar (0.75 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3505,Kabupaten Blitar,0.212,Rasio dokter umum Kabupaten Blitar (0.21 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3506,Kabupaten Kediri,0.82,Rasio tempat tidur Kabupaten Kediri (0.82 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3506,Kabupaten Kediri,0.167,Rasio dokter umum Kabupaten Kediri (0.17 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3507,Kabupaten Malang,0.133,Rasio dokter umum Kabupaten Malang (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3508,Kabupaten Lumajang,0.162,Rasio dokter umum Kabupaten Lumajang (0.16 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3509,Kabupaten Jember,0.84,Rasio tempat tidur Kabupaten Jember (0.84 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3509,Kabupaten Jember,0.189,Rasio dokter umum Kabupaten Jember (0.19 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3510,Kabupaten Banyuwangi,0.86,Rasio tempat tidur Kabupaten Banyuwangi (0.86 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3510,Kabupaten Banyuwangi,0.213,Rasio dokter umum Kabupaten Banyuwangi (0.21 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3511,Kabupaten Bondowoso,0.76,Rasio tempat tidur Kabupaten Bondowoso (0.76 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3511,Kabupaten Bondowoso,0.129,Rasio dokter umum Kabupaten Bondowoso (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3512,Kabupaten Situbondo,0.128,Rasio dokter umum Kabupaten Situbondo (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3513,Kabupaten Probolinggo,0.76,Rasio tempat tidur Kabupaten Probolinggo (0.76 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3513,Kabupaten Probolinggo,0.147,Rasio dokter umum Kabupaten Probolinggo (0.15 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3514,Kabupaten Pasuruan,0.134,Rasio dokter umum Kabupaten Pasuruan (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3515,Kabupaten Sidoarjo,0.185,Rasio dokter umum Kabupaten Sidoarjo (0.18 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3516,Kabupaten Mojokerto,0.139,Rasio dokter umum Kabupaten Mojokerto (0.14 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3517,Kabupaten Jombang,0.15,Rasio dokter umum Kabupaten Jombang (0.15 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3518,Kabupaten Nganjuk,0.86,Rasio tempat tidur Kabupaten Nganjuk (0.86 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3518,Kabupaten Nganjuk,0.137,Rasio dokter umum Kabupaten Nganjuk (0.14 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3519,Kabupaten Madiun,0.201,Rasio dokter umum Kabupaten Madiun (0.20 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3520,Kabupaten Magetan,0.78,Rasio tempat tidur Kabupaten Magetan (0.78 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3520,Kabupaten Magetan,0.193,Rasio dokter umum Kabupaten Magetan (0.19 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3521,Kabupaten Ngawi,0.127,Rasio dokter umum Kabupaten Ngawi (0.13 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3522,Kabupaten Bojonegoro,0.217,Rasio dokter umum Kabupaten Bojonegoro (0.22 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3523,Kabupaten Tuban,0.71,Rasio tempat tidur Kabupaten Tuban (0.71 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3523,Kabupaten Tuban,0.163,Rasio dokter umum Kabupaten Tuban (0.16 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3524,Kabupaten Lamongan,0.207,Rasio dokter umum Kabupaten Lamongan (0.21 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3525,Kabupaten Gresik,0.185,Rasio dokter umum Kabupaten Gresik (0.18 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3526,Kabupaten Bangkalan,0.207,Rasio dokter umum Kabupaten Bangkalan (0.21 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3527,Kabupaten Sampang,0.63,Rasio tempat tidur Kabupaten Sampang (0.63 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3527,Kabupaten Sampang,0.179,Rasio dokter umum Kabupaten Sampang (0.18 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3528,Kabupaten Pamekasan,0.87,Rasio tempat tidur Kabupaten Pamekasan (0.87 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3528,Kabupaten Pamekasan,0.197,Rasio dokter umum Kabupaten Pamekasan (0.20 per 1.000) tergolong defisit kritis.,waspada,active
+rasio_tt_defisit,3529,Kabupaten Sumenep,0.76,Rasio tempat tidur Kabupaten Sumenep (0.76 per 1.000) berada di bawah standar minimal WHO (1.0).,waspada,active
+defisit_dokter,3529,Kabupaten Sumenep,0.21,Rasio dokter umum Kabupaten Sumenep (0.21 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3571,Kota Kediri,0.184,Rasio dokter umum Kota Kediri (0.18 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3572,Kota Blitar,0.149,Rasio dokter umum Kota Blitar (0.15 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3573,Kota Malang,0.163,Rasio dokter umum Kota Malang (0.16 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3574,Kota Probolinggo,0.117,Rasio dokter umum Kota Probolinggo (0.12 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3575,Kota Pasuruan,0.163,Rasio dokter umum Kota Pasuruan (0.16 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3576,Kota Mojokerto,0.149,Rasio dokter umum Kota Mojokerto (0.15 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3577,Kota Madiun,0.196,Rasio dokter umum Kota Madiun (0.20 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3578,Kota Surabaya,0.196,Rasio dokter umum Kota Surabaya (0.20 per 1.000) tergolong defisit kritis.,waspada,active
+defisit_dokter,3579,Kota Batu,0.12,Rasio dokter umum Kota Batu (0.12 per 1.000) tergolong defisit kritis.,waspada,active
+stunting_tinggi,3507,Kabupaten Malang,20.96,Prevalensi stunting di Kabupaten Malang (21.0%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3510,Kabupaten Banyuwangi,23.07,Prevalensi stunting di Kabupaten Banyuwangi (23.1%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3513,Kabupaten Probolinggo,22.87,Prevalensi stunting di Kabupaten Probolinggo (22.9%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3517,Kabupaten Jombang,20.62,Prevalensi stunting di Kabupaten Jombang (20.6%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3518,Kabupaten Nganjuk,22.22,Prevalensi stunting di Kabupaten Nganjuk (22.2%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3524,Kabupaten Lamongan,20.18,Prevalensi stunting di Kabupaten Lamongan (20.2%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3525,Kabupaten Gresik,20.84,Prevalensi stunting di Kabupaten Gresik (20.8%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3527,Kabupaten Sampang,23.27,Prevalensi stunting di Kabupaten Sampang (23.3%) melebihi ambang batas aman WHO 20%.,waspada,active
+stunting_tinggi,3529,Kabupaten Sumenep,22.18,Prevalensi stunting di Kabupaten Sumenep (22.2%) melebihi ambang batas aman WHO 20%.,waspada,active
+lonjakan_kasus_klb,3507,Kabupaten Malang,87.4,Lonjakan kasus Demam Berdarah Dengue (DBD) di Kabupaten Malang: naik +87.4% (83 kasus) dalam 1 bulan terakhir.,kritis,active
+lonjakan_kasus_klb,3509,Kabupaten Jember,117.8,Lonjakan kasus Demam Berdarah Dengue (DBD) di Kabupaten Jember: naik +117.8% (152 kasus) dalam 1 bulan terakhir.,kritis,active
+lonjakan_kasus_klb,3515,Kabupaten Sidoarjo,69.4,Lonjakan kasus Demam Berdarah Dengue (DBD) di Kabupaten Sidoarjo: naik +69.4% (73 kasus) dalam 1 bulan terakhir.,kritis,active
+lonjakan_kasus_klb,3578,Kota Surabaya,106.9,Lonjakan kasus Demam Berdarah Dengue (DBD) di Kota Surabaya: naik +106.9% (24 kasus) dalam 1 bulan terakhir.,kritis,active
