@@ -1,0 +1,153 @@
+kode_bps,nama_wilayah,kode_icd10,nama_penyakit,periode_bulan,kasus_bulan_ini,rata_rata_3bln,delta_persen,status_surveillance
+3501,Kabupaten Pacitan,A90,Demam Berdarah Dengue (DBD),2026-08,17,19.4,-12.4,normal
+3501,Kabupaten Pacitan,A09,Diare dan Gastroenteritis,2026-08,25,32.5,-23.1,normal
+3501,Kabupaten Pacitan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,63,65.9,-4.4,normal
+3501,Kabupaten Pacitan,A27,Leptospirosis,2026-08,1,0.8,25.0,waspada
+3502,Kabupaten Ponorogo,A90,Demam Berdarah Dengue (DBD),2026-08,15,13.3,12.8,normal
+3502,Kabupaten Ponorogo,A09,Diare dan Gastroenteritis,2026-08,74,76.5,-3.3,normal
+3502,Kabupaten Ponorogo,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,36,50.6,-28.9,normal
+3502,Kabupaten Ponorogo,A27,Leptospirosis,2026-08,3,3.2,-6.3,normal
+3503,Kabupaten Trenggalek,A90,Demam Berdarah Dengue (DBD),2026-08,30,25.7,16.7,normal
+3503,Kabupaten Trenggalek,A09,Diare dan Gastroenteritis,2026-08,15,19.3,-22.3,normal
+3503,Kabupaten Trenggalek,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,67,56.2,19.2,normal
+3503,Kabupaten Trenggalek,A27,Leptospirosis,2026-08,10,8.1,23.5,waspada
+3504,Kabupaten Tulungagung,A90,Demam Berdarah Dengue (DBD),2026-08,42,48.2,-12.9,normal
+3504,Kabupaten Tulungagung,A09,Diare dan Gastroenteritis,2026-08,65,57.7,12.7,normal
+3504,Kabupaten Tulungagung,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,19,16.0,18.8,normal
+3504,Kabupaten Tulungagung,A27,Leptospirosis,2026-08,3,2.3,30.4,waspada
+3505,Kabupaten Blitar,A90,Demam Berdarah Dengue (DBD),2026-08,57,52.8,8.0,normal
+3505,Kabupaten Blitar,A09,Diare dan Gastroenteritis,2026-08,44,48.4,-9.1,normal
+3505,Kabupaten Blitar,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,53,47.6,11.3,normal
+3505,Kabupaten Blitar,A27,Leptospirosis,2026-08,2,2.1,-4.8,normal
+3506,Kabupaten Kediri,A90,Demam Berdarah Dengue (DBD),2026-08,33,35.5,-7.0,normal
+3506,Kabupaten Kediri,A09,Diare dan Gastroenteritis,2026-08,49,40.8,20.1,waspada
+3506,Kabupaten Kediri,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,11,15.2,-27.6,normal
+3506,Kabupaten Kediri,A27,Leptospirosis,2026-08,4,5.8,-31.0,normal
+3507,Kabupaten Malang,A90,Demam Berdarah Dengue (DBD),2026-08,83,44.3,87.4,perhatian
+3507,Kabupaten Malang,A09,Diare dan Gastroenteritis,2026-08,46,58.3,-21.1,normal
+3507,Kabupaten Malang,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,74,70.6,4.8,normal
+3507,Kabupaten Malang,A27,Leptospirosis,2026-08,8,9.6,-16.7,normal
+3508,Kabupaten Lumajang,A90,Demam Berdarah Dengue (DBD),2026-08,20,27.1,-26.2,normal
+3508,Kabupaten Lumajang,A09,Diare dan Gastroenteritis,2026-08,14,18.3,-23.5,normal
+3508,Kabupaten Lumajang,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,32,33.5,-4.5,normal
+3508,Kabupaten Lumajang,A27,Leptospirosis,2026-08,2,1.9,5.3,normal
+3509,Kabupaten Jember,A90,Demam Berdarah Dengue (DBD),2026-08,152,69.8,117.8,perhatian
+3509,Kabupaten Jember,A09,Diare dan Gastroenteritis,2026-08,9,11.8,-23.7,normal
+3509,Kabupaten Jember,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,100,85.8,16.6,normal
+3509,Kabupaten Jember,A27,Leptospirosis,2026-08,5,5.1,-2.0,normal
+3510,Kabupaten Banyuwangi,A90,Demam Berdarah Dengue (DBD),2026-08,62,54.5,13.8,normal
+3510,Kabupaten Banyuwangi,A09,Diare dan Gastroenteritis,2026-08,59,51.1,15.5,normal
+3510,Kabupaten Banyuwangi,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,105,86.2,21.8,waspada
+3510,Kabupaten Banyuwangi,A27,Leptospirosis,2026-08,6,5.7,5.3,normal
+3511,Kabupaten Bondowoso,A90,Demam Berdarah Dengue (DBD),2026-08,35,30.1,16.3,normal
+3511,Kabupaten Bondowoso,A09,Diare dan Gastroenteritis,2026-08,117,93.3,25.4,waspada
+3511,Kabupaten Bondowoso,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,10,10.4,-3.8,normal
+3511,Kabupaten Bondowoso,A27,Leptospirosis,2026-08,3,2.3,30.4,waspada
+3512,Kabupaten Situbondo,A90,Demam Berdarah Dengue (DBD),2026-08,37,43.9,-15.7,normal
+3512,Kabupaten Situbondo,A09,Diare dan Gastroenteritis,2026-08,17,16.7,1.8,normal
+3512,Kabupaten Situbondo,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,22,21.4,2.8,normal
+3512,Kabupaten Situbondo,A27,Leptospirosis,2026-08,3,2.6,15.4,normal
+3513,Kabupaten Probolinggo,A90,Demam Berdarah Dengue (DBD),2026-08,70,69.3,1.0,normal
+3513,Kabupaten Probolinggo,A09,Diare dan Gastroenteritis,2026-08,95,75.9,25.2,waspada
+3513,Kabupaten Probolinggo,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,36,38.0,-5.3,normal
+3513,Kabupaten Probolinggo,A27,Leptospirosis,2026-08,6,5.9,1.7,normal
+3514,Kabupaten Pasuruan,A90,Demam Berdarah Dengue (DBD),2026-08,17,22.5,-24.4,normal
+3514,Kabupaten Pasuruan,A09,Diare dan Gastroenteritis,2026-08,10,12.4,-19.4,normal
+3514,Kabupaten Pasuruan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,34,30.5,11.5,normal
+3514,Kabupaten Pasuruan,A27,Leptospirosis,2026-08,1,0.9,11.1,normal
+3515,Kabupaten Sidoarjo,A90,Demam Berdarah Dengue (DBD),2026-08,73,43.1,69.4,perhatian
+3515,Kabupaten Sidoarjo,A09,Diare dan Gastroenteritis,2026-08,50,63.8,-21.6,normal
+3515,Kabupaten Sidoarjo,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,62,62.8,-1.3,normal
+3515,Kabupaten Sidoarjo,A27,Leptospirosis,2026-08,5,6.1,-18.0,normal
+3516,Kabupaten Mojokerto,A90,Demam Berdarah Dengue (DBD),2026-08,58,61.2,-5.2,normal
+3516,Kabupaten Mojokerto,A09,Diare dan Gastroenteritis,2026-08,22,17.1,28.7,waspada
+3516,Kabupaten Mojokerto,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,21,18.1,16.0,normal
+3516,Kabupaten Mojokerto,A27,Leptospirosis,2026-08,1,1.8,-44.4,normal
+3517,Kabupaten Jombang,A90,Demam Berdarah Dengue (DBD),2026-08,46,57.4,-19.9,normal
+3517,Kabupaten Jombang,A09,Diare dan Gastroenteritis,2026-08,78,62.1,25.6,waspada
+3517,Kabupaten Jombang,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,90,74.1,21.5,waspada
+3517,Kabupaten Jombang,A27,Leptospirosis,2026-08,2,1.6,25.0,waspada
+3518,Kabupaten Nganjuk,A90,Demam Berdarah Dengue (DBD),2026-08,16,13.1,22.1,waspada
+3518,Kabupaten Nganjuk,A09,Diare dan Gastroenteritis,2026-08,34,34.7,-2.0,normal
+3518,Kabupaten Nganjuk,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,53,42.4,25.0,waspada
+3518,Kabupaten Nganjuk,A27,Leptospirosis,2026-08,4,2.9,37.9,waspada
+3519,Kabupaten Madiun,A90,Demam Berdarah Dengue (DBD),2026-08,59,50.3,17.3,normal
+3519,Kabupaten Madiun,A09,Diare dan Gastroenteritis,2026-08,57,44.6,27.8,waspada
+3519,Kabupaten Madiun,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,55,62.1,-11.4,normal
+3519,Kabupaten Madiun,A27,Leptospirosis,2026-08,1,1.0,0.0,normal
+3520,Kabupaten Magetan,A90,Demam Berdarah Dengue (DBD),2026-08,43,41.1,4.6,normal
+3520,Kabupaten Magetan,A09,Diare dan Gastroenteritis,2026-08,88,86.4,1.9,normal
+3520,Kabupaten Magetan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,15,20.1,-25.4,normal
+3520,Kabupaten Magetan,A27,Leptospirosis,2026-08,2,2.5,-20.0,normal
+3521,Kabupaten Ngawi,A90,Demam Berdarah Dengue (DBD),2026-08,49,38.5,27.3,waspada
+3521,Kabupaten Ngawi,A09,Diare dan Gastroenteritis,2026-08,31,42.3,-26.7,normal
+3521,Kabupaten Ngawi,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,20,19.4,3.1,normal
+3521,Kabupaten Ngawi,A27,Leptospirosis,2026-08,7,8.3,-15.7,normal
+3522,Kabupaten Bojonegoro,A90,Demam Berdarah Dengue (DBD),2026-08,42,44.8,-6.2,normal
+3522,Kabupaten Bojonegoro,A09,Diare dan Gastroenteritis,2026-08,59,47.2,25.0,waspada
+3522,Kabupaten Bojonegoro,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,16,15.3,4.6,normal
+3522,Kabupaten Bojonegoro,A27,Leptospirosis,2026-08,9,12.0,-25.0,normal
+3523,Kabupaten Tuban,A90,Demam Berdarah Dengue (DBD),2026-08,29,37.1,-21.8,normal
+3523,Kabupaten Tuban,A09,Diare dan Gastroenteritis,2026-08,76,62.2,22.2,waspada
+3523,Kabupaten Tuban,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,50,52.1,-4.0,normal
+3523,Kabupaten Tuban,A27,Leptospirosis,2026-08,10,9.7,3.1,normal
+3524,Kabupaten Lamongan,A90,Demam Berdarah Dengue (DBD),2026-08,74,61.8,19.7,normal
+3524,Kabupaten Lamongan,A09,Diare dan Gastroenteritis,2026-08,43,56.3,-23.6,normal
+3524,Kabupaten Lamongan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,30,24.5,22.4,waspada
+3524,Kabupaten Lamongan,A27,Leptospirosis,2026-08,7,7.8,-10.3,normal
+3525,Kabupaten Gresik,A90,Demam Berdarah Dengue (DBD),2026-08,32,39.1,-18.2,normal
+3525,Kabupaten Gresik,A09,Diare dan Gastroenteritis,2026-08,37,43.1,-14.2,normal
+3525,Kabupaten Gresik,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,13,13.4,-3.0,normal
+3525,Kabupaten Gresik,A27,Leptospirosis,2026-08,4,4.1,-2.4,normal
+3526,Kabupaten Bangkalan,A90,Demam Berdarah Dengue (DBD),2026-08,23,27.4,-16.1,normal
+3526,Kabupaten Bangkalan,A09,Diare dan Gastroenteritis,2026-08,64,67.4,-5.0,normal
+3526,Kabupaten Bangkalan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,12,9.3,29.0,waspada
+3526,Kabupaten Bangkalan,A27,Leptospirosis,2026-08,4,3.1,29.0,waspada
+3527,Kabupaten Sampang,A90,Demam Berdarah Dengue (DBD),2026-08,53,68.7,-22.9,normal
+3527,Kabupaten Sampang,A09,Diare dan Gastroenteritis,2026-08,58,46.3,25.3,waspada
+3527,Kabupaten Sampang,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,14,17.4,-19.5,normal
+3527,Kabupaten Sampang,A27,Leptospirosis,2026-08,4,4.3,-7.0,normal
+3528,Kabupaten Pamekasan,A90,Demam Berdarah Dengue (DBD),2026-08,85,73.8,15.2,normal
+3528,Kabupaten Pamekasan,A09,Diare dan Gastroenteritis,2026-08,59,45.8,28.8,waspada
+3528,Kabupaten Pamekasan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,26,36.9,-29.5,normal
+3528,Kabupaten Pamekasan,A27,Leptospirosis,2026-08,6,6.7,-10.4,normal
+3529,Kabupaten Sumenep,A90,Demam Berdarah Dengue (DBD),2026-08,44,37.2,18.3,normal
+3529,Kabupaten Sumenep,A09,Diare dan Gastroenteritis,2026-08,16,21.9,-26.9,normal
+3529,Kabupaten Sumenep,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,74,62.2,19.0,normal
+3529,Kabupaten Sumenep,A27,Leptospirosis,2026-08,9,7.5,20.0,waspada
+3571,Kota Kediri,A90,Demam Berdarah Dengue (DBD),2026-08,38,34.7,9.5,normal
+3571,Kota Kediri,A09,Diare dan Gastroenteritis,2026-08,69,56.8,21.5,waspada
+3571,Kota Kediri,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,43,42.3,1.7,normal
+3571,Kota Kediri,A27,Leptospirosis,2026-08,6,8.4,-28.6,normal
+3572,Kota Blitar,A90,Demam Berdarah Dengue (DBD),2026-08,48,37.5,28.0,waspada
+3572,Kota Blitar,A09,Diare dan Gastroenteritis,2026-08,37,35.1,5.4,normal
+3572,Kota Blitar,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,52,58.9,-11.7,normal
+3572,Kota Blitar,A27,Leptospirosis,2026-08,9,11.9,-24.4,normal
+3573,Kota Malang,A90,Demam Berdarah Dengue (DBD),2026-08,35,30.7,14.0,normal
+3573,Kota Malang,A09,Diare dan Gastroenteritis,2026-08,12,10.1,18.8,normal
+3573,Kota Malang,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,25,33.1,-24.5,normal
+3573,Kota Malang,A27,Leptospirosis,2026-08,7,6.3,11.1,normal
+3574,Kota Probolinggo,A90,Demam Berdarah Dengue (DBD),2026-08,24,27.2,-11.8,normal
+3574,Kota Probolinggo,A09,Diare dan Gastroenteritis,2026-08,47,52.3,-10.1,normal
+3574,Kota Probolinggo,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,39,48.0,-18.8,normal
+3574,Kota Probolinggo,A27,Leptospirosis,2026-08,9,7.5,20.0,waspada
+3575,Kota Pasuruan,A90,Demam Berdarah Dengue (DBD),2026-08,55,46.2,19.0,normal
+3575,Kota Pasuruan,A09,Diare dan Gastroenteritis,2026-08,42,43.9,-4.3,normal
+3575,Kota Pasuruan,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,49,50.3,-2.6,normal
+3575,Kota Pasuruan,A27,Leptospirosis,2026-08,5,4.0,25.0,waspada
+3576,Kota Mojokerto,A90,Demam Berdarah Dengue (DBD),2026-08,29,33.0,-12.1,normal
+3576,Kota Mojokerto,A09,Diare dan Gastroenteritis,2026-08,55,43.5,26.4,waspada
+3576,Kota Mojokerto,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,36,42.8,-15.9,normal
+3576,Kota Mojokerto,A27,Leptospirosis,2026-08,2,3.4,-41.2,normal
+3577,Kota Madiun,A90,Demam Berdarah Dengue (DBD),2026-08,85,73.1,16.3,normal
+3577,Kota Madiun,A09,Diare dan Gastroenteritis,2026-08,71,65.7,8.1,normal
+3577,Kota Madiun,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,34,37.0,-8.1,normal
+3577,Kota Madiun,A27,Leptospirosis,2026-08,7,6.3,11.1,normal
+3578,Kota Surabaya,A90,Demam Berdarah Dengue (DBD),2026-08,24,11.6,106.9,perhatian
+3578,Kota Surabaya,A09,Diare dan Gastroenteritis,2026-08,21,25.6,-18.0,normal
+3578,Kota Surabaya,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,77,74.9,2.8,normal
+3578,Kota Surabaya,A27,Leptospirosis,2026-08,2,2.0,0.0,normal
+3579,Kota Batu,A90,Demam Berdarah Dengue (DBD),2026-08,97,92.0,5.4,normal
+3579,Kota Batu,A09,Diare dan Gastroenteritis,2026-08,78,69.0,13.0,normal
+3579,Kota Batu,J06,Infeksi Saluran Pernapasan Akut (ISPA),2026-08,89,71.8,24.0,waspada
+3579,Kota Batu,A27,Leptospirosis,2026-08,11,9.3,18.3,normal
