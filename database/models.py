@@ -45,6 +45,21 @@ class EnumStatusKasusPenyakit(str, enum.Enum):
     menular = "menular"
     tidak_menular = "tidak_menular"
 
+class EnumSurveillanceStatus(str, enum.Enum):
+    normal = "normal"
+    waspada = "waspada"
+    perhatian = "perhatian"
+
+class EnumAlertSeverity(str, enum.Enum):
+    informasi = "informasi"
+    waspada = "waspada"
+    kritis = "kritis"
+
+class EnumAlertStatus(str, enum.Enum):
+    active = "active"
+    acknowledged = "acknowledged"
+    resolved = "resolved"
+
 class EnumTipeWilayah(str, enum.Enum):
     KABUPATEN = "KABUPATEN"
     KOTA = "KOTA"
@@ -98,11 +113,14 @@ class RefWilayah(Base):
     # Relationships
     rumah_sakit = relationship("TblRumahSakit", back_populates="wilayah")
     puskesmas = relationship("FaskesPuskesmas", back_populates="wilayah")
-    penduduk = relationship("TblPenduduk", back_populates="wilayah")
-    agregat = relationship("TblAgregatWilayah", back_populates="wilayah")
+    penduduk = relationship("TblPenduduk", back_populates="wilayah", uselist=False)
     indikator = relationship("TblIndikatorKesehatan", back_populates="wilayah")
+    agregat = relationship("TblAgregatWilayah", back_populates="wilayah", uselist=False)
     nakes = relationship("TblTenagaKesehatan", back_populates="wilayah")
     morbiditas = relationship("TblPasienPenyakitWilayah", back_populates="wilayah")
+    indikator_kia = relationship("IndikatorKia", back_populates="wilayah")
+    surveillance = relationship("PenyakitSurveillance", back_populates="wilayah")
+    alerts = relationship("AlertEvent", back_populates="wilayah")
 
 class TblIndikatorKesehatan(Base):
     __tablename__ = "tbl_indikator_kesehatan"
@@ -291,3 +309,120 @@ class TblPipelineLog(Base):
     status = Column(Enum(EnumPipelineStatus, name="enum_pipeline_status"), nullable=False)
     error_message = Column(Text, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+
+
+class IndikatorKia(Base):
+    """
+    Sub-domain Kesehatan Ibu & Anak (KIA) — sesuai SCHEMA.md Seksi 7 dan PRD v3.0 F-PP03.
+    """
+    __tablename__ = "indikator_kia"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    tahun = Column(Integer, nullable=False, index=True)
+    bulan = Column(Integer, nullable=True)  # NULL = tahunan, 1-12 = bulanan
+
+    # Kematian Ibu & Bayi
+    aki = Column(Float, nullable=True)  # per 100.000 KH
+    akb = Column(Float, nullable=True)  # per 1.000 KH
+    akaba = Column(Float, nullable=True)  # per 1.000 KH
+    jumlah_kelahiran_hidup = Column(Integer, nullable=True)
+    jumlah_kematian_ibu = Column(Integer, nullable=True)
+    jumlah_kematian_bayi = Column(Integer, nullable=True)
+
+    # Antenatal & Persalinan
+    k1_coverage = Column(Float, nullable=True)
+    k4_coverage = Column(Float, nullable=True)
+    persen_persalinan_faskes = Column(Float, nullable=True)
+    persen_bblr = Column(Float, nullable=True)
+
+    # Gizi & Stunting
+    prevalensi_stunting = Column(Float, nullable=True)
+    prevalensi_gizi_buruk = Column(Float, nullable=True)
+    prevalensi_gizi_kurang = Column(Float, nullable=True)
+    prevalensi_gizi_lebih = Column(Float, nullable=True)
+    ds_ratio_posyandu = Column(Float, nullable=True)
+
+    # Imunisasi
+    cakupan_idl = Column(Float, nullable=True)
+    persen_desa_uci = Column(Float, nullable=True)
+    dropout_rate_imunisasi = Column(Float, nullable=True)
+
+    source_id = Column(String(50), ForeignKey("ref_sumber_data.source_id"), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("kode_bps", "tahun", "bulan", name="uq_kia_wilayah_waktu"),
+    )
+
+    wilayah = relationship("RefWilayah", back_populates="indikator_kia")
+
+
+class PenyakitSurveillance(Base):
+    """
+    Kalkulasi Surveillance Cepat Mingguan/Bulanan Potensial KLB — SCHEMA.md Seksi 6 & PRD F-PP05.
+    """
+    __tablename__ = "penyakit_surveillance"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    kode_icd10 = Column(String(10), ForeignKey("ref_icd10.kode"), nullable=True, index=True)
+    periode_bulan = Column(String(10), nullable=False, index=True)  # YYYY-MM
+
+    kasus_bulan_ini = Column(Integer, nullable=False, default=0)
+    rata_rata_3bln = Column(Float, nullable=False, default=0.0)
+    delta_persen = Column(Float, nullable=False, default=0.0)
+    status_surveillance = Column(Enum(EnumSurveillanceStatus, name="enum_surveillance_status"), default=EnumSurveillanceStatus.normal, index=True)
+
+    calculated_at = Column(DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        UniqueConstraint("kode_bps", "kode_icd10", "periode_bulan", name="uq_surveillance_wilayah_periode"),
+    )
+
+    wilayah = relationship("RefWilayah", back_populates="surveillance")
+
+
+class AlertRule(Base):
+    """
+    Master Rule Deteksi Anomali / Ambang Batas Early Warning — SCHEMA.md Seksi 10 & PRD F-EW01.
+    """
+    __tablename__ = "alert_rules"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    kode = Column(String(50), unique=True, nullable=False, index=True)
+    nama = Column(String(200), nullable=False)
+    blok = Column(String(20), nullable=False)  # fasilitas, nakes, penyakit, kia, stok_obat
+    kondisi_desc = Column(Text, nullable=True)
+    threshold = Column(JSON, nullable=False)  # e.g. {"metrik": "bor", "operator": ">", "nilai": 85}
+    severity = Column(Enum(EnumAlertSeverity, name="enum_alert_severity"), default=EnumAlertSeverity.waspada)
+    rekomendasi = Column(Text, nullable=True)
+    is_active = Column(Integer, default=1)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    events = relationship("AlertEvent", back_populates="rule")
+
+
+class AlertEvent(Base):
+    """
+    Log Insiden Alert yang Terpicu — SCHEMA.md Seksi 10 & PRD F-EW02.
+    """
+    __tablename__ = "alert_events"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    rule_id = Column(Integer, ForeignKey("alert_rules.id", ondelete="CASCADE"), nullable=False, index=True)
+    kode_bps = Column(String(4), ForeignKey("ref_wilayah.kode_bps", ondelete="CASCADE"), nullable=False, index=True)
+    faskes_id = Column(Integer, nullable=True)  # Optional ID RS/Puskesmas
+    faskes_tipe = Column(String(20), nullable=True)
+    nilai_terdeteksi = Column(Float, nullable=False)
+    pesan = Column(Text, nullable=False)
+    severity = Column(Enum(EnumAlertSeverity, name="enum_alert_severity"), default=EnumAlertSeverity.waspada)
+    status = Column(Enum(EnumAlertStatus, name="enum_alert_status"), default=EnumAlertStatus.active, index=True)
+    triggered_at = Column(DateTime, default=datetime.utcnow, index=True)
+    resolved_at = Column(DateTime, nullable=True)
+
+    rule = relationship("AlertRule", back_populates="events")
+    wilayah = relationship("RefWilayah", back_populates="alerts")
+
