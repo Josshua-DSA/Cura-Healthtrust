@@ -8,7 +8,7 @@ kode_bps,nama_wilayah,total_tt,jumlah_penduduk_2021,rasio_tt_resmi,kategori_who_
 3507,Kabupaten Malang,2954,2619975,1.13,hijau,2712958,1.09,hijau,2026-PROJECTED
 3508,Kabupaten Lumajang,1081,1044718,1.03,hijau,1081795,1.0,hijau,2026-PROJECTED
 3509,Kabupaten Jember,2139,2459890,0.87,kuning,2547191,0.84,kuning,2026-PROJECTED
-3510,Kabupaten Banyuwangi,1538,1617814,0.95,kuning,1675230,0.92,kuning,2026-PROJECTED
+3510,Kabupaten Banyuwangi,1438,1617814,0.89,kuning,1675230,0.86,kuning,2026-PROJECTED
 3511,Kabupaten Bondowoso,612,778789,0.79,kuning,806428,0.76,kuning,2026-PROJECTED
 3512,Kabupaten Situbondo,777,685776,1.13,hijau,710114,1.09,hijau,2026-PROJECTED
 3513,Kabupaten Probolinggo,919,1174890,0.78,kuning,1216587,0.76,kuning,2026-PROJECTED
@@ -34,6 +34,6 @@ kode_bps,nama_wilayah,total_tt,jumlah_penduduk_2021,rasio_tt_resmi,kategori_who_
 3574,Kota Probolinggo,601,239024,2.51,hijau,247507,2.43,hijau,2026-PROJECTED
 3575,Kota Pasuruan,295,201585,1.46,hijau,208739,1.41,hijau,2026-PROJECTED
 3576,Kota Mojokerto,818,129891,6.3,hijau,134501,6.08,hijau,2026-PROJECTED
-3577,Kota Madiun,1511,177399,8.52,hijau,183695,8.23,hijau,2026-PROJECTED
+3577,Kota Madiun,1520,177399,8.57,hijau,183695,8.27,hijau,2026-PROJECTED
 3578,Kota Surabaya,12354,2904751,4.25,hijau,3007841,4.11,hijau,2026-PROJECTED
 3579,Kota Batu,619,209125,2.96,hijau,216547,2.86,hijau,2026-PROJECTED
