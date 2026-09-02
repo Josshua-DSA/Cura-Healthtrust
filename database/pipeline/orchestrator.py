@@ -10,6 +10,9 @@ from etl.transform.clean_hospitals import clean_and_validate_hospitals
 from etl.transform.clean_puskesmas import clean_and_validate_puskesmas
 from etl.transform.clean_workforce import clean_and_validate_workforce
 from etl.transform.clean_morbidity import clean_and_validate_morbidity
+from etl.transform.clean_kia import clean_and_validate_kia
+from etl.transform.clean_surveillance import clean_and_validate_surveillance
+from etl.transform.evaluate_alerts import evaluate_active_alerts
 from etl.transform.build_ml_features import build_ml_readiness_dataset
 from etl.transform.clean_spatial import clean_and_validate_districts
 from etl.load.load_to_postgis import load_all_to_postgis
@@ -157,12 +160,57 @@ def execute_full_etl() -> Dict[str, Any]:
             except Exception as e:
                 logger.info(f"[Export] Saved clean morbidity export -> {export_morb_path}")
 
-        # Step 4E: Build Unified ML Readiness Dataset (Action Plan v7.0)
-        logger.info("Step 4E: Building Unified ML Readiness Dataset Feature Store...")
+        # Step 4E: Clean & Export Maternal and Child Health / KIA (PRD F-PP03)
+        logger.info("Step 4E: Ingesting & Exporting Maternal and Child Health (KIA)...")
+        kia_seed_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seeds", "ref_kia_jatim.csv")
+        kia_records = []
+        if os.path.exists(kia_seed_path):
+            df_kia_raw = pd.read_csv(kia_seed_path)
+            df_kia = clean_and_validate_kia(df_kia_raw.to_dict(orient="records"))
+            kia_records = df_kia.to_dict(orient="records")
+            export_kia_path = os.path.join(exports_dir, "maternal_child_health.csv")
+            export_kia_parquet = os.path.join(exports_dir, "maternal_child_health.parquet")
+            df_kia.to_csv(export_kia_path, index=False)
+            try:
+                df_kia.to_parquet(export_kia_parquet, index=False)
+                logger.info(f"[Export] Saved clean KIA exports -> {export_kia_path} & {export_kia_parquet}")
+            except Exception as e:
+                logger.info(f"[Export] Saved clean KIA export -> {export_kia_path}")
+
+        # Step 4F: Clean & Export Weekly Surveillance (PRD F-PP05)
+        logger.info("Step 4F: Ingesting & Exporting Disease Surveillance KLB...")
+        surv_seed_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seeds", "ref_surveillance_jatim.csv")
+        surveillance_records = []
+        if os.path.exists(surv_seed_path):
+            df_surv_raw = pd.read_csv(surv_seed_path)
+            df_surv = clean_and_validate_surveillance(df_surv_raw.to_dict(orient="records"))
+            surveillance_records = df_surv.to_dict(orient="records")
+            export_surv_path = os.path.join(exports_dir, "disease_surveillance_weekly.csv")
+            export_surv_parquet = os.path.join(exports_dir, "disease_surveillance_weekly.parquet")
+            df_surv.to_csv(export_surv_path, index=False)
+            try:
+                df_surv.to_parquet(export_surv_parquet, index=False)
+                logger.info(f"[Export] Saved clean surveillance exports -> {export_surv_path} & {export_surv_parquet}")
+            except Exception as e:
+                logger.info(f"[Export] Saved clean surveillance export -> {export_surv_path}")
+
+        # Step 4G: Build Unified ML Readiness Dataset
+        logger.info("Step 4G: Building Unified ML Readiness Dataset Feature Store...")
         try:
             build_ml_readiness_dataset(exports_dir)
         except Exception as e:
             logger.warning(f"[ML Store] Failed to build unified ML dataset: {e}")
+
+        # Step 4H: Evaluate Early Warning Alerts & Seed Rules (PRD F-EW01 & F-EW02)
+        logger.info("Step 4H: Evaluating Early Warning Alerts...")
+        rules_seed_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "seeds", "ref_alert_rules.csv")
+        alert_rules_records = []
+        if os.path.exists(rules_seed_path):
+            df_rules = pd.read_csv(rules_seed_path)
+            alert_rules_records = df_rules.to_dict(orient="records")
+
+        df_alerts = evaluate_active_alerts(exports_dir)
+        alert_events_records = df_alerts.to_dict(orient="records")
 
         # Step 5: Load to PostgreSQL/PostGIS
         logger.info("Step 5: Loading all processed datasets to PostgreSQL/PostGIS...")
@@ -185,7 +233,11 @@ def execute_full_etl() -> Dict[str, Any]:
             rasio_raw_list=rasio_items,
             puskesmas_records=puskesmas_records,
             nakes_records=nakes_records,
-            morbiditas_records=morbidity_records
+            morbiditas_records=morbidity_records,
+            kia_records=kia_records,
+            surveillance_records=surveillance_records,
+            alert_rules_records=alert_rules_records,
+            alert_events_records=alert_events_records
         )
         total_loaded = sum(load_summary.values())
 
