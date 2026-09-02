@@ -12,7 +12,9 @@ from config.settings import settings
 from models import (
     Base, RefWilayah, RefSumberData, RefIcd10, FaskesPuskesmas, TblRumahSakit, TblPenduduk, TblAgregatWilayah,
     TblPipelineLog, EnumKelasRS, EnumKepemilikan, EnumTipeWilayah, EnumPipelineStatus, EnumTipeRawatPuskesmas,
-    TblTenagaKesehatan, TblPasienPenyakitWilayah, EnumJenisNakes, EnumTipePelayanan, EnumStatusKasusPenyakit
+    TblTenagaKesehatan, TblPasienPenyakitWilayah, EnumJenisNakes, EnumTipePelayanan, EnumStatusKasusPenyakit,
+    IndikatorKia, PenyakitSurveillance, AlertRule, AlertEvent,
+    EnumSurveillanceStatus, EnumAlertSeverity, EnumAlertStatus
 )
 
 logger = logging.getLogger("DatabaseUpserter")
@@ -514,6 +516,176 @@ def upsert_penduduk(session: Session, records: List[Dict[str, Any]]) -> int:
     session.commit()
     logger.info(f"[Upsert] Processed {count} tbl_penduduk records idempotently.")
     return count
+
+def upsert_indikator_kia(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent bulk upsert for indikator_kia (Sub-domain KIA)."""
+    if not records:
+        return 0
+
+    import pandas as pd
+    count = 0
+    for r in records:
+        bulan_val = r.get("bulan")
+        bulan_clean = int(bulan_val) if bulan_val is not None and str(bulan_val).strip() and str(bulan_val).strip() != "nan" else None
+
+        stmt = pg_insert(IndikatorKia).values(
+            kode_bps=r["kode_bps"],
+            tahun=r["tahun"],
+            bulan=bulan_clean,
+            aki=r.get("aki"),
+            akb=r.get("akb"),
+            akaba=r.get("akaba"),
+            jumlah_kelahiran_hidup=r.get("jumlah_kelahiran_hidup"),
+            jumlah_kematian_ibu=r.get("jumlah_kematian_ibu"),
+            jumlah_kematian_bayi=r.get("jumlah_kematian_bayi"),
+            k1_coverage=r.get("k1_coverage"),
+            k4_coverage=r.get("k4_coverage"),
+            persen_persalinan_faskes=r.get("persen_persalinan_faskes"),
+            persen_bblr=r.get("persen_bblr"),
+            prevalensi_stunting=r.get("prevalensi_stunting"),
+            prevalensi_gizi_buruk=r.get("prevalensi_gizi_buruk"),
+            prevalensi_gizi_kurang=r.get("prevalensi_gizi_kurang"),
+            prevalensi_gizi_lebih=r.get("prevalensi_gizi_lebih"),
+            ds_ratio_posyandu=r.get("ds_ratio_posyandu"),
+            cakupan_idl=r.get("cakupan_idl"),
+            persen_desa_uci=r.get("persen_desa_uci"),
+            dropout_rate_imunisasi=r.get("dropout_rate_imunisasi"),
+            source_id=r.get("source_id", "opendata_jatim_dinkes")
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_kia_wilayah_waktu",
+            set_={
+                "aki": stmt.excluded.aki,
+                "akb": stmt.excluded.akb,
+                "prevalensi_stunting": stmt.excluded.prevalensi_stunting,
+                "cakupan_idl": stmt.excluded.cakupan_idl,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} indikator_kia records idempotently.")
+    return count
+
+
+def upsert_penyakit_surveillance(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent bulk upsert for penyakit_surveillance."""
+    if not records:
+        return 0
+
+    count = 0
+    for r in records:
+        status_val = r.get("status_surveillance", "normal")
+        try:
+            status_enum = EnumSurveillanceStatus[status_val]
+        except Exception:
+            status_enum = EnumSurveillanceStatus.normal
+
+        stmt = pg_insert(PenyakitSurveillance).values(
+            kode_bps=r["kode_bps"],
+            kode_icd10=r.get("kode_icd10"),
+            periode_bulan=r["periode_bulan"],
+            kasus_bulan_ini=r.get("kasus_bulan_ini", 0),
+            rata_rata_3bln=r.get("rata_rata_3bln", 0.0),
+            delta_persen=r.get("delta_persen", 0.0),
+            status_surveillance=status_enum
+        )
+        stmt = stmt.on_conflict_do_update(
+            constraint="uq_surveillance_wilayah_periode",
+            set_={
+                "kasus_bulan_ini": stmt.excluded.kasus_bulan_ini,
+                "rata_rata_3bln": stmt.excluded.rata_rata_3bln,
+                "delta_persen": stmt.excluded.delta_persen,
+                "status_surveillance": stmt.excluded.status_surveillance,
+                "calculated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} penyakit_surveillance records idempotently.")
+    return count
+
+
+def upsert_alert_rules(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Idempotent bulk upsert for alert_rules."""
+    if not records:
+        return 0
+
+    import json
+    count = 0
+    for r in records:
+        thresh = r.get("threshold_json") or r.get("threshold")
+        if isinstance(thresh, str):
+            thresh = json.loads(thresh)
+
+        sev = r.get("severity", "waspada")
+        try:
+            sev_enum = EnumAlertSeverity[sev]
+        except Exception:
+            sev_enum = EnumAlertSeverity.waspada
+
+        stmt = pg_insert(AlertRule).values(
+            kode=r["kode"],
+            nama=r["nama"],
+            blok=r["blok"],
+            kondisi_desc=r.get("kondisi_desc"),
+            threshold=thresh,
+            severity=sev_enum,
+            rekomendasi=r.get("rekomendasi"),
+            is_active=1
+        )
+        stmt = stmt.on_conflict_do_update(
+            index_elements=["kode"],
+            set_={
+                "nama": stmt.excluded.nama,
+                "kondisi_desc": stmt.excluded.kondisi_desc,
+                "threshold": stmt.excluded.threshold,
+                "severity": stmt.excluded.severity,
+                "rekomendasi": stmt.excluded.rekomendasi,
+                "updated_at": datetime.utcnow()
+            }
+        )
+        session.execute(stmt)
+        count += 1
+    session.commit()
+    logger.info(f"[Upsert] Processed {count} alert_rules records idempotently.")
+    return count
+
+
+def upsert_alert_events(session: Session, records: List[Dict[str, Any]]) -> int:
+    """Bulk insert active alert events."""
+    if not records:
+        return 0
+
+    rules = {r.kode: r.id for r in session.query(AlertRule).all()}
+    count = 0
+    for r in records:
+        rule_id = rules.get(r["rule_kode"])
+        if not rule_id:
+            continue
+
+        sev = r.get("severity", "waspada")
+        try:
+            sev_enum = EnumAlertSeverity[sev]
+        except Exception:
+            sev_enum = EnumAlertSeverity.waspada
+
+        event = AlertEvent(
+            rule_id=rule_id,
+            kode_bps=r["kode_bps"],
+            nilai_terdeteksi=r["nilai_terdeteksi"],
+            pesan=r["pesan"],
+            severity=sev_enum,
+            status=EnumAlertStatus.active
+        )
+        session.add(event)
+        count += 1
+    session.commit()
+    logger.info(f"[Upsert] Loaded {count} active alert_events.")
+    return count
+
 
 def recompute_agregat_wilayah(session: Session, tahun: int = 2024, rasio_data_list: Optional[List[Dict[str, Any]]] = None) -> int:
     """
