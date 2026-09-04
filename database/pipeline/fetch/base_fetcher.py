@@ -30,7 +30,7 @@ class BaseFetcher(ABC):
         "User-Agent": "Mozilla/5.0 (HealthTrust Pipeline; Linux x86_64) AppleWebKit/537.36"
     }
 
-    def __init__(self, timeout: int = 15):
+    def __init__(self, timeout: int = 30):
         self.timeout = timeout
         self.session = requests.Session()
         self.session.headers.update(self.HEADERS)
@@ -66,8 +66,25 @@ class BaseFetcher(ABC):
             ) from e
 
     def _load_fallback(self) -> Tuple[Optional[Any], Optional[str]]:
-        """Load snapshot terakhir dari raw/ sebagai fallback."""
-        return load_latest_snapshot(self.source_id, extension="json")
+        """Load snapshot terakhir dari raw/ sebagai fallback, atau dari database/seeds/ jika raw kosong."""
+        data, path = load_latest_snapshot(self.source_id, extension="json")
+        if data is not None:
+            return data, path
+
+        # Fallback ke baseline seeds (penting untuk environment CI/GitHub Actions tanpa folder raw/)
+        seeds_dir = Path(__file__).resolve().parent.parent.parent / "seeds"
+        seed_fallback_file = seeds_dir / f"{self.source_id}_fallback.json"
+        if seed_fallback_file.exists():
+            try:
+                with open(seed_fallback_file, "r", encoding="utf-8") as f:
+                    import json
+                    fallback_seed = json.load(f)
+                    logger.info(f"[{self.source_id}] Loaded fallback baseline from seeds: {seed_fallback_file.name}")
+                    return fallback_seed, str(seed_fallback_file)
+            except Exception as e:
+                logger.error(f"[{self.source_id}] Gagal membaca seed fallback {seed_fallback_file}: {e}")
+
+        return None, None
 
     def run(self) -> Tuple[Any, bool]:
         """

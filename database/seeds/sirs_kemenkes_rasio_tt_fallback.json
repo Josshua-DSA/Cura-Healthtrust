@@ -1,0 +1,359 @@
+{
+  "ringkasan": {
+    "total_bed": 62595,
+    "total_wilayah": 38,
+    "wilayah_tidak_ideal": 14,
+    "hijau": 24,
+    "kuning": 12,
+    "merah": 2,
+    "abu": 0,
+    "standar_who": "1 tempat tidur per 1.000 penduduk",
+    "periode_penduduk": "2021 (Disdukcapil)"
+  },
+  "wilayah": [
+    {
+      "kode": "3501",
+      "nama": "Pacitan",
+      "jumlah_tt": 337,
+      "penduduk": 555984,
+      "penduduk_per_bed": 1650,
+      "bed_per_1000": 0.61,
+      "kategori": "merah"
+    },
+    {
+      "kode": "3502",
+      "nama": "Ponorogo",
+      "jumlah_tt": 1139,
+      "penduduk": 871825,
+      "penduduk_per_bed": 765,
+      "bed_per_1000": 1.31,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3503",
+      "nama": "Trenggalek",
+      "jumlah_tt": 674,
+      "penduduk": 697600,
+      "penduduk_per_bed": 1035,
+      "bed_per_1000": 0.97,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3504",
+      "nama": "Tulungagung",
+      "jumlah_tt": 2098,
+      "penduduk": 1043182,
+      "penduduk_per_bed": 497,
+      "bed_per_1000": 2.01,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3505",
+      "nama": "Blitar",
+      "jumlah_tt": 899,
+      "penduduk": 1163789,
+      "penduduk_per_bed": 1295,
+      "bed_per_1000": 0.77,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3506",
+      "nama": "Kediri",
+      "jumlah_tt": 1337,
+      "penduduk": 1580092,
+      "penduduk_per_bed": 1182,
+      "bed_per_1000": 0.85,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3507",
+      "nama": "Malang",
+      "jumlah_tt": 2954,
+      "penduduk": 2619975,
+      "penduduk_per_bed": 887,
+      "bed_per_1000": 1.13,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3508",
+      "nama": "Lumajang",
+      "jumlah_tt": 1081,
+      "penduduk": 1044718,
+      "penduduk_per_bed": 966,
+      "bed_per_1000": 1.03,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3509",
+      "nama": "Jember",
+      "jumlah_tt": 2139,
+      "penduduk": 2459890,
+      "penduduk_per_bed": 1150,
+      "bed_per_1000": 0.87,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3510",
+      "nama": "Banyuwangi",
+      "jumlah_tt": 1438,
+      "penduduk": 1617814,
+      "penduduk_per_bed": 1125,
+      "bed_per_1000": 0.89,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3511",
+      "nama": "Bondowoso",
+      "jumlah_tt": 612,
+      "penduduk": 778789,
+      "penduduk_per_bed": 1273,
+      "bed_per_1000": 0.79,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3512",
+      "nama": "Situbondo",
+      "jumlah_tt": 777,
+      "penduduk": 685776,
+      "penduduk_per_bed": 883,
+      "bed_per_1000": 1.13,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3513",
+      "nama": "Probolinggo",
+      "jumlah_tt": 919,
+      "penduduk": 1174890,
+      "penduduk_per_bed": 1278,
+      "bed_per_1000": 0.78,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3514",
+      "nama": "Pasuruan",
+      "jumlah_tt": 1692,
+      "penduduk": 1637682,
+      "penduduk_per_bed": 968,
+      "bed_per_1000": 1.03,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3515",
+      "nama": "Sidoarjo",
+      "jumlah_tt": 4280,
+      "penduduk": 2282215,
+      "penduduk_per_bed": 533,
+      "bed_per_1000": 1.88,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3516",
+      "nama": "Mojokerto",
+      "jumlah_tt": 1655,
+      "penduduk": 1126392,
+      "penduduk_per_bed": 681,
+      "bed_per_1000": 1.47,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3517",
+      "nama": "Jombang",
+      "jumlah_tt": 1567,
+      "penduduk": 1268504,
+      "penduduk_per_bed": 810,
+      "bed_per_1000": 1.24,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3518",
+      "nama": "Nganjuk",
+      "jumlah_tt": 936,
+      "penduduk": 1057011,
+      "penduduk_per_bed": 1129,
+      "bed_per_1000": 0.89,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3519",
+      "nama": "Madiun",
+      "jumlah_tt": 944,
+      "penduduk": 683784,
+      "penduduk_per_bed": 724,
+      "bed_per_1000": 1.38,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3520",
+      "nama": "Magetan",
+      "jumlah_tt": 505,
+      "penduduk": 629020,
+      "penduduk_per_bed": 1246,
+      "bed_per_1000": 0.8,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3521",
+      "nama": "Ngawi",
+      "jumlah_tt": 904,
+      "penduduk": 830134,
+      "penduduk_per_bed": 918,
+      "bed_per_1000": 1.09,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3522",
+      "nama": "Bojonegoro",
+      "jumlah_tt": 1637,
+      "penduduk": 1252020,
+      "penduduk_per_bed": 765,
+      "bed_per_1000": 1.31,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3523",
+      "nama": "Tuban",
+      "jumlah_tt": 866,
+      "penduduk": 1177016,
+      "penduduk_per_bed": 1359,
+      "bed_per_1000": 0.74,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3524",
+      "nama": "Lamongan",
+      "jumlah_tt": 2453,
+      "penduduk": 1189380,
+      "penduduk_per_bed": 485,
+      "bed_per_1000": 2.06,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3525",
+      "nama": "Gresik",
+      "jumlah_tt": 2692,
+      "penduduk": 1326420,
+      "penduduk_per_bed": 493,
+      "bed_per_1000": 2.03,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3526",
+      "nama": "Bangkalan",
+      "jumlah_tt": 1148,
+      "penduduk": 994212,
+      "penduduk_per_bed": 866,
+      "bed_per_1000": 1.15,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3527",
+      "nama": "Sampang",
+      "jumlah_tt": 635,
+      "penduduk": 975108,
+      "penduduk_per_bed": 1536,
+      "bed_per_1000": 0.65,
+      "kategori": "merah"
+    },
+    {
+      "kode": "3528",
+      "nama": "Pamekasan",
+      "jumlah_tt": 797,
+      "penduduk": 888214,
+      "penduduk_per_bed": 1114,
+      "bed_per_1000": 0.9,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3529",
+      "nama": "Sumenep",
+      "jumlah_tt": 859,
+      "penduduk": 1092387,
+      "penduduk_per_bed": 1272,
+      "bed_per_1000": 0.79,
+      "kategori": "kuning"
+    },
+    {
+      "kode": "3571",
+      "nama": "Kota Kediri",
+      "jumlah_tt": 1566,
+      "penduduk": 289109,
+      "penduduk_per_bed": 185,
+      "bed_per_1000": 5.42,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3572",
+      "nama": "Kota Blitar",
+      "jumlah_tt": 674,
+      "penduduk": 142798,
+      "penduduk_per_bed": 212,
+      "bed_per_1000": 4.72,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3573",
+      "nama": "Kota Malang",
+      "jumlah_tt": 4174,
+      "penduduk": 874890,
+      "penduduk_per_bed": 210,
+      "bed_per_1000": 4.77,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3574",
+      "nama": "Kota Probolinggo",
+      "jumlah_tt": 601,
+      "penduduk": 239024,
+      "penduduk_per_bed": 398,
+      "bed_per_1000": 2.51,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3575",
+      "nama": "Kota Pasuruan",
+      "jumlah_tt": 295,
+      "penduduk": 201585,
+      "penduduk_per_bed": 683,
+      "bed_per_1000": 1.46,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3576",
+      "nama": "Kota Mojokerto",
+      "jumlah_tt": 818,
+      "penduduk": 129891,
+      "penduduk_per_bed": 159,
+      "bed_per_1000": 6.3,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3577",
+      "nama": "Kota Madiun",
+      "jumlah_tt": 1520,
+      "penduduk": 177399,
+      "penduduk_per_bed": 117,
+      "bed_per_1000": 8.57,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3578",
+      "nama": "Kota Surabaya",
+      "jumlah_tt": 12354,
+      "penduduk": 2904751,
+      "penduduk_per_bed": 235,
+      "bed_per_1000": 4.25,
+      "kategori": "hijau"
+    },
+    {
+      "kode": "3579",
+      "nama": "Kota Batu",
+      "jumlah_tt": 619,
+      "penduduk": 209125,
+      "penduduk_per_bed": 338,
+      "bed_per_1000": 2.96,
+      "kategori": "hijau"
+    }
+  ],
+  "wilayah_prop": [],
+  "level": "kabkota"
+}
