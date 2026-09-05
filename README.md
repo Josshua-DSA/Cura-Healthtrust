@@ -10,6 +10,18 @@
 
 ---
 
+## 👥 Tim Pengembang & Kontributor
+Proyek ini dikembangkan secara kolaboratif oleh tim lintas disiplin:
+
+| Nama / Akun | Peran & Tanggung Jawab | Lingkup Utama |
+|---|---|---|
+| **Joshua-DSA** | **Lead Database & Backend Engineer** | Arsitektur PostgreSQL 15 + PostGIS 3.3, pipeline ETL/ingestion, query spasial (`ST_DWithin`), membangun CI github Actions dan core REST API FastAPI. |
+| **Jovan** | **Machine Learning Engineer** | Pemodelan prediktif, feature store (`ml_readiness_dataset`), forecasting kebutuhan tempat tidur, dan risk clustering wilayah. |
+| **Sovia** | **Frontend Engineer** | Pembangunan antarmuka web, integrasi peta interaktif Leaflet.js, visualisasi ECharts, dan katalog faskes. |
+| **Dave** | **DevOps & CI/CD Engineer** | Otomatisasi pipeline testing (GitHub Actions), kontainerisasi Docker/Compose, dan manajemen reliabilitas sistem. |
+
+---
+
 ## 📑 Daftar Isi
 1. [Gambaran Aplikasi & Visi Sistem](#-gambaran-aplikasi--visi-sistem)
 2. [Fitur Web yang Dibangun](#-fitur-web-yang-dibangun)
